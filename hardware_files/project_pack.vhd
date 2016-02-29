@@ -11,5 +11,16 @@ PACKAGE project_pack IS
 		rcb_cmd  : std_logic_vector(2 DOWNTO 0);
 		startcmd : std_logic;
 	END RECORD;
+	
+	
+	-- Taken from pix_cache_pak.vhd
+	TYPE pixop_t IS ARRAY (1 DOWNTO 0) OF std_logic;
+
+	CONSTANT psame   : pixop_t := "00";
+	CONSTANT pblack  : pixop_t := "10";
+	CONSTANT pwhite  : pixop_t := "01";
+	CONSTANT pinvert : pixop_t := "11";
+
+	TYPE store_t IS ARRAY (0 TO 15) OF pixop_t;
 
 END PACKAGE project_pack;

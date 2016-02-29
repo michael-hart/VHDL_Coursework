@@ -1,2 +1,9 @@
 # Remove any files from _vti_conf, as they are built files
 */_vti_cnf/*
+
+# Ignore any backup files
+*.bak
+
+# Ignore files built by Quartus
+output_files/*
+db/*
