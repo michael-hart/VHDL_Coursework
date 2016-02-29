@@ -1,0 +1,2 @@
+# Remove any files from _vti_conf, as they are built files
+*/_vti_cnf/*
