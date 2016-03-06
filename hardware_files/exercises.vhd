@@ -1,161 +1,101 @@
 ------------------------------------------------------------------------
 -- Define entity store_ram
-
 LIBRARY IEEE;
-
 USE IEEE.std_logic_1164.ALL;
 USE IEEE.numeric_std.ALL;
-USE WORK.project_pack.ALL;
+USE WORK.pix_cache_pak.ALL;
 
-ENTITY store_ram IS
-	PORT (
-		clk, reset, w_all, wen1 : IN std_logic;
-		rdin1 : IN pixop_t;
-		raddr1 : IN std_logic_vector(3 DOWNTO 0);
-		
-		rdout1 : OUT pixop_t;
-		rdout_par : OUT store_t;
-		is_same : OUT std_logic
-	);
-END ENTITY store_ram;
+ENTITY pix_word_cache is
+  PORT (
+    clk, reset, wen_all, pw : IN std_logic;
+    pixopin : IN pixop_t;
+    pixnum : IN std_logic_vector(3 DOWNTO 0);
+    is_same : OUT std_logic;
+    store : OUT store_t
+  );
+END pix_word_cache;
 
-ARCHITECTURE arch OF store_ram IS
-	-- _i denotes internal
-	SIGNAL rdout_par_i : store_t;
-	SIGNAL rdout_i : pixop_t;
-	SIGNAL is_same_i : std_logic;
-BEGIN
-	
-	-- Clocked process for modifying RAM contents
-	C1: PROCESS IS
-	BEGIN
-		-- Positive clock edge
-		WAIT UNTIL clk'EVENT AND clk='1';
-		
-		-- Check for reset or w_all=1. wen1 is considered later.
-		IF reset = '1' OR w_all = '1' THEN
-			-- Iterate over memory and set all to psame
-			L1 : FOR addr IN 0 TO 15 LOOP
-				rdout_par_i(addr) <= psame;
-			END LOOP L1;
-		END IF; -- reset, w_all
-		
-		-- If wen1 is not asserted, no change
-		IF wen1 = '1' THEN
-			-- If w_all is true, all addresses have been written already, 
-			-- so write rdin1 to raddr1 location without checking w_all
-			rdout_par_i(to_integer(unsigned(raddr1))) <= rdin1;
-		END IF; -- wen1
-	END PROCESS C1;
-	
-	-- Assign signals to output
-	rdout_par <= rdout_par_i;
-	
-	-- Combinational logic to assign outputs other than RAM
-	-- is_same depends on contents of RAM only
-	-- rdout1 is asynchronous memory read at address rdin1
-	R1: PROCESS(rdout_par_i, raddr1) IS
-	BEGIN
-		-- Drive rdout1 with RAM contents at rdin1
-		rdout_i <= rdout_par_i(to_integer(unsigned(raddr1)));
-		
-		-- Loop through contents of RAM and check for any contents not 
-		-- equal to psame
-		is_same_i <= '1'; -- Default value
-		L2 : FOR addr IN 0 TO 15 LOOP
-			IF rdout_par_i(addr) /= psame THEN
-				is_same_i <= '0';
-			END IF; -- psame check
-		END LOOP L2;
-		
-	END PROCESS R1;
-	
-	-- Assign signals to outputs
-	is_same <= is_same_i;
-	rdout1 <= rdout_i;
-	
-END ARCHITECTURE arch;
+ARCHITECTURE together OF pix_word_cache IS
 
-------------------------------------------------------------------------
--- Define entity pix_word_cache
+  SIGNAL pre_rdout_par : store_t;
+  SIGNAL rdout1_to_opram, opout_to_rdin1 : pixop_t;
 
-LIBRARY IEEE;
+  BEGIN
 
-USE IEEE.std_logic_1164.ALL;
-USE WORK.store_ram;
-USE WORK.project_pack.ALL;
+  T1: PROCESS (pre_rdout_par, pixnum)
+  BEGIN
+    store <= pre_rdout_par;
+    rdout1_to_opram <= pre_rdout_par(to_integer(unsigned(pixnum)));
+    is_same <= '1';
+    FOR i IN 0 TO 15 LOOP
+      IF pre_rdout_par(i) /= psame THEN
+        is_same <= '0';
+      ELSE
+        NULL;
+      END IF;
+    END LOOP;
 
-ENTITY pix_word_cache IS
-	PORT (
-		clk, reset, wen_all, pw : IN std_logic;
-		pixopin : IN pixop_t;
-		pixnum : IN std_logic_vector(3 DOWNTO 0);
-		
-		store : OUT store_t;
-		is_same : OUT std_logic
-	);
-END ENTITY;
+  END PROCESS T1;
 
-ARCHITECTURE arch OF pix_word_cache IS
-	SIGNAL opout, opram : pixop_t;
-BEGIN
+  C1 : PROCESS (wen_all, pw, pixopin, rdout1_to_opram)
+    BEGIN
 
-	-- Instantiate entity store_ram
-	SR : ENTITY store_ram PORT MAP(
-		clk => clk,
-		reset => reset,
-		w_all => wen_all,
-		wen1 => pw,
-		rdin1 => opout,
-		rdout1 => opram,
-		raddr1 => pixnum,
-		is_same => is_same,
-		rdout_par => store
-	);
-	
-	-- Define module change as a process statement
-	-- using combinational logic
-	C1 : PROCESS(pw, wen_all, pixopin, opram) IS
-	BEGIN
-	  -- Set a default for safety
-	  opout <= psame;
-		IF wen_all = '1' THEN
-			IF pw = '1' THEN
-				opout <= pixopin;
-			ELSE
-				opout <= psame;
-			END IF; --pw
-		ELSE -- w_all = 0, ignore pw
-			IF opram = psame THEN
-				opout <= pixopin;
-			ELSE
-			
-				-- All inputs for output pblack (5 possible)
-				IF  	(opram = pblack AND pixopin = psame) OR
-						(opram = pblack AND pixopin = pblack) OR
-						(opram = pwhite AND pixopin = pblack) OR
-						(opram = pwhite AND pixopin = pinvert) OR
-						(opram = pinvert AND pixopin = pblack) THEN
-							opout <= pblack;
-				-- All inputs for output pblack (5 possible)
-				ELSIF	(opram = pblack AND pixopin = pwhite) OR
-						(opram = pblack AND pixopin = pinvert) OR
-						(opram = pwhite AND pixopin = psame) OR
-						(opram = pwhite AND pixopin = pwhite) OR
-						(opram = pinvert AND pixopin = pwhite) THEN
-							opout <= pwhite;
-				-- All inputs for output psame (1 possible)
-				ELSIF (opram = pinvert AND pixopin = pinvert) THEN
-							opout <= psame;
-				-- All inputs for output pinvert
-				ELSIF (opram = pinvert AND pixopin = psame) THEN
-							opout <= pinvert;
-				END IF; -- opram, pixopin
-			END IF; --opram
-		END IF; -- wen_all
-	END PROCESS C1;
+    IF wen_all = '1' AND pw = '1' THEN
+      opout_to_rdin1 <= pixopin;
 
-END ARCHITECTURE arch;
+    ELSIF wen_all = '1' AND pw = '0' THEN
+      opout_to_rdin1 <= psame;
+
+    ELSE
+      CASE rdout1_to_opram IS
+        WHEN psame    => opout_to_rdin1 <= pixopin;
+        WHEN pblack   => CASE pixopin IS
+                          WHEN psame | pblack     => opout_to_rdin1 <= pblack;
+                          WHEN pwhite | pinvert   => opout_to_rdin1 <= pwhite;
+                          WHEN OTHERS             => NULL;
+                        END CASE;
+        WHEN pwhite   => CASE pixopin IS
+                          WHEN psame | pwhite     => opout_to_rdin1 <= pwhite;
+                          WHEN pblack | pinvert   => opout_to_rdin1 <= pblack;
+                          WHEN OTHERS             => NULL;
+                        END CASE;
+        WHEN pinvert  => CASE pixopin IS
+                          WHEN psame              => opout_to_rdin1 <= pinvert;
+                          WHEN pblack             => opout_to_rdin1 <= pblack;
+                          WHEN pwhite             => opout_to_rdin1 <= pwhite;
+                          WHEN pinvert            => opout_to_rdin1 <= psame;
+                          WHEN OTHERS             => NULL;
+                        END CASE;
+        WHEN OTHERS   => NULL;
+      END CASE;
+    END IF;
+    END PROCESS C1;
+
+    N1: PROCESS
+      VARIABLE case_statement:std_logic_vector(1 DOWNTO 0);
+      BEGIN
+      WAIT UNTIL clk'EVENT AND clk = '1';
+      IF reset = '1' THEN
+        pre_rdout_par <= (OTHERS => psame);
+
+      ELSE
+        case_statement := (wen_all, pw);
+        CASE case_statement IS
+          WHEN "00"   =>  NULL;
+
+          WHEN "10"   =>  pre_rdout_par <= (OTHERS => psame);
+
+          WHEN "11"   =>  pre_rdout_par <= (to_integer(unsigned(pixnum)) => opout_to_rdin1, OTHERS => psame);
+
+          WHEN "01"   =>  pre_rdout_par(to_integer(unsigned(pixnum))) <= opout_to_rdin1;
+
+          WHEN OTHERS =>  NULL;
+        END CASE;
+      END IF;
+
+    END PROCESS N1;
+
+END ARCHITECTURE together;
 
 ------------------------------------------------------------------------
 -- Define entity ram_fsm
@@ -163,9 +103,9 @@ END ARCHITECTURE arch;
 LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
 
-ENTITY ram_fsm IS 
-	GENERIC( 
-		asize: INTEGER := 7; 
+ENTITY ram_fsm IS
+	GENERIC(
+		asize: INTEGER := 7;
 		dsize: INTEGER := 4
 	);
 	PORT(
@@ -194,17 +134,17 @@ BEGIN
 		IF ((state = m1) OR (state = m2)) AND start = '1' THEN
 			delay_i <= '1';
 		END IF; -- delay_i
-		
+
 		vwrite_i <= '0';
 		IF state = m3 THEN
 			vwrite_i <= '1';
 		END IF; -- vwrite_i
 	END PROCESS C1;
-	
+
 	-- Assign signals to outputs for C1
 	delay <= delay_i;
 	vwrite <= vwrite_i;
-	
+
 	-- D-type flip flops for signals addr, del. Clocked on negative clock edge.
 	D1: PROCESS
 	BEGIN
@@ -212,23 +152,23 @@ BEGIN
 		addr_i <= addr;
 		data_i <= data;
 	END PROCESS D1;
-	
+
 	-- Assign signals to outputs for D1
 	addr_del <= addr_i;
 	data_del <= data_i;
-	
+
 	-- Clocked FSM implementation on positive clock edge
 	F1: PROCESS
 	VARIABLE nstate : state_t;
 	BEGIN
 		WAIT UNTIL clk'EVENT AND clk='1';
-		
-		-- Set nstate to m1, no matter what state is; 
+
+		-- Set nstate to m1, no matter what state is;
 		-- this will be overwritten later, if necessary
 		IF start = '1' THEN
 			nstate := m1;
 		END IF;
-		
+
 		-- Perform state transition using IF statements
 		IF state=m1 THEN
 			nstate := m2;
@@ -240,18 +180,18 @@ BEGIN
 			ELSE
 				nstate := mx;
 			END IF;
-		END IF; 
-		
+		END IF;
+
 		-- Set state to nstate variable
 		state <= nstate;
-		
+
 		-- Unconditional reset of state
 		IF reset = '1' THEN
 			state <= mx;
 		END IF;
-		
+
 	END PROCESS F1;
-	
+
 END ARCHITECTURE synth;
 
 ------------------------------------------------------------------------
@@ -282,7 +222,7 @@ ARCHITECTURE comb OF draw_octant IS
   SIGNAL x1, y1                   : unsigned(vsize-1 DOWNTO 0); -- internal x,y
   SIGNAL xincr, yincr, xnew, ynew : unsigned(vsize-1 DOWNTO 0);
   -- note on vector sizes. err1,err2 must be one bit larger to preserve signed error info
-  -- error is always adjusted to minimise absolute value of signed error and therefore 
+  -- error is always adjusted to minimise absolute value of signed error and therefore
   -- can never be larger than vsize bits even though also signed, 12 bits is enough
   SIGNAL error                    : signed(vsize-1 DOWNTO 0);
   SIGNAL err1, err2               : unsigned(vsize DOWNTO 0);
@@ -308,7 +248,7 @@ ARCHITECTURE comb OF draw_octant IS
 -- it would make sense to use a record type for this:
 -- TYPE coord IS RECORD x,y: std-logic_vector(vsize-1 DOWNTO 0) END RECORD;
 -- then decalre internal datas tructures of type coord.
--- the result would be neater, and for example testing the end condition could 
+-- the result would be neater, and for example testing the end condition could
 -- be equality on records which works (like equality on arrays)
 
 
@@ -319,7 +259,7 @@ BEGIN
   done <= done1;
 
   C1 : PROCESS(error, xincr, yincr, x1, y1, xnew, ynew, init, draw)
-    
+
   BEGIN
 
     err1 <= unsigned(abs(resize(error, vsize+1) + signed(resize(yincr,vsize+1))));
@@ -345,18 +285,18 @@ BEGIN
         xnew  <= unsigned(xin);
         ynew  <= unsigned(yin);
         error <= (OTHERS => '0');
-      
+
       ELSIF draw = '1' THEN
         xincr <= unsigned(xin) - x1;
         yincr <= unsigned(yin) - y1;
         xnew  <= unsigned(xin);
         ynew  <= unsigned(yin);
-      
+
       ELSIF done1 = '1' THEN
         NULL; -- do nothing more once line has finished until next init
 
 	  ELSE    -- draw new pixel
-     
+
         IF err1 > err2 OR (err1 = err2 AND xbias = '0') THEN --check new pixel direction
           -- draw new pixel in diagonal direction
           y1    <= y1 + 1;
@@ -366,13 +306,13 @@ BEGIN
           -- draw new pixel in x direction
           x1    <= x1 + 1;
           error <= error + signed(yincr);
-     
+
         END IF;
 
       END IF;
 
     END IF;
-    
+
   END PROCESS R1;
 
 END ARCHITECTURE comb;
@@ -389,7 +329,7 @@ LIBRARY IEEE;
 
 USE IEEE.std_logic_1164.ALL;
 
-ENTITY swap IS 
+ENTITY swap IS
 	GENERIC (N : integer := 16);
 	PORT(
 		c : IN std_logic;
@@ -399,9 +339,9 @@ ENTITY swap IS
 END ENTITY swap;
 
 ARCHITECTURE rtl OF swap IS
-	
+
 	SIGNAL xout1, yout1 : std_logic_vector(N-1 DOWNTO 0);
-	
+
 	BEGIN
 	-- Asynchronous combinational logic process
 	C1: PROCESS(c, xin, yin)
@@ -415,11 +355,11 @@ ARCHITECTURE rtl OF swap IS
 				yout1 <= xin;
 			END IF; -- c
 		END PROCESS C1;
-	
+
 	-- Assign signals from process to outputs
 	xout <= xout1;
 	yout <= yout1;
-	
+
 	END ARCHITECTURE rtl;
 
 
@@ -444,17 +384,17 @@ END ENTITY inv;
 ARCHITECTURE rtl OF inv IS
 	SIGNAL b1 : std_logic_vector(N-1 DOWNTO 0);
 	BEGIN
-	
-	C1 : PROCESS (a,c) 
+
+	C1 : PROCESS (a,c)
 		BEGIN
 			-- Set default as equal to input
 			b1 <= a;
 			-- Check for inversion
-			IF c = '1' THEN 
+			IF c = '1' THEN
 				b1 <= not a;
 			END IF; --c
 		END PROCESS C1;
-		
+
 		-- Assign signals to outputs
 		b <= b1;
 	END ARCHITECTURE rtl;
@@ -468,7 +408,7 @@ LIBRARY IEEE;
 
 USE IEEE.std_logic_1164.ALL;
 
-ENTITY rd IS 
+ENTITY rd IS
 	PORT(
 		clk,  negx_in, negy_in, swapxy_in : IN std_logic;
 		disable : IN std_logic;
@@ -479,21 +419,21 @@ END ENTITY rd;
 ARCHITECTURE behav OF rd IS
 	SIGNAL negx, negy, swapxy : std_logic;
 	BEGIN
-		
+
 	R1: PROCESS
 		BEGIN
 			-- Clocked signal, so wait until clock goes high
 			WAIT UNTIL clk'EVENT AND clk = '1';
-			
+
 			-- If not disabled, assign inputs to signals
 			IF disable = '0' THEN
 				negx <= negx_in;
 				negy <= negy_in;
 				swapxy <= swapxy_in;
 			END IF; --disable
-			
+
 		END PROCESS R1;
-		
+
 		-- Assign signals to outputs
 		negx_out <= negx;
 		negy_out <= negy;
@@ -511,7 +451,7 @@ LIBRARY WORK;
 
 USE IEEE.std_logic_1164.ALL;
 USE WORK.ALL;
-	
+
 -- changes 2016
 -- resetx port renamed init for consistency with d-o port
 -- disable port added
@@ -536,7 +476,7 @@ ENTITY draw_any_octant IS
   GENERIC(
     vsize: INTEGER := 16
   );
-  
+
   PORT(
     clk, init, draw, xbias, disable : IN  std_logic;
     xin, yin                 : IN  std_logic_vector(vsize-1 DOWNTO 0);
@@ -557,20 +497,20 @@ ARCHITECTURE comb OF draw_any_octant IS
 	SIGNAL xout_s1, yout_s1 : std_logic_vector(vsize-1 DOWNTO 0);
 	-- Outputs of second stage inverters, _s2 suffix
 	SIGNAL xout_s2, yout_s2 : std_logic_vector(vsize-1 DOWNTO 0);
-	
+
 	SIGNAL xbias_i : std_logic;
-	
+
 BEGIN
 
 	-- Apply inputs to RD
 	RD1 : ENTITY rd PORT MAP (
-		clk => clk, 
-		negx_in => negx, 
-		negy_in => negy, 
-		swapxy_in => swapxy, 
+		clk => clk,
+		negx_in => negx,
+		negy_in => negy,
+		swapxy_in => swapxy,
 		disable => disable,
-		negx_out => negx_delayed, 
-		negy_out => negy_delayed, 
+		negx_out => negx_delayed,
+		negy_out => negy_delayed,
 		swapxy_out => swapxy_delayed
 		);
 	-- Map inputs through swap module to _s1 signals
@@ -592,12 +532,12 @@ BEGIN
 		a => yin_s1,
 		b => yin_s2
 	);
-	
+
 	XOR1: PROCESS(swapxy, xbias)
 	BEGIN
 		xbias_i <= swapxy XOR xbias;
 	END PROCESS XOR1;
-	
+
 	-- Map all inputs to draw_octant
 	DRAW1 : ENTITY draw_octant GENERIC MAP(vsize => vsize) PORT MAP (
 		clk => clk,
@@ -611,7 +551,7 @@ BEGIN
 		x => xout_s1,
 		y => yout_s1
 	);
-	
+
 	-- Map stage 1 outputs through second stage inverters
 	INV3 : ENTITY inv GENERIC MAP(N => vsize) PORT MAP (
 		c => negx_delayed,
@@ -623,7 +563,7 @@ BEGIN
 		a => yout_s1,
 		b => yout_s2
 	);
-	
+
 	-- Map stage 2 outputs through swap module to final outputs
 	SWAP2 : ENTITY swap GENERIC MAP(N => vsize) PORT MAP (
 		c => swapxy_delayed,
@@ -632,6 +572,5 @@ BEGIN
 		xout => x,
 		yout => y
 	);
-	
-END ARCHITECTURE comb;
 
+END ARCHITECTURE comb;
