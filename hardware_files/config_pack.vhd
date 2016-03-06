@@ -32,16 +32,15 @@ PACKAGE config_pack IS
 	CONSTANT config_twds  : real := 0.2;
 
 	-- Constants defining commands from host CPU to Draw Block
-
-
 	ALIAS slv IS std_logic_vector;
 
-	CONSTANT movepen_h     : slv(1 DOWNTO 0) := "00";
-	CONSTANT drawline_h    : slv(1 DOWNTO 0) := "01";
-	CONSTANT clearscreen_h : slv(1 DOWNTO 0) := "10";
-
-	CONSTANT black_h  : slv(1 DOWNTO 0) := "10";
-	CONSTANT white_h  : slv(1 DOWNTO 0) := "01";
-	CONSTANT invert_h : slv(1 DOWNTO 0) := "11";
+	CONSTANT rcb_cmd_movepen : slv(2 DOWNTO 0) := "000";
+	CONSTANT rcb_cmd_draw_white : slv(2 DOWNTO 0) := "001";
+	CONSTANT rcb_cmd_draw_black : slv(2 DOWNTO 0) := "010";
+	CONSTANT rcb_cmd_draw_invert : slv(2 DOWNTO 0) := "011";
+	-- CONSTANT rcb_cmd_NOTUSED : slv(2 DOWNTO 0) := "100";
+	CONSTANT rcb_cmd_clear_white : slv(2 DOWNTO 0) := "101";
+	CONSTANT rcb_cmd_clear_black : slv(2 DOWNTO 0) := "110";
+	CONSTANT rcb_cmd_clear_invert : slv(2 DOWNTO 0) := "101";
 
 END;
