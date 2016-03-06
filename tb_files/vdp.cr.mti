@@ -1,0 +1,143 @@
+D:/Git/VHDL/Coursework/tb_files/vdp_testbench.vhd {1 {vcom -work work -2002 -explicit D:/Git/VHDL/Coursework/tb_files/vdp_testbench.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package utility_pack
+-- Loading package config_pack
+-- Loading package vdp_pack
+-- Compiling entity vdp_testbench
+-- Compiling architecture behav of vdp_testbench
+-- Loading entity vram
+-- Loading package std_logic_arith
+-- Loading package project_pack
+-- Loading entity vdp
+
+} {} {}} D:/Git/VHDL/Coursework/hardware_files/project_pack.vhd {1 {vcom -work work -2002 -explicit D:/Git/VHDL/Coursework/hardware_files/project_pack.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package config_pack
+-- Compiling package project_pack
+
+} {} {}} D:/Git/VHDL/Coursework/hardware_files/vdp.vhd {1 {vcom -work work -2002 -explicit D:/Git/VHDL/Coursework/hardware_files/vdp.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package config_pack
+-- Loading package project_pack
+-- Compiling entity vdp
+-- Compiling architecture rtl of vdp
+-- Loading package NUMERIC_STD
+-- Loading entity db
+-- Loading entity rcb
+
+} {} {}} D:/Git/VHDL/Coursework/hardware_files/db.vhd {1 {vcom -work work -2002 -explicit D:/Git/VHDL/Coursework/hardware_files/db.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package config_pack
+-- Loading package project_pack
+-- Compiling entity db
+-- Compiling architecture rtl of db
+
+} {} {}} D:/Git/VHDL/Coursework/tb_files/vram.vhd {1 {vcom -work work -2002 -explicit D:/Git/VHDL/Coursework/tb_files/vram.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package utility_pack
+-- Loading package config_pack
+-- Loading package vdp_pack
+-- Compiling entity vram
+-- Compiling architecture behav of vram
+
+} {} {}} D:/Git/VHDL/Coursework/tb_files/utility_pack.vhd {1 {vcom -work work -2002 -explicit D:/Git/VHDL/Coursework/tb_files/utility_pack.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling package utility_pack
+-- Compiling package body utility_pack
+-- Loading package utility_pack
+** Warning: D:/Git/VHDL/Coursework/tb_files/utility_pack.vhd(357): (vcom-1236) Shared variables must be of a protected type.
+
+
+} {} {}} D:/Git/VHDL/Coursework/hardware_files/exercises.vhd {1 {vcom -work work -2002 -explicit D:/Git/VHDL/Coursework/hardware_files/exercises.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package config_pack
+-- Loading package project_pack
+-- Compiling entity store_ram
+-- Compiling architecture arch of store_ram
+-- Loading entity store_ram
+-- Compiling entity pix_word_cache
+-- Compiling architecture arch of pix_word_cache
+-- Compiling entity ram_fsm
+-- Compiling architecture synth of ram_fsm
+-- Compiling entity draw_octant
+-- Compiling architecture comb of draw_octant
+-- Compiling entity swap
+-- Compiling architecture rtl of swap
+-- Compiling entity inv
+-- Compiling architecture rtl of inv
+-- Compiling entity rd
+-- Compiling architecture behav of rd
+-- Compiling entity draw_any_octant
+-- Compiling architecture comb of draw_any_octant
+-- Loading entity rd
+-- Loading entity swap
+-- Loading entity inv
+-- Loading entity draw_octant
+
+} {} {}} D:/Git/VHDL/Coursework/hardware_files/config_pack.vhd {1 {vcom -work work -2002 -explicit D:/Git/VHDL/Coursework/hardware_files/config_pack.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling package config_pack
+
+} {} {}} D:/Git/VHDL/Coursework/tb_files/vdp_pack.vhd {1 {vcom -work work -2002 -explicit D:/Git/VHDL/Coursework/tb_files/vdp_pack.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package utility_pack
+-- Loading package config_pack
+-- Compiling package vdp_pack
+** Warning: D:/Git/VHDL/Coursework/tb_files/vdp_pack.vhd(30): (vcom-1236) Shared variables must be of a protected type.
+
+** Warning: D:/Git/VHDL/Coursework/tb_files/vdp_pack.vhd(31): (vcom-1236) Shared variables must be of a protected type.
+
+** Warning: D:/Git/VHDL/Coursework/tb_files/vdp_pack.vhd(46): (vcom-1236) Shared variables must be of a protected type.
+
+** Warning: D:/Git/VHDL/Coursework/tb_files/vdp_pack.vhd(47): (vcom-1236) Shared variables must be of a protected type.
+
+** Warning: D:/Git/VHDL/Coursework/tb_files/vdp_pack.vhd(48): (vcom-1236) Shared variables must be of a protected type.
+
+** Warning: D:/Git/VHDL/Coursework/tb_files/vdp_pack.vhd(49): (vcom-1236) Shared variables must be of a protected type.
+
+** Warning: D:/Git/VHDL/Coursework/tb_files/vdp_pack.vhd(118): (vcom-1236) Shared variables must be of a protected type.
+
+** Warning: D:/Git/VHDL/Coursework/tb_files/vdp_pack.vhd(119): (vcom-1236) Shared variables must be of a protected type.
+
+** Warning: D:/Git/VHDL/Coursework/tb_files/vdp_pack.vhd(149): (vcom-1236) Shared variables must be of a protected type.
+
+** Warning: D:/Git/VHDL/Coursework/tb_files/vdp_pack.vhd(150): (vcom-1236) Shared variables must be of a protected type.
+
+-- Compiling package body vdp_pack
+-- Loading package vdp_pack
+
+} {} {}}
