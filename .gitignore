@@ -11,3 +11,6 @@ incremental_db/*
 
 # Ignore built simulation files
 simulation/*
+
+# Ignore files built by modelsim
+work/*
