@@ -20,7 +20,7 @@ ENTITY vdp IS
 		-- bus to VRAM
 		vdin     : OUT STD_LOGIC_VECTOR(RAM_WORD_SIZE - 1 DOWNTO 0);
 		vdout    : IN  STD_LOGIC_VECTOR(RAM_WORD_SIZE - 1 DOWNTO 0);
-		vaddr    : OUT STD_LOGIC_VECTOR; -- open port, exact size depends on VSIZE
+		vaddr    : OUT STD_LOGIC_VECTOR(VSIZE+1 DOWNTO 0); -- open port, exact size depends on VSIZE. TODO make open again
 		vwrite   : OUT STD_LOGIC;
 
 		-- to testbench

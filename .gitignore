@@ -7,3 +7,7 @@
 # Ignore files built by Quartus
 output_files/*
 db/*
+incremental_db/*
+
+# Ignore built simulation files
+simulation/*

@@ -2,6 +2,7 @@ LIBRARY ieee;
 USE IEEE.std_logic_1164.ALL;
 USE IEEE.numeric_std.ALL;
 USE work.project_pack.ALL;
+USE WORK.config_pack.ALL;
 
 ENTITY rcb IS
 	GENERIC(vsize : INTEGER := 6);
@@ -25,5 +26,22 @@ ENTITY rcb IS
 END rcb;
 
 ARCHITECTURE rtl1 OF rcb IS
+	SIGNAL clrx_reg, clry_reg : STD_LOGIC_VECTOR(VSIZE-1 DOWNTO 0);
+	SIGNAL split_x, split_y : STD_LOGIC_VECTOR(VSIZE-1 DOWNTO 0);
 BEGIN
-END rtl1;      
+
+	-- Use a multiplexer with inputs (X, Y) or (CLRX, CLRY) and select bits 0 if not clear command, 1 if clearcommand
+	-- Note that rcb_cmd is the wrong length. TODO check this statement is correct.
+	IF dbb_bus.rcb_cmd(1 DOWNTO 0) /= clearscreen_h THEN
+		-- Clearscreen command is not active, so output X, Y
+		split_x <= ddb_bus.X;
+		split_y <= ddb_bus.Y;
+	ELSE
+		split_x <= clrx_reg;
+		split_y <= clry_reg;
+	END IF; -- Multiplexer on RCB command
+	
+	-- split_x, split_y are inputs to SPLIT block
+		
+
+END rtl1;
