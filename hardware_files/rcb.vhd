@@ -50,6 +50,8 @@ ARCHITECTURE rtl1 OF rcb IS
 	SIGNAL ram_addr, ram_addr_del : std_logic_vector(7 DOWNTO 0);
 	SIGNAL ram_data, ram_data_del : std_logic_vector(15 DOWNTO 0);
 
+	-- Define a constant number of cycles before writing the cache
+	CONSTANT N : INTEGER := 10;
 
 	-- Define overall state machine
 	TYPE rcb_states IS (IDLE, DRAW, CLEAR, RMW);
@@ -112,10 +114,49 @@ BEGIN
 
 	P1 : PROCESS IS 
 		VARIABLE cycle_count : INTEGER;
+		VARIABLE write_ram : std_logic;
 	BEGIN
 		WAIT UNTIL rising_edge(clk);
 		
 		-- Using diagram of RCB sample hardware, go from left to right
+		IF rcb_fsm = IDLE THEN
+			
+			-- If doing something, transition to that state
+			IF dbb_bus.startcmd = '1' THEN
+
+				-- Check to see if the RAM word has changed, and if so, write contents
+				IF word_is_same = '0' THEN
+					write_ram := '1';
+				END IF; -- word_is_same
+
+				IF 	dbb_bus.rcbcmd = rcb_cmd_draw_white OR
+					dbb_bus.rcbcmd = rcb_cmd_draw_black OR
+					dbb_bus.rcbcmd = rcb_cmd_draw_invert THEN
+					
+					rcb_fsm <= DRAW;
+
+				ELSIF 	dbb_bus.rcbcmd = rcb_cmd_clear_white OR
+						dbb_bus.rcbcmd = rcb_cmd_clear_black OR
+						dbb_bus.rcbcmd = rcb_cmd_clear_invert THEN 
+
+					rcb_fsm <= CLEAR;
+				END IF; -- perform command
+
+			END IF; -- start command
+
+			IF cycle_count < N THEN
+				cycle_count := cycle_count + 1;
+			ELSE
+				-- Check if cache has something
+				IF cache_is_same = '0' THEN
+					-- TODO write operation
+					write_ram := '1';
+				END IF; --cache_is_same
+			END IF; -- cycle_count
+
+		--ELSIF rcb_fsm = DRAW THEN
+
+		END IF; -- state transition
 
 		IF reset = '1' THEN
 			cycle_count := 0;
