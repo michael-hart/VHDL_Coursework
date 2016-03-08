@@ -37,38 +37,38 @@ ARCHITECTURE together OF pix_word_cache IS
 
   END PROCESS T1;
 
-  C1 : PROCESS (wen_all, pw, pixopin, rdout1_to_opram)
+  	C1 : PROCESS (wen_all, pw, pixopin, rdout1_to_opram)
     BEGIN
 
-    IF wen_all = '1' AND pw = '1' THEN
-      opout_to_rdin1 <= pixopin;
+	    IF wen_all = '1' AND pw = '1' THEN
+			opout_to_rdin1 <= pixopin;
 
-    ELSIF wen_all = '1' AND pw = '0' THEN
-      opout_to_rdin1 <= psame;
+	    ELSIF wen_all = '1' AND pw = '0' THEN
+			opout_to_rdin1 <= psame;
 
-    ELSE
-      CASE rdout1_to_opram IS
-        WHEN psame    => opout_to_rdin1 <= pixopin;
-        WHEN pblack   => CASE pixopin IS
-                          WHEN psame | pblack     => opout_to_rdin1 <= pblack;
-                          WHEN pwhite | pinvert   => opout_to_rdin1 <= pwhite;
-                          WHEN OTHERS             => NULL;
-                        END CASE;
-        WHEN pwhite   => CASE pixopin IS
-                          WHEN psame | pwhite     => opout_to_rdin1 <= pwhite;
-                          WHEN pblack | pinvert   => opout_to_rdin1 <= pblack;
-                          WHEN OTHERS             => NULL;
-                        END CASE;
-        WHEN pinvert  => CASE pixopin IS
-                          WHEN psame              => opout_to_rdin1 <= pinvert;
-                          WHEN pblack             => opout_to_rdin1 <= pblack;
-                          WHEN pwhite             => opout_to_rdin1 <= pwhite;
-                          WHEN pinvert            => opout_to_rdin1 <= psame;
-                          WHEN OTHERS             => NULL;
-                        END CASE;
-        WHEN OTHERS   => NULL;
-      END CASE;
-    END IF;
+	    ELSE
+			CASE rdout1_to_opram IS
+				WHEN psame    => opout_to_rdin1 <= pixopin;
+				WHEN pblack   => CASE pixopin IS
+									WHEN psame | pblack     => opout_to_rdin1 <= pblack;
+									WHEN pwhite | pinvert   => opout_to_rdin1 <= pwhite;
+									WHEN OTHERS             => NULL;
+				                END CASE;
+				WHEN pwhite   => CASE pixopin IS
+									WHEN psame | pwhite     => opout_to_rdin1 <= pwhite;
+									WHEN pblack | pinvert   => opout_to_rdin1 <= pblack;
+									WHEN OTHERS             => NULL;
+				                END CASE;
+				WHEN pinvert  => CASE pixopin IS
+									WHEN psame              => opout_to_rdin1 <= pinvert;
+									WHEN pblack             => opout_to_rdin1 <= pblack;
+									WHEN pwhite             => opout_to_rdin1 <= pwhite;
+									WHEN pinvert            => opout_to_rdin1 <= psame;
+									WHEN OTHERS             => NULL;
+				                END CASE;
+				WHEN OTHERS   => NULL;
+			END CASE;
+	    END IF;
     END PROCESS C1;
 
     N1: PROCESS
