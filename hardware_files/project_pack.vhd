@@ -23,6 +23,6 @@ PACKAGE project_pack IS
 
 	TYPE store_t IS ARRAY (0 TO 15) OF pixop_t;
 
-	TYPE  state_db IS (swait, sclear, sline, spixel, smove);
+	TYPE  state_db IS (swait, sclear1, sclear2, sline, spixel, smove);
 
 END PACKAGE project_pack;
