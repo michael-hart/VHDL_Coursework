@@ -262,6 +262,15 @@ BEGIN
 
 	END PROCESS CMD;
 
+	-- db_finish is only high if in s_wait and no more commands, dav = 0
+	FIN : PROCESS (db_fsm_state, dav) BEGIN
+		IF db_fsm_state = s_wait AND dav = '0' THEN
+			db_finish = '1';
+		ELSE
+			db_finish = '0';
+		END IF;
+	END PROCESS FIN;
+
 	-- draw_any_octant block connected.
 	DAB : ENTITY draw_any_octant GENERIC MAP( vsize => vsize) PORT MAP(
 	    clk => clk,
