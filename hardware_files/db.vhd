@@ -24,22 +24,26 @@ ENTITY db IS
 END db;
 
 ARCHITECTURE rtl OF db IS
--- All registers from diagram.
-SIGNAL hdb_reg : STD_LOGIC_VECTOR(15 DOWNTO 0);
-SIGNAL xy_new_reg : STD_LOGIC_VECTOR(11 DOWNTO 0);
+-- Registers.
+SIGNAL hdb_reg 		: STD_LOGIC_VECTOR(15 DOWNTO 0);
 SIGNAL xy_old_reg : STD_LOGIC_VECTOR(11 DOWNTO 0);
-SIGNAL pen_op_reg : STD_LOGIC_VECTOR(3 DOWNTO 0);
 
 -- Multiplexer signals, controlled by DB_FSM
 SIGNAL mux_in, mux_out : std_logic;
 
+-- Register control signals
+SIGNAL update_old, busy, oct_lock : std_logic;
+
 -- Connections of draw_any_octant
 -- From OCTANT_CMB
 SIGNAL swapxy, negx, negy, xbias : STD_LOGIC;
+-- Latch to ensure combinational does not change during draw.
+SIGNAL swapxy1, negx1, negy1, xbias1 : STD_LOGIC;
 -- I/O
 SIGNAL x_in, y_in, x_out, y_out : std_logic_vector(5 DOWNTO 0);
 -- To/from DB_FSM
-SIGNAL draw, resetx, done, disable : std_logic;
+SIGNAL draw, done, disable : std_logic;
+SIGNAL resetx : std_logic;
 
 -- For DB_FSM
 SIGNAL db_fsm_state, db_fsm_nstate : state_db;
@@ -49,10 +53,21 @@ BEGIN
 	-- Process for clocked registers.
 	REG : PROCESS BEGIN
 		WAIT UNTIL clk'EVENT AND clk = '1';
-		hdb_reg <= hdb;
-		xy_new_reg <= hdb_reg(13 DOWNTO 2);
-		xy_old_reg <= xy_new_reg;
-		pen_op_reg <= (hdb(15 DOWNTO 14), hdb(1 DOWNTO 0));
+		IF busy = '0' THEN
+			hdb_reg <= hdb;
+		END IF;
+
+		IF update_old = '1' THEN
+			xy_old_reg <= hbd_reg;
+		END IF;
+
+		IF oct_lock = '0' THEN
+			swapxy <= swapxy1;
+			negx	 <= negx1;
+			negy	 <= negy1;
+			xbias  <= xbias;
+		END IF;
+
 	END PROCESS REG;
 
 	-- Octant-cmb block
@@ -107,33 +122,90 @@ BEGIN
 	-- Multiplexer at draw_any_octant input.
 	IN_MUX : PROCESS (mux_in, xy_new_reg, xy_old_reg) BEGIN
 
-	IF mux_in = '1' THEN
-		x_in <= xy_new_reg(11 DOWNTO 6);
-		y_in <= xy_new_reg(5 DOWNTO 0);
-	ELSE
-		x_in <= xy_old_reg(11 DOWNTO 6);
-		y_in <= xy_old_reg(5 DOWNTO 0);
-	END IF;
+		IF mux_in = '1' THEN
+			x_in <= hdb_reg(11 DOWNTO 6);
+			y_in <= hdb_reg(5 DOWNTO 0);
+		ELSE
+			x_in <= xy_old_reg(11 DOWNTO 6);
+			y_in <= xy_old_reg(5 DOWNTO 0);
+		END IF;
 
 	END PROCESS IN_MUX;
 
 	-- Multiplexer at draw_any_octant output.
 	OUT_MUX : PROCESS (mux_out, x_in, y_in, x_out, y_out) BEGIN
 
-	IF mux_out = '1' THEN
-		dbb_bus.X <= x_in;
-		dbb_bus.Y <= y_in;
-	ELSE
-		dbb_bus.X <= x_out;
-		dbb_bus.Y <= y_out
-	END IF;
+		IF mux_out = '1' THEN
+			dbb_bus .X <= x_in;
+			dbb_bus.Y <= y_in;
+		ELSE
+			dbb_bus.X <= x_out;
+			dbb_bus.Y <= y_out
+		END IF;
 
 	END PROCESS OUT_MUX;
 
+	-- For controlling state changes.
 	FSM : PROCESS BEGIN
-
+		WAIT UNTIL clk'EVENT AND clk = '1';
+		IF reset = '1' THEN
+			db_fsm_state = s_wait;
+		ELSE
+			db_fsm_state = db_fsm_nstate;
+		END IF;
 	END PROCESS FSM;
 
+	-- For determining next state.
 	N_FSM : PROCESS () BEGIN
+		-- By default remain in same state.
+		db_fsm_nstate = db_fsm_state;
+
+		IF db_fsm_state = s_wait THEN
+
+			IF dav = '0' THEN
+				db_fsm_nstate = s_wait;
+			ELSIF hdb(15 DOWNTO 14) = "00" THEN
+				db_fsm_nstate = s_move;
+			ELSIF hdb(15 DOWNTO 14) = "01" THEN
+				db_fsm_nstate = s_draw1;
+			ELSIF hdb(15 DOWNTO 14) = "10" THEN
+				db_fsm_nstate = s_clear1;
+			END IF;
+
+		ELSIF db_fsm_state = s_move THEN
+			db_fsm_nstate = s_wait;
+
+		ELSIF db_fsm_state = s_draw1 THEN
+			db_fsm_nstate = s_draw2;
+
+		ELSIF db_fsm_state = s_draw2 THEN
+			db_fsm_nstate = s_draw3;
+
+		ELSIF db_fsm_state = s_draw3 THEN
+
+			IF done = '0' OR dbb_delaycmd = '1' THEN
+				db_fsm_nstate = s_draw3;
+			ELSE
+				db_fsm_nstate = s_wait;
+			END IF;
+
+		ELSIF db_fsm_state = s_clear1 THEN
+
+			IF dbb_delaycmd = '0' THEN
+				db_fsm_nstate = s_clear2;
+			ELSE
+				db_fsm_nstate = s_clear1;
+			END IF;
+
+		ELSIF db_fsm_state = s_clear2 THEN
+
+			IF dbb_delaycmd = '0' THEN
+				db_fsm_nstate = s_wait;
+			ELSE
+				db_fsm_nstate = s_clear2;
+			END IF;
+
+		END IF;
+	END PROCESS N_FSM;
 
 END rtl;
