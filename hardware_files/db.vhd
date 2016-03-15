@@ -39,11 +39,11 @@ SIGNAL update_old, busy, oct_lock : std_logic;
 SIGNAL swapxy, negx, negy, xbias : STD_LOGIC;
 -- Latch to ensure combinational does not change during draw.
 SIGNAL swapxy1, negx1, negy1, xbias1 : STD_LOGIC;
+
 -- I/O
-SIGNAL x_in, y_in, x_out, y_out : std_logic_vector(5 DOWNTO 0);
+SIGNAL xin, yin, x, y : std_logic_vector(5 DOWNTO 0);
 -- To/from DB_FSM
-SIGNAL draw, done, disable : std_logic;
-SIGNAL resetx : std_logic;
+SIGNAL init, draw, done, disable : std_logic;
 
 -- For DB_FSM
 SIGNAL db_fsm_state, db_fsm_nstate : state_db;
@@ -62,85 +62,73 @@ BEGIN
 		END IF;
 
 		IF oct_lock = '0' THEN
-			swapxy <= swapxy1;
-			negx	 <= negx1;
-			negy	 <= negy1;
-			xbias  <= xbias;
+			swapxy1 <= swapxy;
+			negx1	 	<= negx;
+			negy1	 	<= negy;
+			xbias1  <= xbias;
 		END IF;
 
 	END PROCESS REG;
 
 	-- Octant-cmb block
-	OCTANT_CMB :PROCESS (xy_new_reg, xy_old_reg) BEGIN
+	OCTANT_CMB :PROCESS (hdb_reg, xy_old_reg) BEGIN
 		-- Create variables.
 		VARIABLE dx, dy : std_logic_vector(6 DOWNTO 0);
-		VARIABLE x_more, y_more, x_y_comp : std_logic;
-		VARIABLE oct_together : std_logic_vector(2 DOWNTO 1);
 
 		-- Assign values.
-		dx := signed(unsigned(xy_new_reg(11 DOWNTO 6))-unsigned(xy_old_reg(11 DOWNTO 6)));
-		dy := signed(unsigned(xy_new_reg(5 DOWNTO 0))-unsigned(xy_old_reg(5 DOWNTO 0)));
+		dx := std_logic_vector(signed(unsigned(hdb_reg(11 DOWNTO 6))-unsigned(xy_old_reg(11 DOWNTO 6))));
+		dy := std_logic_vector(signed(unsigned(hdb_reg(5 DOWNTO 0))-unsigned(xy_old_reg(5 DOWNTO 0))));
 
-		IF dx >= 0 THEN
-			x_more := '1';
+		-- Assign negx and negy first, equals if dx < 0, dy < 0
+		IF dx <= 0 THEN
+			negx <= '1';
 		ELSE
-			x_more := '0';
+			negx <= '0';
 		END IF;
 
-		IF dy >= 0 THEN
-			y_more := '1';
+		IF dy <= 0 THEN
+			negy <= '1';
 		ELSE
-			y_more := '0';
+			negy <= '0';
 		END IF;
 
+		-- Swap is if abs(dy) > abs(dx). If swap, then negx and negy to swap.
 		IF abs(dy) >= abs(dx) THEN
-			x_y_comp := '1';
+			swap <= '1';
+			negx <= not(negx);
+			negy <= not(negy);
+
 		ELSE
-			x_y_comp := '0';
+			swap <= '0';
+
 		END IF;
 
-		-- Concatenate for case statement.
-		oct_together := (x_more, y_more, x_y_comp);
-
-		CASE oct_together IS
-			WHEN "110" | "111"	=> 	negx <= '0';
-															negy <= '0';
-			WHEN "000" | "001"	=> 	negx <= '1';
-															negy <= '1':
-			WHEN "011" : "100"	=> 	negx <= '0';
-															negy <= '1';
-			WHEN "010" | "101"	=> 	negx <= '1';
-															negy <= '0';
-			WHEN OTHERS 				=> 	NULL;
-		END CASE;
-
-		-- No need to include in case. Makes easier to read.
-		swapxy <= x_y_comp;
 		xbias <= '1';
+
 	END PROCESS OCTANT_CMB;
 
 	-- Multiplexer at draw_any_octant input.
-	IN_MUX : PROCESS (mux_in, xy_new_reg, xy_old_reg) BEGIN
+	IN_MUX : PROCESS (mux_in, hdb_reg, xy_old_reg) BEGIN
 
 		IF mux_in = '1' THEN
-			x_in <= hdb_reg(11 DOWNTO 6);
-			y_in <= hdb_reg(5 DOWNTO 0);
+			xin <= hdb_reg(11 DOWNTO 6);
+			yin <= hdb_reg(5 DOWNTO 0);
 		ELSE
-			x_in <= xy_old_reg(11 DOWNTO 6);
-			y_in <= xy_old_reg(5 DOWNTO 0);
+			xin <= xy_old_reg(11 DOWNTO 6);
+			yin <= xy_old_reg(5 DOWNTO 0);
 		END IF;
 
 	END PROCESS IN_MUX;
 
 	-- Multiplexer at draw_any_octant output.
-	OUT_MUX : PROCESS (mux_out, x_in, y_in, x_out, y_out) BEGIN
+	OUT_MUX : PROCESS (mux_out, xin, yin, x, y) BEGIN
 
 		IF mux_out = '1' THEN
-			dbb_bus .X <= x_in;
-			dbb_bus.Y <= y_in;
+			dbb_bus.X <= xin;
+			dbb_bus.Y <= yin;
 		ELSE
-			dbb_bus.X <= x_out;
-			dbb_bus.Y <= y_out
+			dbb_bus.X <= x;
+			dbb_bus.Y <= y;
 		END IF;
 
 	END PROCESS OUT_MUX;
@@ -149,63 +137,146 @@ BEGIN
 	FSM : PROCESS BEGIN
 		WAIT UNTIL clk'EVENT AND clk = '1';
 		IF reset = '1' THEN
-			db_fsm_state = s_wait;
+			db_fsm_state <= s_wait;
 		ELSE
-			db_fsm_state = db_fsm_nstate;
+			db_fsm_state <= db_fsm_nstate;
 		END IF;
 	END PROCESS FSM;
 
 	-- For determining next state.
-	N_FSM : PROCESS () BEGIN
+	N_FSM : PROCESS (db_fsm_state, dav, done, dbb_delaycmd) BEGIN
 		-- By default remain in same state.
-		db_fsm_nstate = db_fsm_state;
+		db_fsm_nstate <= db_fsm_state;
 
 		IF db_fsm_state = s_wait THEN
 
 			IF dav = '0' THEN
-				db_fsm_nstate = s_wait;
+				db_fsm_nstate <= s_wait;
 			ELSIF hdb(15 DOWNTO 14) = "00" THEN
-				db_fsm_nstate = s_move;
+				db_fsm_nstate <= s_move;
 			ELSIF hdb(15 DOWNTO 14) = "01" THEN
-				db_fsm_nstate = s_draw1;
+				db_fsm_nstate <= s_draw1;
 			ELSIF hdb(15 DOWNTO 14) = "10" THEN
-				db_fsm_nstate = s_clear1;
+				db_fsm_nstate <= s_clear1;
 			END IF;
 
 		ELSIF db_fsm_state = s_move THEN
-			db_fsm_nstate = s_wait;
+			db_fsm_nstate <= s_wait;
 
 		ELSIF db_fsm_state = s_draw1 THEN
-			db_fsm_nstate = s_draw2;
+			db_fsm_nstate <= s_draw2;
 
 		ELSIF db_fsm_state = s_draw2 THEN
-			db_fsm_nstate = s_draw3;
+			db_fsm_nstate <= s_draw3;
 
 		ELSIF db_fsm_state = s_draw3 THEN
 
 			IF done = '0' OR dbb_delaycmd = '1' THEN
-				db_fsm_nstate = s_draw3;
+				db_fsm_nstate <= s_draw3;
 			ELSE
-				db_fsm_nstate = s_wait;
+				db_fsm_nstate <= s_wait;
 			END IF;
 
 		ELSIF db_fsm_state = s_clear1 THEN
 
 			IF dbb_delaycmd = '0' THEN
-				db_fsm_nstate = s_clear2;
+				db_fsm_nstate <= s_clear2;
 			ELSE
-				db_fsm_nstate = s_clear1;
+				db_fsm_nstate <= s_clear1;
 			END IF;
 
 		ELSIF db_fsm_state = s_clear2 THEN
 
 			IF dbb_delaycmd = '0' THEN
-				db_fsm_nstate = s_wait;
+				db_fsm_nstate <= s_wait;
 			ELSE
-				db_fsm_nstate = s_clear2;
+				db_fsm_nstate <= s_clear2;
 			END IF;
 
 		END IF;
 	END PROCESS N_FSM;
+
+	-- FSM outputs
+	OPT : PROCESS(db_fsm_state, dbb_delaycmd) BEGIN
+		IF db_fsm_state = s_wait THEN
+			busy <= '0';
+			disable <= '1';
+			init <= '0';
+			draw <= '1';
+			dbb_bus.startcmd <= '0';
+			update_old <= '0';
+			mux_in <= '0';
+			mux_out <= '0';
+			oct_lock <= '0'';
+
+		ELSIF db_fsm_state = s_move THEN
+			busy <= '1';
+			update_old <= '1';
+
+		ELSIF db_fsm_state = s_draw1 THEN
+			busy <= '1';
+			disable <= '0';
+			init <= '1';
+
+		ELSIF db_fsm_state = s_draw2 THEN
+			init <= '0';
+			draw <= '1';
+			mux_in <= '1';
+			oct_lock <= '1';
+
+		ELSIF db_fsm_state = s_draw3 THEN
+			draw <= '0';
+			update_old <= '1';
+			dbb_bus.startcmd <= '1';
+			disable <= dbb_delaycmd;
+
+		ELSIF db_fsm_state = s_clear1 THEN
+			busy <= '1';
+			mux_out <= '0';
+			dbb_bus.startcmd <= '1';
+
+		ELSE -- db_fsm_state = s_clear2
+			mux_in <= '1';
+			update_old <= '1';
+
+		END IF;
+
+		hdb_busy <= busy;
+	END PROCESS OPT;
+
+	-- CMD block to entire correct commands used.
+	CMD : PROCESS (hdb_reg, db_fsm_state) BEGIN
+		IF db_fsm_state = s_draw2 THEN
+			dbb_bus.rcb_cmd <= '0' & hdb_reg(1 DOWNTO 0);
+
+		ELSIF db_fsm_state = s_clear1 THEN
+			dbb_bus.rcb_cmd = "000";
+
+		ELSIF db_fsm_state = s_clear2 THEN
+			dbb_bus.rcb_cmd <= '1' & hdb_reg(1 DOWNTO 0);
+
+		ELSE
+			NULL;
+
+		END IF;
+
+	END PROCESS CMD;
+
+	-- draw_any_octant block connected.
+	DAB : ENTITY draw_any_octant GENERIC MAP( vsize => vsize) PORT MAP(
+	    clk => clk,
+			init => init,
+			draw => draw,
+			xbias => xbias1,
+			disable => disable,
+			xin => xin,
+			yin => yin,
+	    done => done,
+	    x => x,
+			y => y,
+	    swapxy => swapxy1,
+			negx => negx1,
+			negy => negy1
+	    );
 
 END rtl;
