@@ -463,7 +463,7 @@ BEGIN
 		-- Assign values.
 		dx := std_logic_vector(signed(resize(unsigned(hdb_reg(13 DOWNTO 8)), 7)) - signed(resize(unsigned(xy_old_reg(11 DOWNTO 6)), 7)));
 		dy := std_logic_vector(signed(resize(unsigned(hdb_reg(7 DOWNTO 2)), 7)) - signed(resize(unsigned(xy_old_reg(5 DOWNTO 0)), 7)));
-		
+
 
 		-- Assign negx and negy first, equals if dx < 0, dy < 0
 		IF signed(dx) < "0000000" THEN
@@ -491,7 +491,11 @@ BEGIN
 
 		END IF;
 
-		xbias <= '1';
+    IF temp_negx /= temp_negy THEN
+		  xbias <= '0';
+    ELSE
+      xbias <= '1';
+    END IF;
 
 	END PROCESS OCTANT_CMB;
 
@@ -556,10 +560,10 @@ BEGIN
 
 		ELSIF db_fsm_state = s_draw2 THEN
 			db_fsm_nstate <= s_draw3;
-			
+
 		ELSIF db_fsm_state = s_draw3 THEN
 			db_fsm_nstate <= s_draw4;
-			
+
 	 	ELSIF db_fsm_state = s_draw4 THEN
 			db_fsm_nstate <= s_draw5;
 
@@ -609,10 +613,10 @@ BEGIN
 
 		ELSIF db_fsm_state = s_draw1 THEN
 			busy <= '1';
-			
+
 		ELSIF db_fsm_state = s_draw2 THEN
 			oct_lock <= '1';
-			
+
 		ELSIF db_fsm_state = s_draw3 THEN
 			disable <= '0';
 			init <= '1';
@@ -640,11 +644,11 @@ BEGIN
 		END IF;
 
 	END PROCESS OPT;
-	
+
 	BSY : PROCESS (busy) BEGIN
 		hdb_busy <= busy;
 	END PROCESS BSY;
-	
+
 	-- CMD block to entire correct commands used.
 	CMD : PROCESS (hdb_reg, db_fsm_state) BEGIN
 		IF db_fsm_state = s_draw2 THEN
