@@ -91,8 +91,8 @@ BEGIN
         error <= (OTHERS => '0');
 
       ELSIF draw = '1' THEN
-        xincr <= unsigned(xin) - x1;
-        yincr <= unsigned(yin) - y1;
+        xincr <= unsigned(xin) - unsigned(x1);
+        yincr <= unsigned(yin) - unsigned(y1);
         xnew  <= unsigned(xin);
         ynew  <= unsigned(yin);
 
@@ -457,33 +457,37 @@ BEGIN
 	OCTANT_CMB :PROCESS (hdb_reg, xy_old_reg)
 	-- Create variables.
 	VARIABLE dx, dy : std_logic_vector(6 DOWNTO 0);
+	VARIABLE temp_negx, temp_negy : std_logic;
 	BEGIN
 
 		-- Assign values.
-		dx := std_logic_vector(resize(unsigned(hdb_reg(13 DOWNTO 8)), 7) - resize(unsigned(xy_old_reg(11 DOWNTO 6)), 7));
-		dy := std_logic_vector(resize(unsigned(hdb_reg(7 DOWNTO 2)), 7) - resize(unsigned(xy_old_reg(5 DOWNTO 0)), 7));
+		dx := std_logic_vector(signed(resize(unsigned(hdb_reg(13 DOWNTO 8)), 7)) - signed(resize(unsigned(xy_old_reg(11 DOWNTO 6)), 7)));
+		dy := std_logic_vector(signed(resize(unsigned(hdb_reg(7 DOWNTO 2)), 7)) - signed(resize(unsigned(xy_old_reg(5 DOWNTO 0)), 7)));
+		
 
 		-- Assign negx and negy first, equals if dx < 0, dy < 0
-		IF dx <= "0000000" THEN
-			negx <= '1';
+		IF signed(dx) < "0000000" THEN
+			temp_negx := '1';
 		ELSE
-			negx <= '0';
+			temp_negx := '0';
 		END IF;
 
-		IF dy <= "0000000" THEN
-			negy <= '1';
+		IF signed(dy) < "0000000" THEN
+			temp_negy := '1';
 		ELSE
-			negy <= '0';
+			temp_negy := '0';
 		END IF;
 
 		-- Swap is if abs(dy) > abs(dx). If swap, then negx and negy to swap.
-		IF abs(signed(dy)) >= abs(signed(dx)) THEN
+		IF abs(signed(dy)) > abs(signed(dx)) THEN
 			swapxy <= '1';
-			negx <= not(negx);
-			negy <= not(negy);
+			negx <= temp_negy;
+			negy <= temp_negx;
 
 		ELSE
 			swapxy <= '0';
+			negx <= temp_negx;
+			negy <= temp_negy;
 
 		END IF;
 
@@ -495,8 +499,8 @@ BEGIN
 	IN_MUX : PROCESS (mux_in, hdb_reg, xy_old_reg) BEGIN
 
 		IF mux_in = '1' THEN
-			xin <= hdb_reg(11 DOWNTO 6);
-			yin <= hdb_reg(5 DOWNTO 0);
+			xin <= hdb_reg(13 DOWNTO 8);
+			yin <= hdb_reg(7 DOWNTO 2);
 		ELSE
 			xin <= xy_old_reg(11 DOWNTO 6);
 			yin <= xy_old_reg(5 DOWNTO 0);
@@ -552,11 +556,17 @@ BEGIN
 
 		ELSIF db_fsm_state = s_draw2 THEN
 			db_fsm_nstate <= s_draw3;
-
+			
 		ELSIF db_fsm_state = s_draw3 THEN
+			db_fsm_nstate <= s_draw4;
+			
+	 	ELSIF db_fsm_state = s_draw4 THEN
+			db_fsm_nstate <= s_draw5;
+
+		ELSIF db_fsm_state = s_draw5 THEN
 
 			IF done = '0' OR dbb_delaycmd = '1' THEN
-				db_fsm_nstate <= s_draw3;
+				db_fsm_nstate <= s_draw5;
 			ELSE
 				db_fsm_nstate <= s_wait;
 			END IF;
@@ -586,7 +596,7 @@ BEGIN
 			busy <= '0';
 			disable <= '1';
 			init <= '0';
-			draw <= '1';
+			draw <= '0';
 			dbb_bus.startcmd <= '0';
 			update_old <= '0';
 			mux_in <= '0';
@@ -599,16 +609,20 @@ BEGIN
 
 		ELSIF db_fsm_state = s_draw1 THEN
 			busy <= '1';
+			
+		ELSIF db_fsm_state = s_draw2 THEN
+			oct_lock <= '1';
+			
+		ELSIF db_fsm_state = s_draw3 THEN
 			disable <= '0';
 			init <= '1';
 
-		ELSIF db_fsm_state = s_draw2 THEN
+		ELSIF db_fsm_state = s_draw4 THEN
 			init <= '0';
 			draw <= '1';
 			mux_in <= '1';
-			oct_lock <= '1';
 
-		ELSIF db_fsm_state = s_draw3 THEN
+		ELSIF db_fsm_state = s_draw5 THEN
 			draw <= '0';
 			update_old <= '1';
 			dbb_bus.startcmd <= '1';
@@ -625,9 +639,12 @@ BEGIN
 
 		END IF;
 
-		hdb_busy <= busy;
 	END PROCESS OPT;
-
+	
+	BSY : PROCESS (busy) BEGIN
+		hdb_busy <= busy;
+	END PROCESS BSY;
+	
 	-- CMD block to entire correct commands used.
 	CMD : PROCESS (hdb_reg, db_fsm_state) BEGIN
 		IF db_fsm_state = s_draw2 THEN
