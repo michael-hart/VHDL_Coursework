@@ -173,6 +173,7 @@ ARCHITECTURE rtl1 OF rcb IS
 	-- Define overall state machine
 	TYPE rcb_states IS (DRAW, CLEAR);
 	SIGNAL rcb_fsm : rcb_states;
+
 BEGIN
 
 	-- Instantiate pix_word_cache entity
@@ -233,6 +234,9 @@ BEGIN
 	P1 : PROCESS IS 
 		VARIABLE nstate : rcb_states;
 		VARIABLE write_ram : std_logic;
+		VARIABLE x_prev, y_prev : STD_LOGIC_VECTOR(VSIZE-1 DOWNTO 0);
+		VARIABLE x_max, y_max : STD_LOGIC_VECTOR(VSIZE-1 DOWNTO 0);
+		VARIABLE x_min, y_min : STD_LOGIC_VECTOR(VSIZE-1 DOWNTO 0);
 	BEGIN
 		WAIT UNTIL rising_edge(clk);
 
@@ -270,6 +274,7 @@ BEGIN
 
 		ELSE
 			IF rcb_fsm = DRAW THEN
+
 				IF dbb_bus.startcmd = '1' THEN
 					IF dbb_bus.rcb_cmd(2) = '0' THEN
 						REPORT "RCB draw op with pixopin " & to_string(dbb_bus.rcb_cmd(1 DOWNTO 0));
@@ -278,15 +283,67 @@ BEGIN
 						pixopin <= pixop_t(dbb_bus.rcb_cmd(1 DOWNTO 0));
 						-- wen_all is the same
 					ELSE
+						-- Assert delay command. This will be done in clear state as well
+						delaycmd <= '1';
+
+						-- Calculate bottom left pixel
+						x_min := MIN_SLV(dbb_bus.X, x_prev);
+						y_min := MIN_SLV(dbb_bus.Y, y_prev);
+
+						-- Calculate top right pixel
+						x_max := MAX_SLV(dbb_bus.X, x_prev);
+						y_max := MAX_SLV(dbb_bus.Y, y_prev);
+
+						-- Initialise registers at bottom left
+						clrx_reg <= x_min;
+						clry_reg <= y_min;
+
+						REPORT "(x_min, y_min) are (" & to_string(x_min) & ", " & to_string(y_min) & "); "
+							&  "(x_max, y_max) are (" & to_string(x_max) & ", " & to_string(y_max) & ")";
+
+						-- Transition to clear screen state
 						nstate := CLEAR;
 					END IF;
+
+					-- Save previous values in case clearscreen is next
+					x_prev := dbb_bus.X;
+					y_prev := dbb_bus.Y;
 				ELSE
+					-- Initial calculations
 					rcb_finish_i <= db_finish;
 				END IF; -- start command
 			ELSIF rcb_fsm = CLEAR THEN
 				REPORT "RCB clear state reached";
-				-- TODO support clear, for now just transition back to draw
-				nstate := DRAW;
+
+				REPORT "(x_min, y_min) are (" & to_string(x_min) & ", " & to_string(y_min) & "); "
+					&  "(x_max, y_max) are (" & to_string(x_max) & ", " & to_string(y_max) & ")";
+
+				-- Clear is finished when clrx_reg=x_max, clry_reg=y_max
+				IF clrx_reg = x_max AND clry_reg = y_max THEN
+					-- TODO support clear, for now just transition back to draw
+					nstate := DRAW;
+					-- No need to delay any more
+					delaycmd <= '0';
+					REPORT "RCB clearscreen finished";
+				ELSE
+					-- Assert delay cmd while there is cleaning to do
+					delaycmd <= '1';
+
+					-- Draw pixel at current x,y
+					pw <= '1';
+					pixnum <= pixnum_i;
+					pixopin <= pixop_t(dbb_bus.rcb_cmd(1 DOWNTO 0));
+
+					-- Calculate next pixel location. Use raster scan, so left to right, bottom to top
+					IF clrx_reg = x_max THEN
+						-- We have hit far right, but we've already checked the top, so blindly increment
+						clry_reg <= std_logic_vector(unsigned(clry_reg) + 1);
+					ELSE
+						clrx_reg <= std_logic_vector(unsigned(clrx_reg) + 1);
+					END IF; -- pixel increment
+
+				END IF; -- finished
+				
 			END IF;
 
 			-- Perform state transition

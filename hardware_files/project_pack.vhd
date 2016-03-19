@@ -1,6 +1,7 @@
 USE WORK.config_pack.ALL;
 LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
+USE IEEE.numeric_std.ALL;
 
 PACKAGE project_pack IS
 
@@ -25,4 +26,61 @@ PACKAGE project_pack IS
 
 	TYPE  state_db IS (s_wait, s_move, s_draw1, s_draw2, s_draw3, s_draw4, s_draw5, s_clear1, s_clear2);
 
+	-- Aliases for use through project
+	ALIAS slv IS std_logic_vector;
+
+	-- Useful function definitions
+
+	-- Minimum of two integers; should be defined in numeric_std, but not working
+	FUNCTION MIN(LEFT, RIGHT : INTEGER) RETURN INTEGER;
+
+	-- Maximum of two integers; should be defined in numeric_std, but not working
+	FUNCTION MAX(LEFT, RIGHT : INTEGER) RETURN INTEGER;	
+
+	-- Minimum of two input std_logic_vectors, interpreted as unsigned
+	FUNCTION MIN_SLV(LEFT, RIGHT: slv) RETURN slv;
+
+	-- Maximum of two input std_logic_vectors, interpreted as unsigned
+	FUNCTION MAX_SLV(LEFT, RIGHT: slv) RETURN slv;
+
 END PACKAGE project_pack;
+
+
+PACKAGE BODY project_pack IS
+
+	FUNCTION MIN(LEFT, RIGHT : INTEGER) RETURN INTEGER IS
+	BEGIN
+		IF LEFT < RIGHT THEN
+			RETURN LEFT;
+		ELSE
+			RETURN RIGHT;
+		END IF;
+	END MIN;
+
+	-- Maximum of two integers; should be defined in numeric_std, but not working
+	FUNCTION MAX(LEFT, RIGHT : INTEGER) RETURN INTEGER IS
+	BEGIN
+		IF LEFT > RIGHT THEN
+			RETURN LEFT;
+		ELSE
+			RETURN RIGHT;
+		END IF;
+	END MAX;
+
+	FUNCTION MIN_SLV(LEFT, RIGHT: slv) RETURN slv IS
+		CONSTANT output_length : INTEGER := MAX(LEFT'LENGTH, RIGHT'LENGTH);
+		VARIABLE output_value : INTEGER;
+	BEGIN
+		output_value := MIN(to_integer(unsigned(LEFT)), to_integer(unsigned(RIGHT)));
+		RETURN slv(to_unsigned(output_value, output_length));
+	END MIN_SLV;
+
+	FUNCTION MAX_SLV(LEFT, RIGHT: slv) RETURN slv IS
+		CONSTANT output_length : INTEGER := MAX(LEFT'LENGTH, RIGHT'LENGTH);
+		VARIABLE output_value : INTEGER;
+	BEGIN
+		output_value := MAX(to_integer(unsigned(LEFT)), to_integer(unsigned(RIGHT)));
+		RETURN slv(to_unsigned(output_value, output_length));
+	END MAX_SLV;
+
+END PACKAGE BODY project_pack;
