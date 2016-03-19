@@ -3,7 +3,7 @@
 LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
 USE IEEE.numeric_std.ALL;
-USE WORK.pix_cache_pak.ALL;
+USE WORK.project_pack.ALL;
 
 ENTITY pix_word_cache is
   PORT (

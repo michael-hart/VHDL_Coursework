@@ -29,7 +29,7 @@ ARCHITECTURE synth OF ram_fsm_2 IS
   TYPE   state_t IS (m3, m2, m1, mx);
   SIGNAL state : state_t;
   SIGNAL delay_i, vwrite_i : std_logic;
-  SIGNAL addr_i, addr_ram_i, addr_delayed_i, addr_delayed_MORE_i : std_logic_vector(7 DOWNTO 0);
+  SIGNAL addr_i, addr_ram_i, addr_delayed_i : std_logic_vector(7 DOWNTO 0);
   SIGNAL data_i : std_logic_vector(15 DOWNTO 0);
   SIGNAL done_i : std_logic;
 BEGIN
@@ -66,13 +66,12 @@ BEGIN
 
 		-- Use previous value of word reg
 		addr_delayed_i <= vaddr;
-		addr_delayed_MORE_i <= addr_delayed_i;
 
 		-- Set nstate to m1, no matter what state is;
 		-- this will be overwritten later, if necessary
 		IF start = '1' THEN
 			nstate := m1;
-			addr_i <= addr_delayed_MORE_i;
+			addr_i <= addr_delayed_i;
 		END IF;
 
 		-- Perform state transition using IF statements
@@ -151,7 +150,7 @@ ARCHITECTURE rtl1 OF rcb IS
 	-- Signals for internal use
 	SIGNAL clrx_reg, clry_reg : STD_LOGIC_VECTOR(VSIZE-1 DOWNTO 0);
 	SIGNAL split_x, split_y : STD_LOGIC_VECTOR(VSIZE-1 DOWNTO 0);
-	SIGNAL word_reg : STD_LOGIC_VECTOR((2*VSIZE)-5 DOWNTO 0);
+	SIGNAL word_reg, word_reg_delayed : STD_LOGIC_VECTOR((2*VSIZE)-5 DOWNTO 0);
 	SIGNAL word_is_same : std_logic;
 	SIGNAL rcb_finish_i : std_logic;
 
@@ -193,7 +192,7 @@ BEGIN
 		clk => clk,
 		reset => reset,
 		start => vram_start,
-		vaddr => word_reg,
+		vaddr => word_reg_delayed,
 		vdin => vdout,
 		cache => cache_store,
 
@@ -236,6 +235,9 @@ BEGIN
 		VARIABLE write_ram : std_logic;
 	BEGIN
 		WAIT UNTIL rising_edge(clk);
+
+		-- Store word_reg in clocked flip flop
+		word_reg_delayed <= word_reg;
 
 		IF rcb_finish_i = '0' THEN
 			REPORT "RCB Input Op is " & to_string(dbb_bus.rcb_cmd) & " at x,y "
