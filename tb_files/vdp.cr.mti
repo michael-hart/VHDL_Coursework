@@ -14,6 +14,40 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package project_pack
 -- Loading entity vdp
 
+} {} {}} D:/Git/VHDL/Coursework/hardware_files/project_pack.vhd {1 {vcom -work work -2002 -explicit D:/Git/VHDL/Coursework/hardware_files/project_pack.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package config_pack
+-- Compiling package project_pack
+
+} {} {}} D:/Git/VHDL/Coursework/hardware_files/db.vhd {1 {vcom -work work -2002 -explicit D:/Git/VHDL/Coursework/hardware_files/db.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity draw_octant
+-- Compiling architecture comb of draw_octant
+-- Compiling entity swap
+-- Compiling architecture rtl of swap
+-- Compiling entity inv
+-- Compiling architecture rtl of inv
+-- Compiling entity rd
+-- Compiling architecture behav of rd
+-- Compiling entity draw_any_octant
+-- Compiling architecture comb of draw_any_octant
+-- Loading entity rd
+-- Loading entity swap
+-- Loading entity inv
+-- Loading entity draw_octant
+-- Loading package config_pack
+-- Loading package project_pack
+-- Compiling entity db
+-- Compiling architecture rtl of db
+-- Loading entity draw_any_octant
+
 } {} {}} D:/Git/VHDL/Coursework/hardware_files/vdp.vhd {1 {vcom -work work -2002 -explicit D:/Git/VHDL/Coursework/hardware_files/vdp.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
@@ -28,17 +62,6 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading entity db
 -- Loading entity rcb
 
-} {} {}} D:/Git/VHDL/Coursework/hardware_files/db.vhd {1 {vcom -work work -2002 -explicit D:/Git/VHDL/Coursework/hardware_files/db.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Loading package config_pack
--- Loading package project_pack
--- Compiling entity db
--- Compiling architecture rtl of db
-
 } {} {}} D:/Git/VHDL/Coursework/tb_files/vram.vhd {1 {vcom -work work -2002 -explicit D:/Git/VHDL/Coursework/tb_files/vram.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
@@ -51,7 +74,7 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity vram
 -- Compiling architecture behav of vram
 
-} {} {}} D:/Git/VHDL/Coursework/tb_files/utility_pack.vhd {1 {vcom -work work -2002 -explicit D:/Git/VHDL/Coursework/tb_files/utility_pack.vhd
+} {} {}} D:/Git/VHDL/Coursework/tb_files/utility_pack.vhd {2 {vcom -work work -2002 -explicit D:/Git/VHDL/Coursework/tb_files/utility_pack.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -63,14 +86,7 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 ** Warning: D:/Git/VHDL/Coursework/tb_files/utility_pack.vhd(357): (vcom-1236) Shared variables must be of a protected type.
 
 
-} {} {}} D:/Git/VHDL/Coursework/hardware_files/config_pack.vhd {1 {vcom -work work -2002 -explicit D:/Git/VHDL/Coursework/hardware_files/config_pack.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling package config_pack
-
-} {} {}} D:/Git/VHDL/Coursework/tb_files/vdp_pack.vhd {1 {vcom -work work -2002 -explicit D:/Git/VHDL/Coursework/tb_files/vdp_pack.vhd
+} {} {}} D:/Git/VHDL/Coursework/tb_files/vdp_pack.vhd {2 {vcom -work work -2002 -explicit D:/Git/VHDL/Coursework/tb_files/vdp_pack.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -101,5 +117,12 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 
 -- Compiling package body vdp_pack
 -- Loading package vdp_pack
+
+} {} {}} D:/Git/VHDL/Coursework/hardware_files/config_pack.vhd {1 {vcom -work work -2002 -explicit D:/Git/VHDL/Coursework/hardware_files/config_pack.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling package config_pack
 
 } {} {}}

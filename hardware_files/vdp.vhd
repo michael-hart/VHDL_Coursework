@@ -53,6 +53,7 @@ BEGIN
 		reset => reset,
 		dbb_bus => dbb_bus,
 		dbb_delaycmd => dbb_delaycmd,
+		db_finish => db_finish,
 		vdout => vdout,
 		vdin => vdin,
 		vwrite => vwrite,
