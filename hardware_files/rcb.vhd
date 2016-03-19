@@ -32,6 +32,7 @@ ARCHITECTURE synth OF ram_fsm_2 IS
   SIGNAL addr_i, addr_ram_i, addr_delayed_i : std_logic_vector(7 DOWNTO 0);
   SIGNAL data_i : std_logic_vector(15 DOWNTO 0);
   SIGNAL done_i : std_logic;
+  SIGNAL cache_reg : store_t;
 BEGIN
 
 	-- Combinational logic for output std_logic signals
@@ -59,7 +60,10 @@ BEGIN
 	F1: PROCESS
 	VARIABLE nstate : state_t;
 	BEGIN
-		WAIT UNTIL clk'EVENT AND clk='1';
+		WAIT UNTIL rising_edge(clk);
+
+		-- Store cache in register
+		cache_reg <= cache;
 
 		-- Default done state is 0
 		done_i <= '0';
@@ -80,7 +84,7 @@ BEGIN
 		ELSIF state=m2 THEN
 			-- Set up output data
 			FOR i IN vdin'LOW TO vdin'HIGH LOOP
-				CASE cache(i) IS
+				CASE cache_reg(i) IS
 					WHEN psame => data_i(i) <= vdin(i);
 					WHEN pblack => data_i(i) <= '1';
 					WHEN pwhite => data_i(i) <= '0';
@@ -316,34 +320,35 @@ BEGIN
 				REPORT "RCB clear state reached";
 
 				REPORT "(x_min, y_min) are (" & to_string(x_min) & ", " & to_string(y_min) & "); "
-					&  "(x_max, y_max) are (" & to_string(x_max) & ", " & to_string(y_max) & ")";
+					&  "(x_max, y_max) are (" & to_string(x_max) & ", " & to_string(y_max) & "); "
+					&  "(x_clr, y_clr) are (" & to_string(clrx_reg) & ", " & to_string(clry_reg) & ")";
 
-				-- Clear is finished when clrx_reg=x_max, clry_reg=y_max
-				IF clrx_reg = x_max AND clry_reg = y_max THEN
-					-- TODO support clear, for now just transition back to draw
-					nstate := DRAW;
-					-- No need to delay any more
-					delaycmd <= '0';
-					REPORT "RCB clearscreen finished";
-				ELSE
-					-- Assert delay cmd while there is cleaning to do
-					delaycmd <= '1';
+				-- Assert delay cmd while there is cleaning to do
+				delaycmd <= '1';
 
-					-- Draw pixel at current x,y
-					pw <= '1';
-					pixnum <= pixnum_i;
-					pixopin <= pixop_t(dbb_bus.rcb_cmd(1 DOWNTO 0));
+				-- Draw pixel at current x,y
+				pw <= '1';
+				pixnum <= pixnum_i;
+				pixopin <= pixop_t(dbb_bus.rcb_cmd(1 DOWNTO 0));
 
-					-- Calculate next pixel location. Use raster scan, so left to right, bottom to top
-					IF clrx_reg = x_max THEN
+				-- Calculate next pixel location. Use raster scan, so left to right, bottom to top
+				IF clrx_reg = x_max THEN
+					IF clry_reg = y_max THEN
+						nstate := DRAW;
+						-- No need to delay any more
+						delaycmd <= '0';
+						REPORT "RCB clearscreen finished";
+					ELSE
 						-- We have hit far right, but we've already checked the top, so blindly increment
 						clry_reg <= std_logic_vector(unsigned(clry_reg) + 1);
-					ELSE
-						clrx_reg <= std_logic_vector(unsigned(clrx_reg) + 1);
-					END IF; -- pixel increment
+						-- Need to reset x to far left
+						clrx_reg <= x_min;
+					END IF; -- y finished
 
-				END IF; -- finished
-				
+				ELSE
+					clrx_reg <= std_logic_vector(unsigned(clrx_reg) + 1);
+				END IF; -- pixel increment
+
 			END IF;
 
 			-- Perform state transition

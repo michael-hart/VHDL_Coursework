@@ -634,7 +634,7 @@ BEGIN
 
 		ELSIF db_fsm_state = s_clear1 THEN
 			busy <= '1';
-			mux_out <= '0';
+			mux_out <= '1';
 			dbb_bus.startcmd <= '1';
 
 		ELSE -- db_fsm_state = s_clear2
