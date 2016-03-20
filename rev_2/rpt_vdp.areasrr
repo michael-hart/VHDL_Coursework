@@ -1,6 +1,6 @@
 #### START OF AREA REPORT #####[
 
-Part:			EP2C5FC256-6 (Altera)
+Part:			EP2C5QC208-6 (Altera)
 
 -------------------------------------------------------------------
 ########   Utilization report for  Top level view:   vdp   ########
@@ -11,9 +11,9 @@ SEQUENTIAL ATOMS
 
 Name          Total elements     Utilization     Notes
 ------------------------------------------------------
-REGISTERS     364                100 %                
+REGISTERS     307                100 %                
 ======================================================
-Total SEQUENTIAL ATOMS in the block vdp:	364 (28.89 % Utilization)
+Total SEQUENTIAL ATOMS in the block vdp:	307 (30.31 % Utilization)
 
 
 COMBINATIONAL ATOMS
@@ -21,10 +21,10 @@ COMBINATIONAL ATOMS
 
 Name                Total elements     Utilization     Notes
 ------------------------------------------------------------
-ATOMS               652                100 %                
+ATOMS               437                100 %                
 ARITHMETIC MODE     0                  0.0 %                
 ============================================================
-Total COMBINATIONAL ATOMS in the block vdp:	652 (51.75 % Utilization)
+Total COMBINATIONAL ATOMS in the block vdp:	437 (43.14 % Utilization)
 
 
 RAMS
@@ -66,9 +66,9 @@ SEQUENTIAL ATOMS
 
 Name          Total elements     Utilization     Notes
 ------------------------------------------------------
-REGISTERS     111                30.5 %               
+REGISTERS     105                34.2 %               
 ======================================================
-Total SEQUENTIAL ATOMS in the block vdp.db:	111 (8.81 % Utilization)
+Total SEQUENTIAL ATOMS in the block vdp.db:	105 (10.37 % Utilization)
 
 
 COMBINATIONAL ATOMS
@@ -76,10 +76,10 @@ COMBINATIONAL ATOMS
 
 Name                Total elements     Utilization     Notes
 ------------------------------------------------------------
-ATOMS               202                31. %                
+ATOMS               205                46.9 %               
 ARITHMETIC MODE     0                  0.0 %                
 ============================================================
-Total COMBINATIONAL ATOMS in the block vdp.db:	202 (16.03 % Utilization)
+Total COMBINATIONAL ATOMS in the block vdp.db:	205 (20.24 % Utilization)
 
 
 RAMS
@@ -121,9 +121,9 @@ SEQUENTIAL ATOMS
 
 Name          Total elements     Utilization     Notes
 ------------------------------------------------------
-REGISTERS     45                 12.4 %               
+REGISTERS     45                 14.7 %               
 ======================================================
-Total SEQUENTIAL ATOMS in the block db.draw_any_octant:	45 (3.57 % Utilization)
+Total SEQUENTIAL ATOMS in the block db.draw_any_octant:	45 (4.44 % Utilization)
 
 
 COMBINATIONAL ATOMS
@@ -131,10 +131,10 @@ COMBINATIONAL ATOMS
 
 Name                Total elements     Utilization     Notes
 ------------------------------------------------------------
-ATOMS               100                15.3 %               
+ATOMS               103                23.6 %               
 ARITHMETIC MODE     0                  0.0 %                
 ============================================================
-Total COMBINATIONAL ATOMS in the block db.draw_any_octant:	100 (7.94 % Utilization)
+Total COMBINATIONAL ATOMS in the block db.draw_any_octant:	103 (10.17 % Utilization)
 
 
 RAMS
@@ -176,9 +176,9 @@ SEQUENTIAL ATOMS
 
 Name          Total elements     Utilization     Notes
 ------------------------------------------------------
-REGISTERS     42                 11.5 %               
+REGISTERS     42                 13.7 %               
 ======================================================
-Total SEQUENTIAL ATOMS in the block draw_any_octant.draw_octant:	42 (3.33 % Utilization)
+Total SEQUENTIAL ATOMS in the block draw_any_octant.draw_octant:	42 (4.15 % Utilization)
 
 
 COMBINATIONAL ATOMS
@@ -186,10 +186,10 @@ COMBINATIONAL ATOMS
 
 Name                Total elements     Utilization     Notes
 ------------------------------------------------------------
-ATOMS               77                 11.8 %               
+ATOMS               79                 18.1 %               
 ARITHMETIC MODE     0                  0.0 %                
 ============================================================
-Total COMBINATIONAL ATOMS in the block draw_any_octant.draw_octant:	77 (6.11 % Utilization)
+Total COMBINATIONAL ATOMS in the block draw_any_octant.draw_octant:	79 (7.80 % Utilization)
 
 
 RAMS
@@ -241,10 +241,10 @@ COMBINATIONAL ATOMS
 
 Name                Total elements     Utilization     Notes
 ------------------------------------------------------------
-ATOMS               1                  0.1530 %             
+ATOMS               1                  0.2290 %             
 ARITHMETIC MODE     0                  0.0 %                
 ============================================================
-Total COMBINATIONAL ATOMS in the block draw_any_octant.inv_synplcty:	1 (0.08 % Utilization)
+Total COMBINATIONAL ATOMS in the block draw_any_octant.inv_synplcty:	1 (0.10 % Utilization)
 
 
 RAMS
@@ -296,10 +296,10 @@ COMBINATIONAL ATOMS
 
 Name                Total elements     Utilization     Notes
 ------------------------------------------------------------
-ATOMS               4                  0.6130 %             
+ATOMS               4                  0.9150 %             
 ARITHMETIC MODE     0                  0.0 %                
 ============================================================
-Total COMBINATIONAL ATOMS in the block draw_any_octant.inv_synplcty_0:	4 (0.32 % Utilization)
+Total COMBINATIONAL ATOMS in the block draw_any_octant.inv_synplcty_0:	4 (0.39 % Utilization)
 
 
 RAMS
@@ -351,10 +351,10 @@ COMBINATIONAL ATOMS
 
 Name                Total elements     Utilization     Notes
 ------------------------------------------------------------
-ATOMS               4                  0.6130 %             
+ATOMS               4                  0.9150 %             
 ARITHMETIC MODE     0                  0.0 %                
 ============================================================
-Total COMBINATIONAL ATOMS in the block draw_any_octant.inv_synplcty_1:	4 (0.32 % Utilization)
+Total COMBINATIONAL ATOMS in the block draw_any_octant.inv_synplcty_1:	4 (0.39 % Utilization)
 
 
 RAMS
@@ -406,10 +406,10 @@ COMBINATIONAL ATOMS
 
 Name                Total elements     Utilization     Notes
 ------------------------------------------------------------
-ATOMS               2                  0.3070 %             
+ATOMS               2                  0.4580 %             
 ARITHMETIC MODE     0                  0.0 %                
 ============================================================
-Total COMBINATIONAL ATOMS in the block draw_any_octant.inv_synplcty_2:	2 (0.16 % Utilization)
+Total COMBINATIONAL ATOMS in the block draw_any_octant.inv_synplcty_2:	2 (0.20 % Utilization)
 
 
 RAMS
@@ -451,9 +451,9 @@ SEQUENTIAL ATOMS
 
 Name          Total elements     Utilization     Notes
 ------------------------------------------------------
-REGISTERS     3                  0.8240 %             
+REGISTERS     3                  0.9770 %             
 ======================================================
-Total SEQUENTIAL ATOMS in the block draw_any_octant.rd:	3 (0.24 % Utilization)
+Total SEQUENTIAL ATOMS in the block draw_any_octant.rd:	3 (0.30 % Utilization)
 
 
 COMBINATIONAL ATOMS
@@ -496,6 +496,61 @@ BLACK BOXES     0                  0.0 %
 ========================================================
 Total Black Boxes in the block draw_any_octant.rd:	0 (0.00 % Utilization)
 
+----------------------------------------------------------
+########   Utilization report for  cell:   swap   ########
+Instance path:   draw_any_octant.swap                     
+==========================================================
+
+SEQUENTIAL ATOMS
+****************
+
+Name          Total elements     Utilization     Notes
+------------------------------------------------------
+REGISTERS     0                  0.0 %                
+======================================================
+Total SEQUENTIAL ATOMS in the block draw_any_octant.swap:	0 (0.00 % Utilization)
+
+
+COMBINATIONAL ATOMS
+*******************
+
+Name                Total elements     Utilization     Notes
+------------------------------------------------------------
+ATOMS               1                  0.2290 %             
+ARITHMETIC MODE     0                  0.0 %                
+============================================================
+Total COMBINATIONAL ATOMS in the block draw_any_octant.swap:	1 (0.10 % Utilization)
+
+
+RAMS
+****
+
+Name          Total elements     Number of bits     Utilization     Notes
+-------------------------------------------------------------------------
+SYNC RAMS     0                  0                  0.0 %                
+=========================================================================
+Total RAMS in the block draw_any_octant.swap:	0 (0.00 % Utilization)
+
+
+DSPs
+****
+
+Name     Total elements     Utilization     Notes
+-------------------------------------------------
+MACs     0                  0.0 %                
+=================================================
+Total DSPs in the block draw_any_octant.swap:	0 (0.00 % Utilization)
+
+
+Black Boxes
+***********
+
+Name            Total elements     Utilization     Notes
+--------------------------------------------------------
+BLACK BOXES     0                  0.0 %                
+========================================================
+Total Black Boxes in the block draw_any_octant.swap:	0 (0.00 % Utilization)
+
 ------------------------------------------------------------
 ########   Utilization report for  cell:   swap_0   ########
 Instance path:   draw_any_octant.swap_0                     
@@ -516,10 +571,10 @@ COMBINATIONAL ATOMS
 
 Name                Total elements     Utilization     Notes
 ------------------------------------------------------------
-ATOMS               12                 1.84 %               
+ATOMS               12                 2.75 %               
 ARITHMETIC MODE     0                  0.0 %                
 ============================================================
-Total COMBINATIONAL ATOMS in the block draw_any_octant.swap_0:	12 (0.95 % Utilization)
+Total COMBINATIONAL ATOMS in the block draw_any_octant.swap_0:	12 (1.18 % Utilization)
 
 
 RAMS
@@ -561,9 +616,9 @@ SEQUENTIAL ATOMS
 
 Name          Total elements     Utilization     Notes
 ------------------------------------------------------
-REGISTERS     253                69.5 %               
+REGISTERS     202                65.8 %               
 ======================================================
-Total SEQUENTIAL ATOMS in the block vdp.rcb:	253 (20.08 % Utilization)
+Total SEQUENTIAL ATOMS in the block vdp.rcb:	202 (19.94 % Utilization)
 
 
 COMBINATIONAL ATOMS
@@ -571,10 +626,10 @@ COMBINATIONAL ATOMS
 
 Name                Total elements     Utilization     Notes
 ------------------------------------------------------------
-ATOMS               450                69. %                
+ATOMS               232                53.1 %               
 ARITHMETIC MODE     0                  0.0 %                
 ============================================================
-Total COMBINATIONAL ATOMS in the block vdp.rcb:	450 (35.71 % Utilization)
+Total COMBINATIONAL ATOMS in the block vdp.rcb:	232 (22.90 % Utilization)
 
 
 RAMS
@@ -616,9 +671,9 @@ SEQUENTIAL ATOMS
 
 Name          Total elements     Utilization     Notes
 ------------------------------------------------------
-REGISTERS     32                 8.79 %               
+REGISTERS     32                 10.4 %               
 ======================================================
-Total SEQUENTIAL ATOMS in the block rcb.pix_word_cache:	32 (2.54 % Utilization)
+Total SEQUENTIAL ATOMS in the block rcb.pix_word_cache:	32 (3.16 % Utilization)
 
 
 COMBINATIONAL ATOMS
@@ -626,10 +681,10 @@ COMBINATIONAL ATOMS
 
 Name                Total elements     Utilization     Notes
 ------------------------------------------------------------
-ATOMS               116                17.8 %               
+ATOMS               87                 19.9 %               
 ARITHMETIC MODE     0                  0.0 %                
 ============================================================
-Total COMBINATIONAL ATOMS in the block rcb.pix_word_cache:	116 (9.21 % Utilization)
+Total COMBINATIONAL ATOMS in the block rcb.pix_word_cache:	87 (8.59 % Utilization)
 
 
 RAMS
@@ -671,9 +726,9 @@ SEQUENTIAL ATOMS
 
 Name          Total elements     Utilization     Notes
 ------------------------------------------------------
-REGISTERS     64                 17.6 %               
+REGISTERS     64                 20.8 %               
 ======================================================
-Total SEQUENTIAL ATOMS in the block rcb.ram_fsm:	64 (5.08 % Utilization)
+Total SEQUENTIAL ATOMS in the block rcb.ram_fsm:	64 (6.32 % Utilization)
 
 
 COMBINATIONAL ATOMS
@@ -681,10 +736,10 @@ COMBINATIONAL ATOMS
 
 Name                Total elements     Utilization     Notes
 ------------------------------------------------------------
-ATOMS               187                28.7 %               
+ATOMS               81                 18.5 %               
 ARITHMETIC MODE     0                  0.0 %                
 ============================================================
-Total COMBINATIONAL ATOMS in the block rcb.ram_fsm:	187 (14.84 % Utilization)
+Total COMBINATIONAL ATOMS in the block rcb.ram_fsm:	81 (8.00 % Utilization)
 
 
 RAMS

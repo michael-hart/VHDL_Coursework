@@ -3,12 +3,12 @@
 #--  Project file \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\run_options.txt
 
 #project files
+add_file -vhdl -lib work "./hardware_files/config_pack.vhd"
 add_file -vhdl -lib work "./hardware_files/db.vhd"
-add_file -vhdl -lib work "./hardware_files/project_pack.vhd"
 add_file -vhdl -lib work "./hardware_files/exercises.vhd"
+add_file -vhdl -lib work "./hardware_files/project_pack.vhd"
 add_file -vhdl -lib work "./hardware_files/rcb.vhd"
 add_file -vhdl -lib work "./hardware_files/vdp.vhd"
-add_file -vhdl -lib work "./hardware_files/config_pack.vhd"
 
 
 
@@ -24,7 +24,7 @@ set_option -project_relative_includes 1
 #device options
 set_option -technology CYCLONEII
 set_option -part EP2C5
-set_option -package FC256
+set_option -package QC208
 set_option -speed_grade -6
 set_option -part_companion ""
 

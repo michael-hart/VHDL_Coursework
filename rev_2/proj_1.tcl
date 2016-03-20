@@ -4,7 +4,7 @@
 set_global_assignment -name TOP_LEVEL_ENTITY "|vdp"
 set_global_assignment -name ROUTING_BACK_ANNOTATION_MODE NORMAL
 set_global_assignment -name FAMILY "CYCLONE II"
-set_global_assignment -name DEVICE "EP2C5F256C6"
+set_global_assignment -name DEVICE "EP2C5Q208C6"
 set_global_assignment -section_id vdp -name EDA_DESIGN_ENTRY_SYNTHESIS_TOOL "SYNPLIFY"
 set_global_assignment -section_id eda_design_synthesis -name EDA_USE_LMF synplcty.lmf
 set_global_assignment -name TAO_FILE "myresults.tao"

@@ -64,11 +64,16 @@ BEGIN
 		WAIT UNTIL clk'EVENT AND clk = '1';
 		IF busy = '0' THEN
 			hdb_reg <= hdb;
+		ELSE
+			hdb_reg <= hdb_reg;
 		END IF;
 
 		IF update_old = '1' THEN
 			old_x <= new_x;
 			old_y <= new_y;
+		ELSE
+			old_x <= old_x;
+			old_y <= old_y;
 		END IF;
 
 		IF oct_lock = '0' THEN
@@ -76,6 +81,11 @@ BEGIN
 			negx1	 	<= negx;
 			negy1	 	<= negy;
 			xbias1  <= xbias;
+		ELSE 
+			swapxy1 <= swapxy1;
+			negx1	<= negx1;
+			negy1	<= negy1;
+			xbias1  <= xbias1;
 		END IF;
 
 	END PROCESS REG;

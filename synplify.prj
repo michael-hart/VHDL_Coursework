@@ -1,10 +1,14 @@
 #--  Synopsys, Inc.
 #--  Version I-2013.09-SP1 
 #--  Project file \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\synplify.prj
-#--  Written on Sun Mar 20 16:58:12 2016
-
 
 #project files
+add_file -vhdl -lib work "./hardware_files/config_pack.vhd"
+add_file -vhdl -lib work "./hardware_files/db.vhd"
+add_file -vhdl -lib work "./hardware_files/exercises.vhd"
+add_file -vhdl -lib work "./hardware_files/project_pack.vhd"
+add_file -vhdl -lib work "./hardware_files/rcb.vhd"
+add_file -vhdl -lib work "./hardware_files/vdp.vhd"
 
 
 
@@ -18,13 +22,14 @@ set_option -vlog_std sysv
 set_option -project_relative_includes 1
 
 #device options
-set_option -technology ACHRONIXSPEEDSTER22IHD
+set_option -technology AchronixSpeedster22iHD
 set_option -part AC22iHD1000
 set_option -package F53
 set_option -speed_grade C1
 set_option -part_companion ""
 
 #compilation/mapping options
+set_option -top_module "vdp"
 
 # mapper_options
 set_option -frequency auto

@@ -3,12 +3,12 @@
 #--  Project file \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\scratchproject.prs
 
 #project files
+add_file -vhdl -lib work "//icnas4.cc.ic.ac.uk/mh1613/Git/VHDL_CWK/hardware_files/config_pack.vhd"
 add_file -vhdl -lib work "//icnas4.cc.ic.ac.uk/mh1613/Git/VHDL_CWK/hardware_files/db.vhd"
-add_file -vhdl -lib work "//icnas4.cc.ic.ac.uk/mh1613/Git/VHDL_CWK/hardware_files/project_pack.vhd"
 add_file -vhdl -lib work "//icnas4.cc.ic.ac.uk/mh1613/Git/VHDL_CWK/hardware_files/exercises.vhd"
+add_file -vhdl -lib work "//icnas4.cc.ic.ac.uk/mh1613/Git/VHDL_CWK/hardware_files/project_pack.vhd"
 add_file -vhdl -lib work "//icnas4.cc.ic.ac.uk/mh1613/Git/VHDL_CWK/hardware_files/rcb.vhd"
 add_file -vhdl -lib work "//icnas4.cc.ic.ac.uk/mh1613/Git/VHDL_CWK/hardware_files/vdp.vhd"
-add_file -vhdl -lib work "//icnas4.cc.ic.ac.uk/mh1613/Git/VHDL_CWK/hardware_files/config_pack.vhd"
 
 
 
@@ -25,7 +25,7 @@ set_option -include_path {//icnas4.cc.ic.ac.uk/mh1613/Git/VHDL_CWK/}
 #device options
 set_option -technology CYCLONEII
 set_option -part EP2C5
-set_option -package FC256
+set_option -package QC208
 set_option -speed_grade -6
 set_option -part_companion ""
 
