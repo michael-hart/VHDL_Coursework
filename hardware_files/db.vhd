@@ -51,14 +51,15 @@ ARCHITECTURE rtl OF db IS
 
 
 	-- Aliases of vector slices to increase code readability
-	ALIAS hdb_x     : std_logic_vector(VSIZE-1 DOWNTO 0) IS hdb(2*VSIZE + 1 DOWNTO VSIZE+2);
-	ALIAS hdb_y     : std_logic_vector(VSIZE-1 DOWNTO 0) IS hdb(VSIZE+1 DOWNTO 2);
-  ALIAS new_x     : std_logic_vector(VSIZE-1 DOWNTO 0) IS hdb_reg(2*VSIZE + 1 DOWNTO VSIZE+2);
+	ALIAS op        : std_logic_vector(1 DOWNTO 0) IS hdb_reg((VSIZE * 2) + 3 DOWNTO (VSIZE * 2) + 2);
+
+	ALIAS new_x     : std_logic_vector(VSIZE-1 DOWNTO 0) IS hdb_reg(2*VSIZE + 1 DOWNTO VSIZE+2);
   ALIAS new_y     : std_logic_vector(VSIZE-1 DOWNTO 0) IS hdb_reg(VSIZE+1 DOWNTO 2);
-  ALIAS old_x     : std_logic_vector(VSIZE-1 DOWNTO 0) IS xy_old_reg(2*VSIZE - 1 DOWNTO VSIZE);
-  ALIAS old_y     : std_logic_vector(VSIZE-1 DOWNTO 0) IS xy_old_reg(VSIZE-1 DOWNTO 0);
-  ALIAS op        : std_logic_vector(1 DOWNTO 0) IS hdb_reg((VSIZE * 2) + 3 DOWNTO (VSIZE * 2) + 2);
+
   ALIAS pen       : std_logic_vector(1 DOWNTO 0) IS hdb_reg(1 DOWNTO 0);
+
+	ALIAS old_x     : std_logic_vector(VSIZE-1 DOWNTO 0) IS xy_old_reg(2*VSIZE - 1 DOWNTO VSIZE);
+  ALIAS old_y     : std_logic_vector(VSIZE-1 DOWNTO 0) IS xy_old_reg(VSIZE-1 DOWNTO 0);
 
 BEGIN
 
@@ -70,7 +71,9 @@ BEGIN
 		END IF;
 
 		IF update_old = '1' THEN
-			xy_old_reg <= hdb_reg(13 DOWNTO 2);
+			--xy_old_reg <= hdb_reg(13 DOWNTO 2);
+			old_x <= new_x;
+			old_y <= new_y;
 		END IF;
 
 		IF oct_lock = '0' THEN
@@ -137,6 +140,8 @@ BEGIN
 			xin <= new_x;
 			yin <= new_y;
 		ELSE
+		--xin <= xy_old_reg(11 DOWNTO 6);
+		--yin <= xy_old_reg(5 DOWNTO 0);
 			xin <= old_x;
 			yin <= old_y;
 		END IF;
