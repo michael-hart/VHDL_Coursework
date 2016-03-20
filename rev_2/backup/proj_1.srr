@@ -1,0 +1,83 @@
+#Build: Synplify Premier I-2013.09-SP1 , Build 704R, Nov 22 2013
+#install: C:\EEE\Synopsys\fpga_I-2013.09-SP1
+#OS: Windows 7 6.1
+#Hostname: EEWS506A-016
+
+#Implementation: rev_2
+
+$ Start of Compile
+#Sun Mar 20 17:01:14 2016
+
+Synopsys VHDL Compiler, version comp201309rcp1, Build 042R, built Nov 24 2013
+@N|Running in 64-bit mode
+Copyright (C) 1994-2013 Synopsys, Inc. This software and the associated documentation are proprietary to Synopsys, Inc. This software may only be used in accordance with the terms and conditions of a written license agreement with Synopsys, Inc.  All other use or distribution of the software is strictly prohibited.
+
+@N: CD720 :"C:\EEE\Synopsys\fpga_I-2013.09-SP1\lib\vhd\std.vhd":123:18:123:21|Setting time resolution to ns
+@N:"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\vdp.vhd":11:7:11:9|Top entity is set to vdp.
+File \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\config_pack.vhd changed - recompiling
+File C:\EEE\Synopsys\fpga_I-2013.09-SP1\lib\vhd\std_textio.vhd changed - recompiling
+File \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd changed - recompiling
+File \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd changed - recompiling
+File \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd changed - recompiling
+File \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\vdp.vhd changed - recompiling
+VHDL syntax check successful!
+@N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\vdp.vhd":11:7:11:9|Synthesizing work.vdp.rtl 
+@N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":139:7:139:9|Synthesizing work.rcb.rtl1 
+@N: CD233 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":192:17:192:18|Using sequential encoding for type rcb_states
+@W: CG296 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":252:9:252:15|Incomplete sensitivity list - assuming completeness
+@W: CG290 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":261:5:261:12|Referenced variable word_reg is not in sensitivity list
+@W: CG296 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":273:8:273:14|Incomplete sensitivity list - assuming completeness
+@W: CG290 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":277:6:277:16|Referenced variable idle_cycles is not in sensitivity list
+@W: CD434 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":284:63:284:68|Signal pixnum in the sensitivity list is not used in the process
+@W: CG296 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":284:11:284:17|Incomplete sensitivity list - assuming completeness
+@W: CG290 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":339:23:339:29|Referenced variable xy_prev.y is not in sensitivity list
+@W: CG290 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":338:32:338:38|Referenced variable xy_prev.x is not in sensitivity list
+@W: CG290 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":296:5:296:13|Referenced variable vram_done is not in sensitivity list
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":182:16:182:23|Signal pixnum_i is undriven 
+@N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":10:7:10:13|Synthesizing work.ram_fsm.synth 
+@N: CD233 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":30:16:30:17|Using sequential encoding for type state_t
+@W: CG296 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":50:5:50:11|Incomplete sensitivity list - assuming completeness
+@W: CG290 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":70:16:70:20|Referenced variable cache_0 is not in sensitivity list
+@W: CG290 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":70:16:70:20|Referenced variable cache_1 is not in sensitivity list
+@W: CG290 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":75:37:75:40|Referenced variable vdin is not in sensitivity list
+@W: CG290 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":70:16:70:20|Referenced variable cache_2 is not in sensitivity list
+@W: CG290 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":70:16:70:20|Referenced variable cache_3 is not in sensitivity list
+@W: CG290 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":70:16:70:20|Referenced variable cache_4 is not in sensitivity list
+@W: CG290 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":70:16:70:20|Referenced variable cache_5 is not in sensitivity list
+@W: CG290 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":70:16:70:20|Referenced variable cache_6 is not in sensitivity list
+@W: CG290 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":70:16:70:20|Referenced variable cache_7 is not in sensitivity list
+@W: CG290 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":70:16:70:20|Referenced variable cache_8 is not in sensitivity list
+@W: CG290 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":70:16:70:20|Referenced variable cache_9 is not in sensitivity list
+@W: CG290 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":70:16:70:20|Referenced variable cache_10 is not in sensitivity list
+@W: CG290 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":70:16:70:20|Referenced variable cache_11 is not in sensitivity list
+@W: CG290 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":70:16:70:20|Referenced variable cache_12 is not in sensitivity list
+@W: CG290 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":70:16:70:20|Referenced variable cache_13 is not in sensitivity list
+@W: CG290 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":70:16:70:20|Referenced variable cache_14 is not in sensitivity list
+@W: CG290 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":70:16:70:20|Referenced variable cache_15 is not in sensitivity list
+Post processing for work.ram_fsm.synth
+@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":67:2:67:3|Latch generated from process for signal data_ram_i(15 downto 0); possible missing assignment in an if or case statement.
+@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":67:2:67:3|Latch generated from process for signal addr_ram_i(7 downto 0); possible missing assignment in an if or case statement.
+@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":67:2:67:3|Latch generated from process for signal cache_reg_15(1 downto 0); possible missing assignment in an if or case statement.
+@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":67:2:67:3|Latch generated from process for signal cache_reg_14(1 downto 0); possible missing assignment in an if or case statement.
+@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":67:2:67:3|Latch generated from process for signal cache_reg_13(1 downto 0); possible missing assignment in an if or case statement.
+@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":67:2:67:3|Latch generated from process for signal cache_reg_12(1 downto 0); possible missing assignment in an if or case statement.
+@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":67:2:67:3|Latch generated from process for signal cache_reg_11(1 downto 0); possible missing assignment in an if or case statement.
+@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":67:2:67:3|Latch generated from process for signal cache_reg_10(1 downto 0); possible missing assignment in an if or case statement.
+@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":67:2:67:3|Latch generated from process for signal cache_reg_9(1 downto 0); possible missing assignment in an if or case statement.
+@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":67:2:67:3|Latch generated from process for signal cache_reg_8(1 downto 0); possible missing assignment in an if or case statement.
+@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":67:2:67:3|Latch generated from process for signal cache_reg_7(1 downto 0); possible missing assignment in an if or case statement.
+@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":67:2:67:3|Latch generated from process for signal cache_reg_6(1 downto 0); possible missing assignment in an if or case statement.
+@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":67:2:67:3|Latch generated from process for signal cache_reg_5(1 downto 0); possible missing assignment in an if or case statement.
+@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":67:2:67:3|Latch generated from process for signal cache_reg_4(1 downto 0); possible missing assignment in an if or case statement.
+@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":67:2:67:3|Latch generated from process for signal cache_reg_3(1 downto 0); possible missing assignment in an if or case statement.
+@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":67:2:67:3|Latch generated from process for signal cache_reg_2(1 downto 0); possible missing assignment in an if or case statement.
+@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":67:2:67:3|Latch generated from process for signal cache_reg_1(1 downto 0); possible missing assignment in an if or case statement.
+@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":67:2:67:3|Latch generated from process for signal cache_reg_0(1 downto 0); possible missing assignment in an if or case statement.
+@N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":8:7:8:20|Synthesizing work.pix_word_cache.together 
+@E: CD865 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":88:44:88:54|Expression <E73> does not have a position value
+Expression: *E73
+@END
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+# Sun Mar 20 17:01:15 2016
+
+###########################################################]

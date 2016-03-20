@@ -1,0 +1,34 @@
+
+fsm_encoding {11508501} onehot
+
+fsm_state_encoding {11508501} s_wait {000000000}
+
+fsm_state_encoding {11508501} s_move {000000011}
+
+fsm_state_encoding {11508501} s_draw1 {000000101}
+
+fsm_state_encoding {11508501} s_draw2 {000001001}
+
+fsm_state_encoding {11508501} s_draw3 {000010001}
+
+fsm_state_encoding {11508501} s_draw4 {000100001}
+
+fsm_state_encoding {11508501} s_draw5 {001000001}
+
+fsm_state_encoding {11508501} s_clear1 {010000001}
+
+fsm_state_encoding {11508501} s_clear2 {100000001}
+
+fsm_registers {11508501} {db_fsm_state[0]}  {db_fsm_state[1]}  {db_fsm_state[2]}  {db_fsm_state[3]}  {db_fsm_state[4]}  {db_fsm_state[5]}  {db_fsm_state[6]}  {db_fsm_state[7]}  {db_fsm_state_i[8]} 
+
+fsm_encoding {12318312} sequential
+
+fsm_state_encoding {12318312} m3 {00}
+
+fsm_state_encoding {12318312} m2 {01}
+
+fsm_state_encoding {12318312} m1 {10}
+
+fsm_state_encoding {12318312} mx {11}
+
+fsm_registers {12318312} {state[1]}  {state[0]} 

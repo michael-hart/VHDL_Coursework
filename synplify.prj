@@ -1,0 +1,64 @@
+#--  Synopsys, Inc.
+#--  Version I-2013.09-SP1 
+#--  Project file \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\synplify.prj
+#--  Written on Sun Mar 20 16:58:12 2016
+
+
+#project files
+
+
+
+#implementation: "rev_2"
+impl -add rev_2 -type fpga
+
+#
+#implementation attributes
+
+set_option -vlog_std sysv
+set_option -project_relative_includes 1
+
+#device options
+set_option -technology ACHRONIXSPEEDSTER22IHD
+set_option -part AC22iHD1000
+set_option -package F53
+set_option -speed_grade C1
+set_option -part_companion ""
+
+#compilation/mapping options
+
+# mapper_options
+set_option -frequency auto
+set_option -write_verilog 0
+set_option -write_vhdl 0
+set_option -srs_instrumentation 1
+
+# Achronix Speedster22iHD
+set_option -maxfan 10000
+set_option -RWCheckOnRam 0
+set_option -disable_io_insertion 0
+set_option -retime_registers_forward 0
+set_option -pipe 1
+set_option -retiming 0
+set_option -update_models_cp 0
+set_option -run_prop_extract 1
+set_option -fix_gated_and_generated_clocks 1
+
+# sequential_optimization_options
+set_option -symbolic_fsm_compiler 1
+
+# Compiler Options
+set_option -compiler_compatible 0
+set_option -resource_sharing 1
+set_option -multi_file_compilation_unit 1
+
+# Compiler Options
+set_option -auto_infer_blackbox 0
+
+#automatic place and route (vendor) options
+set_option -write_apr_constraint 1
+
+#set result format/file last
+project -result_file "./rev_2/proj_1.vma"
+
+#design plan options
+impl -active "rev_2"

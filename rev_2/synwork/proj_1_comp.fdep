@@ -1,0 +1,65 @@
+#defaultlanguage:vhdl
+#OPTIONS:"|-top|vdp|-prodtype|synplify_premier|-dw|-verification_mode|0|-infer_seqShift|-primux|-fixsmult|-dspmac|-nram|-divnmod|-fast_synthesis|0|-encrypt|-pro|-lite|-proto|-ui|-fid2|-ram|-sharing|on|-ll|2000|-autosm|-ignore_undefined_lib|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work"
+#CUR:"C:\\EEE\\Synopsys\\fpga_I-2013.09-SP1\\bin64\\c_vhdl.exe":1385356906
+#CUR:"C:\\EEE\\Synopsys\\fpga_I-2013.09-SP1\\lib\\vhd\\location.map":1385152106
+#CUR:"C:\\EEE\\Synopsys\\fpga_I-2013.09-SP1\\lib\\vhd\\std.vhd":1385105852
+#CUR:"C:\\EEE\\Synopsys\\fpga_I-2013.09-SP1\\lib\\vhd\\snps_haps_pkg.vhd":1385105852
+#CUR:"C:\\EEE\\Synopsys\\fpga_I-2013.09-SP1\\lib\\vhd\\std1164.vhd":1385105852
+#CUR:"C:\\EEE\\Synopsys\\fpga_I-2013.09-SP1\\lib\\vhd\\numeric.vhd":1385105852
+#CUR:"C:\\EEE\\Synopsys\\fpga_I-2013.09-SP1\\lib\\vhd\\umr_capim.vhd":1385106116
+#CUR:"C:\\EEE\\Synopsys\\fpga_I-2013.09-SP1\\lib\\vhd\\arith.vhd":1385105852
+#CUR:"C:\\EEE\\Synopsys\\fpga_I-2013.09-SP1\\lib\\vhd\\unsigned.vhd":1385105852
+#CUR:"\\\\icnas4.cc.ic.ac.uk\\mh1613\\Git\\VHDL_CWK\\hardware_files\\config_pack.vhd":1458493058
+#CUR:"C:\\EEE\\Synopsys\\fpga_I-2013.09-SP1\\lib\\vhd\\std_textio.vhd":1385105852
+#CUR:"\\\\icnas4.cc.ic.ac.uk\\mh1613\\Git\\VHDL_CWK\\hardware_files\\project_pack.vhd":1458493058
+#CUR:"\\\\icnas4.cc.ic.ac.uk\\mh1613\\Git\\VHDL_CWK\\hardware_files\\exercises.vhd":1458493682
+#CUR:"\\\\icnas4.cc.ic.ac.uk\\mh1613\\Git\\VHDL_CWK\\hardware_files\\db.vhd":1458493058
+#CUR:"\\\\icnas4.cc.ic.ac.uk\\mh1613\\Git\\VHDL_CWK\\hardware_files\\rcb.vhd":1458493058
+#CUR:"\\\\icnas4.cc.ic.ac.uk\\mh1613\\Git\\VHDL_CWK\\hardware_files\\vdp.vhd":1458493058
+0 "\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd" vhdl
+1 "\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\project_pack.vhd" vhdl
+2 "\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd" vhdl
+3 "\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd" vhdl
+4 "\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\vdp.vhd" vhdl
+5 "\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\config_pack.vhd" vhdl
+
+# Dependency Lists (Uses list)
+0 2 1 
+1 5 
+2 1 
+3 2 1 5 
+4 0 3 1 5 
+5 -1
+
+# Dependency Lists (Users Of)
+0 4 
+1 4 3 2 0 
+2 3 0 
+3 4 
+4 -1
+5 4 3 1 
+
+# Design Unit to File Association
+arch work db rtl 0
+module work db 0
+arch work draw_any_octant comb 2
+module work draw_any_octant 2
+arch work rd behav 2
+module work rd 2
+arch work inv rtl 2
+module work inv 2
+arch work swap rtl 2
+module work swap 2
+arch work draw_octant comb 2
+module work draw_octant 2
+arch work pix_word_cache together 2
+module work pix_word_cache 2
+arch work rcb rtl1 3
+module work rcb 3
+arch work ram_fsm synth 3
+module work ram_fsm 3
+arch work vdp rtl 4
+module work vdp 4
+
+
+# Configuration files used
