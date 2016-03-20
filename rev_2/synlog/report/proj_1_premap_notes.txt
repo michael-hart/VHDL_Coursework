@@ -1,3 +1,4 @@
 @N: MF248 |Running in 64-bit mode.
 @N: MF666 |Clock conversion enabled 
+@N: BN362 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\rcb.vhd":36:8:36:13|Removing sequential instance P1\.done_i of view:PrimLib.dff(prim) in hierarchy view:work.ram_fsm(synth) because there are no references to its outputs 
 @N: BN225 |Writing default property annotation file \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\proj_1.sap.

@@ -4,115 +4,18 @@
 @W: MO171 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":238:2:238:3|Sequential instance DB1.update_old reduced to a combinational gate by constant propagation 
 @W: MO171 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":238:2:238:3|Sequential instance DB1.mux_in reduced to a combinational gate by constant propagation 
 @W: MO171 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":238:2:238:3|Sequential instance DB1.dbb_bus\.startcmd reduced to a combinational gate by constant propagation 
-@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\rcb.vhd":86:7:86:50|Net RCB1.E2.C1\.un7_state appears to be an unidentified clock source. Assuming default frequency. 
-@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\rcb.vhd":414:11:414:16|Net RCB1.delaycmd_1_sqmuxa appears to be an unidentified clock source. Assuming default frequency. 
+@W: BN137 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\rcb.vhd":86:7:86:50|Found combinational loop during mapping at net RCB1.E2.C1\.un7_state
+@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\rcb.vhd":382:9:382:30|Net RCB1.xy_max\.X_1_sqmuxa appears to be an unidentified clock source. Assuming default frequency. 
 @W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":238:2:238:3|Net DB1.un1_db_fsm_state_5 appears to be an unidentified clock source. Assuming default frequency. 
 @W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":238:2:238:3|Net DB1.un1_db_fsm_state_6 appears to be an unidentified clock source. Assuming default frequency. 
 @W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":238:2:238:3|Net DB1.un1_db_fsm_state_13 appears to be an unidentified clock source. Assuming default frequency. 
 @W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":238:2:238:3|Net DB1.un1_db_fsm_state_3 appears to be an unidentified clock source. Assuming default frequency. 
 @W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":238:2:238:3|Net DB1.un1_db_fsm_state_7 appears to be an unidentified clock source. Assuming default frequency. 
-@W: MT337 |Time borrowing decreased slack from -3.7261 ns  to -4.0199 ns.  
-@W: MF576 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\rcb.vhd":341:2:341:3|Transparent phase of latch has been extended by clock gate. Performing clock optimization on instance RCB1.xy_max\.X[5] (view:work.vdp(rtl)).
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_max\.X[0]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_max\.X_s_4
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_max\.X[1]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_max\.X_s_3
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_max\.X[2]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_max\.X_s_2
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_max\.X[3]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_max\.X_s_1
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_max\.X[4]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_max\.X_s_0
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_max\.X[5]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_max\.X_s
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_max\.Y[0]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_max\.Y_s_4
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_max\.Y[1]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_max\.Y_s_3
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_max\.Y[2]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_max\.Y_s_2
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_max\.Y[3]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_max\.Y_s_1
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_max\.Y[4]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_max\.Y_s_0
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_max\.Y[5]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_max\.Y_s
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_min\.X[0]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_min\.X_s_4
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_min\.X[1]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_min\.X_s_3
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_min\.X[2]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_min\.X_s_2
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_min\.X[3]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_min\.X_s_1
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_min\.X[4]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_min\.X_s_0
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_min\.X[5]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_min\.X_s
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_min\.Y[0]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_min\.Y_s_4
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_min\.Y[1]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_min\.Y_s_3
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_min\.Y[2]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_min\.Y_s_2
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_min\.Y[3]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_min\.Y_s_1
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_min\.Y[4]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_min\.Y_s_0
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_min\.Y[5]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.xy_min\.Y_s
+@W: MT337 |Time borrowing decreased slack from -3.2294 ns  to -3.4578 ns.  
 @W: FA160 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\vdp.vhd":38:14:38:23|Removing sequential instance DB1.update_old_17 of view:ALTERA_APEX.S_DFFE_P(PRIM) because its output is stuck at a constant value 
-@W: FA160 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\vdp.vhd":38:14:38:23|Removing sequential instance DB1.mux_in_21 of view:ALTERA_APEX.S_DFFE_P(PRIM) because its output is stuck at a constant value 
-@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\rcb.vhd":86:7:86:50|Net RCB1.E2.un7_state_i appears to be an unidentified clock source. Assuming default frequency. 
+@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\rcb.vhd":382:9:382:30|Net RCB1.X_1_sqmuxa appears to be an unidentified clock source. Assuming default frequency. 
 @W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":238:2:238:3|Net DB1.un1_db_fsm_state_1_x appears to be an unidentified clock source. Assuming default frequency. 
 @W: MT558 |Unable to locate source for clock db|db_fsm_state_derived_clock[5]. Clock will not be forward annotated
 @W: MT558 |Unable to locate source for clock db|db_fsm_state_derived_clock[1]. Clock will not be forward annotated
-@W: BN137 :|Found combinational loop during mapping at net RCB1.X_xo_0[5]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.X_s_latmux_0
-@W: BN137 :|Found combinational loop during mapping at net RCB1.X_xo_0[3]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.X_s_1_latmux_0
-@W: BN137 :|Found combinational loop during mapping at net RCB1.Y_xo[3]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.Y_s_1_latmux_0
-@W: BN137 :|Found combinational loop during mapping at net RCB1.Y_xo[2]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.Y_s_2_latmux_0
-@W: BN137 :|Found combinational loop during mapping at net RCB1.Y_xo_0[0]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.Y_s_4_latmux_0
-@W: BN137 :|Found combinational loop during mapping at net RCB1.Y_xo_0[1]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.Y_s_3_latmux_0
-@W: BN137 :|Found combinational loop during mapping at net RCB1.X_xo_0[4]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.X_s_0_latmux_0
-@W: BN137 :|Found combinational loop during mapping at net RCB1.X_xo_0[0]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.X_s_4_latmux_0
-@W: BN137 :|Found combinational loop during mapping at net RCB1.X_xo_0[1]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.X_s_3_latmux_0
-@W: BN137 :|Found combinational loop during mapping at net RCB1.X_xo_0[2]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.X_s_2_latmux_0
-@W: BN137 :|Found combinational loop during mapping at net RCB1.Y_xo[4]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.Y_s_0_latmux_0
-@W: BN137 :|Found combinational loop during mapping at net RCB1.Y_xo[5]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.Y_s_latmux_0
-@W: BN137 :|Found combinational loop during mapping at net RCB1.Y_s_3_latmux
-@W: BN137 :|Found combinational loop during mapping at net RCB1.Y_xo[1]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.X_xo[5]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.X_s_latmux
-@W: BN137 :|Found combinational loop during mapping at net RCB1.X_xo[4]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.X_s_0_latmux
-@W: BN137 :|Found combinational loop during mapping at net RCB1.X_xo[2]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.X_s_2_latmux
-@W: BN137 :|Found combinational loop during mapping at net RCB1.X_xo[3]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.X_s_1_latmux
-@W: BN137 :|Found combinational loop during mapping at net RCB1.E2.Y_en[2]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.Y_s_2_latmux
-@W: BN137 :|Found combinational loop during mapping at net RCB1.E2.Y_en[3]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.Y_s_1_latmux
-@W: BN137 :|Found combinational loop during mapping at net RCB1.E2.Y_en[4]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.Y_s_0_latmux
-@W: BN137 :|Found combinational loop during mapping at net RCB1.E2.Y_en[5]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.Y_s_latmux
-@W: BN137 :|Found combinational loop during mapping at net RCB1.X_xo[0]
-@W: BN137 :|Found combinational loop during mapping at net RCB1.X_s_4_latmux
-@W: BN137 :|Found combinational loop during mapping at net RCB1.E2.X_en_0_1
-@W: BN137 :|Found combinational loop during mapping at net RCB1.X_s_3_latmux
-@W: BN137 :|Found combinational loop during mapping at net RCB1.E2.Y_en_0_d0
-@W: BN137 :|Found combinational loop during mapping at net RCB1.Y_s_4_latmux
-@W: MT420 |Found inferred clock vdp|clk with period 10.69ns. Please declare a user-defined clock on object "p:clk"
+@W: BN137 :|Found combinational loop during mapping at net RCB1.E2.N_3386_i_i
+@W: MT420 |Found inferred clock vdp|clk with period 10.12ns. Please declare a user-defined clock on object "p:clk"

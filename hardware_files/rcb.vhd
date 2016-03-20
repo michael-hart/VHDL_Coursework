@@ -43,7 +43,7 @@ BEGIN
 	busy <= busy_i;
 	done <= done_i;
 	addr_ram <= addr_ram_i;
-	data_ram <= data_calculated;
+	data_ram <= data_ram_i;
 
 	-- MUX to determine what the value of addr_ram_i is
 	-- Only changes to a new value if the state demands it
@@ -321,7 +321,7 @@ BEGIN
 	END PROCESS VRAM;
 
 	-- Logic depending on state change
-	RCB_LOG : PROCESS(rcb_state, vram_delay, dbb_bus, vram_write, vram_done, xy_prev, clrxy_reg, xy_max) IS
+	RCB_LOG : PROCESS(rcb_state, dbb_bus, vram_write, vram_done, xy_prev, clrxy_reg, xy_max) IS
 	BEGIN
 
 		-- Default pix word cache control signals
@@ -331,80 +331,71 @@ BEGIN
 		
 		-- Default delay is 0
 		delaycmd <= '0';
+		vram_start <= '0';
 
-		-- Check if done, such that busy can be reset
-		IF vram_done = '1' THEN
+		-- If we want to write, trigger it
+		IF vram_write = '1' THEN
+			-- Trigger
+			vram_start <= '1';
+			-- Have to miss this command to trigger a write
+			delaycmd <= '1';
+			-- Clear cache 
+			wen_all <= '1';
+			-- busy signal if we are triggering a write
+			busy <= '1';
+		ELSE
+	
+			-- Make sure RAM is not triggered
+			vram_start <= '0';
+
+			-- Ensure that busy is not high
 			busy <= '0';
-		END IF; --vram_done
 
-		-- If vram is not overloaded, perform process operations
-		IF vram_delay = '0' THEN
+			-- If we are in draw state, decode command
+			IF rcb_state = DRAW THEN
 
-			-- If we want to write, trigger it
-			IF vram_write = '1' THEN
-				-- Trigger
-				vram_start <= '1';
-				-- Have to miss this command to trigger a write
-				delaycmd <= '1';
-				-- Clear cache 
-				wen_all <= '1';
-				-- busy signal if we are triggering a write
-				busy <= '1';
-			ELSE
-		
-				-- Make sure RAM is not triggered
-				vram_start <= '0';
+				-- Check if we are starting a command
+				IF dbb_bus.startcmd = '1' THEN
 
-				-- Ensure that busy is not high
-				busy <= '0';
+					-- If the command is a draw, draw the pixel
+					IF dbb_bus.rcb_cmd(2) = '0' THEN
 
-				-- If we are in draw state, decode command
-				IF rcb_state = DRAW THEN
+						pw <= '1';
+						pixopin <= pixop_t(dbb_bus.rcb_cmd(1 DOWNTO 0));
 
-					-- Check if we are starting a command
-					IF dbb_bus.startcmd = '1' THEN
+					ELSE
+						-- Clear command; calculate initial values
+						delaycmd <= '1';
+						
+						-- Bottom left pixel
+						xy_min <= ( x => MIN_SLV(xy_prev.x, dbb_bus.X),
+									y => MIN_SLV(xy_prev.y, dbb_bus.Y));
 
-						-- If the command is a draw, draw the pixel
-						IF dbb_bus.rcb_cmd(2) = '0' THEN
+						-- Top right pixel
+						xy_max <= ( x => MAX_SLV(xy_prev.x, dbb_bus.X),
+									y => MAX_SLV(xy_prev.y, dbb_bus.Y));
 
-							pw <= '1';
-							pixopin <= pixop_t(dbb_bus.rcb_cmd(1 DOWNTO 0));
+					END IF; -- Command decode
 
-						ELSE
-							-- Clear command; calculate initial values
-							delaycmd <= '1';
-							
-							-- Bottom left pixel
-							xy_min <= ( x => MIN_SLV(xy_prev.x, dbb_bus.X),
-										y => MIN_SLV(xy_prev.y, dbb_bus.Y));
+				END IF; -- Start command
 
-							-- Top right pixel
-							xy_max <= ( x => MAX_SLV(xy_prev.x, dbb_bus.X),
-										y => MAX_SLV(xy_prev.y, dbb_bus.Y));
+			ELSIF rcb_state = CLEAR THEN
+			  
+				-- If clearing, then delay next command
+				IF clrxy_reg = xy_max THEN
+				--IF clrx_reg = x_max AND clry_reg = y_max THEN
+					delaycmd <= '0';
+				ELSE
+					delaycmd <= '1';
+				END IF;
 
-						END IF; -- Command decode
+				-- Write current clearscreen pixel
+				pw <= '1';
+				pixopin <= pixop_t(dbb_bus.rcb_cmd(1 DOWNTO 0));
 
-					END IF; -- Start command
+			END IF; -- State machine decode
 
-				ELSIF rcb_state = CLEAR THEN
-				  
-				  	-- If clearing, then delay next command
-				  	IF clrxy_reg = xy_max THEN
-				  	--IF clrx_reg = x_max AND clry_reg = y_max THEN
-				  		delaycmd <= '0';
-				  	ELSE
-				  		delaycmd <= '1';
-				  	END IF;
-
-					-- Write current clearscreen pixel
-					pw <= '1';
-					pixopin <= pixop_t(dbb_bus.rcb_cmd(1 DOWNTO 0));
-
-				END IF; -- State machine decode
-
-			END IF; -- RAM write check
-
-		END IF; -- vram delay
+		END IF; -- RAM write check
 
 	END PROCESS RCB_LOG;
 

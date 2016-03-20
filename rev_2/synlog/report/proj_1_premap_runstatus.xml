@@ -13,7 +13,7 @@ The file contains the job information from mapper to be displayed as part of the
 </job_status>
 <job_info>
 <info name="Notes">
-<data>3</data>
+<data>4</data>
 <report_link name="more">
 <data>\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\synlog\report\proj_1_premap_notes.txt</data>
 </report_link>
@@ -40,7 +40,7 @@ The file contains the job information from mapper to be displayed as part of the
 <data>116MB</data>
 </info>
 <info name="Date &amp; Time">
-<data type="timestamp">1458503212</data>
+<data type="timestamp">1458503863</data>
 </info>
 </job_info>
 </job_run_status>

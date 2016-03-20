@@ -1,2 +1,2 @@
-CKID0001:@|S:clk_in@|E:RCB1.xy_min.Y_s_4@|F:@syn_sample_clock_path==CKID0001@|M:ClockId0001 
+CKID0001:@|S:clk_in@|E:RCB1.nstate[0]@|F:@syn_sample_clock_path==CKID0001@|M:ClockId0001 
 conv_instances:@|F:@syn_gc_converted==1@|M:instances
