@@ -3,11 +3,11 @@
 @N:"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\vdp.vhd":11:7:11:9|Top entity is set to vdp.
 @N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\vdp.vhd":11:7:11:9|Synthesizing work.vdp.rtl 
 @N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":170:7:170:9|Synthesizing work.rcb.rtl1 
-@N: CD233 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":224:17:224:18|Using sequential encoding for type rcb_states
+@N: CD233 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":225:17:225:18|Using sequential encoding for type rcb_states
 @N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":10:7:10:13|Synthesizing work.ram_fsm.synth 
 @N: CD233 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":30:16:30:17|Using sequential encoding for type state_t
 @N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":8:7:8:20|Synthesizing work.pix_word_cache.together 
-@N: CL177 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":225:8:225:16|Sharing sequential element rcb_state.
+@N: CL177 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":226:8:226:16|Sharing sequential element rcb_state.
 @N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":7:7:7:8|Synthesizing work.db.rtl 
 @N: CD231 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\project_pack.vhd":20:16:20:17|Using onehot encoding for type state_db (s_wait="100000000")
 @N: CD364 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":70:3:70:9|Removed redundant assignment

@@ -1,4 +1,37 @@
-@E: CD200 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":89:7:89:20|Misspelled variable, signal or procedure name?
-@E: CD415 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":99:25:99:25|Expecting keyword of
-@E|Parse errors encountered - exiting
+@E: CL219 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":207:8:207:13|Multiple non-tristate drivers for net xy_min.X(5) in rcb
+@E: CL219 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":207:26:207:31|Multiple non-tristate drivers for net xy_max.Y(5) in rcb
+@E: CL219 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":207:26:207:31|Multiple non-tristate drivers for net xy_max.X(5) in rcb
+@E: CL219 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":207:8:207:13|Multiple non-tristate drivers for net xy_min.X(4) in rcb
+@E: CL219 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":207:26:207:31|Multiple non-tristate drivers for net xy_max.Y(4) in rcb
+@E: CL219 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":207:26:207:31|Multiple non-tristate drivers for net xy_max.X(4) in rcb
+@E: CL219 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":207:8:207:13|Multiple non-tristate drivers for net xy_min.X(3) in rcb
+@E: CL219 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":207:26:207:31|Multiple non-tristate drivers for net xy_max.Y(3) in rcb
+@E: CL219 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":207:26:207:31|Multiple non-tristate drivers for net xy_max.X(3) in rcb
+@E: CL219 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":207:8:207:13|Multiple non-tristate drivers for net xy_min.X(2) in rcb
+@E: CL219 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":207:26:207:31|Multiple non-tristate drivers for net xy_max.Y(2) in rcb
+@E: CL219 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":207:26:207:31|Multiple non-tristate drivers for net xy_max.X(2) in rcb
+@E: CL219 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":207:8:207:13|Multiple non-tristate drivers for net xy_min.X(1) in rcb
+@E: CL219 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":207:26:207:31|Multiple non-tristate drivers for net xy_max.Y(1) in rcb
+@E: CL219 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":207:26:207:31|Multiple non-tristate drivers for net xy_max.X(1) in rcb
+@E: CL219 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":207:8:207:13|Multiple non-tristate drivers for net xy_min.X(0) in rcb
+@E: CL219 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":207:26:207:31|Multiple non-tristate drivers for net xy_max.Y(0) in rcb
+@E: CL219 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":207:26:207:31|Multiple non-tristate drivers for net xy_max.X(0) in rcb
+@E: CL229 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":207:26:207:31|Unresolved tristate drivers for net xy_max.X(0) in rcb
+@E: CL229 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":207:26:207:31|Unresolved tristate drivers for net xy_max.Y(0) in rcb
+@E: CL229 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":207:8:207:13|Unresolved tristate drivers for net xy_min.X(0) in rcb
+@E: CL229 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":207:26:207:31|Unresolved tristate drivers for net xy_max.X(1) in rcb
+@E: CL229 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":207:26:207:31|Unresolved tristate drivers for net xy_max.Y(1) in rcb
+@E: CL229 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":207:8:207:13|Unresolved tristate drivers for net xy_min.X(1) in rcb
+@E: CL229 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":207:26:207:31|Unresolved tristate drivers for net xy_max.X(2) in rcb
+@E: CL229 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":207:26:207:31|Unresolved tristate drivers for net xy_max.Y(2) in rcb
+@E: CL229 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":207:8:207:13|Unresolved tristate drivers for net xy_min.X(2) in rcb
+@E: CL229 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":207:26:207:31|Unresolved tristate drivers for net xy_max.X(3) in rcb
+@E: CL229 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":207:26:207:31|Unresolved tristate drivers for net xy_max.Y(3) in rcb
+@E: CL229 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":207:8:207:13|Unresolved tristate drivers for net xy_min.X(3) in rcb
+@E: CL229 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":207:26:207:31|Unresolved tristate drivers for net xy_max.X(4) in rcb
+@E: CL229 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":207:26:207:31|Unresolved tristate drivers for net xy_max.Y(4) in rcb
+@E: CL229 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":207:8:207:13|Unresolved tristate drivers for net xy_min.X(4) in rcb
+@E: CL229 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":207:26:207:31|Unresolved tristate drivers for net xy_max.X(5) in rcb
+@E: CL229 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":207:26:207:31|Unresolved tristate drivers for net xy_max.Y(5) in rcb
+@E: CL229 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":207:8:207:13|Unresolved tristate drivers for net xy_min.X(5) in rcb
 

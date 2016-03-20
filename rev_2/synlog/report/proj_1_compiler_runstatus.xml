@@ -18,7 +18,7 @@ The file contains the job information from compiler to be displayed as part of t
   <report_link name="more"><data>\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\synlog\report\proj_1_compiler_notes.txt</data></report_link>
   </info>
 			<info name="Warnings">
-  <data>15</data>
+  <data>1</data>
   <report_link name="more"><data>\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\synlog\report\proj_1_compiler_warnings.txt</data></report_link>
   </info>
 			<info name="Errors">
@@ -29,13 +29,13 @@ The file contains the job information from compiler to be displayed as part of t
   <data>-</data>
   </info>
 			<info name="Real Time">
-  <data>0h:00m:02s</data>
+  <data>0h:00m:01s</data>
   </info>
 			<info name="Peak Memory">
   <data>-</data>
   </info>
 			<info name="Date &amp;Time">
-  <data type="timestamp">1458503860</data>
+  <data type="timestamp">1458505256</data>
   </info>
 			</job_info>
 </job_run_status>

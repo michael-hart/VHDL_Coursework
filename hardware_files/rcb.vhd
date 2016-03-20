@@ -204,7 +204,8 @@ ARCHITECTURE rtl1 OF rcb IS
 	SIGNAL idle_cycles 							: INTEGER;
 
 	-- Clearscreen parameters
-	SIGNAL xy_min, xy_max 						: coord;
+	SIGNAL xy_max 								: coord;
+	SIGNAL x_min 								: std_logic_vector(VSIZE-1 DOWNTO 0);
 
 	-- Signals for DB
 	SIGNAL delaycmd 							: std_logic;
@@ -321,7 +322,7 @@ BEGIN
 	END PROCESS VRAM;
 
 	-- Logic depending on state change
-	RCB_LOG : PROCESS(rcb_state, dbb_bus, vram_write, vram_done, xy_prev, clrxy_reg, xy_max) IS
+	RCB_LOG : PROCESS(rcb_state, dbb_bus, vram_write, xy_prev, clrxy_reg, xy_max) IS
 	BEGIN
 
 		-- Default pix word cache control signals
@@ -366,14 +367,6 @@ BEGIN
 					ELSE
 						-- Clear command; calculate initial values
 						delaycmd <= '1';
-						
-						-- Bottom left pixel
-						xy_min <= ( x => MIN_SLV(xy_prev.x, dbb_bus.X),
-									y => MIN_SLV(xy_prev.y, dbb_bus.Y));
-
-						-- Top right pixel
-						xy_max <= ( x => MAX_SLV(xy_prev.x, dbb_bus.X),
-									y => MAX_SLV(xy_prev.y, dbb_bus.Y));
 
 					END IF; -- Command decode
 
@@ -409,10 +402,14 @@ BEGIN
 		-- Store word_reg in clocked flip flop
 		word_reg_delayed <= word_reg;
 		vraddr <= word_reg_delayed;
+		
 		-- Store X,Y values in case of clearscreen
 		xy_prev <= (x => dbb_bus.X, y => dbb_bus.Y);
+		
 		-- Store vram_write in register
 		vram_write_sync <= vram_write;
+		
+		-- Store x,y min and max values
 
 		-- If VRAM is delayed, wait for it to finish before continuing
 		IF vram_delay = '0' THEN
@@ -430,7 +427,16 @@ BEGIN
 			IF rcb_state = DRAW THEN
 				-- If drawing and clear is commanded, change state
 				IF dbb_bus.startcmd = '1' AND dbb_bus.rcb_cmd(2) = '1' THEN
-					clrxy_reg <= xy_min;
+
+						-- Top right pixel
+					xy_max <= ( x => MAX_SLV(xy_prev.x, dbb_bus.X),
+								y => MAX_SLV(xy_prev.y, dbb_bus.Y));
+								
+					-- Min SLV is performed twice as variable assignment is warned about in Synplify
+					x_min <= MIN_SLV(xy_prev.x, dbb_bus.X);
+				
+					clrxy_reg <= ( x => MIN_SLV(xy_prev.x, dbb_bus.X),
+								  y => MIN_SLV(xy_prev.y, dbb_bus.Y));
 					nstate := CLEAR;
 				ELSE
 					-- If DB is finished and we are not busy, assert finished TODO define busy
@@ -449,7 +455,7 @@ BEGIN
 							nstate := DRAW;
 						ELSE
 							-- Hit far right, so reset left and move up a row
-							clrxy_reg <= (	x => xy_min.x,
+							clrxy_reg <= (	x => x_min,
 											y => std_logic_vector(unsigned(clrxy_reg.y) + 1));
 						END IF; -- row transition
 					ELSE

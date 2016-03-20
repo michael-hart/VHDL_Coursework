@@ -33,39 +33,29 @@ Warning: Found 1 combinational loops!
     output pin RCB1.E2.C1\.un7_state/OUT
     net        RCB1.vram_delay
 End of loops
-@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\rcb.vhd":382:9:382:30|Net RCB1.xy_max\.X_1_sqmuxa appears to be an unidentified clock source. Assuming default frequency. 
-@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":295:2:295:3|Net DB1.un1_db_fsm_state_8 appears to be an unidentified clock source. Assuming default frequency. 
-@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":238:2:238:3|Net DB1.un1_db_fsm_state_14 appears to be an unidentified clock source. Assuming default frequency. 
-@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":238:2:238:3|Net DB1.un1_db_fsm_state_5 appears to be an unidentified clock source. Assuming default frequency. 
-@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":238:2:238:3|Net DB1.un1_db_fsm_state_6 appears to be an unidentified clock source. Assuming default frequency. 
-@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":238:2:238:3|Net DB1.un1_db_fsm_state_13 appears to be an unidentified clock source. Assuming default frequency. 
-@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":238:2:238:3|Net DB1.un1_db_fsm_state_3 appears to be an unidentified clock source. Assuming default frequency. 
-@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":238:2:238:3|Net DB1.un1_db_fsm_state_7 appears to be an unidentified clock source. Assuming default frequency. 
-@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":238:2:238:3|Net DB1.un1_db_fsm_state_4 appears to be an unidentified clock source. Assuming default frequency. 
+@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":365:2:365:3|Net DB1.un1_db_fsm_state_1 appears to be an unidentified clock source. Assuming default frequency. 
 
 
 Clock Summary
 **************
 
-Start                                Requested     Requested     Clock                      Clock                
-Clock                                Frequency     Period        Type                       Group                
------------------------------------------------------------------------------------------------------------------
-System                               253.1 MHz     3.951         system                     system_clkgroup      
-db|db_fsm_state_derived_clock[1]     4.2 MHz       240.540       derived (from vdp|clk)     Autoconstr_clkgroup_0
-db|db_fsm_state_derived_clock[5]     4.2 MHz       240.540       derived (from vdp|clk)     Autoconstr_clkgroup_0
-vdp|clk                              4.2 MHz       240.540       inferred                   Autoconstr_clkgroup_0
-=================================================================================================================
+Start       Requested     Requested     Clock        Clock                
+Clock       Frequency     Period        Type         Group                
+--------------------------------------------------------------------------
+System      1.0 MHz       1000.000      system       system_clkgroup      
+vdp|clk     137.7 MHz     7.265         inferred     Autoconstr_clkgroup_0
+==========================================================================
 
-@W: MT531 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":238:2:238:3|Found signal identified as System clock which controls 40 sequential elements including DB1.mux_in.  Using this clock, which has no specified timing constraint, can prevent conversion of gated or generated clocks and can adversely impact design performance. 
-@W: MT529 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\exercises.vhd":326:20:326:25|Found inferred clock vdp|clk which controls 285 sequential elements including DB1.DAB.RD1.R1\.swapxy. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 
+@W: MT531 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":365:2:365:3|Found signal identified as System clock which controls 5 sequential elements including DB1.cmd[2].  Using this clock, which has no specified timing constraint, can prevent conversion of gated or generated clocks and can adversely impact design performance. 
+@W: MT529 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\exercises.vhd":326:20:326:25|Found inferred clock vdp|clk which controls 303 sequential elements including DB1.DAB.RD1.R1\.swapxy. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 
 
 Finished Pre Mapping Phase.
 @N: BN225 |Writing default property annotation file \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\proj_1.sap.
 Pre-mapping successful!
 
-At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 51MB peak: 116MB)
+At Mapper Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 51MB peak: 116MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Sun Mar 20 19:57:43 2016
+# Sun Mar 20 20:21:00 2016
 
 ###########################################################]

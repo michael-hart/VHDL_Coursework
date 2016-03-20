@@ -1,12 +1,12 @@
 C:\EEE\Synopsys\fpga_I-2013.09-SP1\bin64\c_vhdl.exe  -osyn  \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\synwork\proj_1_comp.srs  -top  vdp  -prodtype  synplify_premier  -dw  -verification_mode 0 -infer_seqShift -primux -fixsmult -dspmac  -nram -divnmod -fast_synthesis 0  -encrypt  -pro  -dmgen  \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\dm  -lite   -proto -ui -fid2 -ram -sharing on       -ll 2000 -autosm -ignore_undefined_lib  -lib work \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\config_pack.vhd -lib work \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd -lib work \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd -lib work \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\project_pack.vhd -lib work \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd -lib work \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\vdp.vhd -loga  \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\proj_1.srr 
 rc:0 success:1
-\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\synwork\proj_1_comp.srs|o|1458503860|27724
+\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\synwork\proj_1_comp.srs|o|1458505256|27584
 \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\config_pack.vhd|i|1458495167|1890
-\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd|i|1458503161|7811
+\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd|i|1458503972|9300
 \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd|i|1458500823|13353
 \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\project_pack.vhd|i|1458495167|3173
-\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd|i|1458503851|11859
+\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd|i|1458505247|12028
 \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\vdp.vhd|i|1458493058|1714
-\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\proj_1.srr|o|1458503860|8116
+\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\proj_1.srr|o|1458505256|5375
 C:\EEE\Synopsys\fpga_I-2013.09-SP1\bin64\c_vhdl.exe|i|1385356906|5461504
 C:\EEE\Synopsys\fpga_I-2013.09-SP1\bin\c_vhdl.exe|i|1385356690|1980928
