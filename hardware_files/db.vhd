@@ -26,7 +26,7 @@ END db;
 
 ARCHITECTURE rtl OF db IS
 -- Registers.
-SIGNAL hdb_reg 		: STD_LOGIC_VECTOR(((VSIZE * 2) + 3) DOWNTO 0);
+SIGNAL hdb_reg 		: STD_LOGIC_VECTOR(((VSIZE * 2) - 1) DOWNTO 0);
 SIGNAL xy_old_reg : STD_LOGIC_VECTOR(((VSIZE * 2) - 1) DOWNTO 0);
 
 -- Multiplexer signals, controlled by DB_FSM
@@ -48,6 +48,7 @@ SIGNAL init, draw, done, disable : std_logic;
 
 -- For DB_FSM
 SIGNAL db_fsm_state, db_fsm_nstate : state_db;
+SIGNAL cmd : STD_LOGIC_VECTOR (2 DOWNTO 0);
 
 -- Aliases for easier reference when it comes to slices.
 ALIAS new_x : std_logic_vector((VSIZE - 1) DOWNTO 0) IS hdb_reg(((VSIZE * 2) + 1) DOWNTO (VSIZE + 2));
@@ -64,7 +65,7 @@ BEGIN
 	REG : PROCESS BEGIN
 		WAIT UNTIL clk'EVENT AND clk = '1';
 		IF busy = '0' THEN
-			hdb_reg <= hdb;
+			hdb_reg <= hdb(hdb'HIGH - 2 DOWNTO 0);
 		ELSE
 			hdb_reg <= hdb_reg;
 		END IF;
@@ -82,7 +83,7 @@ BEGIN
 			negx1	 	<= negx;
 			negy1	 	<= negy;
 			xbias1  <= xbias;
-		ELSE 
+		ELSE
 			swapxy1 <= swapxy1;
 			negx1	<= negx1;
 			negy1	<= negy1;
@@ -297,7 +298,7 @@ BEGIN
 
 		ELSIF db_fsm_state = s_draw4 THEN
 			busy <= '1';
-			disable <= '1';
+			disable <= '0';
 			init <= '0';
 			draw <= '1';
 			dbb_bus.startcmd <= '0';
@@ -360,22 +361,26 @@ BEGIN
 	END PROCESS BSY;
 
 	-- CMD block to entire correct commands used.
-	CMD : PROCESS (hdb_reg, db_fsm_state) BEGIN
+	CMD_O : PROCESS (hdb_reg, db_fsm_state) BEGIN
 		IF db_fsm_state = s_draw2 THEN
-			dbb_bus.rcb_cmd <= '0' & pen;
+			cmd <= '0' & pen;
 
 		ELSIF db_fsm_state = s_clear1 THEN
-			dbb_bus.rcb_cmd <= "000";
+			cmd <= "000";
 
 		ELSIF db_fsm_state = s_clear2 THEN
-			dbb_bus.rcb_cmd <= '1' & pen;
+			cmd <= '1' & pen;
 
 		ELSE
-			dbb_bus.rcb_cmd = dbb_bus.rcb_cmd;
+			cmd <= cmd;
 
 		END IF;
 
-	END PROCESS CMD;
+	END PROCESS CMD_O;
+
+	CMD_UP : PROCESS(cmd) BEGIN
+		dbb_bus.rcb_cmd <= cmd;
+	END PROCESS CMD_UP;
 
 	-- db_finish is only high if in s_wait and no more commands, dav = 0
 	FIN : PROCESS (db_fsm_state, dav) BEGIN
