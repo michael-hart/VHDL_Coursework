@@ -11,7 +11,7 @@ ENTITY db IS
 		reset        : IN  std_logic;
 
 		-- host processor connections
-		hdb          : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+		hdb          : IN  STD_LOGIC_VECTOR(((VSIZE * 2) + 3) DOWNTO 0);
 		dav          : IN  STD_LOGIC;
 		hdb_busy     : OUT STD_LOGIC;
 
@@ -25,41 +25,37 @@ ENTITY db IS
 END db;
 
 ARCHITECTURE rtl OF db IS
-	-- Registers.
-	SIGNAL hdb_reg 		: STD_LOGIC_VECTOR((VSIZE * 2) + 3 DOWNTO 0);
-	SIGNAL xy_old_reg : STD_LOGIC_VECTOR((VSIZE * 2) - 1 DOWNTO 0);
+-- Registers.
+SIGNAL hdb_reg 		: STD_LOGIC_VECTOR(((VSIZE * 2) + 3) DOWNTO 0);
+SIGNAL xy_old_reg : STD_LOGIC_VECTOR(((VSIZE * 2) - 1) DOWNTO 0);
 
-	-- Multiplexer signals, controlled by DB_FSM
-	SIGNAL mux_in, mux_out : std_logic;
+-- Multiplexer signals, controlled by DB_FSM
+SIGNAL mux_in, mux_out : std_logic;
 
-	-- Register control signals
-	SIGNAL update_old, busy, oct_lock : std_logic;
+-- Register control signals
+SIGNAL update_old, busy, oct_lock : std_logic;
 
-	-- Connections of draw_any_octant
-	-- From OCTANT_CMB
-	SIGNAL swapxy, negx, negy, xbias : STD_LOGIC;
-	-- Latch to ensure combinational does not change during draw.
-	SIGNAL swapxy1, negx1, negy1, xbias1 : STD_LOGIC;
+-- Connections of draw_any_octant
+-- From OCTANT_CMB
+SIGNAL swapxy, negx, negy, xbias : STD_LOGIC;
+-- Latch to ensure combinational does not change during draw.
+SIGNAL swapxy1, negx1, negy1, xbias1 : STD_LOGIC;
 
-	-- I/O
-	SIGNAL xin, yin, x, y : std_logic_vector(VSIZE-1 DOWNTO 0);
-	-- To/from DB_FSM
-	SIGNAL init, draw, done, disable : std_logic;
+-- I/O
+SIGNAL xin, yin, x, y : std_logic_vector((VSIZE - 1) DOWNTO 0);
+-- To/from DB_FSM
+SIGNAL init, draw, done, disable : std_logic;
 
-	-- For DB_FSM
-	SIGNAL db_fsm_state, db_fsm_nstate : state_db;
+-- For DB_FSM
+SIGNAL db_fsm_state, db_fsm_nstate : state_db;
 
+ALIAS new_x : std_logic_vector((VSIZE - 1) DOWNTO 0) IS hdb_reg(((VSIZE * 2) + 1) DOWNTO (VSIZE + 2));
+ALIAS new_y : std_logic_vector((VSIZE - 1) DOWNTO 0) IS hdb_reg((VSIZE + 1) DOWNTO 2);
+ALIAS old_x : std_logic_vector((VSIZE - 1) DOWNTO 0) IS xy_old_reg((VSIZE * 2 - 1) DOWNTO VSIZE);
+ALIAS old_y : std_logic_vector((VSIZE - 1) DOWNTO 0) IS xy_old_reg((VSIZE - 1) DOWNTO 0);
+ALIAS op : std_logic_vector(1 DOWNTO 0) IS hdb(((VSIZE * 2) + 3) DOWNTO ((VSIZE * 2) + 2));
+ALIAS pen : std_logic_vector(1 DOWNTO 0) IS hdb_reg(1 DOWNTO 0);
 
-	-- Aliases of vector slices to increase code readability
-	ALIAS op        : std_logic_vector(1 DOWNTO 0) IS hdb_reg((VSIZE * 2) + 3 DOWNTO (VSIZE * 2) + 2);
-
-	ALIAS new_x     : std_logic_vector(VSIZE-1 DOWNTO 0) IS hdb_reg(2*VSIZE + 1 DOWNTO VSIZE+2);
-  ALIAS new_y     : std_logic_vector(VSIZE-1 DOWNTO 0) IS hdb_reg(VSIZE+1 DOWNTO 2);
-
-  ALIAS pen       : std_logic_vector(1 DOWNTO 0) IS hdb_reg(1 DOWNTO 0);
-
-	ALIAS old_x     : std_logic_vector(VSIZE-1 DOWNTO 0) IS xy_old_reg(2*VSIZE - 1 DOWNTO VSIZE);
-  ALIAS old_y     : std_logic_vector(VSIZE-1 DOWNTO 0) IS xy_old_reg(VSIZE-1 DOWNTO 0);
 
 BEGIN
 
@@ -71,7 +67,6 @@ BEGIN
 		END IF;
 
 		IF update_old = '1' THEN
-			--xy_old_reg <= hdb_reg(13 DOWNTO 2);
 			old_x <= new_x;
 			old_y <= new_y;
 		END IF;
@@ -93,18 +88,18 @@ BEGIN
 	BEGIN
 
 		-- Assign values.
-		dx := std_logic_vector(signed(resize(unsigned(new_x), VSIZE+1)) - signed(resize(unsigned(old_x), VSIZE+1)));
-		dy := std_logic_vector(signed(resize(unsigned(new_y), VSIZE+1)) - signed(resize(unsigned(old_y), VSIZE+1)));
+		dx := std_logic_vector(signed(resize(unsigned(new_x), 7)) - signed(resize(unsigned(old_x), 7)));
+		dy := std_logic_vector(signed(resize(unsigned(new_y), 7)) - signed(resize(unsigned(old_y), 7)));
 
 
 		-- Assign negx and negy first, equals if dx < 0, dy < 0
-		IF to_integer(signed(dx)) < 0 THEN
+		IF signed(dx) < "0000000" THEN
 			temp_negx := '1';
 		ELSE
 			temp_negx := '0';
 		END IF;
 
-		IF to_integer(signed(dy)) < 0 THEN
+		IF signed(dy) < "0000000" THEN
 			temp_negy := '1';
 		ELSE
 			temp_negy := '0';
@@ -135,13 +130,9 @@ BEGIN
 	IN_MUX : PROCESS (mux_in, hdb_reg, xy_old_reg) BEGIN
 
 		IF mux_in = '1' THEN
-			--xin <= hdb_reg(13 DOWNTO 8);
-			--yin <= hdb_reg(7 DOWNTO 2);
 			xin <= new_x;
 			yin <= new_y;
 		ELSE
-		--xin <= xy_old_reg(11 DOWNTO 6);
-		--yin <= xy_old_reg(5 DOWNTO 0);
 			xin <= old_x;
 			yin <= old_y;
 		END IF;
@@ -288,15 +279,13 @@ BEGIN
 	-- CMD block to entire correct commands used.
 	CMD : PROCESS (hdb_reg, db_fsm_state) BEGIN
 		IF db_fsm_state = s_draw2 THEN
-			--dbb_bus.rcb_cmd <= '0' & hdb_reg(1 DOWNTO 0);
-      dbb_bus.rcb_cmd <= '0' & pen;
+			dbb_bus.rcb_cmd <= '0' & pen;
 
 		ELSIF db_fsm_state = s_clear1 THEN
 			dbb_bus.rcb_cmd <= "000";
 
 		ELSIF db_fsm_state = s_clear2 THEN
-			--dbb_bus.rcb_cmd <= '1' & hdb_reg(1 DOWNTO 0);
-      dbb_bus.rcb_cmd <= '1' & pen;
+			dbb_bus.rcb_cmd <= '1' & pen;
 
 		ELSE
 			NULL;
@@ -316,19 +305,19 @@ BEGIN
 
 	-- draw_any_octant block connected.
 	DAB : ENTITY draw_any_octant GENERIC MAP( vsize => vsize) PORT MAP(
-	  clk => clk,
-		init => init,
-		draw => draw,
-		xbias => xbias1,
-		disable => disable,
-		xin => xin,
-		yin => yin,
-	  done => done,
-	  x => x,
-		y => y,
-	  swapxy => swapxy1,
-		negx => negx1,
-		negy => negy1
-	  );
+	    clk => clk,
+			init => init,
+			draw => draw,
+			xbias => xbias1,
+			disable => disable,
+			xin => xin,
+			yin => yin,
+	    done => done,
+	    x => x,
+			y => y,
+	    swapxy => swapxy1,
+			negx => negx1,
+			negy => negy1
+	    );
 
 END rtl;
