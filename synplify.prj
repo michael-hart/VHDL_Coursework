@@ -22,31 +22,35 @@ set_option -vlog_std sysv
 set_option -project_relative_includes 1
 
 #device options
-set_option -technology AchronixSpeedster22iHD
-set_option -part AC22iHD1000
-set_option -package F53
-set_option -speed_grade C1
+set_option -technology CYCLONEII
+set_option -part EP2C5
+set_option -package QC208
+set_option -speed_grade -6
 set_option -part_companion ""
 
 #compilation/mapping options
+set_option -use_fsm_explorer 0
 set_option -top_module "vdp"
+
+# altera_options
+set_option -RWCheckOnRam 1
 
 # mapper_options
 set_option -frequency auto
 set_option -write_verilog 0
-set_option -write_vhdl 0
+set_option -write_vhdl 1
 set_option -srs_instrumentation 1
 
-# Achronix Speedster22iHD
-set_option -maxfan 10000
-set_option -RWCheckOnRam 0
-set_option -disable_io_insertion 0
-set_option -retime_registers_forward 0
-set_option -pipe 1
-set_option -retiming 0
-set_option -update_models_cp 0
+# Altera STRATIX
 set_option -run_prop_extract 1
+set_option -maxfan 30
+set_option -disable_io_insertion 0
+set_option -pipe 1
+set_option -update_models_cp 0
+set_option -retiming 0
+set_option -no_sequential_opt 0
 set_option -fix_gated_and_generated_clocks 1
+set_option -quartus_version 13.1
 
 # sequential_optimization_options
 set_option -symbolic_fsm_compiler 1
@@ -63,7 +67,7 @@ set_option -auto_infer_blackbox 0
 set_option -write_apr_constraint 1
 
 #set result format/file last
-project -result_file "./rev_2/proj_1.vma"
+project -result_file "./rev_2/proj_1.vqm"
 
 #design plan options
 impl -active "rev_2"
