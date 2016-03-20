@@ -27,14 +27,14 @@ ENTITY ram_fsm IS
 END ENTITY ram_fsm;
 
 ARCHITECTURE synth OF ram_fsm IS
-  TYPE   state_t IS (m3, m2, m1, mx);
-  SIGNAL state : state_t;
-  SIGNAL delay_i, vwrite_i : std_logic;
-  SIGNAL addr_i, addr_ram_i, addr_delayed_i : std_logic_vector(7 DOWNTO 0);
-  SIGNAL data_i : std_logic_vector(15 DOWNTO 0);
-  SIGNAL busy_i : std_logic;
-  SIGNAL done_i : std_logic;
-  SIGNAL cache_reg, cache_reg_delayed : store_t;
+	TYPE   state_t IS (m3, m2, m1, mx);
+	SIGNAL state : state_t;
+	SIGNAL delay_i, vwrite_i : std_logic;
+	SIGNAL addr_i, addr_ram_i, addr_delayed_i : std_logic_vector(7 DOWNTO 0);
+	SIGNAL data_i : std_logic_vector(15 DOWNTO 0);
+	SIGNAL busy_i : std_logic;
+	SIGNAL done_i : std_logic;
+	SIGNAL cache_reg, cache_reg_delayed : store_t;
 BEGIN
 
 	-- Combinational logic for output std_logic signals
