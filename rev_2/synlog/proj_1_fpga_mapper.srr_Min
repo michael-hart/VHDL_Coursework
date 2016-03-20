@@ -1,7 +1,7 @@
 
 
 ##### START OF TIMING REPORT #####[
-# Timing Report written on Sun Mar 20 18:24:43 2016
+# Timing Report written on Sun Mar 20 18:41:04 2016
 #
 
 
@@ -26,7 +26,7 @@ Worst slack in design: 0.193
 Starting Clock     Frequency      Frequency      Period        Period        Slack      Type         Group                
 --------------------------------------------------------------------------------------------------------------------------
 vdp|clk            106.5 MHz      90.6 MHz       9.386         11.042        -1.656     inferred     Autoconstr_clkgroup_0
-System             2072.1 MHz     3063.7 MHz     0.483         0.326         0.156      system       system_clkgroup      
+System             1500.6 MHz     2218.3 MHz     0.666         0.451         0.216      system       system_clkgroup      
 ==========================================================================================================================
 
 
@@ -38,7 +38,7 @@ Clocks             |    rise  to  rise   |    fall  to  fall   |    rise  to  fa
 ---------------------------------------------------------------------------------------------------------
 Starting  Ending   |  constraint  slack  |  constraint  slack  |  constraint  slack  |  constraint  slack
 ---------------------------------------------------------------------------------------------------------
-System    System   |  No paths    -      |  No paths    -      |  0.000       0.448  |  No paths    -    
+System    System   |  No paths    -      |  No paths    -      |  0.000       0.599  |  No paths    -    
 System    vdp|clk  |  0.000       0.193  |  No paths    -      |  No paths    -      |  No paths    -    
 vdp|clk   System   |  No paths    -      |  No paths    -      |  0.000       1.380  |  No paths    -    
 vdp|clk   vdp|clk  |  0.000       0.375  |  No paths    -      |  No paths    -      |  No paths    -    
@@ -96,8 +96,8 @@ RCB1.E2.P1\.addr_ram_sync_i[4]     vdp|clk       cycloneii_lcell_ff     ena     
 RCB1.E2.P1\.addr_ram_sync_i[5]     vdp|clk       cycloneii_lcell_ff     ena       state_ret_1     0.437        0.375
 RCB1.E2.P1\.addr_ram_sync_i[6]     vdp|clk       cycloneii_lcell_ff     ena       state_ret_1     0.437        0.375
 RCB1.E2.P1\.addr_ram_sync_i[7]     vdp|clk       cycloneii_lcell_ff     ena       state_ret_1     0.437        0.375
-RCB1.RCB_FSM\.clrxy_reg\.Y[2]      vdp|clk       cycloneii_lcell_ff     sload     nstate_0[0]     0.436        0.376
-RCB1.RCB_FSM\.clrxy_reg\.Y[3]      vdp|clk       cycloneii_lcell_ff     sload     nstate_0[0]     0.436        0.376
+RCB1.RCB_FSM\.clrxy_reg\.Y[0]      vdp|clk       cycloneii_lcell_ff     sload     nstate_0_0      0.436        0.376
+RCB1.RCB_FSM\.clrxy_reg\.Y[2]      vdp|clk       cycloneii_lcell_ff     sload     nstate_0_0      0.436        0.376
 ====================================================================================================================
 
 
@@ -160,21 +160,21 @@ RCB1.xy_min\.X[0]     System        SYNLPM_LAT1     Q[0]     X[0]     0.175     
 Ending Points with Worst Slack
 ******************************
 
-                                  Starting                                                                 Required          
-Instance                          Reference     Type                   Pin       Net                       Time         Slack
-                                  Clock                                                                                      
------------------------------------------------------------------------------------------------------------------------------
-RCB1.RCB_FSM\.clrxy_reg\.X[1]     System        cycloneii_lcell_ff     sdata     X[1]                      0.231        0.193
-RCB1.RCB_FSM\.clrxy_reg\.X[2]     System        cycloneii_lcell_ff     sdata     X[2]                      0.231        0.193
-RCB1.RCB_FSM\.clrxy_reg\.X[3]     System        cycloneii_lcell_ff     sdata     X[3]                      0.231        0.193
-RCB1.RCB_FSM\.clrxy_reg\.X[4]     System        cycloneii_lcell_ff     sdata     X[4]                      0.231        0.193
-RCB1.RCB_FSM\.clrxy_reg\.X[5]     System        cycloneii_lcell_ff     sdata     X[5]                      0.231        0.193
-RCB1.RCB_FSM\.clrxy_reg\.Y[2]     System        cycloneii_lcell_ff     sdata     Y[2]                      0.231        0.193
-RCB1.RCB_FSM\.clrxy_reg\.Y[3]     System        cycloneii_lcell_ff     sdata     Y[3]                      0.231        0.193
-RCB1.RCB_FSM\.clrxy_reg\.Y[4]     System        cycloneii_lcell_ff     sdata     Y[4]                      0.231        0.193
-RCB1.RCB_FSM\.clrxy_reg\.Y[5]     System        cycloneii_lcell_ff     sdata     Y[5]                      0.231        0.193
-RCB1.RCB_FSM\.idle_cycles[0]      System        cycloneii_lcell_ff     ena       idle_cycleslde_i_a2_i     0.437        0.368
-=============================================================================================================================
+                                  Starting                                                 Required          
+Instance                          Reference     Type                   Pin        Net      Time         Slack
+                                  Clock                                                                      
+-------------------------------------------------------------------------------------------------------------
+RCB1.RCB_FSM\.clrxy_reg\.X[1]     System        cycloneii_lcell_ff     sdata      X[1]     0.231        0.193
+RCB1.RCB_FSM\.clrxy_reg\.X[2]     System        cycloneii_lcell_ff     sdata      X[2]     0.231        0.193
+RCB1.RCB_FSM\.clrxy_reg\.X[3]     System        cycloneii_lcell_ff     sdata      X[3]     0.231        0.193
+RCB1.RCB_FSM\.clrxy_reg\.X[4]     System        cycloneii_lcell_ff     sdata      X[4]     0.231        0.193
+RCB1.RCB_FSM\.clrxy_reg\.X[5]     System        cycloneii_lcell_ff     sdata      X[5]     0.231        0.193
+RCB1.RCB_FSM\.clrxy_reg\.Y[2]     System        cycloneii_lcell_ff     sdata      Y[2]     0.231        0.193
+RCB1.RCB_FSM\.clrxy_reg\.Y[3]     System        cycloneii_lcell_ff     sdata      Y[3]     0.231        0.193
+RCB1.RCB_FSM\.clrxy_reg\.Y[4]     System        cycloneii_lcell_ff     sdata      Y[4]     0.231        0.193
+RCB1.RCB_FSM\.clrxy_reg\.Y[5]     System        cycloneii_lcell_ff     sdata      Y[5]     0.231        0.193
+RCB1.RCB_FSM\.clrxy_reg\.X[0]     System        cycloneii_lcell_ff     datain     X[0]     0.034        0.390
+=============================================================================================================
 
 
 

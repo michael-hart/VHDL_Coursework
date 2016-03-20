@@ -1,22 +1,22 @@
-@W: MO171 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":236:2:236:3|Sequential instance DB1.init reduced to a combinational gate by constant propagation 
-@W: MO171 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":236:2:236:3|Sequential instance DB1.draw reduced to a combinational gate by constant propagation 
-@W: MO171 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":291:2:291:3|Sequential instance DB1.dbb_bus\.rcb_cmd[2] reduced to a combinational gate by constant propagation 
-@W: MO171 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":236:2:236:3|Sequential instance DB1.update_old reduced to a combinational gate by constant propagation 
-@W: MO171 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":236:2:236:3|Sequential instance DB1.mux_in reduced to a combinational gate by constant propagation 
-@W: MO171 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":236:2:236:3|Sequential instance DB1.hdb_busy reduced to a combinational gate by constant propagation 
-@W: MO171 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":236:2:236:3|Sequential instance DB1.dbb_bus\.startcmd reduced to a combinational gate by constant propagation 
-@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":236:2:236:3|Net DB1.un1_db_fsm_state_7 appears to be an unidentified clock source. Assuming default frequency. 
-@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":236:2:236:3|Net DB1.un1_db_fsm_state_6 appears to be an unidentified clock source. Assuming default frequency. 
-@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":236:2:236:3|Net DB1.un1_db_fsm_state_4 appears to be an unidentified clock source. Assuming default frequency. 
-@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":236:2:236:3|Net DB1.un1_db_fsm_state_9 appears to be an unidentified clock source. Assuming default frequency. 
-@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":236:2:236:3|Net DB1.un1_db_fsm_state_8 appears to be an unidentified clock source. Assuming default frequency. 
+@W: MO171 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":237:2:237:3|Sequential instance DB1.init reduced to a combinational gate by constant propagation 
+@W: MO171 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":237:2:237:3|Sequential instance DB1.draw reduced to a combinational gate by constant propagation 
+@W: MO171 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":292:2:292:3|Sequential instance DB1.dbb_bus\.rcb_cmd[2] reduced to a combinational gate by constant propagation 
+@W: MO171 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":237:2:237:3|Sequential instance DB1.update_old reduced to a combinational gate by constant propagation 
+@W: MO171 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":237:2:237:3|Sequential instance DB1.mux_in reduced to a combinational gate by constant propagation 
+@W: MO171 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":237:2:237:3|Sequential instance DB1.hdb_busy reduced to a combinational gate by constant propagation 
+@W: MO171 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":237:2:237:3|Sequential instance DB1.dbb_bus\.startcmd reduced to a combinational gate by constant propagation 
+@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":237:2:237:3|Net DB1.un1_db_fsm_state_7 appears to be an unidentified clock source. Assuming default frequency. 
+@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":237:2:237:3|Net DB1.un1_db_fsm_state_6 appears to be an unidentified clock source. Assuming default frequency. 
+@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":237:2:237:3|Net DB1.un1_db_fsm_state_4 appears to be an unidentified clock source. Assuming default frequency. 
+@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":237:2:237:3|Net DB1.un1_db_fsm_state_9 appears to be an unidentified clock source. Assuming default frequency. 
+@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":237:2:237:3|Net DB1.un1_db_fsm_state_8 appears to be an unidentified clock source. Assuming default frequency. 
 @W: MT337 |Time borrowing decreased slack from -1.7667 ns  to -1.9991 ns.  
 @W: MT337 |Time borrowing decreased slack from -1.1277 ns  to -1.4472 ns.  
 @W: FA160 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\vdp.vhd":38:14:38:23|Removing sequential instance DB1.mux_in_17 of view:ALTERA_APEX.S_DFFE_P(PRIM) because its output is stuck at a constant value 
 @W: FA160 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\vdp.vhd":38:14:38:23|Removing sequential instance DB1.update_old_13 of view:ALTERA_APEX.S_DFFE_P(PRIM) because its output is stuck at a constant value 
-@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\rcb.vhd":64:7:64:50|Net RCB1.E2.un6_state_i_0_x appears to be an unidentified clock source. Assuming default frequency. 
-@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\rcb.vhd":390:11:390:16|Net RCB1.delaycmd_1_sqmuxa_6 appears to be an unidentified clock source. Assuming default frequency. 
-@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":236:2:236:3|Net DB1.un1_db_fsm_state_3_combout appears to be an unidentified clock source. Assuming default frequency. 
+@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\rcb.vhd":64:7:64:50|Net RCB1.E2.un6_state_i appears to be an unidentified clock source. Assuming default frequency. 
+@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\rcb.vhd":390:11:390:16|Net RCB1.delaycmd_1_sqmuxa_4 appears to be an unidentified clock source. Assuming default frequency. 
+@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":237:2:237:3|Net DB1.un1_db_fsm_state_3_combout appears to be an unidentified clock source. Assuming default frequency. 
 @W: MT558 |Unable to locate source for clock db|db_fsm_state_derived_clock[5]. Clock will not be forward annotated
 @W: MT558 |Unable to locate source for clock db|db_fsm_state_derived_clock[1]. Clock will not be forward annotated
 @W: MT558 |Unable to locate source for clock ram_fsm|state_derived_clock[2]. Clock will not be forward annotated

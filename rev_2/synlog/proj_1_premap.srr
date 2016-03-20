@@ -21,14 +21,14 @@ Finished Clear Box Flow. (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:
 @W: FA401 |Found flip-flop with unsupported asynchronous set. Implemented set functionality by creating a latch.
 @W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\rcb.vhd":64:7:64:50|Net RCB1.E2.C1\.un6_state appears to be an unidentified clock source. Assuming default frequency. 
 @W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\rcb.vhd":390:11:390:16|Net RCB1.delaycmd_1_sqmuxa appears to be an unidentified clock source. Assuming default frequency. 
-@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":291:2:291:3|Net DB1.un1_db_fsm_state_10 appears to be an unidentified clock source. Assuming default frequency. 
-@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":236:2:236:3|Net DB1.un1_db_fsm_state_7 appears to be an unidentified clock source. Assuming default frequency. 
-@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":236:2:236:3|Net DB1.un1_db_fsm_state_6 appears to be an unidentified clock source. Assuming default frequency. 
-@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":236:2:236:3|Net DB1.un1_db_fsm_state_4 appears to be an unidentified clock source. Assuming default frequency. 
-@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":236:2:236:3|Net DB1.un1_db_fsm_state_9 appears to be an unidentified clock source. Assuming default frequency. 
-@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":236:2:236:3|Net DB1.un1_db_fsm_state_3 appears to be an unidentified clock source. Assuming default frequency. 
-@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":236:2:236:3|Net DB1.un1_db_fsm_state_8 appears to be an unidentified clock source. Assuming default frequency. 
-@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":236:2:236:3|Net DB1.un1_db_fsm_state_5 appears to be an unidentified clock source. Assuming default frequency. 
+@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":292:2:292:3|Net DB1.un1_db_fsm_state_10 appears to be an unidentified clock source. Assuming default frequency. 
+@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":237:2:237:3|Net DB1.un1_db_fsm_state_7 appears to be an unidentified clock source. Assuming default frequency. 
+@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":237:2:237:3|Net DB1.un1_db_fsm_state_6 appears to be an unidentified clock source. Assuming default frequency. 
+@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":237:2:237:3|Net DB1.un1_db_fsm_state_4 appears to be an unidentified clock source. Assuming default frequency. 
+@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":237:2:237:3|Net DB1.un1_db_fsm_state_9 appears to be an unidentified clock source. Assuming default frequency. 
+@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":237:2:237:3|Net DB1.un1_db_fsm_state_3 appears to be an unidentified clock source. Assuming default frequency. 
+@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":237:2:237:3|Net DB1.un1_db_fsm_state_8 appears to be an unidentified clock source. Assuming default frequency. 
+@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":237:2:237:3|Net DB1.un1_db_fsm_state_5 appears to be an unidentified clock source. Assuming default frequency. 
 
 
 Clock Summary
@@ -44,7 +44,7 @@ ram_fsm|state_derived_clock[2]       1.0 MHz       1000.000      derived (from v
 vdp|clk                              1.0 MHz       1000.000      inferred                   Autoconstr_clkgroup_0
 =================================================================================================================
 
-@W: MT531 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":236:2:236:3|Found signal identified as System clock which controls 16 sequential elements including DB1.disable.  Using this clock, which has no specified timing constraint, can prevent conversion of gated or generated clocks and can adversely impact design performance. 
+@W: MT531 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":237:2:237:3|Found signal identified as System clock which controls 16 sequential elements including DB1.disable.  Using this clock, which has no specified timing constraint, can prevent conversion of gated or generated clocks and can adversely impact design performance. 
 @W: MT529 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\exercises.vhd":324:20:324:25|Found inferred clock vdp|clk which controls 269 sequential elements including DB1.DAB.RD1.R1\.swapxy. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 
 
 Finished Pre Mapping Phase.
@@ -54,6 +54,6 @@ Pre-mapping successful!
 At Mapper Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 51MB peak: 116MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Sun Mar 20 18:24:27 2016
+# Sun Mar 20 18:40:49 2016
 
 ###########################################################]

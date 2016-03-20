@@ -174,7 +174,7 @@ BEGIN
 	END PROCESS FSM;
 
 	-- For determining next state.
-	N_FSM : PROCESS (db_fsm_state, dav, done, dbb_delaycmd) BEGIN
+	N_FSM : PROCESS (db_fsm_state, dav, done, dbb_delaycmd, op) BEGIN
 		-- By default remain in same state.
 		db_fsm_nstate <= db_fsm_state;
 

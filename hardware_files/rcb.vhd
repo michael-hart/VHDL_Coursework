@@ -195,7 +195,7 @@ ARCHITECTURE rtl1 OF rcb IS
 	SIGNAL delaycmd 							: std_logic;
 
 	-- Signals for pix_word_cache
-	SIGNAL pixnum, pixnum_i 					: std_logic_vector(3 DOWNTO 0);
+	SIGNAL pixnum 								: std_logic_vector(3 DOWNTO 0);
 	SIGNAL wen_all, pw 							: std_logic;
 	SIGNAL pixopin 								: pixop_t;
 	SIGNAL cache_store 							: store_t;
@@ -286,7 +286,7 @@ BEGIN
 	END PROCESS SPLIT;
 
 	-- Process dictating whether a write is required
-	VRAM : PROCESS(vram_delay, word_is_same, db_finish, cache_is_same) IS
+	VRAM : PROCESS(vram_delay, word_is_same, db_finish, cache_is_same, idle_cycles) IS
 	BEGIN
 		IF vram_delay = '0' THEN
 			vram_write <= ((NOT word_is_same) OR db_finish) AND NOT cache_is_same;

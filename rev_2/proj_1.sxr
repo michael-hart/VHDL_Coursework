@@ -69,15 +69,21 @@ Net:  DB1.dbb_bus\.Y[3]   DB1_dbb_bus_Y[3]
 Net:  DB1.dbb_bus\.Y[4]   DB1_dbb_bus_Y[4] 
 Net:  DB1.dbb_bus\.Y[5]   DB1_dbb_bus_Y[5] 
 Net:  DB1.dbb_bus\.rcb_cmd   DB1_dbb_bus_rcb_cmd_scalar 
-Net:  DB1.dbb_bus\.startcmd_0   DB1_dbb_bus_startcmd_0 
 Net:  RCB1.RCB_FSM\.rcb_finish_i   RCB1_RCB_FSM_rcb_finish_i 
+Net:  RCB1.vram_start   RCB1_vram_start 
+Net:  RCB1.vram_write   RCB1_vram_write 
+Net:  RCB1.nstate_0[0]   RCB1_nstate_0[0] 
+Net:  RCB1.E2.state_srsts_0_0__g0   RCB1_E2_state_srsts_0_0__g0 
+Net:  RCB1.E2.state_srsts_0_1__g0   RCB1_E2_state_srsts_0_1__g0 
 Net:  RCB1.E2.state_s0_i_o3_0   RCB1_E2_state_s0_i_o3_0 
-Net:  DB1.db_fsm_state[6]   DB1_db_fsm_state[6] 
-Net:  RCB1.E1.N1\.pre_rdout_par_2_1_0_0__g0_e_x   RCB1_E1_N1_pre_rdout_par_2_1_0_0__g0_e_x 
-Net:  DB1.G_760   DB1_G_760 
-Net:  DB1.G_766   DB1_G_766 
+Net:  RCB1.E2.state_ret_2   RCB1_E2_state_ret_2 
+Net:  RCB1.E2.state_ret_5   RCB1_E2_state_ret_5 
+Net:  DB1.db_fsm_state_i_0[8]   DB1_db_fsm_state_i_0[8] 
+Net:  DB1.DAB.DRAW1.G_760   DB1_DAB_DRAW1_G_760 
+Net:  DB1.DAB.DRAW1.G_766   DB1_DAB_DRAW1_G_766 
 Net:  DB1.G_771   DB1_G_771 
 Net:  DB1.G_775   DB1_G_775 
+Net:  DB1.G_779   DB1_G_779 
 Net:  DB1.hdb_busy_23   DB1_hdb_busy_23 
 Net:  RCB1.E2.data_ram_latmux_14_x   RCB1_E2_data_ram_latmux_14_x 
 Net:  RCB1.E2.data_ram_latmux_13_x   RCB1_E2_data_ram_latmux_13_x 
@@ -104,19 +110,20 @@ Net:  RCB1.E2.addr_ram_x[5]   RCB1_E2_addr_ram_x[5]
 Net:  RCB1.E2.addr_ram_x[6]   RCB1_E2_addr_ram_x[6] 
 Net:  RCB1.E2.addr_ram_x[7]   RCB1_E2_addr_ram_x[7] 
 Net:  DB1.finish_x   DB1_finish_x 
-Net:  DB1.db_fsm_stateen[0]   DB1_db_fsm_stateen[0] 
+Net:  RCB1.E2.C1\.un6_state_i   RCB1_E2_C1_un6_state_i 
 Net:  DB1.db_fsm_state_ret   DB1_db_fsm_state_ret 
 Net:  DB1.dbb_bus\.rcb_cmd[1]   DB1_dbb_bus_rcb_cmd[1] 
 Net:  DB1.dbb_bus\.rcb_cmd[0]   DB1_dbb_bus_rcb_cmd[0] 
 Net:  RCB1.dbb_delaycmd   RCB1_dbb_delaycmd 
-Net:  DB1.db_fsm_nstate_0_sqmuxa_0_a2_x   DB1_db_fsm_nstate_0_sqmuxa_0_a2_x 
-Net:  RCB1.splitxy\.X[0]   RCB1_splitxy_X[0] 
 Net:  RCB1.splitxy\.X[1]   RCB1_splitxy_X[1] 
-Net:  RCB1.E2.G_802   RCB1_E2_G_802 
-Net:  DB1.dbb_bus\.rcb_cmd_rst   DB1_dbb_bus_rcb_cmd_rst 
+Net:  RCB1.splitxy\.X[0]   RCB1_splitxy_X[0] 
+Net:  RCB1.clrxy_reg\.Y_1_sqmuxa   RCB1_clrxy_reg_Y_1_sqmuxa 
+Net:  RCB1.delaycmd.m3   RCB1_delaycmd_m3 
 Net:  DB1.dbb_bus\.rcb_cmd_rst_0   DB1_dbb_bus_rcb_cmd_rst_0 
+Net:  DB1.dbb_bus\.rcb_cmd_rst   DB1_dbb_bus_rcb_cmd_rst 
+Net:  DB1.DAB.DRAW1.G_784   DB1_DAB_DRAW1_G_784 
 Net:  RCB1.E1.N1\.pre_rdout_par_3_en_0_a4[0]   RCB1_E1_N1_pre_rdout_par_3_en_0_a4[0] 
-Net:  RCB1.pw_0_sqmuxa   RCB1_pw_0_sqmuxa 
+Net:  RCB1.E1.N1\.pre_rdout_par_2_1_0_0__g0_e   RCB1_E1_N1_pre_rdout_par_2_1_0_0__g0_e 
 EndView vdp NoName
 
 BeginView db NoName
@@ -208,78 +215,74 @@ Inst: OCTANT_CMB\.result_1_add4   OCTANT_CMB_result_1_add4 cycloneii_lcell_comb
 Inst: OCTANT_CMB\.result_1_add5   OCTANT_CMB_result_1_add5 cycloneii_lcell_comb 
 Inst: REG\.xbias1_RNO   REG_xbias1_RNO cycloneii_lcell_comb 
 Inst: REG\.negy1_RNO   REG_negy1_RNO cycloneii_lcell_comb 
-Inst: un1_db_fsm_state_13_i_a2   un1_db_fsm_state_13_i_a2_cZ cycloneii_lcell_comb 
-Inst: hdb_reg_RNINQSE[1]   hdb_reg_RNINQSE_1_ cycloneii_lcell_comb 
-Inst: hdb_reg_RNIMPSE[0]   hdb_reg_RNIMPSE_0_ cycloneii_lcell_comb 
-Inst: mux_out_latmux   mux_out_latmux_cZ cycloneii_lcell_comb 
-Inst: dbb_bus\.startcmd_29_RNIO3JV   dbb_bus_startcmd_29_RNIO3JV cycloneii_lcell_comb 
 Inst: dbb_bus\.rcb_cmd_10_RNIKJ3F   dbb_bus_rcb_cmd_10_RNIKJ3F cycloneii_lcell_comb 
+Inst: un1_db_fsm_state_13_i_a2   un1_db_fsm_state_13_i_a2_cZ cycloneii_lcell_comb 
+Inst: mux_out_latmux   mux_out_latmux_cZ cycloneii_lcell_comb 
+Inst: hdb_reg_RNIMPSE[0]   hdb_reg_RNIMPSE_0_ cycloneii_lcell_comb 
+Inst: hdb_reg_RNINQSE[1]   hdb_reg_RNINQSE_1_ cycloneii_lcell_comb 
 Inst: OCTANT_CMB\.op_abs\.inf_abs1[1]   OCTANT_CMB_op_abs_inf_abs1_1_ cycloneii_lcell_comb 
 Inst: OCTANT_CMB\.op_abs\.inf_abs0[1]   OCTANT_CMB_op_abs_inf_abs0_1_ cycloneii_lcell_comb 
 Inst: inf_abs0_a_0_anc2   inf_abs0_a_0_anc2_cZ cycloneii_lcell_comb 
 Inst: inf_abs1_a_1_anc2   inf_abs1_a_1_anc2_cZ cycloneii_lcell_comb 
-Inst: xin[5]   xin_5_ cycloneii_lcell_comb 
-Inst: xin[4]   xin_4_ cycloneii_lcell_comb 
-Inst: xin[3]   xin_3_ cycloneii_lcell_comb 
-Inst: xin[2]   xin_2_ cycloneii_lcell_comb 
 Inst: xin[1]   xin_1_ cycloneii_lcell_comb 
-Inst: xin[0]   xin_0_ cycloneii_lcell_comb 
-Inst: yin[5]   yin_5_ cycloneii_lcell_comb 
-Inst: yin[4]   yin_4_ cycloneii_lcell_comb 
-Inst: yin[3]   yin_3_ cycloneii_lcell_comb 
-Inst: yin[2]   yin_2_ cycloneii_lcell_comb 
 Inst: yin[1]   yin_1_ cycloneii_lcell_comb 
+Inst: yin[2]   yin_2_ cycloneii_lcell_comb 
+Inst: yin[3]   yin_3_ cycloneii_lcell_comb 
+Inst: yin[4]   yin_4_ cycloneii_lcell_comb 
+Inst: xin[2]   xin_2_ cycloneii_lcell_comb 
+Inst: xin[3]   xin_3_ cycloneii_lcell_comb 
+Inst: xin[4]   xin_4_ cycloneii_lcell_comb 
 Inst: yin[0]   yin_0_ cycloneii_lcell_comb 
+Inst: yin[5]   yin_5_ cycloneii_lcell_comb 
+Inst: xin[0]   xin_0_ cycloneii_lcell_comb 
+Inst: xin[5]   xin_5_ cycloneii_lcell_comb 
 Inst: OCTANT_CMB\.op_abs\.inf_abs1[2]   OCTANT_CMB_op_abs_inf_abs1_2_ cycloneii_lcell_comb 
 Inst: OCTANT_CMB\.op_abs\.inf_abs0[2]   OCTANT_CMB_op_abs_inf_abs0_2_ cycloneii_lcell_comb 
 Inst: inf_abs0_a_0_anc3   inf_abs0_a_0_anc3_cZ cycloneii_lcell_comb 
 Inst: inf_abs1_a_1_anc3   inf_abs1_a_1_anc3_cZ cycloneii_lcell_comb 
-Inst: dbb_bus\.X[3]   dbb_bus_X_3_ cycloneii_lcell_comb 
-Inst: dbb_bus\.X[0]   dbb_bus_X_0_ cycloneii_lcell_comb 
-Inst: dbb_bus\.Y[3]   dbb_bus_Y_3_ cycloneii_lcell_comb 
-Inst: dbb_bus\.Y[0]   dbb_bus_Y_0_ cycloneii_lcell_comb 
-Inst: dbb_bus\.X[2]   dbb_bus_X_2_ cycloneii_lcell_comb 
 Inst: dbb_bus\.Y[2]   dbb_bus_Y_2_ cycloneii_lcell_comb 
-Inst: dbb_bus\.Y[1]   dbb_bus_Y_1_ cycloneii_lcell_comb 
-Inst: dbb_bus\.Y[4]   dbb_bus_Y_4_ cycloneii_lcell_comb 
-Inst: dbb_bus\.Y[5]   dbb_bus_Y_5_ cycloneii_lcell_comb 
-Inst: dbb_bus\.X[1]   dbb_bus_X_1_ cycloneii_lcell_comb 
+Inst: dbb_bus\.X[2]   dbb_bus_X_2_ cycloneii_lcell_comb 
+Inst: dbb_bus\.Y[3]   dbb_bus_Y_3_ cycloneii_lcell_comb 
+Inst: dbb_bus\.X[3]   dbb_bus_X_3_ cycloneii_lcell_comb 
 Inst: dbb_bus\.X[4]   dbb_bus_X_4_ cycloneii_lcell_comb 
+Inst: dbb_bus\.Y[4]   dbb_bus_Y_4_ cycloneii_lcell_comb 
+Inst: dbb_bus\.Y[0]   dbb_bus_Y_0_ cycloneii_lcell_comb 
+Inst: dbb_bus\.Y[1]   dbb_bus_Y_1_ cycloneii_lcell_comb 
+Inst: dbb_bus\.Y[5]   dbb_bus_Y_5_ cycloneii_lcell_comb 
+Inst: dbb_bus\.X[0]   dbb_bus_X_0_ cycloneii_lcell_comb 
+Inst: dbb_bus\.X[1]   dbb_bus_X_1_ cycloneii_lcell_comb 
 Inst: dbb_bus\.X[5]   dbb_bus_X_5_ cycloneii_lcell_comb 
-Inst: db_fsm_state_srsts_0_a2_1_0_x_RNI8SID1_0[1]   db_fsm_state_srsts_0_a2_1_0_x_RNI8SID1_0_1_ cycloneii_lcell_comb 
 Inst: OCTANT_CMB\.op_abs\.inf_abs1[3]   OCTANT_CMB_op_abs_inf_abs1_3_ cycloneii_lcell_comb 
 Inst: OCTANT_CMB\.op_abs\.inf_abs0[3]   OCTANT_CMB_op_abs_inf_abs0_3_ cycloneii_lcell_comb 
-Inst: db_fsm_state_RNO[6]   db_fsm_state_RNO_6_ cycloneii_lcell_comb 
-Inst: db_fsm_state_srsts_0_a2_1_0_x_RNI8SID1[1]   db_fsm_state_srsts_0_a2_1_0_x_RNI8SID1_1_ cycloneii_lcell_comb 
-Inst: db_fsm_state_nss_i_i_a2_1_x_RNIU7FR[0]   db_fsm_state_nss_i_i_a2_1_x_RNIU7FR_0_ cycloneii_lcell_comb 
+Inst: db_fsm_state_0_RNII74D1[7]   db_fsm_state_0_RNII74D1_7_ cycloneii_lcell_comb 
 Inst: OCTANT_CMB\.op_abs\.inf_abs1[4]   OCTANT_CMB_op_abs_inf_abs1_4_ cycloneii_lcell_comb 
 Inst: OCTANT_CMB\.op_abs\.inf_abs0[4]   OCTANT_CMB_op_abs_inf_abs0_4_ cycloneii_lcell_comb 
 Inst: OCTANT_CMB\.op_abs\.inf_abs0[6]   OCTANT_CMB_op_abs_inf_abs0_6_ cycloneii_lcell_comb 
 Inst: OCTANT_CMB\.op_abs\.inf_abs1[6]   OCTANT_CMB_op_abs_inf_abs1_6_ cycloneii_lcell_comb 
 Inst: OCTANT_CMB\.op_abs\.inf_abs1[5]   OCTANT_CMB_op_abs_inf_abs1_5_ cycloneii_lcell_comb 
 Inst: OCTANT_CMB\.op_abs\.inf_abs0[5]   OCTANT_CMB_op_abs_inf_abs0_5_ cycloneii_lcell_comb 
-Inst: G_775   G_775_cZ cycloneii_lcell_comb 
 Inst: G_771   G_771_cZ cycloneii_lcell_comb 
-Inst: G_760   G_760_cZ cycloneii_lcell_comb 
-Inst: G_766   G_766_cZ cycloneii_lcell_comb 
+Inst: G_775   G_775_cZ cycloneii_lcell_comb 
 Inst: disable_rst   disable_rst_cZ cycloneii_lcell_comb 
-Inst: db_fsm_stateen[0]   db_fsm_stateen_0_ cycloneii_lcell_comb 
+Inst: G_779   G_779_cZ cycloneii_lcell_comb 
 Inst: db_fsm_state_nss_i_i_a2_0[0]   db_fsm_state_nss_i_i_a2_0_0_ cycloneii_lcell_comb 
+Inst: db_fsm_stateen[0]   db_fsm_stateen_0_ cycloneii_lcell_comb 
 Inst: db_fsm_state_srsts_i_a2[2]   db_fsm_state_srsts_i_a2_2_ cycloneii_lcell_comb 
-Inst: db_fsm_state_0_RNI9M3R1[1]   db_fsm_state_0_RNI9M3R1_1_ cycloneii_lcell_comb 
-Inst: db_fsm_state_nss_i_i_a2_0_RNI2CRF1[0]   db_fsm_state_nss_i_i_a2_0_RNI2CRF1_0_ cycloneii_lcell_comb 
-Inst: un1_db_fsm_state_14_i_a2_0   un1_db_fsm_state_14_i_a2_0_cZ cycloneii_lcell_comb 
+Inst: db_fsm_state_srsts_0_a2_1_x_RNI38L91[1]   db_fsm_state_srsts_0_a2_1_x_RNI38L91_1_ cycloneii_lcell_comb 
+Inst: db_fsm_state_nss_i_i_a2_0_RNIMBG12[0]   db_fsm_state_nss_i_i_a2_0_RNIMBG12_0_ cycloneii_lcell_comb 
 Inst: un1_db_fsm_state_6_i_a2_0   un1_db_fsm_state_6_i_a2_0_cZ cycloneii_lcell_comb 
+Inst: un1_db_fsm_state_14_i_a2_0   un1_db_fsm_state_14_i_a2_0_cZ cycloneii_lcell_comb 
 Inst: un1_db_fsm_state_4_i_a2_2   un1_db_fsm_state_4_i_a2_2_cZ cycloneii_lcell_comb 
 Inst: un1_db_fsm_state_8_i_a2_0   un1_db_fsm_state_8_i_a2_0_cZ cycloneii_lcell_comb 
 Inst: db_fsm_state_srsts_i_a2_RNI8FEL[2]   db_fsm_state_srsts_i_a2_RNI8FEL_2_ cycloneii_lcell_comb 
 Inst: un1_db_fsm_state_9_i_a2_0_x   un1_db_fsm_state_9_i_a2_0_x_cZ cycloneii_lcell_comb 
-Inst: db_fsm_state_nss_i_i_a2_1_x[0]   db_fsm_state_nss_i_i_a2_1_x_0_ cycloneii_lcell_comb 
-Inst: finish_x   finish_x_cZ cycloneii_lcell_comb 
+Inst: db_fsm_state_0_RNI1QGD[1]   db_fsm_state_0_RNI1QGD_1_ cycloneii_lcell_comb 
+Inst: N_207_i_0_g0_2_a_x   N_207_i_0_g0_2_a_x_cZ cycloneii_lcell_comb 
+Inst: db_fsm_state_srsts_0_a2_1_x_RNI2E4S[1]   db_fsm_state_srsts_0_a2_1_x_RNI2E4S_1_ cycloneii_lcell_comb 
+Inst: db_fsm_state_RNO[6]   db_fsm_state_RNO_6_ cycloneii_lcell_comb 
+Inst: db_fsm_state_srsts_0_a2_1_x[1]   db_fsm_state_srsts_0_a2_1_x_1_ cycloneii_lcell_comb 
 Inst: un1_db_fsm_state_7_i_a2_0_x   un1_db_fsm_state_7_i_a2_0_x_cZ cycloneii_lcell_comb 
-Inst: db_fsm_state_srsts_0_a2_1_0_x[1]   db_fsm_state_srsts_0_a2_1_0_x_1_ cycloneii_lcell_comb 
-Inst: G_760_0_x   G_760_0_x_cZ cycloneii_lcell_comb 
-Inst: db_fsm_nstate_0_sqmuxa_0_a2_x   db_fsm_nstate_0_sqmuxa_0_a2_x_cZ cycloneii_lcell_comb 
+Inst: finish_x   finish_x_cZ cycloneii_lcell_comb 
 Inst: db_fsm_state_0_RNO[5]   db_fsm_state_0_RNO_5_ cycloneii_lcell_comb 
 Inst: db_fsm_state_0_RNI5UTA[5]   db_fsm_state_0_RNI5UTA_5_ cycloneii_lcell_comb 
 Inst: db_fsm_state_0_RNI4TTA[4]   db_fsm_state_0_RNI4TTA_4_ cycloneii_lcell_comb 
@@ -334,9 +337,9 @@ Inst: b[0]   b_0_ cycloneii_lcell_comb
 EndView inv_synplcty NoName
 
 BeginView inv_synplcty_0 NoName
-Inst: b[3]   b_3_ cycloneii_lcell_comb 
-Inst: b[1]   b_1_ cycloneii_lcell_comb 
 Inst: b[2]   b_2_ cycloneii_lcell_comb 
+Inst: b[1]   b_1_ cycloneii_lcell_comb 
+Inst: b[3]   b_3_ cycloneii_lcell_comb 
 Inst: b[5]   b_5_ cycloneii_lcell_comb 
 EndView inv_synplcty_0 NoName
 
@@ -434,33 +437,31 @@ Inst: R1\.xincr_3_add2   R1_xincr_3_add2 cycloneii_lcell_comb
 Inst: R1\.xincr_3_add3   R1_xincr_3_add3 cycloneii_lcell_comb 
 Inst: R1\.xincr_3_add4   R1_xincr_3_add4 cycloneii_lcell_comb 
 Inst: R1\.xincr_3_add5   R1_xincr_3_add5 cycloneii_lcell_comb 
-Inst: y1_0_sqmuxa   y1_0_sqmuxa_cZ cycloneii_lcell_comb 
+Inst: un1_error_2_v_0[0]   un1_error_2_v_0_0_ cycloneii_lcell_comb 
+Inst: un1_error_2_v_0[1]   un1_error_2_v_0_1_ cycloneii_lcell_comb 
+Inst: un1_error_2_v_0[2]   un1_error_2_v_0_2_ cycloneii_lcell_comb 
+Inst: un1_error_2_v_0[3]   un1_error_2_v_0_3_ cycloneii_lcell_comb 
+Inst: un1_error_2_v_0[4]   un1_error_2_v_0_4_ cycloneii_lcell_comb 
+Inst: un1_error_2_v_0[5]   un1_error_2_v_0_5_ cycloneii_lcell_comb 
 Inst: un4_0_a2[0]   un4_0_a2_0_ cycloneii_lcell_comb 
 Inst: un4_0_a2[1]   un4_0_a2_1_ cycloneii_lcell_comb 
 Inst: un4_0_a2[2]   un4_0_a2_2_ cycloneii_lcell_comb 
 Inst: un4_0_a2[3]   un4_0_a2_3_ cycloneii_lcell_comb 
 Inst: un4_0_a2[4]   un4_0_a2_4_ cycloneii_lcell_comb 
 Inst: un4_0_a2[5]   un4_0_a2_5_ cycloneii_lcell_comb 
-Inst: un1_error_2_v_0[5]   un1_error_2_v_0_5_ cycloneii_lcell_comb 
-Inst: un1_error_2_v_0[4]   un1_error_2_v_0_4_ cycloneii_lcell_comb 
-Inst: un1_error_2_v_0[3]   un1_error_2_v_0_3_ cycloneii_lcell_comb 
-Inst: un1_error_2_v_0[2]   un1_error_2_v_0_2_ cycloneii_lcell_comb 
-Inst: un1_error_2_v_0[1]   un1_error_2_v_0_1_ cycloneii_lcell_comb 
-Inst: un1_error_2_v_0[0]   un1_error_2_v_0_0_ cycloneii_lcell_comb 
+Inst: y1_0_sqmuxa   y1_0_sqmuxa_cZ cycloneii_lcell_comb 
 Inst: C1\.op_abs\.inf_abs0[1]   C1_op_abs_inf_abs0_1_ cycloneii_lcell_comb 
 Inst: inf_abs0_a_0_anc2   inf_abs0_a_0_anc2_cZ cycloneii_lcell_comb 
 Inst: C1\.op_abs\.inf_abs1[1]   C1_op_abs_inf_abs1_1_ cycloneii_lcell_comb 
 Inst: inf_abs1_a_1_anc2   inf_abs1_a_1_anc2_cZ cycloneii_lcell_comb 
-Inst: R1\.x1_c2   R1_x1_c2 cycloneii_lcell_comb 
 Inst: R1\.x1_RNO[2]   R1_x1_RNO_2_ cycloneii_lcell_comb 
-Inst: un1_error_2_v[0]   un1_error_2_v_0_ cycloneii_lcell_comb 
-Inst: un1_error_2_v[1]   un1_error_2_v_1_ cycloneii_lcell_comb 
-Inst: un1_error_2_v[2]   un1_error_2_v_2_ cycloneii_lcell_comb 
-Inst: un1_error_2_v[3]   un1_error_2_v_3_ cycloneii_lcell_comb 
-Inst: un1_error_2_v[4]   un1_error_2_v_4_ cycloneii_lcell_comb 
-Inst: un1_error_2_v[5]   un1_error_2_v_5_ cycloneii_lcell_comb 
 Inst: R1\.y1_c2   R1_y1_c2 cycloneii_lcell_comb 
-Inst: R1\.y1_RNO_1[2]   R1_y1_RNO_1_2_ cycloneii_lcell_comb 
+Inst: un1_error_2_v[5]   un1_error_2_v_5_ cycloneii_lcell_comb 
+Inst: un1_error_2_v[4]   un1_error_2_v_4_ cycloneii_lcell_comb 
+Inst: un1_error_2_v[3]   un1_error_2_v_3_ cycloneii_lcell_comb 
+Inst: un1_error_2_v[2]   un1_error_2_v_2_ cycloneii_lcell_comb 
+Inst: un1_error_2_v[1]   un1_error_2_v_1_ cycloneii_lcell_comb 
+Inst: un1_error_2_v[0]   un1_error_2_v_0_ cycloneii_lcell_comb 
 Inst: C1\.un3_x1_0   C1_un3_x1_0 cycloneii_lcell_comb 
 Inst: C1\.un3_x1_1   C1_un3_x1_1 cycloneii_lcell_comb 
 Inst: C1\.un3_x1_2   C1_un3_x1_2 cycloneii_lcell_comb 
@@ -469,29 +470,30 @@ Inst: C1\.un3_x1_4   C1_un3_x1_4 cycloneii_lcell_comb
 Inst: C1\.un3_x1_5   C1_un3_x1_5 cycloneii_lcell_comb 
 Inst: C1\.op_abs\.inf_abs0[2]   C1_op_abs_inf_abs0_2_ cycloneii_lcell_comb 
 Inst: C1\.op_abs\.inf_abs1[2]   C1_op_abs_inf_abs1_2_ cycloneii_lcell_comb 
-Inst: R1\.x1_RNO[3]   R1_x1_RNO_3_ cycloneii_lcell_comb 
+Inst: R1\.x1_11_1_1   R1_x1_11_1_1 cycloneii_lcell_comb 
+Inst: G_760_0   G_760_0_cZ cycloneii_lcell_comb 
 Inst: C1\.op_abs\.inf_abs0[3]   C1_op_abs_inf_abs0_3_ cycloneii_lcell_comb 
 Inst: inf_abs0_a_0_anc4   inf_abs0_a_0_anc4_cZ cycloneii_lcell_comb 
 Inst: C1\.op_abs\.inf_abs1[3]   C1_op_abs_inf_abs1_3_ cycloneii_lcell_comb 
 Inst: inf_abs1_a_1_anc4   inf_abs1_a_1_anc4_cZ cycloneii_lcell_comb 
+Inst: R1\.y1_e4_0_g2_0_425_x4_0   R1_y1_e4_0_g2_0_425_x4_0 cycloneii_lcell_comb 
+Inst: R1\.x1_n4_0_325_x4_0   R1_x1_n4_0_325_x4_0 cycloneii_lcell_comb 
 Inst: R1\.xnew_1_0_0__g0_e   R1_xnew_1_0_0__g0_e cycloneii_lcell_comb 
+Inst: R1\.x1_n1_0_215_x4   R1_x1_n1_0_215_x4 cycloneii_lcell_comb 
+Inst: R1\.x1_n2_0_249_x4_0   R1_x1_n2_0_249_x4_0 cycloneii_lcell_comb 
 Inst: R1\.x1_n3_0_287_x4_0   R1_x1_n3_0_287_x4_0 cycloneii_lcell_comb 
-Inst: R1\.y1_e0_0_N_4_i_0_398_x4   R1_y1_e0_0_N_4_i_0_398_x4 cycloneii_lcell_comb 
 Inst: R1\.x1_RNO[4]   R1_x1_RNO_4_ cycloneii_lcell_comb 
 Inst: R1\.y1_RNO[4]   R1_y1_RNO_4_ cycloneii_lcell_comb 
-Inst: R1\.y1_e4_0_g2_0_425_x4_0   R1_y1_e4_0_g2_0_425_x4_0 cycloneii_lcell_comb 
+Inst: R1\.y1_e0_0_N_4_i_0_398_x4   R1_y1_e0_0_N_4_i_0_398_x4 cycloneii_lcell_comb 
 Inst: R1\.x1_n5_0_363_x4_0   R1_x1_n5_0_363_x4_0 cycloneii_lcell_comb 
-Inst: R1\.x1_n4_0_325_x4_0   R1_x1_n4_0_325_x4_0 cycloneii_lcell_comb 
-Inst: R1\.x1_n2_0_249_x4_0   R1_x1_n2_0_249_x4_0 cycloneii_lcell_comb 
-Inst: R1\.x1_n1_0_215_x4   R1_x1_n1_0_215_x4 cycloneii_lcell_comb 
 Inst: C1\.un3_x1_9   C1_un3_x1_9 cycloneii_lcell_comb 
 Inst: R1\.un12_disable_5_3   R1_un12_disable_5_3 cycloneii_lcell_comb 
 Inst: C1\.op_abs\.inf_abs0[4]   C1_op_abs_inf_abs0_4_ cycloneii_lcell_comb 
 Inst: C1\.op_abs\.inf_abs1[4]   C1_op_abs_inf_abs1_4_ cycloneii_lcell_comb 
-Inst: R1\.y1_RNO_0[2]   R1_y1_RNO_0_2_ cycloneii_lcell_comb 
 Inst: R1\.x1_RNO[1]   R1_x1_RNO_1_ cycloneii_lcell_comb 
 Inst: R1\.y1_RNO[0]   R1_y1_RNO_0_ cycloneii_lcell_comb 
 Inst: R1\.x1_RNO[0]   R1_x1_RNO_0_ cycloneii_lcell_comb 
+Inst: R1\.x1_RNO[5]   R1_x1_RNO_5_ cycloneii_lcell_comb 
 Inst: R1\.y1_RNO_0[5]   R1_y1_RNO_0_5_ cycloneii_lcell_comb 
 Inst: C1\.op_abs\.inf_abs0[6]   C1_op_abs_inf_abs0_6_ cycloneii_lcell_comb 
 Inst: C1\.op_abs\.inf_abs1[6]   C1_op_abs_inf_abs1_6_ cycloneii_lcell_comb 
@@ -501,17 +503,22 @@ Inst: R1\.un12_disable_5   R1_un12_disable_5 cycloneii_lcell_comb
 Inst: C1\.op_abs\.inf_abs0[5]   C1_op_abs_inf_abs0_5_ cycloneii_lcell_comb 
 Inst: C1\.op_abs\.inf_abs1[5]   C1_op_abs_inf_abs1_5_ cycloneii_lcell_comb 
 Inst: R1\.y1_RNO_0[1]   R1_y1_RNO_0_1_ cycloneii_lcell_comb 
+Inst: G_784   G_784_cZ cycloneii_lcell_comb 
 Inst: R1\.y1_RNO_0[3]   R1_y1_RNO_0_3_ cycloneii_lcell_comb 
 Inst: R1\.y1_RNO[1]   R1_y1_RNO_1_ cycloneii_lcell_comb 
+Inst: R1\.y1_RNO_0[2]   R1_y1_RNO_0_2_ cycloneii_lcell_comb 
 Inst: R1\.y1_RNO[2]   R1_y1_RNO_2_ cycloneii_lcell_comb 
-Inst: R1\.y1_RNO[3]   R1_y1_RNO_3_ cycloneii_lcell_comb 
 Inst: R1\.y1_RNO[5]   R1_y1_RNO_5_ cycloneii_lcell_comb 
+Inst: R1\.y1_RNO[3]   R1_y1_RNO_3_ cycloneii_lcell_comb 
+Inst: G_766   G_766_cZ cycloneii_lcell_comb 
+Inst: G_760   G_760_cZ cycloneii_lcell_comb 
 Inst: R1\.un15_disable.R1\.un15_disable_7_term_RNILFV11   R1_un15_disable_R1_un15_disable_7_term_RNILFV11 cycloneii_lcell_comb 
 Inst: C1\.un3_x1_RNI7NMD4   C1_un3_x1_RNI7NMD4 cycloneii_lcell_comb 
 Inst: y1_2_sqmuxa_1   y1_2_sqmuxa_1_cZ cycloneii_lcell_comb 
 Inst: error_1_sqmuxa_0   error_1_sqmuxa_0_cZ cycloneii_lcell_comb 
 Inst: C1\.un3_x1_RNI57L15   C1_un3_x1_RNI57L15 cycloneii_lcell_comb 
-Inst: R1\.x1_RNO[5]   R1_x1_RNO_5_ cycloneii_lcell_comb 
+Inst: G_804   G_804_cZ cycloneii_lcell_comb 
+Inst: R1\.x1_RNO[3]   R1_x1_RNO_3_ cycloneii_lcell_comb 
 Inst: R1\.xincr_3_add0_start   R1_xincr_3_add0_start cycloneii_lcell_comb 
 Inst: C1\.un2_err2_add0_start   C1_un2_err2_add0_start cycloneii_lcell_comb 
 Inst: R1\.yincr_2_add0_start   R1_yincr_2_add0_start cycloneii_lcell_comb 
@@ -521,29 +528,29 @@ Net:  disable   disable_Z
 EndView draw_octant NoName
 
 BeginView inv_synplcty_1 NoName
-Inst: b[3]   b_3_ cycloneii_lcell_comb 
+Inst: b[2]   b_2_ cycloneii_lcell_comb 
 Inst: b[0]   b_0_ cycloneii_lcell_comb 
 Inst: b[1]   b_1_ cycloneii_lcell_comb 
-Inst: b[5]   b_5_ cycloneii_lcell_comb 
 EndView inv_synplcty_1 NoName
 
 BeginView inv_synplcty_2 NoName
-Inst: b[2]   b_2_ cycloneii_lcell_comb 
+Inst: b[3]   b_3_ cycloneii_lcell_comb 
 Inst: b[4]   b_4_ cycloneii_lcell_comb 
+Inst: b[5]   b_5_ cycloneii_lcell_comb 
 EndView inv_synplcty_2 NoName
 
 BeginView swap_0 NoName
-Inst: xout[3]   xout_3_ cycloneii_lcell_comb 
-Inst: xout[0]   xout_0_ cycloneii_lcell_comb 
-Inst: yout[3]   yout_3_ cycloneii_lcell_comb 
-Inst: yout[0]   yout_0_ cycloneii_lcell_comb 
-Inst: xout[2]   xout_2_ cycloneii_lcell_comb 
 Inst: yout[2]   yout_2_ cycloneii_lcell_comb 
-Inst: yout[1]   yout_1_ cycloneii_lcell_comb 
-Inst: yout[4]   yout_4_ cycloneii_lcell_comb 
-Inst: yout[5]   yout_5_ cycloneii_lcell_comb 
-Inst: xout[1]   xout_1_ cycloneii_lcell_comb 
+Inst: xout[2]   xout_2_ cycloneii_lcell_comb 
+Inst: yout[3]   yout_3_ cycloneii_lcell_comb 
+Inst: xout[3]   xout_3_ cycloneii_lcell_comb 
 Inst: xout[4]   xout_4_ cycloneii_lcell_comb 
+Inst: yout[4]   yout_4_ cycloneii_lcell_comb 
+Inst: yout[0]   yout_0_ cycloneii_lcell_comb 
+Inst: yout[1]   yout_1_ cycloneii_lcell_comb 
+Inst: yout[5]   yout_5_ cycloneii_lcell_comb 
+Inst: xout[0]   xout_0_ cycloneii_lcell_comb 
+Inst: xout[1]   xout_1_ cycloneii_lcell_comb 
 Inst: xout[5]   xout_5_ cycloneii_lcell_comb 
 EndView swap_0 NoName
 
@@ -618,7 +625,6 @@ Inst: RCB_FSM\.clrxy_reg\.Y[4]   RCB_FSM_clrxy_reg_Y_4_ cycloneii_lcell_ff
 Inst: RCB_FSM\.clrxy_reg\.Y[3]   RCB_FSM_clrxy_reg_Y_3_ cycloneii_lcell_ff 
 Inst: RCB_FSM\.clrxy_reg\.Y[2]   RCB_FSM_clrxy_reg_Y_2_ cycloneii_lcell_ff 
 Inst: RCB_FSM\.clrxy_reg\.Y[1]   RCB_FSM_clrxy_reg_Y_1_ cycloneii_lcell_ff 
-Inst: RCB_FSM\.clrxy_reg\.Y[0]   RCB_FSM_clrxy_reg_Y_0_ cycloneii_lcell_ff 
 Inst: RCB_FSM\.vraddr[7]   RCB_FSM_vraddr_7_ cycloneii_lcell_ff 
 Inst: RCB_FSM\.vraddr[6]   RCB_FSM_vraddr_6_ cycloneii_lcell_ff 
 Inst: RCB_FSM\.vraddr[5]   RCB_FSM_vraddr_5_ cycloneii_lcell_ff 
@@ -680,6 +686,7 @@ Inst: RCB_FSM\.cache_store_reg_1[0]   RCB_FSM_cache_store_reg_1_0_ cycloneii_lce
 Inst: RCB_FSM\.cache_store_reg_0[1]   RCB_FSM_cache_store_reg_0_1_ cycloneii_lcell_ff 
 Inst: RCB_FSM\.cache_store_reg_0[0]   RCB_FSM_cache_store_reg_0_0_ cycloneii_lcell_ff 
 Inst: RCB_FSM\.rcb_finish_i   RCB_FSM_rcb_finish_i cycloneii_lcell_ff 
+Inst: RCB_FSM\.clrxy_reg\.Y[0]   RCB_FSM_clrxy_reg_Y_0_ cycloneii_lcell_ff 
 Inst: nstate_0[0]   nstate_0_0_ cycloneii_lcell_ff 
 Inst: RCB_FSM\.clrxy_reg\.X_RNO[0]   RCB_FSM_clrxy_reg_X_RNO_0_ inv 
 Inst: RCB_FSM\.idle_cycles_c0   RCB_FSM_idle_cycles_c0 cycloneii_lcell_comb 
@@ -738,73 +745,78 @@ Inst: RCB_LOG\.max_slv\.max\.un23_output_value.lt2   RCB_LOG_max_slv_max_un23_ou
 Inst: RCB_LOG\.max_slv\.max\.un23_output_value.lt3   RCB_LOG_max_slv_max_un23_output_value_lt3 cycloneii_lcell_comb 
 Inst: RCB_LOG\.max_slv\.max\.un23_output_value.lt4   RCB_LOG_max_slv_max_un23_output_value_lt4 cycloneii_lcell_comb 
 Inst: RCB_LOG\.max_slv\.max\.un23_output_value.lt5   RCB_LOG_max_slv_max_un23_output_value_lt5 cycloneii_lcell_comb 
-Inst: RCB_FSM\.un39_vram_delay_2   RCB_FSM_un39_vram_delay_2 cycloneii_lcell_comb 
 Inst: RCB_FSM\.clrxy_reg\.X_RNO[1]   RCB_FSM_clrxy_reg_X_RNO_1_ cycloneii_lcell_comb 
+Inst: RCB_FSM\.un39_vram_delay_3   RCB_FSM_un39_vram_delay_3 cycloneii_lcell_comb 
+Inst: RCB_FSM\.un39_vram_delay_2   RCB_FSM_un39_vram_delay_2 cycloneii_lcell_comb 
+Inst: RCB_FSM\.un39_vram_delay_1   RCB_FSM_un39_vram_delay_1 cycloneii_lcell_comb 
+Inst: RCB_FSM\.un39_vram_delay_4   RCB_FSM_un39_vram_delay_4 cycloneii_lcell_comb 
+Inst: RCB_FSM\.un39_vram_delay_5   RCB_FSM_un39_vram_delay_5 cycloneii_lcell_comb 
 Inst: VRAM\.un1_vram_delaylto30_3   VRAM_un1_vram_delaylto30_3 cycloneii_lcell_comb 
+Inst: VRAM\.un1_vram_delaylto30_7   VRAM_un1_vram_delaylto30_7 cycloneii_lcell_comb 
+Inst: rcb_finish_i_0_sqmuxa_s_0   rcb_finish_i_0_sqmuxa_s_0_cZ cycloneii_lcell_comb 
+Inst: delaycmd.m1_e   delaycmd_m1_e cycloneii_lcell_comb 
+Inst: pw_d1_1_tz   pw_d1_1_tz_cZ cycloneii_lcell_comb 
 Inst: RCB_FSM\.clrxy_reg\.X_RNO[2]   RCB_FSM_clrxy_reg_X_RNO_2_ cycloneii_lcell_comb 
-Inst: delaycmd.m1_e_i_o2   delaycmd_m1_e_i_o2 cycloneii_lcell_comb 
-Inst: delaycmd_1_sqmuxa_6_1   delaycmd_1_sqmuxa_6_1_cZ cycloneii_lcell_comb 
-Inst: RCB_LOG\.un21_vram_delay_NE_10_0   RCB_LOG_un21_vram_delay_NE_10_0 cycloneii_lcell_comb 
-Inst: RCB_LOG\.un21_vram_delay_NE_10_3   RCB_LOG_un21_vram_delay_NE_10_3 cycloneii_lcell_comb 
+Inst: RCB_FSM\.clrxy_reg\.X_RNIQGT9[2]   RCB_FSM_clrxy_reg_X_RNIQGT9_2_ cycloneii_lcell_comb 
+Inst: pw_0_sqmuxa   pw_0_sqmuxa_cZ cycloneii_lcell_comb 
+Inst: RCB_FSM\.rcb_finish_i_RNO_1   RCB_FSM_rcb_finish_i_RNO_1 cycloneii_lcell_comb 
+Inst: RCB_FSM\.un42_vram_delay_NE_3   RCB_FSM_un42_vram_delay_NE_3 cycloneii_lcell_comb 
+Inst: RCB_FSM\.un42_vram_delay_NE_4   RCB_FSM_un42_vram_delay_NE_4 cycloneii_lcell_comb 
+Inst: RCB_FSM\.un42_vram_delay_NE_5   RCB_FSM_un42_vram_delay_NE_5 cycloneii_lcell_comb 
+Inst: VRAM\.un1_vram_delaylto30_13   VRAM_un1_vram_delaylto30_13 cycloneii_lcell_comb 
 Inst: VRAM\.un1_vram_delaylto30_14   VRAM_un1_vram_delaylto30_14 cycloneii_lcell_comb 
 Inst: VRAM\.un1_vram_delaylto30_16   VRAM_un1_vram_delaylto30_16 cycloneii_lcell_comb 
-Inst: VRAM\.un1_vram_delaylto30_17   VRAM_un1_vram_delaylto30_17 cycloneii_lcell_comb 
 Inst: VRAM\.un1_vram_delaylto30_18   VRAM_un1_vram_delaylto30_18 cycloneii_lcell_comb 
 Inst: VRAM\.un1_vram_delaylto30_19   VRAM_un1_vram_delaylto30_19 cycloneii_lcell_comb 
 Inst: xy_max\.X_RNIG1ES[0]   xy_max_X_RNIG1ES_0_ cycloneii_lcell_comb 
-Inst: xy_max\.X_RNI0IES[4]   xy_max_X_RNI0IES_4_ cycloneii_lcell_comb 
-Inst: RCB_LOG\.un21_vram_delay_NE_0   RCB_LOG_un21_vram_delay_NE_0 cycloneii_lcell_comb 
-Inst: RCB_LOG\.un21_vram_delay_NE_1   RCB_LOG_un21_vram_delay_NE_1 cycloneii_lcell_comb 
-Inst: RCB_FSM\.clrxy_reg\.X_RNIQD7D[3]   RCB_FSM_clrxy_reg_X_RNIQD7D_3_ cycloneii_lcell_comb 
-Inst: pw_0_sqmuxa   pw_0_sqmuxa_cZ cycloneii_lcell_comb 
+Inst: RCB_FSM\.rcb_finish_i_RNO_0   RCB_FSM_rcb_finish_i_RNO_0 cycloneii_lcell_comb 
+Inst: RCB_FSM\.clrxy_reg\.X_RNO[3]   RCB_FSM_clrxy_reg_X_RNO_3_ cycloneii_lcell_comb 
 Inst: VRAM\.un1_vram_delaylto3   VRAM_un1_vram_delaylto3 cycloneii_lcell_comb 
-Inst: RCB_LOG\.un21_vram_delay_NE_10_4   RCB_LOG_un21_vram_delay_NE_10_4 cycloneii_lcell_comb 
-Inst: RCB_LOG\.un21_vram_delay_NE_10_5   RCB_LOG_un21_vram_delay_NE_10_5 cycloneii_lcell_comb 
+Inst: RCB_FSM\.un42_vram_delay_NE_6   RCB_FSM_un42_vram_delay_NE_6 cycloneii_lcell_comb 
+Inst: RCB_FSM\.un42_vram_delay_NE_7   RCB_FSM_un42_vram_delay_NE_7 cycloneii_lcell_comb 
 Inst: VRAM\.un1_vram_delaylto30_20   VRAM_un1_vram_delaylto30_20 cycloneii_lcell_comb 
-Inst: RCB_FSM\.un39_vram_delay_2_RNIGDUG1   RCB_FSM_un39_vram_delay_2_RNIGDUG1 cycloneii_lcell_comb 
-Inst: dbb_delaycmd_0   dbb_delaycmd_0_cZ cycloneii_lcell_comb 
-Inst: RCB_FSM\.clrxy_reg\.X_RNO[4]   RCB_FSM_clrxy_reg_X_RNO_4_ cycloneii_lcell_comb 
-Inst: output_value_1[4]   output_value_1_4_ cycloneii_lcell_comb 
-Inst: output_value_3[4]   output_value_3_4_ cycloneii_lcell_comb 
-Inst: output_value_3[1]   output_value_3_1_ cycloneii_lcell_comb 
-Inst: output_value_3[2]   output_value_3_2_ cycloneii_lcell_comb 
-Inst: output_value_3[3]   output_value_3_3_ cycloneii_lcell_comb 
-Inst: output_value_3[5]   output_value_3_5_ cycloneii_lcell_comb 
-Inst: output_value_1[1]   output_value_1_1_ cycloneii_lcell_comb 
-Inst: output_value_1[2]   output_value_1_2_ cycloneii_lcell_comb 
+Inst: VRAM\.un1_vram_delaylto30_21   VRAM_un1_vram_delaylto30_21 cycloneii_lcell_comb 
+Inst: RCB_FSM\.un39_vram_delay_2_RNIIO4P   RCB_FSM_un39_vram_delay_2_RNIIO4P cycloneii_lcell_comb 
+Inst: nstate_0_RNO[0]   nstate_0_RNO_0_ cycloneii_lcell_comb 
 Inst: output_value_1[3]   output_value_1_3_ cycloneii_lcell_comb 
+Inst: output_value_1[2]   output_value_1_2_ cycloneii_lcell_comb 
+Inst: output_value_1[1]   output_value_1_1_ cycloneii_lcell_comb 
+Inst: output_value_3[3]   output_value_3_3_ cycloneii_lcell_comb 
+Inst: output_value_3[2]   output_value_3_2_ cycloneii_lcell_comb 
+Inst: output_value_3[1]   output_value_3_1_ cycloneii_lcell_comb 
+Inst: output_value_3[5]   output_value_3_5_ cycloneii_lcell_comb 
 Inst: output_value_1[5]   output_value_1_5_ cycloneii_lcell_comb 
-Inst: splitxy\.Y[0]   splitxy_Y_0_ cycloneii_lcell_comb 
-Inst: splitxy\.Y[1]   splitxy_Y_1_ cycloneii_lcell_comb 
+Inst: RCB_FSM\.clrxy_reg\.X_RNO[4]   RCB_FSM_clrxy_reg_X_RNO_4_ cycloneii_lcell_comb 
+Inst: output_value_3[4]   output_value_3_4_ cycloneii_lcell_comb 
+Inst: output_value_1[4]   output_value_1_4_ cycloneii_lcell_comb 
 Inst: splitxy\.X[0]   splitxy_X_0_ cycloneii_lcell_comb 
 Inst: splitxy\.X[1]   splitxy_X_1_ cycloneii_lcell_comb 
-Inst: delaycmd_1_sqmuxa_6   delaycmd_1_sqmuxa_6_cZ cycloneii_lcell_comb 
-Inst: RCB_LOG\.un21_vram_delay_NE_10   RCB_LOG_un21_vram_delay_NE_10 cycloneii_lcell_comb 
+Inst: delaycmd_1_sqmuxa_4   delaycmd_1_sqmuxa_4_cZ cycloneii_lcell_comb 
 Inst: pw_d1   pw_d1_cZ cycloneii_lcell_comb 
-Inst: VRAM\.un1_vram_delaylto30_23   VRAM_un1_vram_delaylto30_23 cycloneii_lcell_comb 
-Inst: VRAM\.un1_vram_delaylto30_24   VRAM_un1_vram_delaylto30_24 cycloneii_lcell_comb 
-Inst: pixopin[0]   pixopin_0_ cycloneii_lcell_comb 
+Inst: xy_min\.Y_RNIEI921[0]   xy_min_Y_RNIEI921_0_ cycloneii_lcell_comb 
 Inst: pixopin[1]   pixopin_1_ cycloneii_lcell_comb 
-Inst: RCB_FSM\.clrxy_reg\.X_RNO[5]   RCB_FSM_clrxy_reg_X_RNO_5_ cycloneii_lcell_comb 
+Inst: pixopin[0]   pixopin_0_ cycloneii_lcell_comb 
+Inst: RCB_FSM\.un42_vram_delay_NE   RCB_FSM_un42_vram_delay_NE cycloneii_lcell_comb 
+Inst: VRAM\.un1_vram_delaylto30_25   VRAM_un1_vram_delaylto30_25 cycloneii_lcell_comb 
+Inst: RCB_FSM\.clrxy_reg\.Y_RNIVQTM1[0]   RCB_FSM_clrxy_reg_Y_RNIVQTM1_0_ cycloneii_lcell_comb 
+Inst: delaycmd.m3   delaycmd_m3 cycloneii_lcell_comb 
+Inst: un2_vram_write_2   un2_vram_write_2_cZ cycloneii_lcell_comb 
 Inst: RCB_FSM\.clrxy_reg\.Y_RNO[0]   RCB_FSM_clrxy_reg_Y_RNO_0_ cycloneii_lcell_comb 
-Inst: RCB_FSM\.rcb_finish_i_RNO_0   RCB_FSM_rcb_finish_i_RNO_0 cycloneii_lcell_comb 
-Inst: RCB_LOG\.un21_vram_delay_NE   RCB_LOG_un21_vram_delay_NE cycloneii_lcell_comb 
+Inst: RCB_FSM\.un42_vram_delay_NE_RNISHTU1   RCB_FSM_un42_vram_delay_NE_RNISHTU1 cycloneii_lcell_comb 
 Inst: clrxy_reg\.Y_1_sqmuxa   clrxy_reg_Y_1_sqmuxa cycloneii_lcell_comb 
-Inst: RCB_LOG\.un21_vram_delay_NE_10_RNI31J23   RCB_LOG_un21_vram_delay_NE_10_RNI31J23 cycloneii_lcell_comb 
-Inst: un1_vram_write_2   un1_vram_write_2_cZ cycloneii_lcell_comb 
 Inst: VRAM\.un1_vram_delaylto31   VRAM_un1_vram_delaylto31 cycloneii_lcell_comb 
 Inst: dbb_delaycmd   dbb_delaycmd_cZ cycloneii_lcell_comb 
-Inst: clrxy_reg\.Y_1_sqmuxa_RNI0KMD2   clrxy_reg_Y_1_sqmuxa_RNI0KMD2 cycloneii_lcell_comb 
 Inst: nstate_0_RNO_0[0]   nstate_0_RNO_0_0_ cycloneii_lcell_comb 
-Inst: nstate_0_RNO[0]   nstate_0_RNO_0_ cycloneii_lcell_comb 
+Inst: clrxy_reg\.X_0_sqmuxa_1   clrxy_reg_X_0_sqmuxa_1 cycloneii_lcell_comb 
 Inst: RCB_FSM\.rcb_finish_i_RNO   RCB_FSM_rcb_finish_i_RNO cycloneii_lcell_comb 
-Inst: RCB_FSM\.clrxy_reg\.X_RNO[3]   RCB_FSM_clrxy_reg_X_RNO_3_ cycloneii_lcell_comb 
+Inst: un2_vram_delay_3_x   un2_vram_delay_3_x_cZ cycloneii_lcell_comb 
+Inst: RCB_FSM\.clrxy_reg\.X_RNO[5]   RCB_FSM_clrxy_reg_X_RNO_5_ cycloneii_lcell_comb 
 Inst: output_value_1[0]   output_value_1_0_ cycloneii_lcell_comb 
 Inst: output_value_3[0]   output_value_3_0_ cycloneii_lcell_comb 
 Inst: nstate[0]   nstate_0_ ghost 
-Inst: nstate_0_i[0]   nstate_0_i_0_ inv 
+Inst: nstate_0_0_i   nstate_0_0_i_cZ inv 
 Inst: X_e0_0_N_8_i_0_596_i_o4_i   X_e0_0_N_8_i_0_596_i_o4_i_cZ inv 
-Inst: un1_rcb_state5_i_0_i_i   un1_rcb_state5_i_0_i_i_cZ inv 
+Inst: un1_rcb_state5_combout_i   un1_rcb_state5_combout_i_cZ inv 
 EndView rcb NoName
 
 BeginView SYNLPM_LAT1 NoName
@@ -843,8 +855,8 @@ Inst: N1\.pre_rdout_par_2[0]   N1_pre_rdout_par_2_0_ cycloneii_lcell_ff
 Inst: N1\.pre_rdout_par_2[1]   N1_pre_rdout_par_2_1_ cycloneii_lcell_ff 
 Inst: N1\.pre_rdout_par_3[0]   N1_pre_rdout_par_3_0_ cycloneii_lcell_ff 
 Inst: N1\.pre_rdout_par_3[1]   N1_pre_rdout_par_3_1_ cycloneii_lcell_ff 
-Inst: opout_to_rdin1_i_m2_RNIL9OF1[1]   opout_to_rdin1_i_m2_RNIL9OF1_1_ cycloneii_lcell_comb 
-Inst: opout_to_rdin1_i_m2_RNIK8OF1[0]   opout_to_rdin1_i_m2_RNIK8OF1_0_ cycloneii_lcell_comb 
+Inst: opout_to_rdin1_i_m2_RNIV7GA1[1]   opout_to_rdin1_i_m2_RNIV7GA1_1_ cycloneii_lcell_comb 
+Inst: opout_to_rdin1_i_m2_RNIU6GA1[0]   opout_to_rdin1_i_m2_RNIU6GA1_0_ cycloneii_lcell_comb 
 Inst: is_same_16   is_same_16_cZ cycloneii_lcell_comb 
 Inst: is_same_17   is_same_17_cZ cycloneii_lcell_comb 
 Inst: is_same_18   is_same_18_cZ cycloneii_lcell_comb 
@@ -853,37 +865,60 @@ Inst: is_same_20   is_same_20_cZ cycloneii_lcell_comb
 Inst: is_same_21   is_same_21_cZ cycloneii_lcell_comb 
 Inst: is_same_22   is_same_22_cZ cycloneii_lcell_comb 
 Inst: is_same_23   is_same_23_cZ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_15_RNO_0[1]   N1_pre_rdout_par_15_RNO_0_1_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_15_RNO_0[0]   N1_pre_rdout_par_15_RNO_0_0_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_14_RNO_0[1]   N1_pre_rdout_par_14_RNO_0_1_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_14_RNO_0[0]   N1_pre_rdout_par_14_RNO_0_0_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_13_RNO_0[1]   N1_pre_rdout_par_13_RNO_0_1_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_13_RNO_0[0]   N1_pre_rdout_par_13_RNO_0_0_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_12_RNO_0[1]   N1_pre_rdout_par_12_RNO_0_1_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_12_RNO_0[0]   N1_pre_rdout_par_12_RNO_0_0_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_11_RNO_0[1]   N1_pre_rdout_par_11_RNO_0_1_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_11_RNO_0[0]   N1_pre_rdout_par_11_RNO_0_0_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_10_RNO_0[1]   N1_pre_rdout_par_10_RNO_0_1_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_10_RNO_0[0]   N1_pre_rdout_par_10_RNO_0_0_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_9_RNO_0[1]   N1_pre_rdout_par_9_RNO_0_1_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_9_RNO_0[0]   N1_pre_rdout_par_9_RNO_0_0_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_8_RNO_0[1]   N1_pre_rdout_par_8_RNO_0_1_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_8_RNO_0[0]   N1_pre_rdout_par_8_RNO_0_0_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_7_RNO_0[1]   N1_pre_rdout_par_7_RNO_0_1_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_7_RNO_0[0]   N1_pre_rdout_par_7_RNO_0_0_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_6_RNO_0[1]   N1_pre_rdout_par_6_RNO_0_1_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_6_RNO_0[0]   N1_pre_rdout_par_6_RNO_0_0_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_5_RNO_0[1]   N1_pre_rdout_par_5_RNO_0_1_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_5_RNO_0[0]   N1_pre_rdout_par_5_RNO_0_0_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_4_RNO_0[1]   N1_pre_rdout_par_4_RNO_0_1_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_4_RNO_0[0]   N1_pre_rdout_par_4_RNO_0_0_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_2_1_0_0__g0_e   N1_pre_rdout_par_2_1_0_0__g0_e cycloneii_lcell_comb 
 Inst: is_same_28   is_same_28_cZ cycloneii_lcell_comb 
 Inst: is_same_29   is_same_29_cZ cycloneii_lcell_comb 
-Inst: N1\.pre_rdout_par_12_en_0_a4[0]   N1_pre_rdout_par_12_en_0_a4_0_ cycloneii_lcell_comb 
 Inst: un1_pw_13_i_a4_1_a2   un1_pw_13_i_a4_1_a2_cZ cycloneii_lcell_comb 
-Inst: rdout1_to_opram_13_i_m2_a[1]   rdout1_to_opram_13_i_m2_a_1_ cycloneii_lcell_comb 
-Inst: rdout1_to_opram_13_i_m2[1]   rdout1_to_opram_13_i_m2_1_ cycloneii_lcell_comb 
-Inst: rdout1_to_opram_10_i_m2_a[1]   rdout1_to_opram_10_i_m2_a_1_ cycloneii_lcell_comb 
-Inst: rdout1_to_opram_10_i_m2[1]   rdout1_to_opram_10_i_m2_1_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_12_en_0_a4[0]   N1_pre_rdout_par_12_en_0_a4_0_ cycloneii_lcell_comb 
 Inst: rdout1_to_opram_10_i_m2_a[0]   rdout1_to_opram_10_i_m2_a_0_ cycloneii_lcell_comb 
 Inst: rdout1_to_opram_10_i_m2[0]   rdout1_to_opram_10_i_m2_0_ cycloneii_lcell_comb 
+Inst: rdout1_to_opram_3_i_m2_a[0]   rdout1_to_opram_3_i_m2_a_0_ cycloneii_lcell_comb 
+Inst: rdout1_to_opram_3_i_m2[0]   rdout1_to_opram_3_i_m2_0_ cycloneii_lcell_comb 
 Inst: rdout1_to_opram_13_i_m2_a[0]   rdout1_to_opram_13_i_m2_a_0_ cycloneii_lcell_comb 
 Inst: rdout1_to_opram_13_i_m2[0]   rdout1_to_opram_13_i_m2_0_ cycloneii_lcell_comb 
-Inst: rdout1_to_opram_6_i_m2_a[1]   rdout1_to_opram_6_i_m2_a_1_ cycloneii_lcell_comb 
-Inst: rdout1_to_opram_6_i_m2[1]   rdout1_to_opram_6_i_m2_1_ cycloneii_lcell_comb 
 Inst: rdout1_to_opram_6_i_m2_a[0]   rdout1_to_opram_6_i_m2_a_0_ cycloneii_lcell_comb 
 Inst: rdout1_to_opram_6_i_m2[0]   rdout1_to_opram_6_i_m2_0_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_3_RNO[0]   N1_pre_rdout_par_3_RNO_0_ cycloneii_lcell_comb 
 Inst: N1\.pre_rdout_par_2_RNO[0]   N1_pre_rdout_par_2_RNO_0_ cycloneii_lcell_comb 
 Inst: N1\.pre_rdout_par_2_RNO[1]   N1_pre_rdout_par_2_RNO_1_ cycloneii_lcell_comb 
-Inst: N1\.pre_rdout_par_3_RNO[0]   N1_pre_rdout_par_3_RNO_0_ cycloneii_lcell_comb 
 Inst: N1\.pre_rdout_par_3_RNO[1]   N1_pre_rdout_par_3_RNO_1_ cycloneii_lcell_comb 
 Inst: N1\.pre_rdout_par_1_RNO[1]   N1_pre_rdout_par_1_RNO_1_ cycloneii_lcell_comb 
 Inst: N1\.pre_rdout_par_1_RNO[0]   N1_pre_rdout_par_1_RNO_0_ cycloneii_lcell_comb 
 Inst: N1\.pre_rdout_par_0_RNO[1]   N1_pre_rdout_par_0_RNO_1_ cycloneii_lcell_comb 
 Inst: N1\.pre_rdout_par_0_RNO[0]   N1_pre_rdout_par_0_RNO_0_ cycloneii_lcell_comb 
-Inst: rdout1_to_opram_3_i_m2_a[0]   rdout1_to_opram_3_i_m2_a_0_ cycloneii_lcell_comb 
-Inst: rdout1_to_opram_3_i_m2[0]   rdout1_to_opram_3_i_m2_0_ cycloneii_lcell_comb 
+Inst: rdout1_to_opram_6_i_m2_a[1]   rdout1_to_opram_6_i_m2_a_1_ cycloneii_lcell_comb 
+Inst: rdout1_to_opram_6_i_m2[1]   rdout1_to_opram_6_i_m2_1_ cycloneii_lcell_comb 
 Inst: rdout1_to_opram_3_i_m2_a[1]   rdout1_to_opram_3_i_m2_a_1_ cycloneii_lcell_comb 
 Inst: rdout1_to_opram_3_i_m2[1]   rdout1_to_opram_3_i_m2_1_ cycloneii_lcell_comb 
+Inst: rdout1_to_opram_10_i_m2_a[1]   rdout1_to_opram_10_i_m2_a_1_ cycloneii_lcell_comb 
+Inst: rdout1_to_opram_10_i_m2[1]   rdout1_to_opram_10_i_m2_1_ cycloneii_lcell_comb 
+Inst: rdout1_to_opram_13_i_m2_a[1]   rdout1_to_opram_13_i_m2_a_1_ cycloneii_lcell_comb 
+Inst: rdout1_to_opram_13_i_m2[1]   rdout1_to_opram_13_i_m2_1_ cycloneii_lcell_comb 
 Inst: N1\.pre_rdout_par_3_en_0_a4[0]   N1_pre_rdout_par_3_en_0_a4_0_ cycloneii_lcell_comb 
-Inst: rdout1_to_opram_14_i_m2[1]   rdout1_to_opram_14_i_m2_1_ cycloneii_lcell_comb 
-Inst: rdout1_to_opram_7_i_m2[1]   rdout1_to_opram_7_i_m2_1_ cycloneii_lcell_comb 
 Inst: N1\.pre_rdout_par_3_RNO_0[1]   N1_pre_rdout_par_3_RNO_0_1_ cycloneii_lcell_comb 
 Inst: N1\.pre_rdout_par_3_RNO_0[0]   N1_pre_rdout_par_3_RNO_0_0_ cycloneii_lcell_comb 
 Inst: N1\.pre_rdout_par_2_RNO_0[1]   N1_pre_rdout_par_2_RNO_0_1_ cycloneii_lcell_comb 
@@ -895,39 +930,39 @@ Inst: N1\.pre_rdout_par_14_en_0_a2[0]   N1_pre_rdout_par_14_en_0_a2_0_ cycloneii
 Inst: N1\.pre_rdout_par_9_en_0_a2[0]   N1_pre_rdout_par_9_en_0_a2_0_ cycloneii_lcell_comb 
 Inst: N1\.pre_rdout_par_12_en_0_a2[0]   N1_pre_rdout_par_12_en_0_a2_0_ cycloneii_lcell_comb 
 Inst: N1\.pre_rdout_par_15_en_0_a2[0]   N1_pre_rdout_par_15_en_0_a2_0_ cycloneii_lcell_comb 
-Inst: rdout1_to_opram_15_i_m2[1]   rdout1_to_opram_15_i_m2_1_ cycloneii_lcell_comb 
 Inst: rdout1_to_opram_15_i_m2_a[0]   rdout1_to_opram_15_i_m2_a_0_ cycloneii_lcell_comb 
 Inst: rdout1_to_opram_15_i_m2[0]   rdout1_to_opram_15_i_m2_0_ cycloneii_lcell_comb 
-Inst: N1\.pre_rdout_par_11_en_0_a2[0]   N1_pre_rdout_par_11_en_0_a2_0_ cycloneii_lcell_comb 
-Inst: N1\.pre_rdout_par_10_en_0_a2[0]   N1_pre_rdout_par_10_en_0_a2_0_ cycloneii_lcell_comb 
-Inst: opout_to_rdin1_i_m2[0]   opout_to_rdin1_i_m2_0_ cycloneii_lcell_comb 
-Inst: opout_to_rdin1_i_m2[1]   opout_to_rdin1_i_m2_1_ cycloneii_lcell_comb 
-Inst: N1\.pre_rdout_par_2_1_0_0__g0_e_x   N1_pre_rdout_par_2_1_0_0__g0_e_x cycloneii_lcell_comb 
-Inst: N1\.pre_rdout_par_12_RNO[1]   N1_pre_rdout_par_12_RNO_1_ cycloneii_lcell_comb 
-Inst: N1\.pre_rdout_par_5_RNO[1]   N1_pre_rdout_par_5_RNO_1_ cycloneii_lcell_comb 
-Inst: N1\.pre_rdout_par_7_RNO[0]   N1_pre_rdout_par_7_RNO_0_ cycloneii_lcell_comb 
-Inst: N1\.pre_rdout_par_7_RNO[1]   N1_pre_rdout_par_7_RNO_1_ cycloneii_lcell_comb 
-Inst: N1\.pre_rdout_par_6_RNO[0]   N1_pre_rdout_par_6_RNO_0_ cycloneii_lcell_comb 
-Inst: N1\.pre_rdout_par_12_RNO[0]   N1_pre_rdout_par_12_RNO_0_ cycloneii_lcell_comb 
-Inst: N1\.pre_rdout_par_8_RNO[1]   N1_pre_rdout_par_8_RNO_1_ cycloneii_lcell_comb 
-Inst: N1\.pre_rdout_par_13_RNO[0]   N1_pre_rdout_par_13_RNO_0_ cycloneii_lcell_comb 
-Inst: N1\.pre_rdout_par_10_RNO[0]   N1_pre_rdout_par_10_RNO_0_ cycloneii_lcell_comb 
-Inst: N1\.pre_rdout_par_4_RNO[1]   N1_pre_rdout_par_4_RNO_1_ cycloneii_lcell_comb 
-Inst: N1\.pre_rdout_par_10_RNO[1]   N1_pre_rdout_par_10_RNO_1_ cycloneii_lcell_comb 
-Inst: N1\.pre_rdout_par_6_RNO[1]   N1_pre_rdout_par_6_RNO_1_ cycloneii_lcell_comb 
-Inst: N1\.pre_rdout_par_11_RNO[1]   N1_pre_rdout_par_11_RNO_1_ cycloneii_lcell_comb 
-Inst: N1\.pre_rdout_par_9_RNO[1]   N1_pre_rdout_par_9_RNO_1_ cycloneii_lcell_comb 
-Inst: N1\.pre_rdout_par_9_RNO[0]   N1_pre_rdout_par_9_RNO_0_ cycloneii_lcell_comb 
-Inst: N1\.pre_rdout_par_11_RNO[0]   N1_pre_rdout_par_11_RNO_0_ cycloneii_lcell_comb 
-Inst: N1\.pre_rdout_par_8_RNO[0]   N1_pre_rdout_par_8_RNO_0_ cycloneii_lcell_comb 
-Inst: N1\.pre_rdout_par_4_RNO[0]   N1_pre_rdout_par_4_RNO_0_ cycloneii_lcell_comb 
-Inst: N1\.pre_rdout_par_14_RNO[0]   N1_pre_rdout_par_14_RNO_0_ cycloneii_lcell_comb 
 Inst: N1\.pre_rdout_par_15_RNO[1]   N1_pre_rdout_par_15_RNO_1_ cycloneii_lcell_comb 
-Inst: N1\.pre_rdout_par_13_RNO[1]   N1_pre_rdout_par_13_RNO_1_ cycloneii_lcell_comb 
-Inst: N1\.pre_rdout_par_5_RNO[0]   N1_pre_rdout_par_5_RNO_0_ cycloneii_lcell_comb 
 Inst: N1\.pre_rdout_par_15_RNO[0]   N1_pre_rdout_par_15_RNO_0_ cycloneii_lcell_comb 
 Inst: N1\.pre_rdout_par_14_RNO[1]   N1_pre_rdout_par_14_RNO_1_ cycloneii_lcell_comb 
-Inst: pre_rdout_par_2_1_0_0__g0_e_x_i   pre_rdout_par_2_1_0_0__g0_e_x_i_cZ inv 
+Inst: N1\.pre_rdout_par_14_RNO[0]   N1_pre_rdout_par_14_RNO_0_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_13_RNO[1]   N1_pre_rdout_par_13_RNO_1_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_13_RNO[0]   N1_pre_rdout_par_13_RNO_0_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_12_RNO[1]   N1_pre_rdout_par_12_RNO_1_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_12_RNO[0]   N1_pre_rdout_par_12_RNO_0_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_9_RNO[1]   N1_pre_rdout_par_9_RNO_1_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_9_RNO[0]   N1_pre_rdout_par_9_RNO_0_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_8_RNO[1]   N1_pre_rdout_par_8_RNO_1_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_8_RNO[0]   N1_pre_rdout_par_8_RNO_0_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_7_RNO[1]   N1_pre_rdout_par_7_RNO_1_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_7_RNO[0]   N1_pre_rdout_par_7_RNO_0_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_6_RNO[1]   N1_pre_rdout_par_6_RNO_1_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_6_RNO[0]   N1_pre_rdout_par_6_RNO_0_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_5_RNO[1]   N1_pre_rdout_par_5_RNO_1_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_5_RNO[0]   N1_pre_rdout_par_5_RNO_0_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_4_RNO[1]   N1_pre_rdout_par_4_RNO_1_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_4_RNO[0]   N1_pre_rdout_par_4_RNO_0_ cycloneii_lcell_comb 
+Inst: rdout1_to_opram_15_i_m2_a[1]   rdout1_to_opram_15_i_m2_a_1_ cycloneii_lcell_comb 
+Inst: rdout1_to_opram_15_i_m2[1]   rdout1_to_opram_15_i_m2_1_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_11_en_0_a2[0]   N1_pre_rdout_par_11_en_0_a2_0_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_10_en_0_a2[0]   N1_pre_rdout_par_10_en_0_a2_0_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_11_RNO[1]   N1_pre_rdout_par_11_RNO_1_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_11_RNO[0]   N1_pre_rdout_par_11_RNO_0_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_10_RNO[1]   N1_pre_rdout_par_10_RNO_1_ cycloneii_lcell_comb 
+Inst: N1\.pre_rdout_par_10_RNO[0]   N1_pre_rdout_par_10_RNO_0_ cycloneii_lcell_comb 
+Inst: opout_to_rdin1_i_m2[1]   opout_to_rdin1_i_m2_1_ cycloneii_lcell_comb 
+Inst: opout_to_rdin1_i_m2[0]   opout_to_rdin1_i_m2_0_ cycloneii_lcell_comb 
+Inst: pre_rdout_par_2_1_0_0__g0_e_i   pre_rdout_par_2_1_0_0__g0_e_i_cZ inv 
 Inst: pw_0_sqmuxa_i   pw_0_sqmuxa_i_cZ inv 
 EndView pix_word_cache NoName
 
@@ -996,43 +1031,57 @@ Inst: data_ram[12]   data_ram_12_ cycloneii_lcell_ff
 Inst: data_ram[13]   data_ram_13_ cycloneii_lcell_ff 
 Inst: data_ram[14]   data_ram_14_ cycloneii_lcell_ff 
 Inst: data_ram[15]   data_ram_15_ cycloneii_lcell_ff 
-Inst: RCB_LOG\.un21_vram_delay_10_0_x2   RCB_LOG_un21_vram_delay_10_0_x2 cycloneii_lcell_comb 
-Inst: RCB_LOG\.un21_vram_delay_6_0_x2   RCB_LOG_un21_vram_delay_6_0_x2 cycloneii_lcell_comb 
-Inst: state_ns_0_0_a3[0]   state_ns_0_0_a3_0_ cycloneii_lcell_comb 
-Inst: state_s0_i_o3_0   state_s0_i_o3_0_cZ cycloneii_lcell_comb 
 Inst: C1\.un6_state_i   C1_un6_state_i cycloneii_lcell_comb 
-Inst: RCB_FSM\.clrxy_reg\.Y_n3_0_o2   RCB_FSM_clrxy_reg_Y_n3_0_o2 cycloneii_lcell_comb 
-Inst: RCB_FSM\.clrxy_reg\.Y_n2_0_m2_0_490_x4   RCB_FSM_clrxy_reg_Y_n2_0_m2_0_490_x4 cycloneii_lcell_comb 
-Inst: N_97_i_0_464_m2   N_97_i_0_464_m2_cZ cycloneii_lcell_comb 
+Inst: state_s0_i_o3_0   state_s0_i_o3_0_cZ cycloneii_lcell_comb 
+Inst: RCB_FSM\.clrxy_reg\.Y_n2_0_490_x4   RCB_FSM_clrxy_reg_Y_n2_0_490_x4 cycloneii_lcell_comb 
+Inst: RCB_FSM\.clrxy_reg\.Y_n1_0_464_m2   RCB_FSM_clrxy_reg_Y_n1_0_464_m2 cycloneii_lcell_comb 
+Inst: RCB_FSM\.clrxy_reg\.Y_c2   RCB_FSM_clrxy_reg_Y_c2 cycloneii_lcell_comb 
 Inst: state_ns_i_0_a3[1]   state_ns_i_0_a3_1_ cycloneii_lcell_comb 
-Inst: nstate_RNIVR0F[0]   nstate_RNIVR0F_0_ cycloneii_lcell_comb 
 Inst: nstate_RNO_0[1]   nstate_RNO_0_1_ cycloneii_lcell_comb 
 Inst: P1\.done_i_RNO   P1_done_i_RNO cycloneii_lcell_comb 
-Inst: RCB_FSM\.clrxy_reg\.Y_n3_0_m2_0_516_i_x4   RCB_FSM_clrxy_reg_Y_n3_0_m2_0_516_i_x4 cycloneii_lcell_comb 
+Inst: state_0_RNIRACK[0]   state_0_RNIRACK_0_ cycloneii_lcell_comb 
+Inst: RCB_FSM\.clrxy_reg\.Y_n3_0_516_x4   RCB_FSM_clrxy_reg_Y_n3_0_516_x4 cycloneii_lcell_comb 
 Inst: nstate_RNO[0]   nstate_RNO_0_ cycloneii_lcell_comb 
-Inst: state_ns_0_0_a3_RNI3LFB1[0]   state_ns_0_0_a3_RNI3LFB1_0_ cycloneii_lcell_comb 
-Inst: nstate_or_0_a2_0_1[0]   nstate_or_0_a2_0_1_0_ cycloneii_lcell_comb 
-Inst: output_value_i_m2[5]   output_value_i_m2_5_ cycloneii_lcell_comb 
-Inst: output_value_i_m2[1]   output_value_i_m2_1_ cycloneii_lcell_comb 
-Inst: output_value_2_i_m2[5]   output_value_2_i_m2_5_ cycloneii_lcell_comb 
-Inst: output_value_2_i_m2[1]   output_value_2_i_m2_1_ cycloneii_lcell_comb 
-Inst: RCB_FSM\.clrxy_reg\.Y_n4_0_m2_0_542_i_x4   RCB_FSM_clrxy_reg_Y_n4_0_m2_0_542_i_x4 cycloneii_lcell_comb 
-Inst: output_value_2_i_m2[2]   output_value_2_i_m2_2_ cycloneii_lcell_comb 
-Inst: output_value_i_m2[2]   output_value_i_m2_2_ cycloneii_lcell_comb 
-Inst: output_value_2_i_m2[3]   output_value_2_i_m2_3_ cycloneii_lcell_comb 
-Inst: output_value_i_m2[3]   output_value_i_m2_3_ cycloneii_lcell_comb 
+Inst: nstate_RNIQ6D31[0]   nstate_RNIQ6D31_0_ cycloneii_lcell_comb 
+Inst: splitxy\.X[5]   splitxy_X_5_ cycloneii_lcell_comb 
+Inst: splitxy\.Y[5]   splitxy_Y_5_ cycloneii_lcell_comb 
+Inst: splitxy\.Y[4]   splitxy_Y_4_ cycloneii_lcell_comb 
+Inst: splitxy\.Y[2]   splitxy_Y_2_ cycloneii_lcell_comb 
 Inst: nstate_RNO[1]   nstate_RNO_1_ cycloneii_lcell_comb 
+Inst: splitxy\.Y[3]   splitxy_Y_3_ cycloneii_lcell_comb 
+Inst: splitxy\.Y[1]   splitxy_Y_1_ cycloneii_lcell_comb 
+Inst: splitxy\.Y[0]   splitxy_Y_0_ cycloneii_lcell_comb 
+Inst: output_value[2]   output_value_2_ cycloneii_lcell_comb 
+Inst: output_value_2[5]   output_value_2_5_ cycloneii_lcell_comb 
+Inst: output_value_2[2]   output_value_2_2_ cycloneii_lcell_comb 
+Inst: output_value_2[1]   output_value_2_1_ cycloneii_lcell_comb 
+Inst: RCB_FSM\.clrxy_reg\.Y_n4_0_542_x4   RCB_FSM_clrxy_reg_Y_n4_0_542_x4 cycloneii_lcell_comb 
+Inst: output_value_2[4]   output_value_2_4_ cycloneii_lcell_comb 
+Inst: output_value[1]   output_value_1_ cycloneii_lcell_comb 
+Inst: output_value[4]   output_value_4_ cycloneii_lcell_comb 
+Inst: output_value_2[3]   output_value_2_3_ cycloneii_lcell_comb 
+Inst: output_value[3]   output_value_3_ cycloneii_lcell_comb 
+Inst: splitxy\.X[3]   splitxy_X_3_ cycloneii_lcell_comb 
+Inst: splitxy\.X[2]   splitxy_X_2_ cycloneii_lcell_comb 
+Inst: output_value[5]   output_value_5_ cycloneii_lcell_comb 
 Inst: state_ns_i_0_a3_RNILVG41[1]   state_ns_i_0_a3_RNILVG41_1_ cycloneii_lcell_comb 
-Inst: output_value_2_i_m2[4]   output_value_2_i_m2_4_ cycloneii_lcell_comb 
-Inst: output_value_i_m2[4]   output_value_i_m2_4_ cycloneii_lcell_comb 
-Inst: nstate_or_0_a2_0[0]   nstate_or_0_a2_0_0_ cycloneii_lcell_comb 
+Inst: splitxy\.X[4]   splitxy_X_4_ cycloneii_lcell_comb 
 Inst: state_s1_0_a3_0_a3_0   state_s1_0_a3_0_a3_0_cZ cycloneii_lcell_comb 
 Inst: C1\.un3_state_i_o2_0   C1_un3_state_i_o2_0 cycloneii_lcell_comb 
 Inst: C1\.un3_state_i_a3_0   C1_un3_state_i_a3_0 cycloneii_lcell_comb 
+Inst: VRAM\.vram_write_0   VRAM_vram_write_0 cycloneii_lcell_comb 
+Inst: VRAM\.vram_write_1_0   VRAM_vram_write_1_0 cycloneii_lcell_comb 
 Inst: VRAM\.vram_write_2_0   VRAM_vram_write_2_0 cycloneii_lcell_comb 
-Inst: G_802   G_802_cZ cycloneii_lcell_comb 
+Inst: VRAM\.vram_write_3   VRAM_vram_write_3 cycloneii_lcell_comb 
+Inst: un2_vram_delay_6[0]   un2_vram_delay_6_0_ cycloneii_lcell_comb 
+Inst: VRAM\.vram_write_4   VRAM_vram_write_4 cycloneii_lcell_comb 
+Inst: VRAM\.vram_write   VRAM_vram_write cycloneii_lcell_comb 
+Inst: VRAM\.vram_write_2   VRAM_vram_write_2 cycloneii_lcell_comb 
+Inst: nstate_RNO_0[0]   nstate_RNO_0_0_ cycloneii_lcell_comb 
 Inst: data_ram_RNIL6O71[15]   data_ram_RNIL6O71_15_ cycloneii_lcell_comb 
+Inst: data_ram_RNIB3T21[14]   data_ram_RNIB3T21_14_ cycloneii_lcell_comb 
 Inst: data_ram_RNICA141[13]   data_ram_RNICA141_13_ cycloneii_lcell_comb 
+Inst: data_ram_RNIDH551[12]   data_ram_RNIDH551_12_ cycloneii_lcell_comb 
 Inst: data_ram_RNI5R0S[11]   data_ram_RNI5R0S_11_ cycloneii_lcell_comb 
 Inst: data_ram_RNI625T[10]   data_ram_RNI625T_10_ cycloneii_lcell_comb 
 Inst: data_ram_RNIGC391[9]   data_ram_RNIGC391_9_ cycloneii_lcell_comb 
@@ -1040,16 +1089,18 @@ Inst: data_ram_RNIHG1S[8]   data_ram_RNIHG1S_8_ cycloneii_lcell_comb
 Inst: data_ram_RNIIKVU[7]   data_ram_RNIIKVU_7_ cycloneii_lcell_comb 
 Inst: data_ram_RNIA49S[6]   data_ram_RNIA49S_6_ cycloneii_lcell_comb 
 Inst: data_ram_RNIB87V[5]   data_ram_RNIB87V_5_ cycloneii_lcell_comb 
+Inst: data_ram_RNI3OGS[4]   data_ram_RNI3OGS_4_ cycloneii_lcell_comb 
 Inst: data_ram_RNI4SEV[3]   data_ram_RNI4SEV_3_ cycloneii_lcell_comb 
+Inst: data_ram_RNI50D21[2]   data_ram_RNI50D21_2_ cycloneii_lcell_comb 
 Inst: data_ram_RNITFMV[1]   data_ram_RNITFMV_1_ cycloneii_lcell_comb 
 Inst: data_ram_RNIEN6T[0]   data_ram_RNIEN6T_0_ cycloneii_lcell_comb 
-Inst: data_ram_RNI50D21[2]   data_ram_RNI50D21_2_ cycloneii_lcell_comb 
-Inst: data_ram_RNI3OGS[4]   data_ram_RNI3OGS_4_ cycloneii_lcell_comb 
-Inst: data_ram_RNIDH551[12]   data_ram_RNIDH551_12_ cycloneii_lcell_comb 
-Inst: data_ram_RNIB3T21[14]   data_ram_RNIB3T21_14_ cycloneii_lcell_comb 
 Inst: C1\.0\.data_ram_i_36_iv_0_m2_x[5]   C1_0_data_ram_i_36_iv_0_m2_x_5_ cycloneii_lcell_comb 
+Inst: C1\.0\.data_ram_i_30_iv_0_m2_x[4]   C1_0_data_ram_i_30_iv_0_m2_x_4_ cycloneii_lcell_comb 
 Inst: C1\.0\.data_ram_i_24_iv_0_m2_x[3]   C1_0_data_ram_i_24_iv_0_m2_x_3_ cycloneii_lcell_comb 
+Inst: C1\.0\.data_ram_i_18_iv_0_m2_x[2]   C1_0_data_ram_i_18_iv_0_m2_x_2_ cycloneii_lcell_comb 
 Inst: C1\.0\.data_ram_i_12_iv_0_m2_x[1]   C1_0_data_ram_i_12_iv_0_m2_x_1_ cycloneii_lcell_comb 
+Inst: C1\.0\.data_ram_i_6_iv_0_m2_x[0]   C1_0_data_ram_i_6_iv_0_m2_x_0_ cycloneii_lcell_comb 
+Inst: C1\.0\.data_ram_i_78_iv_0_m2_x[12]   C1_0_data_ram_i_78_iv_0_m2_x_12_ cycloneii_lcell_comb 
 Inst: C1\.0\.data_ram_i_72_iv_0_m2_x[11]   C1_0_data_ram_i_72_iv_0_m2_x_11_ cycloneii_lcell_comb 
 Inst: C1\.0\.data_ram_i_66_iv_0_m2_x[10]   C1_0_data_ram_i_66_iv_0_m2_x_10_ cycloneii_lcell_comb 
 Inst: C1\.0\.data_ram_i_60_iv_0_m2_x[9]   C1_0_data_ram_i_60_iv_0_m2_x_9_ cycloneii_lcell_comb 
@@ -1057,25 +1108,19 @@ Inst: C1\.0\.data_ram_i_54_iv_0_m2_x[8]   C1_0_data_ram_i_54_iv_0_m2_x_8_ cyclon
 Inst: C1\.0\.data_ram_i_48_iv_0_m2_x[7]   C1_0_data_ram_i_48_iv_0_m2_x_7_ cycloneii_lcell_comb 
 Inst: C1\.0\.data_ram_i_42_iv_0_m2_x[6]   C1_0_data_ram_i_42_iv_0_m2_x_6_ cycloneii_lcell_comb 
 Inst: C1\.data_ram_i_96_iv_0_m2_x[15]   C1_data_ram_i_96_iv_0_m2_x_15_ cycloneii_lcell_comb 
-Inst: C1\.0\.data_ram_i_84_iv_0_m2_x[13]   C1_0_data_ram_i_84_iv_0_m2_x_13_ cycloneii_lcell_comb 
-Inst: addr_ram_x[7]   addr_ram_x_7_ cycloneii_lcell_comb 
-Inst: addr_ram_x[6]   addr_ram_x_6_ cycloneii_lcell_comb 
-Inst: addr_ram_x[5]   addr_ram_x_5_ cycloneii_lcell_comb 
-Inst: addr_ram_x[4]   addr_ram_x_4_ cycloneii_lcell_comb 
-Inst: addr_ram_x[3]   addr_ram_x_3_ cycloneii_lcell_comb 
-Inst: addr_ram_x[2]   addr_ram_x_2_ cycloneii_lcell_comb 
-Inst: addr_ram_x[1]   addr_ram_x_1_ cycloneii_lcell_comb 
-Inst: addr_ram_x[0]   addr_ram_x_0_ cycloneii_lcell_comb 
 Inst: C1\.0\.data_ram_i_90_iv_0_m2_x[14]   C1_0_data_ram_i_90_iv_0_m2_x_14_ cycloneii_lcell_comb 
-Inst: C1\.0\.data_ram_i_78_iv_0_m2_x[12]   C1_0_data_ram_i_78_iv_0_m2_x_12_ cycloneii_lcell_comb 
-Inst: C1\.0\.data_ram_i_6_iv_0_m2_x[0]   C1_0_data_ram_i_6_iv_0_m2_x_0_ cycloneii_lcell_comb 
-Inst: C1\.0\.data_ram_i_18_iv_0_m2_x[2]   C1_0_data_ram_i_18_iv_0_m2_x_2_ cycloneii_lcell_comb 
-Inst: C1\.0\.data_ram_i_30_iv_0_m2_x[4]   C1_0_data_ram_i_30_iv_0_m2_x_4_ cycloneii_lcell_comb 
-Inst: done_i_1_sqmuxa_i_0_a2_x   done_i_1_sqmuxa_i_0_a2_x_cZ cycloneii_lcell_comb 
-Inst: C1\.un6_state_i_0_x   C1_un6_state_i_0_x cycloneii_lcell_comb 
-Inst: RCB_FSM\.clrxy_reg\.Y_n5_0_m2_0_568_i_x4   RCB_FSM_clrxy_reg_Y_n5_0_m2_0_568_i_x4 cycloneii_lcell_comb 
-Inst: output_value_i_m2[0]   output_value_i_m2_0_ cycloneii_lcell_comb 
-Inst: output_value_2_i_m2[0]   output_value_2_i_m2_0_ cycloneii_lcell_comb 
+Inst: C1\.0\.data_ram_i_84_iv_0_m2_x[13]   C1_0_data_ram_i_84_iv_0_m2_x_13_ cycloneii_lcell_comb 
+Inst: addr_ram_x[5]   addr_ram_x_5_ cycloneii_lcell_comb 
+Inst: addr_ram_x[6]   addr_ram_x_6_ cycloneii_lcell_comb 
+Inst: addr_ram_x[7]   addr_ram_x_7_ cycloneii_lcell_comb 
+Inst: addr_ram_x[0]   addr_ram_x_0_ cycloneii_lcell_comb 
+Inst: addr_ram_x[1]   addr_ram_x_1_ cycloneii_lcell_comb 
+Inst: addr_ram_x[2]   addr_ram_x_2_ cycloneii_lcell_comb 
+Inst: addr_ram_x[3]   addr_ram_x_3_ cycloneii_lcell_comb 
+Inst: addr_ram_x[4]   addr_ram_x_4_ cycloneii_lcell_comb 
+Inst: RCB_FSM\.clrxy_reg\.Y_n5_0_568_x4   RCB_FSM_clrxy_reg_Y_n5_0_568_x4 cycloneii_lcell_comb 
+Inst: output_value[0]   output_value_0_ cycloneii_lcell_comb 
+Inst: output_value_2[0]   output_value_2_0_ cycloneii_lcell_comb 
 Inst: state[1]   state_1_ ghost 
 Inst: state[0]   state_0_ ghost 
 Inst: state[0:3]   state_0_3_ ghost 
