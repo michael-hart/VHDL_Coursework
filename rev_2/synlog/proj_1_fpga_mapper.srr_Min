@@ -1,12 +1,12 @@
 
 
 ##### START OF TIMING REPORT #####[
-# Timing Report written on Sun Mar 20 17:08:36 2016
+# Timing Report written on Sun Mar 20 18:24:43 2016
 #
 
 
 Top view:               vdp
-Requested Frequency:    83.5 MHz
+Requested Frequency:    106.5 MHz
 Wire load mode:         top
 Paths requested:        5
 Constraint File(s):    
@@ -20,31 +20,29 @@ Performance Summary
 *******************
 
 
-Worst slack in design: -4.471
+Worst slack in design: 0.193
 
-                                   Requested     Estimated      Requested     Estimated                Clock                      Clock                
-Starting Clock                     Frequency     Frequency      Period        Period        Slack      Type                       Group                
--------------------------------------------------------------------------------------------------------------------------------------------------------
-ram_fsm|state_derived_clock[2]     83.5 MHz      43.5 MHz       11.979        22.978        -5.500     derived (from vdp|clk)     Autoconstr_clkgroup_0
-vdp|clk                            83.5 MHz      43.5 MHz       11.979        22.978        -2.114     inferred                   Autoconstr_clkgroup_0
-System                             766.3 MHz     1243.6 MHz     1.305         0.804         0.501      system                     system_clkgroup      
-=======================================================================================================================================================
+                   Requested      Estimated      Requested     Estimated                Clock        Clock                
+Starting Clock     Frequency      Frequency      Period        Period        Slack      Type         Group                
+--------------------------------------------------------------------------------------------------------------------------
+vdp|clk            106.5 MHz      90.6 MHz       9.386         11.042        -1.656     inferred     Autoconstr_clkgroup_0
+System             2072.1 MHz     3063.7 MHz     0.483         0.326         0.156      system       system_clkgroup      
+==========================================================================================================================
 
 
 
 Clock Relationships
 *******************
 
-Clocks                                                          |    rise  to  rise    |    fall  to  fall   |    rise  to  fall   |    fall  to  rise  
---------------------------------------------------------------------------------------------------------------------------------------------------------
-Starting                        Ending                          |  constraint  slack   |  constraint  slack  |  constraint  slack  |  constraint  slack 
---------------------------------------------------------------------------------------------------------------------------------------------------------
-System                          vdp|clk                         |  0.000       0.501   |  No paths    -      |  No paths    -      |  No paths    -     
-vdp|clk                         vdp|clk                         |  0.000       -0.069  |  No paths    -      |  No paths    -      |  No paths    -     
-vdp|clk                         ram_fsm|state_derived_clock[2]  |  0.000       0.787   |  No paths    -      |  5.989       False  |  No paths    -     
-ram_fsm|state_derived_clock[2]  vdp|clk                         |  No paths    -       |  No paths    -      |  No paths    -      |  5.989       6.346 
-ram_fsm|state_derived_clock[2]  ram_fsm|state_derived_clock[2]  |  No paths    -       |  0.000       False  |  No paths    -      |  5.989       -4.471
-========================================================================================================================================================
+Clocks             |    rise  to  rise   |    fall  to  fall   |    rise  to  fall   |    fall  to  rise 
+---------------------------------------------------------------------------------------------------------
+Starting  Ending   |  constraint  slack  |  constraint  slack  |  constraint  slack  |  constraint  slack
+---------------------------------------------------------------------------------------------------------
+System    System   |  No paths    -      |  No paths    -      |  0.000       0.448  |  No paths    -    
+System    vdp|clk  |  0.000       0.193  |  No paths    -      |  No paths    -      |  No paths    -    
+vdp|clk   System   |  No paths    -      |  No paths    -      |  0.000       1.380  |  No paths    -    
+vdp|clk   vdp|clk  |  0.000       0.375  |  No paths    -      |  No paths    -      |  No paths    -    
+=========================================================================================================
  Note: 'No paths' indicates there are no paths in the design for that pair of clock edges.
        'Diff grp' indicates that paths exist but the starting clock and ending clock are in different clock groups.
 
@@ -58,169 +56,6 @@ No IO constraint found
 
 
 ====================================
-Detailed Report for Clock: ram_fsm|state_derived_clock[2]
-====================================
-
-
-
-Starting Points with Worst Slack
-********************************
-
-                    Starting                                                                   Arrival           
-Instance            Reference                          Type            Pin      Net            Time        Slack 
-                    Clock                                                                                        
------------------------------------------------------------------------------------------------------------------
-RCB1.vram_start     ram_fsm|state_derived_clock[2]     SYNLPM_LAT1     Q[0]     vram_start     0.175       -4.038
-=================================================================================================================
-
-
-Ending Points with Worst Slack
-******************************
-
-                       Starting                                                                                 Required           
-Instance               Reference                          Type                   Pin         Net                Time         Slack 
-                       Clock                                                                                                       
------------------------------------------------------------------------------------------------------------------------------------
-RCB1.vram_start        ram_fsm|state_derived_clock[2]     SYNLPM_LAT1            DATA[0]     vram_write_mux     5.964        -4.471
-RCB1.xy_max\.X_s       ram_fsm|state_derived_clock[2]     cycloneii_lcell_ff     sload       vram_start         -5.553       6.346 
-RCB1.xy_max\.X_s_0     ram_fsm|state_derived_clock[2]     cycloneii_lcell_ff     sload       vram_start         -5.553       6.346 
-RCB1.xy_max\.X_s_1     ram_fsm|state_derived_clock[2]     cycloneii_lcell_ff     sload       vram_start         -5.553       6.346 
-RCB1.xy_max\.X_s_2     ram_fsm|state_derived_clock[2]     cycloneii_lcell_ff     sload       vram_start         -5.553       6.346 
-RCB1.xy_max\.X_s_3     ram_fsm|state_derived_clock[2]     cycloneii_lcell_ff     sload       vram_start         -5.553       6.346 
-RCB1.xy_max\.X_s_4     ram_fsm|state_derived_clock[2]     cycloneii_lcell_ff     sload       vram_start         -5.553       6.346 
-RCB1.xy_max\.Y_s       ram_fsm|state_derived_clock[2]     cycloneii_lcell_ff     sload       vram_start         -5.553       6.346 
-RCB1.xy_max\.Y_s_0     ram_fsm|state_derived_clock[2]     cycloneii_lcell_ff     sload       vram_start         -5.553       6.346 
-RCB1.xy_max\.Y_s_1     ram_fsm|state_derived_clock[2]     cycloneii_lcell_ff     sload       vram_start         -5.553       6.346 
-===================================================================================================================================
-
-
-
-Worst Path Information
-***********************
-
-
-Path information for path number 1: 
-    Propagation time:                        1.493
-    + Clock delay at starting point:         0.000 (ideal)
-    - Requested Period:                      11.979
-    - Hold time:                             -6.015
-    - Clock delay at ending point:           0.000 (ideal)
-    = Slack (critical) :                     -4.471
-
-    Number of logic level(s):                1
-    Starting point:                          RCB1.vram_start / Q[0]
-    Ending point:                            RCB1.vram_start / DATA[0]
-    The start point is clocked by            ram_fsm|state_derived_clock[2] [falling] on pin GATE
-    The end   point is clocked by            ram_fsm|state_derived_clock[2] [falling] on pin GATE
-    -Timing constraint applied as multi cycle path with factor 2 (from c:ram_fsm|state_derived_clock[2] to c:ram_fsm|state_derived_clock[2])
-
-Instance / Net                                        Pin         Pin               Arrival     No. of    
-Name                         Type                     Name        Dir     Delay     Time        Fan Out(s)
-----------------------------------------------------------------------------------------------------------
-RCB1.vram_start              SYNLPM_LAT1              Q[0]        Out     0.175     0.175       -         
-vram_start                   Net                      -           -       0.618     -           93        
-RCB1.vram_write_RNI3G411     cycloneii_lcell_comb     dataa       In      -         0.793       -         
-RCB1.vram_write_RNI3G411     cycloneii_lcell_comb     combout     Out     0.307     1.099       -         
-vram_write_mux               Net                      -           -       0.394     -           35        
-RCB1.vram_start              SYNLPM_LAT1              DATA[0]     In      -         1.493       -         
-==========================================================================================================
-
-
-Path information for path number 2: 
-    Propagation time:                        0.793
-    + Clock delay at starting point:         0.000 (ideal)
-    - Requested Period:                      -5.989
-    - Hold time:                             0.436
-    - Clock delay at ending point:           0.000 (ideal)
-    = Slack (non-critical) :                 6.346
-
-    Number of logic level(s):                0
-    Starting point:                          RCB1.vram_start / Q[0]
-    Ending point:                            RCB1.xy_min\.Y_s_4 / sload
-    The start point is clocked by            ram_fsm|state_derived_clock[2] [falling] on pin GATE
-    The end   point is clocked by            vdp|clk [rising] on pin clk
-
-Instance / Net                                Pin       Pin                Arrival     No. of    
-Name                   Type                   Name      Dir     Delay      Time        Fan Out(s)
--------------------------------------------------------------------------------------------------
-RCB1.vram_start        SYNLPM_LAT1            Q[0]      Out     -0.090     -0.090      -         
-vram_start             Net                    -         -       0.882      -           93        
-RCB1.xy_min\.Y_s_4     cycloneii_lcell_ff     sload     In      -          0.793       -         
-=================================================================================================
-
-
-Path information for path number 3: 
-    Propagation time:                        0.793
-    + Clock delay at starting point:         0.000 (ideal)
-    - Requested Period:                      -5.989
-    - Hold time:                             0.436
-    - Clock delay at ending point:           0.000 (ideal)
-    = Slack (non-critical) :                 6.346
-
-    Number of logic level(s):                0
-    Starting point:                          RCB1.vram_start / Q[0]
-    Ending point:                            RCB1.xy_min\.Y_s_3 / sload
-    The start point is clocked by            ram_fsm|state_derived_clock[2] [falling] on pin GATE
-    The end   point is clocked by            vdp|clk [rising] on pin clk
-
-Instance / Net                                Pin       Pin                Arrival     No. of    
-Name                   Type                   Name      Dir     Delay      Time        Fan Out(s)
--------------------------------------------------------------------------------------------------
-RCB1.vram_start        SYNLPM_LAT1            Q[0]      Out     -0.090     -0.090      -         
-vram_start             Net                    -         -       0.882      -           93        
-RCB1.xy_min\.Y_s_3     cycloneii_lcell_ff     sload     In      -          0.793       -         
-=================================================================================================
-
-
-Path information for path number 4: 
-    Propagation time:                        0.793
-    + Clock delay at starting point:         0.000 (ideal)
-    - Requested Period:                      -5.989
-    - Hold time:                             0.436
-    - Clock delay at ending point:           0.000 (ideal)
-    = Slack (non-critical) :                 6.346
-
-    Number of logic level(s):                0
-    Starting point:                          RCB1.vram_start / Q[0]
-    Ending point:                            RCB1.xy_min\.Y_s_2 / sload
-    The start point is clocked by            ram_fsm|state_derived_clock[2] [falling] on pin GATE
-    The end   point is clocked by            vdp|clk [rising] on pin clk
-
-Instance / Net                                Pin       Pin                Arrival     No. of    
-Name                   Type                   Name      Dir     Delay      Time        Fan Out(s)
--------------------------------------------------------------------------------------------------
-RCB1.vram_start        SYNLPM_LAT1            Q[0]      Out     -0.090     -0.090      -         
-vram_start             Net                    -         -       0.882      -           93        
-RCB1.xy_min\.Y_s_2     cycloneii_lcell_ff     sload     In      -          0.793       -         
-=================================================================================================
-
-
-Path information for path number 5: 
-    Propagation time:                        0.793
-    + Clock delay at starting point:         0.000 (ideal)
-    - Requested Period:                      -5.989
-    - Hold time:                             0.436
-    - Clock delay at ending point:           0.000 (ideal)
-    = Slack (non-critical) :                 6.346
-
-    Number of logic level(s):                0
-    Starting point:                          RCB1.vram_start / Q[0]
-    Ending point:                            RCB1.xy_min\.Y_s_1 / sload
-    The start point is clocked by            ram_fsm|state_derived_clock[2] [falling] on pin GATE
-    The end   point is clocked by            vdp|clk [rising] on pin clk
-
-Instance / Net                                Pin       Pin                Arrival     No. of    
-Name                   Type                   Name      Dir     Delay      Time        Fan Out(s)
--------------------------------------------------------------------------------------------------
-RCB1.vram_start        SYNLPM_LAT1            Q[0]      Out     -0.090     -0.090      -         
-vram_start             Net                    -         -       0.882      -           93        
-RCB1.xy_min\.Y_s_1     cycloneii_lcell_ff     sload     In      -          0.793       -         
-=================================================================================================
-
-
-
-
-====================================
 Detailed Report for Clock: vdp|clk
 ====================================
 
@@ -229,41 +64,41 @@ Detailed Report for Clock: vdp|clk
 Starting Points with Worst Slack
 ********************************
 
-                                      Starting                                                                Arrival           
-Instance                              Reference     Type                   Pin        Net                     Time        Slack 
-                                      Clock                                                                                     
---------------------------------------------------------------------------------------------------------------------------------
-RCB1.E2.state_ret_0                   vdp|clk       cycloneii_lcell_ff     regout     state_ret_0             0.175       -0.069
-RCB1.RCB_FSM\.word_reg_delayed[0]     vdp|clk       cycloneii_lcell_ff     regout     word_reg_delayed[0]     0.175       0.603 
-RCB1.RCB_FSM\.word_reg_delayed[1]     vdp|clk       cycloneii_lcell_ff     regout     word_reg_delayed[1]     0.175       0.603 
-RCB1.RCB_FSM\.word_reg_delayed[2]     vdp|clk       cycloneii_lcell_ff     regout     word_reg_delayed[2]     0.175       0.603 
-RCB1.RCB_FSM\.word_reg_delayed[3]     vdp|clk       cycloneii_lcell_ff     regout     word_reg_delayed[3]     0.175       0.603 
-RCB1.RCB_FSM\.word_reg_delayed[4]     vdp|clk       cycloneii_lcell_ff     regout     word_reg_delayed[4]     0.175       0.603 
-RCB1.RCB_FSM\.word_reg_delayed[5]     vdp|clk       cycloneii_lcell_ff     regout     word_reg_delayed[5]     0.175       0.603 
-RCB1.RCB_FSM\.word_reg_delayed[6]     vdp|clk       cycloneii_lcell_ff     regout     word_reg_delayed[6]     0.175       0.603 
-RCB1.RCB_FSM\.word_reg_delayed[7]     vdp|clk       cycloneii_lcell_ff     regout     word_reg_delayed[7]     0.175       0.603 
-RCB1.nstate_0[0]                      vdp|clk       cycloneii_lcell_ff     regout     nstate_0[0]             0.175       0.649 
-================================================================================================================================
+                                       Starting                                                                 Arrival          
+Instance                               Reference     Type                   Pin        Net                      Time        Slack
+                                       Clock                                                                                     
+---------------------------------------------------------------------------------------------------------------------------------
+RCB1.RCB_FSM\.cache_store_reg_0[0]     vdp|clk       cycloneii_lcell_ff     regout     cache_store_reg_0[0]     0.175       0.603
+RCB1.RCB_FSM\.cache_store_reg_0[1]     vdp|clk       cycloneii_lcell_ff     regout     cache_store_reg_0[1]     0.175       0.603
+RCB1.RCB_FSM\.cache_store_reg_1[0]     vdp|clk       cycloneii_lcell_ff     regout     cache_store_reg_1[0]     0.175       0.603
+RCB1.RCB_FSM\.cache_store_reg_1[1]     vdp|clk       cycloneii_lcell_ff     regout     cache_store_reg_1[1]     0.175       0.603
+RCB1.RCB_FSM\.cache_store_reg_2[0]     vdp|clk       cycloneii_lcell_ff     regout     cache_store_reg_2[0]     0.175       0.603
+RCB1.RCB_FSM\.cache_store_reg_2[1]     vdp|clk       cycloneii_lcell_ff     regout     cache_store_reg_2[1]     0.175       0.603
+RCB1.RCB_FSM\.cache_store_reg_3[0]     vdp|clk       cycloneii_lcell_ff     regout     cache_store_reg_3[0]     0.175       0.603
+RCB1.RCB_FSM\.cache_store_reg_3[1]     vdp|clk       cycloneii_lcell_ff     regout     cache_store_reg_3[1]     0.175       0.603
+RCB1.RCB_FSM\.cache_store_reg_4[0]     vdp|clk       cycloneii_lcell_ff     regout     cache_store_reg_4[0]     0.175       0.603
+RCB1.RCB_FSM\.cache_store_reg_4[1]     vdp|clk       cycloneii_lcell_ff     regout     cache_store_reg_4[1]     0.175       0.603
+=================================================================================================================================
 
 
 Ending Points with Worst Slack
 ******************************
 
-                                 Starting                                                                 Required          
-Instance                         Reference     Type                   Pin     Net                         Time         Slack
-                                 Clock                                                                                      
-----------------------------------------------------------------------------------------------------------------------------
-RCB1.RCB_FSM\.idle_cycles[0]     vdp|clk       cycloneii_lcell_ff     ena     idle_cycleslde_i_a2_x_i     0.437        0.169
-RCB1.RCB_FSM\.idle_cycles[1]     vdp|clk       cycloneii_lcell_ff     ena     idle_cycleslde_i_a2_x_i     0.437        0.169
-RCB1.RCB_FSM\.idle_cycles[2]     vdp|clk       cycloneii_lcell_ff     ena     idle_cycleslde_i_a2_x_i     0.437        0.169
-RCB1.RCB_FSM\.idle_cycles[3]     vdp|clk       cycloneii_lcell_ff     ena     idle_cycleslde_i_a2_x_i     0.437        0.169
-RCB1.RCB_FSM\.idle_cycles[4]     vdp|clk       cycloneii_lcell_ff     ena     idle_cycleslde_i_a2_x_i     0.437        0.169
-RCB1.RCB_FSM\.idle_cycles[5]     vdp|clk       cycloneii_lcell_ff     ena     idle_cycleslde_i_a2_x_i     0.437        0.169
-RCB1.RCB_FSM\.idle_cycles[6]     vdp|clk       cycloneii_lcell_ff     ena     idle_cycleslde_i_a2_x_i     0.437        0.169
-RCB1.RCB_FSM\.idle_cycles[7]     vdp|clk       cycloneii_lcell_ff     ena     idle_cycleslde_i_a2_x_i     0.437        0.169
-RCB1.RCB_FSM\.idle_cycles[8]     vdp|clk       cycloneii_lcell_ff     ena     idle_cycleslde_i_a2_x_i     0.437        0.169
-RCB1.RCB_FSM\.idle_cycles[9]     vdp|clk       cycloneii_lcell_ff     ena     idle_cycleslde_i_a2_x_i     0.437        0.169
-============================================================================================================================
+                                   Starting                                                       Required          
+Instance                           Reference     Type                   Pin       Net             Time         Slack
+                                   Clock                                                                            
+--------------------------------------------------------------------------------------------------------------------
+RCB1.E2.P1\.addr_ram_sync_i[0]     vdp|clk       cycloneii_lcell_ff     ena       state_ret_1     0.437        0.375
+RCB1.E2.P1\.addr_ram_sync_i[1]     vdp|clk       cycloneii_lcell_ff     ena       state_ret_1     0.437        0.375
+RCB1.E2.P1\.addr_ram_sync_i[2]     vdp|clk       cycloneii_lcell_ff     ena       state_ret_1     0.437        0.375
+RCB1.E2.P1\.addr_ram_sync_i[3]     vdp|clk       cycloneii_lcell_ff     ena       state_ret_1     0.437        0.375
+RCB1.E2.P1\.addr_ram_sync_i[4]     vdp|clk       cycloneii_lcell_ff     ena       state_ret_1     0.437        0.375
+RCB1.E2.P1\.addr_ram_sync_i[5]     vdp|clk       cycloneii_lcell_ff     ena       state_ret_1     0.437        0.375
+RCB1.E2.P1\.addr_ram_sync_i[6]     vdp|clk       cycloneii_lcell_ff     ena       state_ret_1     0.437        0.375
+RCB1.E2.P1\.addr_ram_sync_i[7]     vdp|clk       cycloneii_lcell_ff     ena       state_ret_1     0.437        0.375
+RCB1.RCB_FSM\.clrxy_reg\.Y[2]      vdp|clk       cycloneii_lcell_ff     sload     nstate_0[0]     0.436        0.376
+RCB1.RCB_FSM\.clrxy_reg\.Y[3]      vdp|clk       cycloneii_lcell_ff     sload     nstate_0[0]     0.436        0.376
+====================================================================================================================
 
 
 
@@ -272,133 +107,26 @@ Worst Path Information
 
 
 Path information for path number 1: 
-    Propagation time:                        0.367
+    Propagation time:                        0.498
     + Clock delay at starting point:         0.000 (ideal)
     - Requested Period:                      0.000
-    - Hold time:                             0.436
+    - Hold time:                             0.034
     - Clock delay at ending point:           0.000 (ideal)
-    = Slack (non-critical) :                 -0.069
+    = Slack (non-critical) :                 0.465
 
-    Number of logic level(s):                1
-    Starting point:                          RCB1.E2.state_ret_0 / regout
-    Ending point:                            RCB1.E1.N1\.pre_rdout_par_2[0] / sload
+    Number of logic level(s):                0
+    Starting point:                          RCB1.RCB_FSM\.cache_store_reg_0[0] / regout
+    Ending point:                            RCB1.E2.P1\.cache_reg_0[0] / datain
     The start point is clocked by            vdp|clk [rising] on pin clk
     The end   point is clocked by            vdp|clk [rising] on pin clk
 
-Instance / Net                                                       Pin         Pin               Arrival     No. of    
-Name                                        Type                     Name        Dir     Delay     Time        Fan Out(s)
--------------------------------------------------------------------------------------------------------------------------
-RCB1.E2.state_ret_0                         cycloneii_lcell_ff       regout      Out     0.175     0.175       -         
-state_ret_0                                 Net                      -           -       0.000     -           112       
-RCB1.E1.N1\.pre_rdout_par_2_1_0_0__g0_e     cycloneii_lcell_comb     datac       In      -         0.175       -         
-RCB1.E1.N1\.pre_rdout_par_2_1_0_0__g0_e     cycloneii_lcell_comb     combout     Out     0.193     0.367       -         
-pre_rdout_par_2_1_0_0__g0_e                 Net                      -           -       0.000     -           6         
-RCB1.E1.N1\.pre_rdout_par_2[0]              cycloneii_lcell_ff       sload       In      -         0.367       -         
-=========================================================================================================================
-
-
-Path information for path number 2: 
-    Propagation time:                        0.367
-    + Clock delay at starting point:         0.000 (ideal)
-    - Requested Period:                      0.000
-    - Hold time:                             0.436
-    - Clock delay at ending point:           0.000 (ideal)
-    = Slack (non-critical) :                 -0.069
-
-    Number of logic level(s):                1
-    Starting point:                          RCB1.E2.state_ret_0 / regout
-    Ending point:                            RCB1.E1.N1\.pre_rdout_par_3[1] / sload
-    The start point is clocked by            vdp|clk [rising] on pin clk
-    The end   point is clocked by            vdp|clk [rising] on pin clk
-
-Instance / Net                                                       Pin         Pin               Arrival     No. of    
-Name                                        Type                     Name        Dir     Delay     Time        Fan Out(s)
--------------------------------------------------------------------------------------------------------------------------
-RCB1.E2.state_ret_0                         cycloneii_lcell_ff       regout      Out     0.175     0.175       -         
-state_ret_0                                 Net                      -           -       0.000     -           112       
-RCB1.E1.N1\.pre_rdout_par_2_1_0_0__g0_e     cycloneii_lcell_comb     datac       In      -         0.175       -         
-RCB1.E1.N1\.pre_rdout_par_2_1_0_0__g0_e     cycloneii_lcell_comb     combout     Out     0.193     0.367       -         
-pre_rdout_par_2_1_0_0__g0_e                 Net                      -           -       0.000     -           6         
-RCB1.E1.N1\.pre_rdout_par_3[1]              cycloneii_lcell_ff       sload       In      -         0.367       -         
-=========================================================================================================================
-
-
-Path information for path number 3: 
-    Propagation time:                        0.367
-    + Clock delay at starting point:         0.000 (ideal)
-    - Requested Period:                      0.000
-    - Hold time:                             0.436
-    - Clock delay at ending point:           0.000 (ideal)
-    = Slack (non-critical) :                 -0.069
-
-    Number of logic level(s):                1
-    Starting point:                          RCB1.E2.state_ret_0 / regout
-    Ending point:                            RCB1.E1.N1\.pre_rdout_par_3[0] / sload
-    The start point is clocked by            vdp|clk [rising] on pin clk
-    The end   point is clocked by            vdp|clk [rising] on pin clk
-
-Instance / Net                                                       Pin         Pin               Arrival     No. of    
-Name                                        Type                     Name        Dir     Delay     Time        Fan Out(s)
--------------------------------------------------------------------------------------------------------------------------
-RCB1.E2.state_ret_0                         cycloneii_lcell_ff       regout      Out     0.175     0.175       -         
-state_ret_0                                 Net                      -           -       0.000     -           112       
-RCB1.E1.N1\.pre_rdout_par_2_1_0_0__g0_e     cycloneii_lcell_comb     datac       In      -         0.175       -         
-RCB1.E1.N1\.pre_rdout_par_2_1_0_0__g0_e     cycloneii_lcell_comb     combout     Out     0.193     0.367       -         
-pre_rdout_par_2_1_0_0__g0_e                 Net                      -           -       0.000     -           6         
-RCB1.E1.N1\.pre_rdout_par_3[0]              cycloneii_lcell_ff       sload       In      -         0.367       -         
-=========================================================================================================================
-
-
-Path information for path number 4: 
-    Propagation time:                        0.367
-    + Clock delay at starting point:         0.000 (ideal)
-    - Requested Period:                      0.000
-    - Hold time:                             0.436
-    - Clock delay at ending point:           0.000 (ideal)
-    = Slack (non-critical) :                 -0.069
-
-    Number of logic level(s):                1
-    Starting point:                          RCB1.E2.state_ret_0 / regout
-    Ending point:                            RCB1.E1.N1\.pre_rdout_par_2[1] / sload
-    The start point is clocked by            vdp|clk [rising] on pin clk
-    The end   point is clocked by            vdp|clk [rising] on pin clk
-
-Instance / Net                                                       Pin         Pin               Arrival     No. of    
-Name                                        Type                     Name        Dir     Delay     Time        Fan Out(s)
--------------------------------------------------------------------------------------------------------------------------
-RCB1.E2.state_ret_0                         cycloneii_lcell_ff       regout      Out     0.175     0.175       -         
-state_ret_0                                 Net                      -           -       0.000     -           112       
-RCB1.E1.N1\.pre_rdout_par_2_1_0_0__g0_e     cycloneii_lcell_comb     datac       In      -         0.175       -         
-RCB1.E1.N1\.pre_rdout_par_2_1_0_0__g0_e     cycloneii_lcell_comb     combout     Out     0.193     0.367       -         
-pre_rdout_par_2_1_0_0__g0_e                 Net                      -           -       0.000     -           6         
-RCB1.E1.N1\.pre_rdout_par_2[1]              cycloneii_lcell_ff       sload       In      -         0.367       -         
-=========================================================================================================================
-
-
-Path information for path number 5: 
-    Propagation time:                        0.469
-    + Clock delay at starting point:         0.000 (ideal)
-    - Requested Period:                      0.000
-    - Hold time:                             0.437
-    - Clock delay at ending point:           0.000 (ideal)
-    = Slack (non-critical) :                 0.032
-
-    Number of logic level(s):                1
-    Starting point:                          RCB1.E2.state_ret_0 / regout
-    Ending point:                            RCB1.RCB_FSM\.clrxy_reg\.X[0] / ena
-    The start point is clocked by            vdp|clk [rising] on pin clk
-    The end   point is clocked by            vdp|clk [rising] on pin clk
-
-Instance / Net                                                   Pin         Pin               Arrival     No. of    
-Name                                    Type                     Name        Dir     Delay     Time        Fan Out(s)
----------------------------------------------------------------------------------------------------------------------
-RCB1.E2.state_ret_0                     cycloneii_lcell_ff       regout      Out     0.175     0.175       -         
-state_ret_0                             Net                      -           -       0.000     -           112       
-RCB1.E2.C1\.un2_state_0keep_RNIV4FH     cycloneii_lcell_comb     datab       In      -         0.175       -         
-RCB1.E2.C1\.un2_state_0keep_RNIV4FH     cycloneii_lcell_comb     combout     Out     0.294     0.469       -         
-vram_delay_i_or_0                       Net                      -           -       0.000     -           9         
-RCB1.RCB_FSM\.clrxy_reg\.X[0]           cycloneii_lcell_ff       ena         In      -         0.469       -         
-=====================================================================================================================
+Instance / Net                                                Pin        Pin               Arrival     No. of    
+Name                                   Type                   Name       Dir     Delay     Time        Fan Out(s)
+-----------------------------------------------------------------------------------------------------------------
+RCB1.RCB_FSM\.cache_store_reg_0[0]     cycloneii_lcell_ff     regout     Out     0.175     0.175       -         
+cache_store_reg_0[0]                   Net                    -          -       0.323     -           1         
+RCB1.E2.P1\.cache_reg_0[0]             cycloneii_lcell_ff     datain     In      -         0.498       -         
+=================================================================================================================
 
 
 
@@ -412,33 +140,41 @@ Detailed Report for Clock: System
 Starting Points with Worst Slack
 ********************************
 
-                    Starting                                           Arrival          
-Instance            Reference     Type             Pin      Net        Time        Slack
-                    Clock                                                               
-----------------------------------------------------------------------------------------
-DB1.hdb_busy_21     System        SYNLPM_LATR1     Q[0]     Q_0[0]     0.175       0.702
-DB1.hdb_busy_22     System        SYNLPM_LATR1     Q[0]     Q[0]       0.175       0.714
-========================================================================================
+                      Starting                                        Arrival          
+Instance              Reference     Type            Pin      Net      Time        Slack
+                      Clock                                                            
+---------------------------------------------------------------------------------------
+RCB1.xy_min\.X[1]     System        SYNLPM_LAT1     Q[0]     X[1]     0.175       0.299
+RCB1.xy_min\.X[2]     System        SYNLPM_LAT1     Q[0]     X[2]     0.175       0.299
+RCB1.xy_min\.X[3]     System        SYNLPM_LAT1     Q[0]     X[3]     0.175       0.299
+RCB1.xy_min\.X[4]     System        SYNLPM_LAT1     Q[0]     X[4]     0.175       0.299
+RCB1.xy_min\.X[5]     System        SYNLPM_LAT1     Q[0]     X[5]     0.175       0.299
+RCB1.xy_min\.Y[2]     System        SYNLPM_LAT1     Q[0]     Y[2]     0.175       0.299
+RCB1.xy_min\.Y[3]     System        SYNLPM_LAT1     Q[0]     Y[3]     0.175       0.299
+RCB1.xy_min\.Y[4]     System        SYNLPM_LAT1     Q[0]     Y[4]     0.175       0.299
+RCB1.xy_min\.Y[5]     System        SYNLPM_LAT1     Q[0]     Y[5]     0.175       0.299
+RCB1.xy_min\.X[0]     System        SYNLPM_LAT1     Q[0]     X[0]     0.175       0.497
+=======================================================================================
 
 
 Ending Points with Worst Slack
 ******************************
 
-                        Starting                                                     Required          
-Instance                Reference     Type                   Pin     Net             Time         Slack
-                        Clock                                                                          
--------------------------------------------------------------------------------------------------------
-DB1.REG\.hdb_reg[0]     System        cycloneii_lcell_ff     ena     hdb_busy_23     0.437        0.501
-DB1.REG\.hdb_reg[1]     System        cycloneii_lcell_ff     ena     hdb_busy_23     0.437        0.501
-DB1.REG\.hdb_reg[2]     System        cycloneii_lcell_ff     ena     hdb_busy_23     0.437        0.501
-DB1.REG\.hdb_reg[3]     System        cycloneii_lcell_ff     ena     hdb_busy_23     0.437        0.501
-DB1.REG\.hdb_reg[4]     System        cycloneii_lcell_ff     ena     hdb_busy_23     0.437        0.501
-DB1.REG\.hdb_reg[5]     System        cycloneii_lcell_ff     ena     hdb_busy_23     0.437        0.501
-DB1.REG\.hdb_reg[6]     System        cycloneii_lcell_ff     ena     hdb_busy_23     0.437        0.501
-DB1.REG\.hdb_reg[7]     System        cycloneii_lcell_ff     ena     hdb_busy_23     0.437        0.501
-DB1.REG\.hdb_reg[8]     System        cycloneii_lcell_ff     ena     hdb_busy_23     0.437        0.501
-DB1.REG\.hdb_reg[9]     System        cycloneii_lcell_ff     ena     hdb_busy_23     0.437        0.501
-=======================================================================================================
+                                  Starting                                                                 Required          
+Instance                          Reference     Type                   Pin       Net                       Time         Slack
+                                  Clock                                                                                      
+-----------------------------------------------------------------------------------------------------------------------------
+RCB1.RCB_FSM\.clrxy_reg\.X[1]     System        cycloneii_lcell_ff     sdata     X[1]                      0.231        0.193
+RCB1.RCB_FSM\.clrxy_reg\.X[2]     System        cycloneii_lcell_ff     sdata     X[2]                      0.231        0.193
+RCB1.RCB_FSM\.clrxy_reg\.X[3]     System        cycloneii_lcell_ff     sdata     X[3]                      0.231        0.193
+RCB1.RCB_FSM\.clrxy_reg\.X[4]     System        cycloneii_lcell_ff     sdata     X[4]                      0.231        0.193
+RCB1.RCB_FSM\.clrxy_reg\.X[5]     System        cycloneii_lcell_ff     sdata     X[5]                      0.231        0.193
+RCB1.RCB_FSM\.clrxy_reg\.Y[2]     System        cycloneii_lcell_ff     sdata     Y[2]                      0.231        0.193
+RCB1.RCB_FSM\.clrxy_reg\.Y[3]     System        cycloneii_lcell_ff     sdata     Y[3]                      0.231        0.193
+RCB1.RCB_FSM\.clrxy_reg\.Y[4]     System        cycloneii_lcell_ff     sdata     Y[4]                      0.231        0.193
+RCB1.RCB_FSM\.clrxy_reg\.Y[5]     System        cycloneii_lcell_ff     sdata     Y[5]                      0.231        0.193
+RCB1.RCB_FSM\.idle_cycles[0]      System        cycloneii_lcell_ff     ena       idle_cycleslde_i_a2_i     0.437        0.368
+=============================================================================================================================
 
 
 
@@ -447,30 +183,27 @@ Worst Path Information
 
 
 Path information for path number 1: 
-    Propagation time:                        0.938
+    Propagation time:                        0.424
     + Clock delay at starting point:         0.000 (ideal)
 -0.000
     - Requested Period:                      0.000
-    - Hold time:                             0.437
+    - Hold time:                             0.231
     - Clock delay at ending point:           0.000 (ideal)
-    = Slack (non-critical) :                 0.501
+    = Slack (critical) :                     0.193
 
-    Number of logic level(s):                1
-    Starting point:                          DB1.hdb_busy_21 / Q[0]
-    Ending point:                            DB1.REG\.hdb_reg[0] / ena
+    Number of logic level(s):                0
+    Starting point:                          RCB1.xy_min\.X[1] / Q[0]
+    Ending point:                            RCB1.RCB_FSM\.clrxy_reg\.X[1] / sdata
     The start point is clocked by            System [rising] on pin GATE
     The end   point is clocked by            vdp|clk [rising] on pin clk
 
-Instance / Net                                       Pin         Pin               Arrival     No. of    
-Name                        Type                     Name        Dir     Delay     Time        Fan Out(s)
----------------------------------------------------------------------------------------------------------
-DB1.hdb_busy_21             SYNLPM_LATR1             Q[0]        Out     0.175     0.175       -         
-Q_0[0]                      Net                      -           -       0.249     -           1         
-DB1.hdb_busy_21_RNIFHTB     cycloneii_lcell_comb     datab       In      -         0.424       -         
-DB1.hdb_busy_21_RNIFHTB     cycloneii_lcell_comb     combout     Out     0.294     0.718       -         
-hdb_busy_23                 Net                      -           -       0.220     -           17        
-DB1.REG\.hdb_reg[0]         cycloneii_lcell_ff       ena         In      -         0.938       -         
-=========================================================================================================
+Instance / Net                                           Pin       Pin               Arrival     No. of    
+Name                              Type                   Name      Dir     Delay     Time        Fan Out(s)
+-----------------------------------------------------------------------------------------------------------
+RCB1.xy_min\.X[1]                 SYNLPM_LAT1            Q[0]      Out     0.175     0.175       -         
+X[1]                              Net                    -         -       0.249     -           1         
+RCB1.RCB_FSM\.clrxy_reg\.X[1]     cycloneii_lcell_ff     sdata     In      -         0.424       -         
+===========================================================================================================
 
 
 

@@ -1,16 +1,16 @@
 ##### START OF AREA REPORT #####[
 Design view:work.vdp(rtl)
-Selecting part EP2C5F256C6
+Selecting part EP2C5Q208C6
 
-Total combinational functions 792 of 4608 (17%)
+Total combinational functions 577 of 4608 (12%)
 Logic element usage by number of inputs
-		  4 input functions 	 379
-		  3 input functions 	 224
-		  <=2 input functions 	 189
+		  4 input functions 	 225
+		  3 input functions 	 157
+		  <=2 input functions 	 195
 Logic elements by mode
-		  normal mode            652
+		  normal mode            437
 		  arithmetic mode        140
-Total registers 364 of 4608 ( 7%)
+Total registers 307 of 4608 ( 6%)
 I/O pins 62 of 158 (39%), total I/O based on largest package of this part.
 
 Number of I/O registers
@@ -22,7 +22,7 @@ DSP Utilization: 0.00% of available 13 blocks (26 nine-bit).
 ShiftTap:       0  (0 registers)
 Total ESB:      0 bits 
 
-LPM latches:    3
+LPM latches:    33
 
 ##### END OF AREA REPORT #####]
 

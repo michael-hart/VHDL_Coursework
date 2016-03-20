@@ -2,19 +2,24 @@
 @N: CD720 :"C:\EEE\Synopsys\fpga_I-2013.09-SP1\lib\vhd\std.vhd":123:18:123:21|Setting time resolution to ns
 @N:"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\vdp.vhd":11:7:11:9|Top entity is set to vdp.
 @N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\vdp.vhd":11:7:11:9|Synthesizing work.vdp.rtl 
-@N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":139:7:139:9|Synthesizing work.rcb.rtl1 
-@N: CD233 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":192:17:192:18|Using sequential encoding for type rcb_states
+@N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":155:7:155:9|Synthesizing work.rcb.rtl1 
+@N: CD233 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":208:17:208:18|Using sequential encoding for type rcb_states
 @N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":10:7:10:13|Synthesizing work.ram_fsm.synth 
 @N: CD233 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":30:16:30:17|Using sequential encoding for type state_t
 @N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":8:7:8:20|Synthesizing work.pix_word_cache.together 
-@N: CL177 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":193:8:193:16|Sharing sequential element rcb_state.
+@N: CL177 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":209:8:209:16|Sharing sequential element rcb_state.
 @N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":7:7:7:8|Synthesizing work.db.rtl 
 @N: CD231 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\project_pack.vhd":20:16:20:17|Using onehot encoding for type state_db (s_wait="100000000")
+@N: CD364 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":68:3:68:9|Removed redundant assignment
+@N: CD364 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":85:3:85:9|Removed redundant assignment
+@N: CD364 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":86:3:86:7|Removed redundant assignment
+@N: CD364 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":87:3:87:7|Removed redundant assignment
+@N: CD364 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":88:3:88:8|Removed redundant assignment
 @N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":363:7:363:21|Synthesizing work.draw_any_octant.comb 
 @N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":236:7:236:10|Synthesizing work.swap.rtl 
 @N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":279:7:279:9|Synthesizing work.inv.rtl 
 @N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":113:7:113:17|Synthesizing work.draw_octant.comb 
 @N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":315:7:315:8|Synthesizing work.rd.behav 
-@N: CL201 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":50:8:50:19|Trying to extract state machine for register db_fsm_state
+@N: CL201 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":50:7:50:18|Trying to extract state machine for register db_fsm_state
 @N: CL201 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":31:8:31:12|Trying to extract state machine for register state
 

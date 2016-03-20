@@ -30,7 +30,7 @@ ARCHITECTURE synth OF ram_fsm IS
 	TYPE   state_t IS (m3, m2, m1, mx);
 	SIGNAL state : state_t;
 	SIGNAL delay_i, vwrite_i : std_logic;
-	SIGNAL addr_ram_i : std_logic_vector(7 DOWNTO 0);
+	SIGNAL addr_ram_i, addr_ram_sync_i : std_logic_vector(7 DOWNTO 0);
 	SIGNAL data_ram_i : std_logic_vector(15 DOWNTO 0);
 	SIGNAL busy_i : std_logic;
 	SIGNAL done_i : std_logic;
@@ -45,9 +45,19 @@ BEGIN
 	addr_ram <= addr_ram_i;
 	data_ram <= data_ram_i;
 
+	-- MUX to determine what the value of addr_ram_i is
+	-- Only changes to a new value if the state demands it
+	ADDR_MUX : PROCESS(state, vaddr, addr_ram_sync_i) IS
+	BEGIN
+		IF state = m1 THEN
+			addr_ram_i <= vaddr;
+		ELSE 
+			addr_ram_i <= addr_ram_sync_i;
+		END IF;
+	END PROCESS ADDR_MUX;
 
 	-- Combinational logic for output std_logic signals
-	C1: PROCESS(state, start, vaddr)
+	C1: PROCESS(state, start, cache_reg, vdin)
 	BEGIN
 		-- Default values
 		delay_i <= '0';
@@ -56,7 +66,7 @@ BEGIN
 		END IF; -- delay_i
 
 		vwrite_i <= '0';
-
+		
 		IF state = mx THEN
 			busy_i <= '0';
 		ELSE
@@ -65,12 +75,11 @@ BEGIN
 
 		-- Determine logic based on state machine
 		IF state = m1 THEN
-			addr_ram_i <= vaddr;
-			-- Store cache in register
-			cache_reg <= cache;
+			NULL;
+			
 		ELSIF state = m2 THEN
 			-- Set up output data
-			FOR i IN vdin'LOW TO vdin'HIGH LOOP
+			FOR i IN 0 TO 15 LOOP
 				CASE cache_reg(i) IS
 					WHEN psame => 	data_ram_i(i) <= vdin(i);
 					WHEN pblack => 	data_ram_i(i) <= '1';
@@ -94,6 +103,13 @@ BEGIN
 
 		-- Default done state is 0
 		done_i <= '0';
+		
+		-- Cache register input
+		-- Store cache in register
+		cache_reg <= cache;
+		
+		-- Register MUX output
+		addr_ram_sync_i <= addr_ram_i;
 
 		-- Set nstate to m1, no matter what state is
 		IF start = '1' THEN
@@ -236,7 +252,7 @@ BEGIN
 
 
 	-- Input MUX for which (X,Y) co-ords to use
-	INMUX : PROCESS(dbb_bus.X, dbb_bus.Y, clrxy_reg, rcb_state) IS
+	INMUX : PROCESS(dbb_bus, clrxy_reg, rcb_state) IS
 	BEGIN
 		-- Check current state
 		IF rcb_state = CLEAR THEN
@@ -249,7 +265,7 @@ BEGIN
 
 	-- Split module. vram_start is in sensitivity list to force an update to word_is_same after
 	-- a RAM operation is triggered
-	SPLIT : PROCESS(splitxy) IS
+	SPLIT : PROCESS(splitxy, word_reg_delayed) IS
 		VARIABLE word_reg_i : STD_LOGIC_VECTOR((2*VSIZE)-5 DOWNTO 0);
 	BEGIN
 
@@ -258,7 +274,7 @@ BEGIN
 		word_reg_i := splitxy.y(VSIZE-1 DOWNTO 2) & splitxy.x(VSIZE-1 DOWNTO 2);
 
 		-- Check if the word is the same as previously
-		IF word_reg = word_reg_i THEN
+		IF word_reg_delayed = word_reg_i THEN
 			word_is_same <= '1';
 		ELSE
 			word_is_same <= '0';

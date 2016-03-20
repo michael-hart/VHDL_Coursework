@@ -1,39 +1,29 @@
-@P:  Part : ep2c5fc256-6
-@P:  Worst Slack : -5.500
-@P:  ram_fsm|state_derived_clock[2] - Estimated Frequency : 43.5 MHz
-@P:  ram_fsm|state_derived_clock[2] - Requested Frequency : 83.5 MHz
-@P:  ram_fsm|state_derived_clock[2] - Estimated Period : 22.978
-@P:  ram_fsm|state_derived_clock[2] - Requested Period : 11.979
-@P:  ram_fsm|state_derived_clock[2] - Slack : -5.500
-@P:  vdp|clk - Estimated Frequency : 43.5 MHz
-@P:  vdp|clk - Requested Frequency : 83.5 MHz
-@P:  vdp|clk - Estimated Period : 22.978
-@P:  vdp|clk - Requested Period : 11.979
-@P:  vdp|clk - Slack : -2.114
-@P:  System - Estimated Frequency : NA
-@P:  System - Requested Frequency : 766.3 MHz
-@P:  System - Estimated Period : NA
-@P:  System - Requested Period : 1.305
-@P:  System - Slack : 9.997
-@P:  Worst Slack(min analysis) : -4.471
-@P:  ram_fsm|state_derived_clock[2] - Estimated Frequency(min analysis) : 43.5 MHz
-@P:  ram_fsm|state_derived_clock[2] - Requested Frequency(min analysis) : 83.5 MHz
-@P:  ram_fsm|state_derived_clock[2] - Estimated Period(min analysis) : 22.978
-@P:  ram_fsm|state_derived_clock[2] - Requested Period(min analysis) : 11.979
-@P:  ram_fsm|state_derived_clock[2] - Slack(min analysis) : -5.500
-@P:  vdp|clk - Estimated Frequency(min analysis) : 43.5 MHz
-@P:  vdp|clk - Requested Frequency(min analysis) : 83.5 MHz
-@P:  vdp|clk - Estimated Period(min analysis) : 22.978
-@P:  vdp|clk - Requested Period(min analysis) : 11.979
-@P:  vdp|clk - Slack(min analysis) : -2.114
-@P:  System - Estimated Frequency(min analysis) : 1243.6 MHz
-@P:  System - Requested Frequency(min analysis) : 766.3 MHz
-@P:  System - Estimated Period(min analysis) : 0.804
-@P:  System - Requested Period(min analysis) : 1.305
-@P:  System - Slack(min analysis) : 0.501
-@P: vdp Part : ep2c5fc256-6
+@P:  Part : ep2c5qc208-6
+@P:  Worst Slack : -1.656
+@P:  vdp|clk - Estimated Frequency : 90.6 MHz
+@P:  vdp|clk - Requested Frequency : 106.5 MHz
+@P:  vdp|clk - Estimated Period : 11.042
+@P:  vdp|clk - Requested Period : 9.386
+@P:  vdp|clk - Slack : -1.656
+@P:  System - Estimated Frequency : 3063.7 MHz
+@P:  System - Requested Frequency : 2072.1 MHz
+@P:  System - Estimated Period : 0.326
+@P:  System - Requested Period : 0.483
+@P:  System - Slack : 0.156
+@P:  Worst Slack(min analysis) : 0.193
+@P:  vdp|clk - Estimated Frequency(min analysis) : 90.6 MHz
+@P:  vdp|clk - Requested Frequency(min analysis) : 106.5 MHz
+@P:  vdp|clk - Estimated Period(min analysis) : 11.042
+@P:  vdp|clk - Requested Period(min analysis) : 9.386
+@P:  vdp|clk - Slack(min analysis) : -1.656
+@P:  System - Estimated Frequency(min analysis) : 3063.7 MHz
+@P:  System - Requested Frequency(min analysis) : 2072.1 MHz
+@P:  System - Estimated Period(min analysis) : 0.326
+@P:  System - Requested Period(min analysis) : 0.483
+@P:  System - Slack(min analysis) : 0.156
+@P: vdp Part : ep2c5qc208-6
 @P: vdp I/O ATOMs : 62
-@P: vdp Total LUTs : 792 
-@P: vdp Register bits : 364
+@P: vdp Total LUTs : 577 
+@P: vdp Register bits : 307
 @P: vdp DSP Blocks : 0 (0 nine-bit DSP elements)
-@P:  CPU Time : 0h:00m:08s
+@P:  CPU Time : 0h:00m:07s
