@@ -49,6 +49,7 @@ SIGNAL init, draw, done, disable : std_logic;
 -- For DB_FSM
 SIGNAL db_fsm_state, db_fsm_nstate : state_db;
 
+-- Aliases for easier reference when it comes to slices. 
 ALIAS new_x : std_logic_vector((VSIZE - 1) DOWNTO 0) IS hdb_reg(((VSIZE * 2) + 1) DOWNTO (VSIZE + 2));
 ALIAS new_y : std_logic_vector((VSIZE - 1) DOWNTO 0) IS hdb_reg((VSIZE + 1) DOWNTO 2);
 ALIAS old_x : std_logic_vector((VSIZE - 1) DOWNTO 0) IS xy_old_reg((VSIZE * 2 - 1) DOWNTO VSIZE);
