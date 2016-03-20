@@ -1,17 +1,17 @@
 C:\EEE\Synopsys\fpga_I-2013.09-SP1\bin64\m_altera.exe  -prodtype  synplify_premier  -encrypt  -pro  -rundir  \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2  -part EP2C5QC208-6   -maxfan 30 -timequest -verification_mode 0  -pipe    -fixgatedclocks 1 -fixgeneratedclocks 1  -syn_altera_model on -mif_files_dirs " " -do_enhanced_opt -fast_synthesis 0  -validate_mif_files  -reporting_ctd 0  -RWCheckOnRam 1      -summaryfile \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\synlog\report\proj_1_premap.xml -top_level_module  vdp  -map -vqm41  -ovqm  \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\proj_1.vqm  -conchk_prepass  \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\proj_1_cck_prepass.rpt  -autoconstraint  -freq 1.000  \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\synwork\proj_1_comp.srs  -flow prepass  -gcc_prepass  -osrd  \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\synwork\proj_1_prem.srd  -qsap  \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\proj_1.sap  -devicelib  C:\EEE\Synopsys\fpga_I-2013.09-SP1\lib\altera\altera.v  -devicelib  C:\EEE\Synopsys\fpga_I-2013.09-SP1\lib\altera\quartus_II131\cycloneii.v  -devicelib  C:\EEE\Synopsys\fpga_I-2013.09-SP1\lib\altera\quartus_II131\altera_mf.v  -devicelib  C:\EEE\Synopsys\fpga_I-2013.09-SP1\lib\altera\quartus_II131\altera_lpm.v  -devicelib  C:\EEE\Synopsys\fpga_I-2013.09-SP1\lib\altera\quartus_II131\altera_primitives.v  -ologparam  \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\syntmp\proj_1.plg  -osyn  \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\synwork\proj_1_prem.srd  -prjdir  \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\  -prjname  synplify  -log  \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\synlog\proj_1_premap.srr 
 rc:1 success:1
-\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\proj_1.vqm|o|1458503102|386543
+\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\proj_1.vqm|o|1458507104|335230
 \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\proj_1_cck_prepass.rpt|o|0|0
-\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\synwork\proj_1_comp.srs|i|1458503209|27742
-\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\synwork\proj_1_prem.srd|o|1458503212|47947
-\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\proj_1.sap|o|1458503212|20638
+\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\synwork\proj_1_comp.srs|i|1458507190|28572
+\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\synwork\proj_1_prem.srd|o|1458507193|45866
+\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\proj_1.sap|o|1458507193|16085
 C:\EEE\Synopsys\fpga_I-2013.09-SP1\lib\altera\altera.v|i|1385096642|799
 C:\EEE\Synopsys\fpga_I-2013.09-SP1\lib\altera\quartus_II131\cycloneii.v|i|1385096674|23215
 C:\EEE\Synopsys\fpga_I-2013.09-SP1\lib\altera\quartus_II131\altera_mf.v|i|1385096674|214046
 C:\EEE\Synopsys\fpga_I-2013.09-SP1\lib\altera\quartus_II131\altera_lpm.v|i|1385096674|14860
 C:\EEE\Synopsys\fpga_I-2013.09-SP1\lib\altera\quartus_II131\altera_primitives.v|i|1385096674|8315
-\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\syntmp\proj_1.plg|o|1458503212|26
-\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\synwork\proj_1_prem.srd|o|1458503212|47947
-\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\synlog\proj_1_premap.srr|o|1458503212|5538
+\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\syntmp\proj_1.plg|o|1458507193|26
+\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\synwork\proj_1_prem.srd|o|1458507193|45866
+\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\synlog\proj_1_premap.srr|o|1458507193|2659
 C:\EEE\Synopsys\fpga_I-2013.09-SP1\bin64\m_altera.exe|i|1385533808|17510400
 C:\EEE\Synopsys\fpga_I-2013.09-SP1\bin\m_altera.exe|i|1385530994|14282240

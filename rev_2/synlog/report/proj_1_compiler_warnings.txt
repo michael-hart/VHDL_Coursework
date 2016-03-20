@@ -1,18 +1,4 @@
-@W: CL169 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":34:20:34:34|Pruning register P1.data_ram_sync_i(15 downto 0)  
-@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":341:2:341:3|Latch generated from process for signal xy_min.Y(5 downto 0); possible missing assignment in an if or case statement.
-@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":341:2:341:3|Latch generated from process for signal xy_min.X(5 downto 0); possible missing assignment in an if or case statement.
-@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":341:2:341:3|Latch generated from process for signal xy_max.Y(5 downto 0); possible missing assignment in an if or case statement.
-@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":341:2:341:3|Latch generated from process for signal xy_max.X(5 downto 0); possible missing assignment in an if or case statement.
-@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":341:2:341:3|Latch generated from process for signal busy; possible missing assignment in an if or case statement.
-@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":341:2:341:3|Latch generated from process for signal vram_start; possible missing assignment in an if or case statement.
-@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":238:2:238:3|Latch generated from process for signal oct_lock; possible missing assignment in an if or case statement.
-@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":238:2:238:3|Latch generated from process for signal mux_out; possible missing assignment in an if or case statement.
-@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":295:2:295:3|Latch generated from process for signal cmd(2 downto 0); possible missing assignment in an if or case statement.
-@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":238:2:238:3|Latch generated from process for signal update_old; possible missing assignment in an if or case statement.
-@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":238:2:238:3|Latch generated from process for signal mux_in; possible missing assignment in an if or case statement.
-@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":238:2:238:3|Latch generated from process for signal init; possible missing assignment in an if or case statement.
-@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":238:2:238:3|Latch generated from process for signal draw; possible missing assignment in an if or case statement.
-@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":238:2:238:3|Latch generated from process for signal disable; possible missing assignment in an if or case statement.
-@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":238:2:238:3|Latch generated from process for signal dbb_bus.startcmd; possible missing assignment in an if or case statement.
-@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":238:2:238:3|Latch generated from process for signal busy; possible missing assignment in an if or case statement.
+@W: CG296 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":70:13:70:19|Incomplete sensitivity list - assuming completeness
+@W: CG290 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":75:14:75:25|Referenced variable delay_sync_i is not in sensitivity list
+@W: CD434 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":80:20:80:24|Signal start in the sensitivity list is not used in the process
 

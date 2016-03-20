@@ -1,4 +1,4 @@
-@E: CD200 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":89:7:89:20|Misspelled variable, signal or procedure name?
-@E: CD415 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":99:25:99:25|Expecting keyword of
+@E: CS187 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":75:11:75:11|Expecting <=
+@E: CD415 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":163:22:163:22|Expecting keyword of
 @E|Parse errors encountered - exiting
 

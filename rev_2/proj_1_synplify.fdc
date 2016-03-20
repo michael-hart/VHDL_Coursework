@@ -1,7 +1,1 @@
-#1000 define_clock {p:clk} -name {vdp|clk} -ref_rise {0.0} -ref_fall {5.343200} -uncertainty {0.000000} -period {10.686400} -clockgroup {Autoconstr_clkgroup_0} -rise {0.0} -fall {5.343200}
-#1001 define_clock {n:DB1.db_fsm_state[5]} -name {db|db_fsm_state_derived_clock[5]} -ref_rise {0.0} -ref_fall {5.343200} -uncertainty {0.000000} -period {10.686400} -clockgroup {Autoconstr_clkgroup_0} -rise {0.0} -fall {5.343200}
-#1002 define_multicycle_path -setup -from {c:db|db_fsm_state_derived_clock[5]} -to {c:db|db_fsm_state_derived_clock[5]} {2}
-#1003 define_multicycle_path -hold -from {c:db|db_fsm_state_derived_clock[5]} -to {c:db|db_fsm_state_derived_clock[5]} {1} -disable
-#1004 define_clock {n:DB1.db_fsm_state[1]} -name {db|db_fsm_state_derived_clock[1]} -ref_rise {0.0} -ref_fall {5.343200} -uncertainty {0.000000} -period {10.686400} -clockgroup {Autoconstr_clkgroup_0} -rise {0.0} -fall {5.343200}
-#1005 define_multicycle_path -setup -from {c:db|db_fsm_state_derived_clock[1]} -to {c:db|db_fsm_state_derived_clock[1]} {2}
-#1006 define_multicycle_path -hold -from {c:db|db_fsm_state_derived_clock[1]} -to {c:db|db_fsm_state_derived_clock[1]} {1} -disable
+#1000 define_clock {p:clk} -name {vdp|clk} -ref_rise {0.0} -ref_fall {4.584500} -uncertainty {0.000000} -period {9.169000} -clockgroup {Autoconstr_clkgroup_0} -rise {0.0} -fall {4.584500}
