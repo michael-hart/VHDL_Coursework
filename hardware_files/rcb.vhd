@@ -140,7 +140,11 @@ USE WORK.project_pack.ALL;
 USE WORK.config_pack.ALL;
 
 ENTITY rcb IS
-	GENERIC(vsize : INTEGER := 6);
+	GENERIC(
+		vsize : INTEGER := 6;
+		-- Max number of cycles before write
+		N : INTEGER := 10
+	);
 	PORT(
 		clk          : IN  std_logic;
 		reset        : IN  std_logic;
@@ -170,6 +174,7 @@ ARCHITECTURE rtl1 OF rcb IS
 	SIGNAL rcb_finish_i : std_logic;
 	SIGNAL cache_store_reg : store_t;
 	SIGNAL busy : std_logic;
+	SIGNAL idle_cycles : INTEGER;
 
 	-- Clearscreen parameters
 	SIGNAL x_min, y_min : STD_LOGIC_VECTOR(VSIZE-1 DOWNTO 0);
@@ -275,7 +280,10 @@ BEGIN
 	VRAM : PROCESS(vram_delay, word_is_same, db_finish, cache_is_same) IS
 	BEGIN
 		IF vram_delay = '0' THEN
-			vram_write <= (NOT word_is_same AND NOT cache_is_same) OR (db_finish AND NOT cache_is_same);
+			vram_write <= ((NOT word_is_same) OR db_finish) AND NOT cache_is_same;
+			IF idle_cycles > N THEN
+				vram_write <= '1';
+			END IF; -- idle cycles
 		END IF; --vram_delay
 	END PROCESS VRAM;
 
@@ -393,6 +401,13 @@ BEGIN
 			-- Store clear cache so we can clear and continue
 			cache_store_reg <= cache_store;
 
+			-- Check if in idle
+			IF dbb_bus.startcmd = '1' THEN
+				idle_cycles <= 0;
+			ELSE
+				idle_cycles <= idle_cycles + 1;
+			END IF; -- Idle cycles
+
 			IF rcb_state = DRAW THEN
 				-- If drawing and clear is commanded, change state
 				IF dbb_bus.startcmd = '1' AND dbb_bus.rcb_cmd(2) = '1' THEN
@@ -447,6 +462,7 @@ BEGIN
 			rcb_state <= DRAW;
 			nstate := DRAW;
 			rcb_finish_i <= '0';
+			idle_cycles <= 0;
 		END IF; --reset
 
 	END PROCESS RCB_FSM;
