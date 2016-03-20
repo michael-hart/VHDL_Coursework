@@ -1,0 +1,12 @@
+C:\EEE\Synopsys\fpga_I-2013.09-SP1\bin64\c_vhdl.exe  -osyn  \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\synwork\proj_1_comp.srs  -top  vdp  -prodtype  synplify_premier  -dw  -verification_mode 0 -infer_seqShift -primux -fixsmult -dspmac  -nram -divnmod -fast_synthesis 0  -encrypt  -pro  -dmgen_only  \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\dm  -lite   -proto -ui -fid2 -ram -sharing on       -ll 2000 -autosm -ignore_undefined_lib  -lib work \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd -lib work \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\project_pack.vhd -lib work \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd -lib work \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd -lib work \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\vdp.vhd -lib work \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\config_pack.vhd -loga  \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\compile_dm.log 
+rc:0 success:1
+\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\synwork\proj_1_comp.srs|o|0|0
+\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd|i|1458493058|7831
+\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\project_pack.vhd|i|1458493058|3173
+\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd|i|1458493682|13284
+\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd|i|1458493058|11384
+\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\vdp.vhd|i|1458493058|1714
+\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\config_pack.vhd|i|1458493058|1890
+\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\compile_dm.log|o|1458493690|91331
+C:\EEE\Synopsys\fpga_I-2013.09-SP1\bin64\c_vhdl.exe|i|1385356906|5461504
+C:\EEE\Synopsys\fpga_I-2013.09-SP1\bin\c_vhdl.exe|i|1385356690|1980928

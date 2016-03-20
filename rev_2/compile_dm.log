@@ -1,0 +1,668 @@
+$ Start of Compile
+#Sun Mar 20 17:01:10 2016
+
+Synopsys VHDL Compiler, version comp201309rcp1, Build 042R, built Nov 24 2013
+@N|Running in 64-bit mode
+Copyright (C) 1994-2013 Synopsys, Inc. This software and the associated documentation are proprietary to Synopsys, Inc. This software may only be used in accordance with the terms and conditions of a written license agreement with Synopsys, Inc.  All other use or distribution of the software is strictly prohibited.
+
+@N: CD720 :"C:\EEE\Synopsys\fpga_I-2013.09-SP1\lib\vhd\std.vhd":123:18:123:21|Setting time resolution to ns
+@N:"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\vdp.vhd":11:7:11:9|Top entity is set to vdp.
+VHDL syntax check successful!
+@N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\vdp.vhd":11:7:11:9|Synthesizing work.vdp.rtl 
+@N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":139:7:139:9|Synthesizing work.rcb.rtl1 
+@N: CD233 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":192:17:192:18|Using sequential encoding for type rcb_states
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":167:8:167:16|Signal clrxy_reg.y is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":167:8:167:16|Signal clrxy_reg.x is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":168:8:168:15|Signal word_reg is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":168:18:168:33|Signal word_reg_delayed is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":168:36:168:41|Signal vraddr is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":169:8:169:19|Signal word_is_same is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":170:8:170:19|Signal rcb_finish_i is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":171:8:171:22|Signal cache_store_reg is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":172:8:172:11|Signal busy is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":173:8:173:18|Signal idle_cycles is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:8:176:13|Signal xy_min.y is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:8:176:13|Signal xy_min.x is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:16:176:21|Signal xy_max.y is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:16:176:21|Signal xy_max.x is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":179:8:179:15|Signal delaycmd is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":182:8:182:13|Signal pixnum is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":182:16:182:23|Signal pixnum_i is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":183:8:183:14|Signal wen_all is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":183:17:183:18|Signal pw is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":184:8:184:14|Signal pixopin is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":189:8:189:17|Signal vram_start is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":189:54:189:63|Signal vram_write is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":193:8:193:16|Signal rcb_state is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":195:8:195:14|Signal xy_prev.y is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":195:8:195:14|Signal xy_prev.x is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":198:8:198:14|Signal splitxy.y is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":198:8:198:14|Signal splitxy.x is undriven 
+@N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":10:7:10:13|Synthesizing work.ram_fsm.synth 
+@N: CD233 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":30:16:30:17|Using sequential encoding for type state_t
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":31:8:31:12|Signal state is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":32:8:32:14|Signal delay_i is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":32:17:32:24|Signal vwrite_i is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":33:8:33:17|Signal addr_ram_i is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":34:8:34:17|Signal data_ram_i is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":35:8:35:13|Signal busy_i is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":36:8:36:13|Signal done_i is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":37:8:37:16|Signal cache_reg is undriven 
+Post processing for work.ram_fsm.synth
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":36:8:36:13|done_i is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":35:8:35:13|busy_i is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":33:8:33:17|Bit 0 of signal addr_ram_i is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":33:8:33:17|Bit 1 of signal addr_ram_i is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":33:8:33:17|Bit 2 of signal addr_ram_i is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":33:8:33:17|Bit 3 of signal addr_ram_i is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":33:8:33:17|Bit 4 of signal addr_ram_i is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":33:8:33:17|Bit 5 of signal addr_ram_i is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":33:8:33:17|Bit 6 of signal addr_ram_i is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":33:8:33:17|Bit 7 of signal addr_ram_i is floating -- simulation mismatch possible.
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":32:17:32:24|vwrite_i is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":32:8:32:14|delay_i is not assigned a value (floating) -- simulation mismatch possible. 
+@N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":8:7:8:20|Synthesizing work.pix_word_cache.together 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":20:9:20:21|Signal pre_rdout_par is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":21:9:21:23|Signal rdout1_to_opram is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":21:26:21:39|Signal opout_to_rdin1 is undriven 
+Post processing for work.pix_word_cache.together
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 0 of signal store_0 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 1 of signal store_0 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 0 of signal store_1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 1 of signal store_1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 0 of signal store_2 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 1 of signal store_2 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 0 of signal store_3 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 1 of signal store_3 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 0 of signal store_4 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 1 of signal store_4 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 0 of signal store_5 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 1 of signal store_5 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 0 of signal store_6 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 1 of signal store_6 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 0 of signal store_7 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 1 of signal store_7 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 0 of signal store_8 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 1 of signal store_8 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 0 of signal store_9 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 1 of signal store_9 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 0 of signal store_10 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 1 of signal store_10 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 0 of signal store_11 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 1 of signal store_11 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 0 of signal store_12 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 1 of signal store_12 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 0 of signal store_13 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 1 of signal store_13 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 0 of signal store_14 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 1 of signal store_14 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 0 of signal store_15 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 1 of signal store_15 is floating -- simulation mismatch possible.
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":13:4:13:10|is_same is not assigned a value (floating) -- simulation mismatch possible. 
+Post processing for work.rcb.rtl1
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":198:8:198:14|Bit 0 of signal splitxy.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":198:8:198:14|Bit 1 of signal splitxy.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":198:8:198:14|Bit 2 of signal splitxy.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":198:8:198:14|Bit 3 of signal splitxy.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":198:8:198:14|Bit 4 of signal splitxy.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":198:8:198:14|Bit 5 of signal splitxy.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":198:8:198:14|Bit 0 of signal splitxy.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":198:8:198:14|Bit 1 of signal splitxy.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":198:8:198:14|Bit 2 of signal splitxy.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":198:8:198:14|Bit 3 of signal splitxy.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":198:8:198:14|Bit 4 of signal splitxy.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":198:8:198:14|Bit 5 of signal splitxy.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":195:8:195:14|Bit 0 of signal xy_prev.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":195:8:195:14|Bit 1 of signal xy_prev.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":195:8:195:14|Bit 2 of signal xy_prev.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":195:8:195:14|Bit 3 of signal xy_prev.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":195:8:195:14|Bit 4 of signal xy_prev.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":195:8:195:14|Bit 5 of signal xy_prev.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":195:8:195:14|Bit 0 of signal xy_prev.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":195:8:195:14|Bit 1 of signal xy_prev.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":195:8:195:14|Bit 2 of signal xy_prev.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":195:8:195:14|Bit 3 of signal xy_prev.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":195:8:195:14|Bit 4 of signal xy_prev.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":195:8:195:14|Bit 5 of signal xy_prev.X is floating -- simulation mismatch possible.
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":189:54:189:63|vram_write is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":189:8:189:17|vram_start is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":184:8:184:14|Bit 0 of signal pixopin is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":184:8:184:14|Bit 1 of signal pixopin is floating -- simulation mismatch possible.
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":183:17:183:18|pw is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":183:8:183:14|wen_all is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":182:8:182:13|Bit 0 of signal pixnum is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":182:8:182:13|Bit 1 of signal pixnum is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":182:8:182:13|Bit 2 of signal pixnum is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":182:8:182:13|Bit 3 of signal pixnum is floating -- simulation mismatch possible.
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":179:8:179:15|delaycmd is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:16:176:21|Bit 0 of signal xy_max.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:16:176:21|Bit 1 of signal xy_max.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:16:176:21|Bit 2 of signal xy_max.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:16:176:21|Bit 3 of signal xy_max.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:16:176:21|Bit 4 of signal xy_max.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:16:176:21|Bit 5 of signal xy_max.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:16:176:21|Bit 0 of signal xy_max.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:16:176:21|Bit 1 of signal xy_max.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:16:176:21|Bit 2 of signal xy_max.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:16:176:21|Bit 3 of signal xy_max.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:16:176:21|Bit 4 of signal xy_max.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:16:176:21|Bit 5 of signal xy_max.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:8:176:13|Bit 0 of signal xy_min.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:8:176:13|Bit 1 of signal xy_min.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:8:176:13|Bit 2 of signal xy_min.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:8:176:13|Bit 3 of signal xy_min.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:8:176:13|Bit 4 of signal xy_min.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:8:176:13|Bit 5 of signal xy_min.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:8:176:13|Bit 0 of signal xy_min.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:8:176:13|Bit 1 of signal xy_min.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:8:176:13|Bit 2 of signal xy_min.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:8:176:13|Bit 3 of signal xy_min.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:8:176:13|Bit 4 of signal xy_min.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:8:176:13|Bit 5 of signal xy_min.X is floating -- simulation mismatch possible.
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":170:8:170:19|rcb_finish_i is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":168:36:168:41|Bit 0 of signal vraddr is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":168:36:168:41|Bit 1 of signal vraddr is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":168:36:168:41|Bit 2 of signal vraddr is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":168:36:168:41|Bit 3 of signal vraddr is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":168:36:168:41|Bit 4 of signal vraddr is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":168:36:168:41|Bit 5 of signal vraddr is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":168:36:168:41|Bit 6 of signal vraddr is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":168:36:168:41|Bit 7 of signal vraddr is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":167:8:167:16|Bit 0 of signal clrxy_reg.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":167:8:167:16|Bit 1 of signal clrxy_reg.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":167:8:167:16|Bit 2 of signal clrxy_reg.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":167:8:167:16|Bit 3 of signal clrxy_reg.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":167:8:167:16|Bit 4 of signal clrxy_reg.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":167:8:167:16|Bit 5 of signal clrxy_reg.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":167:8:167:16|Bit 0 of signal clrxy_reg.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":167:8:167:16|Bit 1 of signal clrxy_reg.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":167:8:167:16|Bit 2 of signal clrxy_reg.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":167:8:167:16|Bit 3 of signal clrxy_reg.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":167:8:167:16|Bit 4 of signal clrxy_reg.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":167:8:167:16|Bit 5 of signal clrxy_reg.X is floating -- simulation mismatch possible.
+@N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":7:7:7:8|Synthesizing work.db.rtl 
+@N: CD231 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\project_pack.vhd":20:16:20:17|Using onehot encoding for type state_db (s_wait="100000000")
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":29:8:29:14|Signal hdb_reg is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":30:8:30:17|Signal xy_old_reg is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":33:8:33:13|Signal mux_in is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":33:16:33:22|Signal mux_out is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":36:8:36:17|Signal update_old is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":36:20:36:23|Signal busy is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":36:26:36:33|Signal oct_lock is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":40:8:40:13|Signal swapxy is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":40:16:40:19|Signal negx is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":40:22:40:25|Signal negy is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":40:28:40:32|Signal xbias is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":42:8:42:14|Signal swapxy1 is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":42:17:42:21|Signal negx1 is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":42:24:42:28|Signal negy1 is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":42:31:42:36|Signal xbias1 is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":45:8:45:10|Signal xin is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":45:13:45:15|Signal yin is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":47:8:47:11|Signal init is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":47:14:47:17|Signal draw is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":47:26:47:32|Signal disable is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":50:8:50:19|Signal db_fsm_state is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":50:22:50:34|Signal db_fsm_nstate is undriven 
+@N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":362:7:362:21|Synthesizing work.draw_any_octant.comb 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":404:8:404:14|Signal xbias_i is undriven 
+@N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":235:7:235:10|Synthesizing work.swap.rtl 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":246:8:246:12|Signal xout1 is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":246:15:246:19|Signal yout1 is undriven 
+Post processing for work.swap.rtl
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":246:15:246:19|Bit 0 of signal yout1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":246:15:246:19|Bit 1 of signal yout1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":246:15:246:19|Bit 2 of signal yout1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":246:15:246:19|Bit 3 of signal yout1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":246:15:246:19|Bit 4 of signal yout1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":246:15:246:19|Bit 5 of signal yout1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":246:8:246:12|Bit 0 of signal xout1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":246:8:246:12|Bit 1 of signal xout1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":246:8:246:12|Bit 2 of signal xout1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":246:8:246:12|Bit 3 of signal xout1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":246:8:246:12|Bit 4 of signal xout1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":246:8:246:12|Bit 5 of signal xout1 is floating -- simulation mismatch possible.
+@N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":278:7:278:9|Synthesizing work.inv.rtl 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":288:8:288:9|Signal b1 is undriven 
+Post processing for work.inv.rtl
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":288:8:288:9|Bit 0 of signal b1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":288:8:288:9|Bit 1 of signal b1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":288:8:288:9|Bit 2 of signal b1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":288:8:288:9|Bit 3 of signal b1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":288:8:288:9|Bit 4 of signal b1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":288:8:288:9|Bit 5 of signal b1 is floating -- simulation mismatch possible.
+@N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":112:7:112:17|Synthesizing work.draw_octant.comb 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":124:9:124:13|Signal done1 is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":125:9:125:10|Signal x1 is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":125:13:125:14|Signal y1 is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":126:9:126:13|Signal xincr is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":126:16:126:20|Signal yincr is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":126:23:126:26|Signal xnew is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":126:29:126:32|Signal ynew is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":130:9:130:34|Signal error is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":131:9:131:12|Signal err1 is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":131:15:131:18|Signal err2 is undriven 
+Post processing for work.draw_octant.comb
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":125:13:125:14|Bit 0 of signal y1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":125:13:125:14|Bit 1 of signal y1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":125:13:125:14|Bit 2 of signal y1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":125:13:125:14|Bit 3 of signal y1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":125:13:125:14|Bit 4 of signal y1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":125:13:125:14|Bit 5 of signal y1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":125:9:125:10|Bit 0 of signal x1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":125:9:125:10|Bit 1 of signal x1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":125:9:125:10|Bit 2 of signal x1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":125:9:125:10|Bit 3 of signal x1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":125:9:125:10|Bit 4 of signal x1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":125:9:125:10|Bit 5 of signal x1 is floating -- simulation mismatch possible.
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":124:9:124:13|done1 is not assigned a value (floating) -- simulation mismatch possible. 
+@N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":314:7:314:8|Synthesizing work.rd.behav 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":323:8:323:11|Signal negx is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":323:14:323:17|Signal negy is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":323:20:323:25|Signal swapxy is undriven 
+Post processing for work.rd.behav
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":323:20:323:25|swapxy is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":323:14:323:17|negy is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":323:8:323:11|negx is not assigned a value (floating) -- simulation mismatch possible. 
+Post processing for work.draw_any_octant.comb
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":404:8:404:14|xbias_i is not assigned a value (floating) -- simulation mismatch possible. 
+Post processing for work.db.rtl
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":47:26:47:32|disable is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":47:14:47:17|draw is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":47:8:47:11|init is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":45:13:45:15|Bit 0 of signal yin is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":45:13:45:15|Bit 1 of signal yin is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":45:13:45:15|Bit 2 of signal yin is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":45:13:45:15|Bit 3 of signal yin is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":45:13:45:15|Bit 4 of signal yin is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":45:13:45:15|Bit 5 of signal yin is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":45:8:45:10|Bit 0 of signal xin is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":45:8:45:10|Bit 1 of signal xin is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":45:8:45:10|Bit 2 of signal xin is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":45:8:45:10|Bit 3 of signal xin is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":45:8:45:10|Bit 4 of signal xin is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":45:8:45:10|Bit 5 of signal xin is floating -- simulation mismatch possible.
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":42:31:42:36|xbias1 is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":42:24:42:28|negy1 is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":42:17:42:21|negx1 is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":42:8:42:14|swapxy1 is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":23:2:23:10|db_finish is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":19:2:19:8|dbb_bus.startcmd is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":19:2:19:8|Bit 0 of signal dbb_bus.rcb_cmd is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":19:2:19:8|Bit 1 of signal dbb_bus.rcb_cmd is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":19:2:19:8|Bit 2 of signal dbb_bus.rcb_cmd is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":19:2:19:8|Bit 0 of signal dbb_bus.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":19:2:19:8|Bit 1 of signal dbb_bus.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":19:2:19:8|Bit 2 of signal dbb_bus.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":19:2:19:8|Bit 3 of signal dbb_bus.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":19:2:19:8|Bit 4 of signal dbb_bus.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":19:2:19:8|Bit 5 of signal dbb_bus.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":19:2:19:8|Bit 0 of signal dbb_bus.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":19:2:19:8|Bit 1 of signal dbb_bus.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":19:2:19:8|Bit 2 of signal dbb_bus.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":19:2:19:8|Bit 3 of signal dbb_bus.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":19:2:19:8|Bit 4 of signal dbb_bus.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":19:2:19:8|Bit 5 of signal dbb_bus.X is floating -- simulation mismatch possible.
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":16:2:16:9|hdb_busy is not assigned a value (floating) -- simulation mismatch possible. 
+Post processing for work.vdp.rtl
+@END
+
+At c_vhdl Exit (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:00s; Memory used current: 70MB peak: 71MB)
+
+Process took 0h:00m:02s realtime, 0h:00m:01s cputime
+# Sun Mar 20 17:01:13 2016
+
+###########################################################]
+$ Start of Compile
+#Sun Mar 20 17:07:49 2016
+
+Synopsys VHDL Compiler, version comp201309rcp1, Build 042R, built Nov 24 2013
+@N|Running in 64-bit mode
+Copyright (C) 1994-2013 Synopsys, Inc. This software and the associated documentation are proprietary to Synopsys, Inc. This software may only be used in accordance with the terms and conditions of a written license agreement with Synopsys, Inc.  All other use or distribution of the software is strictly prohibited.
+
+@N: CD720 :"C:\EEE\Synopsys\fpga_I-2013.09-SP1\lib\vhd\std.vhd":123:18:123:21|Setting time resolution to ns
+@N:"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\vdp.vhd":11:7:11:9|Top entity is set to vdp.
+File \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\config_pack.vhd changed - recompiling
+File C:\EEE\Synopsys\fpga_I-2013.09-SP1\lib\vhd\std_textio.vhd changed - recompiling
+File \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\project_pack.vhd changed - recompiling
+File \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd changed - recompiling
+File \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd changed - recompiling
+File \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd changed - recompiling
+File \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\vdp.vhd changed - recompiling
+@E: CD200 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":89:7:89:20|Misspelled variable, signal or procedure name?
+@E: CD415 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":99:25:99:25|Expecting keyword of
+2 errors parsing file \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd
+@END
+2 errors parsing file \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd
+@END
+2 errors parsing file \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd
+@END
+2 errors parsing file \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\vdp.vhd
+@END
+@E|Parse errors encountered - exiting
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+# Sun Mar 20 17:07:50 2016
+
+###########################################################]
+$ Start of Compile
+#Sun Mar 20 17:08:07 2016
+
+Synopsys VHDL Compiler, version comp201309rcp1, Build 042R, built Nov 24 2013
+@N|Running in 64-bit mode
+Copyright (C) 1994-2013 Synopsys, Inc. This software and the associated documentation are proprietary to Synopsys, Inc. This software may only be used in accordance with the terms and conditions of a written license agreement with Synopsys, Inc.  All other use or distribution of the software is strictly prohibited.
+
+@N: CD720 :"C:\EEE\Synopsys\fpga_I-2013.09-SP1\lib\vhd\std.vhd":123:18:123:21|Setting time resolution to ns
+@N:"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\vdp.vhd":11:7:11:9|Top entity is set to vdp.
+File \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\config_pack.vhd changed - recompiling
+File C:\EEE\Synopsys\fpga_I-2013.09-SP1\lib\vhd\std_textio.vhd changed - recompiling
+File \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\project_pack.vhd changed - recompiling
+File \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd changed - recompiling
+File \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd changed - recompiling
+File \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd changed - recompiling
+File \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\vdp.vhd changed - recompiling
+VHDL syntax check successful!
+@N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\vdp.vhd":11:7:11:9|Synthesizing work.vdp.rtl 
+@N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":139:7:139:9|Synthesizing work.rcb.rtl1 
+@N: CD233 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":192:17:192:18|Using sequential encoding for type rcb_states
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":167:8:167:16|Signal clrxy_reg.y is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":167:8:167:16|Signal clrxy_reg.x is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":168:8:168:15|Signal word_reg is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":168:18:168:33|Signal word_reg_delayed is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":168:36:168:41|Signal vraddr is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":169:8:169:19|Signal word_is_same is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":170:8:170:19|Signal rcb_finish_i is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":171:8:171:22|Signal cache_store_reg is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":172:8:172:11|Signal busy is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":173:8:173:18|Signal idle_cycles is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:8:176:13|Signal xy_min.y is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:8:176:13|Signal xy_min.x is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:16:176:21|Signal xy_max.y is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:16:176:21|Signal xy_max.x is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":179:8:179:15|Signal delaycmd is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":182:8:182:13|Signal pixnum is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":182:16:182:23|Signal pixnum_i is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":183:8:183:14|Signal wen_all is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":183:17:183:18|Signal pw is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":184:8:184:14|Signal pixopin is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":189:8:189:17|Signal vram_start is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":189:54:189:63|Signal vram_write is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":193:8:193:16|Signal rcb_state is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":195:8:195:14|Signal xy_prev.y is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":195:8:195:14|Signal xy_prev.x is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":198:8:198:14|Signal splitxy.y is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":198:8:198:14|Signal splitxy.x is undriven 
+@N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":10:7:10:13|Synthesizing work.ram_fsm.synth 
+@N: CD233 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":30:16:30:17|Using sequential encoding for type state_t
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":31:8:31:12|Signal state is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":32:8:32:14|Signal delay_i is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":32:17:32:24|Signal vwrite_i is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":33:8:33:17|Signal addr_ram_i is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":34:8:34:17|Signal data_ram_i is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":35:8:35:13|Signal busy_i is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":36:8:36:13|Signal done_i is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":37:8:37:16|Signal cache_reg is undriven 
+Post processing for work.ram_fsm.synth
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":36:8:36:13|done_i is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":35:8:35:13|busy_i is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":33:8:33:17|Bit 0 of signal addr_ram_i is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":33:8:33:17|Bit 1 of signal addr_ram_i is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":33:8:33:17|Bit 2 of signal addr_ram_i is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":33:8:33:17|Bit 3 of signal addr_ram_i is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":33:8:33:17|Bit 4 of signal addr_ram_i is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":33:8:33:17|Bit 5 of signal addr_ram_i is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":33:8:33:17|Bit 6 of signal addr_ram_i is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":33:8:33:17|Bit 7 of signal addr_ram_i is floating -- simulation mismatch possible.
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":32:17:32:24|vwrite_i is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":32:8:32:14|delay_i is not assigned a value (floating) -- simulation mismatch possible. 
+@N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":8:7:8:20|Synthesizing work.pix_word_cache.together 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":20:9:20:21|Signal pre_rdout_par is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":21:9:21:23|Signal rdout1_to_opram is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":21:26:21:39|Signal opout_to_rdin1 is undriven 
+Post processing for work.pix_word_cache.together
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 0 of signal store_0 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 1 of signal store_0 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 0 of signal store_1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 1 of signal store_1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 0 of signal store_2 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 1 of signal store_2 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 0 of signal store_3 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 1 of signal store_3 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 0 of signal store_4 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 1 of signal store_4 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 0 of signal store_5 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 1 of signal store_5 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 0 of signal store_6 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 1 of signal store_6 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 0 of signal store_7 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 1 of signal store_7 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 0 of signal store_8 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 1 of signal store_8 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 0 of signal store_9 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 1 of signal store_9 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 0 of signal store_10 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 1 of signal store_10 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 0 of signal store_11 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 1 of signal store_11 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 0 of signal store_12 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 1 of signal store_12 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 0 of signal store_13 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 1 of signal store_13 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 0 of signal store_14 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 1 of signal store_14 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 0 of signal store_15 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":14:4:14:8|Bit 1 of signal store_15 is floating -- simulation mismatch possible.
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":13:4:13:10|is_same is not assigned a value (floating) -- simulation mismatch possible. 
+Post processing for work.rcb.rtl1
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":198:8:198:14|Bit 0 of signal splitxy.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":198:8:198:14|Bit 1 of signal splitxy.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":198:8:198:14|Bit 2 of signal splitxy.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":198:8:198:14|Bit 3 of signal splitxy.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":198:8:198:14|Bit 4 of signal splitxy.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":198:8:198:14|Bit 5 of signal splitxy.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":198:8:198:14|Bit 0 of signal splitxy.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":198:8:198:14|Bit 1 of signal splitxy.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":198:8:198:14|Bit 2 of signal splitxy.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":198:8:198:14|Bit 3 of signal splitxy.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":198:8:198:14|Bit 4 of signal splitxy.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":198:8:198:14|Bit 5 of signal splitxy.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":195:8:195:14|Bit 0 of signal xy_prev.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":195:8:195:14|Bit 1 of signal xy_prev.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":195:8:195:14|Bit 2 of signal xy_prev.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":195:8:195:14|Bit 3 of signal xy_prev.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":195:8:195:14|Bit 4 of signal xy_prev.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":195:8:195:14|Bit 5 of signal xy_prev.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":195:8:195:14|Bit 0 of signal xy_prev.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":195:8:195:14|Bit 1 of signal xy_prev.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":195:8:195:14|Bit 2 of signal xy_prev.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":195:8:195:14|Bit 3 of signal xy_prev.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":195:8:195:14|Bit 4 of signal xy_prev.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":195:8:195:14|Bit 5 of signal xy_prev.X is floating -- simulation mismatch possible.
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":189:54:189:63|vram_write is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":189:8:189:17|vram_start is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":184:8:184:14|Bit 0 of signal pixopin is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":184:8:184:14|Bit 1 of signal pixopin is floating -- simulation mismatch possible.
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":183:17:183:18|pw is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":183:8:183:14|wen_all is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":182:8:182:13|Bit 0 of signal pixnum is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":182:8:182:13|Bit 1 of signal pixnum is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":182:8:182:13|Bit 2 of signal pixnum is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":182:8:182:13|Bit 3 of signal pixnum is floating -- simulation mismatch possible.
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":179:8:179:15|delaycmd is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:16:176:21|Bit 0 of signal xy_max.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:16:176:21|Bit 1 of signal xy_max.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:16:176:21|Bit 2 of signal xy_max.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:16:176:21|Bit 3 of signal xy_max.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:16:176:21|Bit 4 of signal xy_max.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:16:176:21|Bit 5 of signal xy_max.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:16:176:21|Bit 0 of signal xy_max.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:16:176:21|Bit 1 of signal xy_max.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:16:176:21|Bit 2 of signal xy_max.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:16:176:21|Bit 3 of signal xy_max.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:16:176:21|Bit 4 of signal xy_max.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:16:176:21|Bit 5 of signal xy_max.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:8:176:13|Bit 0 of signal xy_min.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:8:176:13|Bit 1 of signal xy_min.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:8:176:13|Bit 2 of signal xy_min.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:8:176:13|Bit 3 of signal xy_min.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:8:176:13|Bit 4 of signal xy_min.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:8:176:13|Bit 5 of signal xy_min.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:8:176:13|Bit 0 of signal xy_min.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:8:176:13|Bit 1 of signal xy_min.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:8:176:13|Bit 2 of signal xy_min.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:8:176:13|Bit 3 of signal xy_min.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:8:176:13|Bit 4 of signal xy_min.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":176:8:176:13|Bit 5 of signal xy_min.X is floating -- simulation mismatch possible.
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":170:8:170:19|rcb_finish_i is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":168:36:168:41|Bit 0 of signal vraddr is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":168:36:168:41|Bit 1 of signal vraddr is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":168:36:168:41|Bit 2 of signal vraddr is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":168:36:168:41|Bit 3 of signal vraddr is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":168:36:168:41|Bit 4 of signal vraddr is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":168:36:168:41|Bit 5 of signal vraddr is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":168:36:168:41|Bit 6 of signal vraddr is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":168:36:168:41|Bit 7 of signal vraddr is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":167:8:167:16|Bit 0 of signal clrxy_reg.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":167:8:167:16|Bit 1 of signal clrxy_reg.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":167:8:167:16|Bit 2 of signal clrxy_reg.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":167:8:167:16|Bit 3 of signal clrxy_reg.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":167:8:167:16|Bit 4 of signal clrxy_reg.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":167:8:167:16|Bit 5 of signal clrxy_reg.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":167:8:167:16|Bit 0 of signal clrxy_reg.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":167:8:167:16|Bit 1 of signal clrxy_reg.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":167:8:167:16|Bit 2 of signal clrxy_reg.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":167:8:167:16|Bit 3 of signal clrxy_reg.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":167:8:167:16|Bit 4 of signal clrxy_reg.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":167:8:167:16|Bit 5 of signal clrxy_reg.X is floating -- simulation mismatch possible.
+@N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":7:7:7:8|Synthesizing work.db.rtl 
+@N: CD231 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\project_pack.vhd":20:16:20:17|Using onehot encoding for type state_db (s_wait="100000000")
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":29:8:29:14|Signal hdb_reg is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":30:8:30:17|Signal xy_old_reg is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":33:8:33:13|Signal mux_in is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":33:16:33:22|Signal mux_out is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":36:8:36:17|Signal update_old is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":36:20:36:23|Signal busy is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":36:26:36:33|Signal oct_lock is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":40:8:40:13|Signal swapxy is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":40:16:40:19|Signal negx is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":40:22:40:25|Signal negy is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":40:28:40:32|Signal xbias is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":42:8:42:14|Signal swapxy1 is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":42:17:42:21|Signal negx1 is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":42:24:42:28|Signal negy1 is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":42:31:42:36|Signal xbias1 is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":45:8:45:10|Signal xin is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":45:13:45:15|Signal yin is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":47:8:47:11|Signal init is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":47:14:47:17|Signal draw is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":47:26:47:32|Signal disable is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":50:8:50:19|Signal db_fsm_state is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":50:22:50:34|Signal db_fsm_nstate is undriven 
+@N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":363:7:363:21|Synthesizing work.draw_any_octant.comb 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":405:8:405:14|Signal xbias_i is undriven 
+@N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":236:7:236:10|Synthesizing work.swap.rtl 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":247:8:247:12|Signal xout1 is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":247:15:247:19|Signal yout1 is undriven 
+Post processing for work.swap.rtl
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":247:15:247:19|Bit 0 of signal yout1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":247:15:247:19|Bit 1 of signal yout1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":247:15:247:19|Bit 2 of signal yout1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":247:15:247:19|Bit 3 of signal yout1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":247:15:247:19|Bit 4 of signal yout1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":247:15:247:19|Bit 5 of signal yout1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":247:8:247:12|Bit 0 of signal xout1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":247:8:247:12|Bit 1 of signal xout1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":247:8:247:12|Bit 2 of signal xout1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":247:8:247:12|Bit 3 of signal xout1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":247:8:247:12|Bit 4 of signal xout1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":247:8:247:12|Bit 5 of signal xout1 is floating -- simulation mismatch possible.
+@N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":279:7:279:9|Synthesizing work.inv.rtl 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":289:8:289:9|Signal b1 is undriven 
+Post processing for work.inv.rtl
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":289:8:289:9|Bit 0 of signal b1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":289:8:289:9|Bit 1 of signal b1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":289:8:289:9|Bit 2 of signal b1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":289:8:289:9|Bit 3 of signal b1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":289:8:289:9|Bit 4 of signal b1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":289:8:289:9|Bit 5 of signal b1 is floating -- simulation mismatch possible.
+@N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":113:7:113:17|Synthesizing work.draw_octant.comb 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":125:9:125:13|Signal done1 is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":126:9:126:10|Signal x1 is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":126:13:126:14|Signal y1 is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":127:9:127:13|Signal xincr is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":127:16:127:20|Signal yincr is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":127:23:127:26|Signal xnew is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":127:29:127:32|Signal ynew is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":131:9:131:34|Signal error is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":132:9:132:12|Signal err1 is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":132:15:132:18|Signal err2 is undriven 
+Post processing for work.draw_octant.comb
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":126:13:126:14|Bit 0 of signal y1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":126:13:126:14|Bit 1 of signal y1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":126:13:126:14|Bit 2 of signal y1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":126:13:126:14|Bit 3 of signal y1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":126:13:126:14|Bit 4 of signal y1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":126:13:126:14|Bit 5 of signal y1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":126:9:126:10|Bit 0 of signal x1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":126:9:126:10|Bit 1 of signal x1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":126:9:126:10|Bit 2 of signal x1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":126:9:126:10|Bit 3 of signal x1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":126:9:126:10|Bit 4 of signal x1 is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":126:9:126:10|Bit 5 of signal x1 is floating -- simulation mismatch possible.
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":125:9:125:13|done1 is not assigned a value (floating) -- simulation mismatch possible. 
+@N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":315:7:315:8|Synthesizing work.rd.behav 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":324:8:324:11|Signal negx is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":324:14:324:17|Signal negy is undriven 
+@W: CD638 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":324:20:324:25|Signal swapxy is undriven 
+Post processing for work.rd.behav
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":324:20:324:25|swapxy is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":324:14:324:17|negy is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":324:8:324:11|negx is not assigned a value (floating) -- simulation mismatch possible. 
+Post processing for work.draw_any_octant.comb
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":405:8:405:14|xbias_i is not assigned a value (floating) -- simulation mismatch possible. 
+Post processing for work.db.rtl
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":47:26:47:32|disable is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":47:14:47:17|draw is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":47:8:47:11|init is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":45:13:45:15|Bit 0 of signal yin is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":45:13:45:15|Bit 1 of signal yin is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":45:13:45:15|Bit 2 of signal yin is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":45:13:45:15|Bit 3 of signal yin is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":45:13:45:15|Bit 4 of signal yin is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":45:13:45:15|Bit 5 of signal yin is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":45:8:45:10|Bit 0 of signal xin is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":45:8:45:10|Bit 1 of signal xin is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":45:8:45:10|Bit 2 of signal xin is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":45:8:45:10|Bit 3 of signal xin is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":45:8:45:10|Bit 4 of signal xin is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":45:8:45:10|Bit 5 of signal xin is floating -- simulation mismatch possible.
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":42:31:42:36|xbias1 is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":42:24:42:28|negy1 is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":42:17:42:21|negx1 is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":42:8:42:14|swapxy1 is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":23:2:23:10|db_finish is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":19:2:19:8|dbb_bus.startcmd is not assigned a value (floating) -- simulation mismatch possible. 
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":19:2:19:8|Bit 0 of signal dbb_bus.rcb_cmd is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":19:2:19:8|Bit 1 of signal dbb_bus.rcb_cmd is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":19:2:19:8|Bit 2 of signal dbb_bus.rcb_cmd is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":19:2:19:8|Bit 0 of signal dbb_bus.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":19:2:19:8|Bit 1 of signal dbb_bus.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":19:2:19:8|Bit 2 of signal dbb_bus.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":19:2:19:8|Bit 3 of signal dbb_bus.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":19:2:19:8|Bit 4 of signal dbb_bus.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":19:2:19:8|Bit 5 of signal dbb_bus.Y is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":19:2:19:8|Bit 0 of signal dbb_bus.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":19:2:19:8|Bit 1 of signal dbb_bus.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":19:2:19:8|Bit 2 of signal dbb_bus.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":19:2:19:8|Bit 3 of signal dbb_bus.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":19:2:19:8|Bit 4 of signal dbb_bus.X is floating -- simulation mismatch possible.
+@W: CL252 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":19:2:19:8|Bit 5 of signal dbb_bus.X is floating -- simulation mismatch possible.
+@W: CL240 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":16:2:16:9|hdb_busy is not assigned a value (floating) -- simulation mismatch possible. 
+Post processing for work.vdp.rtl
+@END
+
+At c_vhdl Exit (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:00s; Memory used current: 70MB peak: 71MB)
+
+Process took 0h:00m:02s realtime, 0h:00m:01s cputime
+# Sun Mar 20 17:08:10 2016
+
+###########################################################]

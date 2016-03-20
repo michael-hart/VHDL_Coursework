@@ -81,13 +81,14 @@ ARCHITECTURE together OF pix_word_cache IS
       ELSE
         case_statement := (wen_all, pw);
         CASE case_statement IS
-          WHEN "00"   =>  NULL;
+          WHEN "00"   =>  	NULL;
 
-          WHEN "10"   =>  pre_rdout_par <= (OTHERS => psame);
+          WHEN "10"   =>  	pre_rdout_par <= (OTHERS => psame);
 
-          WHEN "11"   =>  pre_rdout_par <= (to_integer(unsigned(pixnum)) => opout_to_rdin1, OTHERS => psame);
+          WHEN "11"   => 	pre_rdout_par <= (OTHERS => psame);
+							pre_rdout_par(to_integer(unsigned(pixnum))) <= opout_to_rdin1;
 
-          WHEN "01"   =>  pre_rdout_par(to_integer(unsigned(pixnum))) <= opout_to_rdin1;
+          WHEN "01"   =>  	pre_rdout_par(to_integer(unsigned(pixnum))) <= opout_to_rdin1;
 
           WHEN OTHERS =>  NULL;
         END CASE;

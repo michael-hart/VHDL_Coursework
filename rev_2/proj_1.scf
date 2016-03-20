@@ -1,0 +1,55 @@
+# Written by Synplify Premier version maprc, Build 1911R. Synopsys Run ID: sid1458493698 
+# Top Level Design Parameters 
+
+# Clocks 
+create_clock -period 11.979 -waveform {0.000 5.989} -name {vdp|clk} [get_ports {clk}] 
+create_clock -period 11.979 -waveform {0.000 5.989} -name {ram_fsm|state_derived_clock[2]} [get_pins {RCB1|E2|state_s1_0_a3_cZ|combout}] 
+
+# Virtual Clocks 
+
+# Generated Clocks 
+derive_pll_clocks
+create_generated_clock -name {ram_fsm|state_derived_clock[2]} -add -divide_by 1 -master_clock [get_clocks {vdp|clk}] -source [get_pins {RCB1|E2|state_ret_0_Z|clk}] [get_pins {RCB1|E2|state_ret_0_Z|regout}] 
+
+# Paths Between Clocks 
+
+# Multicycle Constraints 
+set_multicycle_path 2 -setup -from [get_clocks {ram_fsm|state_derived_clock[2]}] -to [get_clocks {ram_fsm|state_derived_clock[2]}] 
+set_multicycle_path 1 -hold -from [get_clocks {ram_fsm|state_derived_clock[2]}] -to [get_clocks {ram_fsm|state_derived_clock[2]}] 
+
+# Point-to-point Delay Constraints 
+
+# False Path Constraints 
+
+# Output Load Constraints 
+
+# Driving Cell Constraints 
+
+# Input Delay Constraints 
+
+# Output Delay Constraints 
+
+# Wire Loads 
+
+# Other Constraints 
+
+# syn_hier Attributes 
+
+# set_case Attributes 
+
+# Clock Delay Constraints 
+
+# syn_mode Attributes 
+
+# Cells 
+
+# Port DRC Rules 
+
+# Input Transition Constraints 
+
+# Unused constraints (intentionally commented out) 
+
+# Non-forward-annotatable constraints (intentionally commented out) 
+
+# Block Path constraints 
+
