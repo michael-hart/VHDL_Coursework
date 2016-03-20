@@ -1,19 +1,19 @@
 @P:  Part : ep2c5qc208-6
-@P:  Worst Slack : -1.788
-@P:  vdp|clk - Estimated Frequency : 83.9 MHz
-@P:  vdp|clk - Requested Frequency : 98.7 MHz
-@P:  vdp|clk - Estimated Period : 11.918
-@P:  vdp|clk - Requested Period : 10.130
-@P:  vdp|clk - Slack : -1.788
+@P:  Worst Slack : -1.618
+@P:  vdp|clk - Estimated Frequency : 92.7 MHz
+@P:  vdp|clk - Requested Frequency : 109.1 MHz
+@P:  vdp|clk - Estimated Period : 10.787
+@P:  vdp|clk - Requested Period : 9.169
+@P:  vdp|clk - Slack : -1.618
 @P:  Worst Slack(min analysis) : 0.375
-@P:  vdp|clk - Estimated Frequency(min analysis) : 83.9 MHz
-@P:  vdp|clk - Requested Frequency(min analysis) : 98.7 MHz
-@P:  vdp|clk - Estimated Period(min analysis) : 11.918
-@P:  vdp|clk - Requested Period(min analysis) : 10.130
-@P:  vdp|clk - Slack(min analysis) : -1.788
+@P:  vdp|clk - Estimated Frequency(min analysis) : 92.7 MHz
+@P:  vdp|clk - Requested Frequency(min analysis) : 109.1 MHz
+@P:  vdp|clk - Estimated Period(min analysis) : 10.787
+@P:  vdp|clk - Requested Period(min analysis) : 9.169
+@P:  vdp|clk - Slack(min analysis) : -1.618
 @P: vdp Part : ep2c5qc208-6
 @P: vdp I/O ATOMs : 62
-@P: vdp Total LUTs : 611 
-@P: vdp Register bits : 307
+@P: vdp Total LUTs : 579 
+@P: vdp Register bits : 304
 @P: vdp DSP Blocks : 0 (0 nine-bit DSP elements)
-@P:  CPU Time : 0h:00m:08s
+@P:  CPU Time : 0h:00m:04s

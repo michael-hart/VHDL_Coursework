@@ -1,12 +1,12 @@
 
 
 ##### START OF TIMING REPORT #####[
-# Timing Report written on Sun Mar 20 20:21:19 2016
+# Timing Report written on Sun Mar 20 20:53:21 2016
 #
 
 
 Top view:               vdp
-Requested Frequency:    98.7 MHz
+Requested Frequency:    109.1 MHz
 Wire load mode:         top
 Paths requested:        5
 Constraint File(s):    
@@ -25,7 +25,7 @@ Worst slack in design: 0.375
                    Requested     Estimated     Requested     Estimated                Clock        Clock                
 Starting Clock     Frequency     Frequency     Period        Period        Slack      Type         Group                
 ------------------------------------------------------------------------------------------------------------------------
-vdp|clk            98.7 MHz      83.9 MHz      10.130        11.918        -1.788     inferred     Autoconstr_clkgroup_0
+vdp|clk            109.1 MHz     92.7 MHz      9.169         10.787        -1.618     inferred     Autoconstr_clkgroup_0
 ========================================================================================================================
 
 

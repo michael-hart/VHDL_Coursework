@@ -1,8 +1,6 @@
 @N: MF248 |Running in 64-bit mode.
 @N: MF666 |Clock conversion enabled 
 @N: MT206 |Auto Constrain mode is enabled
-@N: BN362 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":50:7:50:18|Removing sequential instance DB1.db_fsm_state[5] of view:ALTERA_APEX.S_DFF_P(PRIM) in hierarchy view:work.vdp(rtl) because there are no references to its outputs 
-@N: BN362 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":50:7:50:18|Removing sequential instance DB1.db_fsm_state[0] of view:ALTERA_APEX.S_DFFE_P(PRIM) in hierarchy view:work.vdp(rtl) because there are no references to its outputs 
 @N: BW103 |Synopsys Constraint File time units using default value of 1ns 
 @N: BW107 |Synopsys Constraint File capacitance units using default value of 1pF 
 @N: MT320 |Timing report estimates place and route data. Please look at the place and route timing report for final timing.

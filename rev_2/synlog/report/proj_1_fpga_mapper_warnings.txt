@@ -1,5 +1,2 @@
-@W: MO171 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":365:2:365:3|Sequential instance DB1.cmd[2] reduced to a combinational gate by constant propagation 
-@W: BN137 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\rcb.vhd":86:7:86:50|Found combinational loop during mapping at net RCB1.E2.C1\.un7_state
-@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":365:2:365:3|Net DB1.un1_db_fsm_state_1 appears to be an unidentified clock source. Assuming default frequency. 
-@W: BN137 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\rcb.vhd":86:7:86:50|Found combinational loop during mapping at net RCB1.E2.un7_state_i
-@W: MT420 |Found inferred clock vdp|clk with period 10.13ns. Please declare a user-defined clock on object "p:clk"
+@W: BN132 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\rcb.vhd":225:34:225:48|Removing sequential instance RCB1.RCB_FSM.vram_write_sync,  because it is equivalent to instance RCB1.E2.P1.start_i
+@W: MT420 |Found inferred clock vdp|clk with period 9.17ns. Please declare a user-defined clock on object "p:clk"

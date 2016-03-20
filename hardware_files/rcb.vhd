@@ -29,6 +29,7 @@ END ENTITY ram_fsm;
 ARCHITECTURE synth OF ram_fsm IS
 	TYPE   state_t IS (m3, m2, m1, mx);
 	SIGNAL state : state_t;
+	SIGNAL start_i : std_logic;
 	SIGNAL delay_i, vwrite_i : std_logic;
 	SIGNAL addr_ram_i, addr_ram_sync_i : std_logic_vector(7 DOWNTO 0);
 	SIGNAL data_ram_i, data_ram_sync_i, data_calculated : std_logic_vector(15 DOWNTO 0);
@@ -67,7 +68,7 @@ BEGIN
 	END PROCESS DATA_MUX;
 
 	-- Combinational logic for output std_logic signals
-	C1: PROCESS(state, start, cache_reg, vdin)
+	C1: PROCESS(state, start_i, cache_reg, vdin)
 	BEGIN
 		-- Default values
 		delay_i <= '0';
@@ -83,7 +84,7 @@ BEGIN
 			END CASE; --pix_cache(i)
 		END LOOP;
 		
-		IF ((state = m1) OR (state = m2)) AND start = '1' THEN
+		IF ((state = m1) OR (state = m2)) AND start_i = '1' THEN
 			delay_i <= '1';
 		END IF; -- delay_i
 
@@ -125,6 +126,8 @@ BEGIN
 		-- Register MUX outputs for address, data
 		addr_ram_sync_i <= addr_ram_i;
 		data_ram_sync_i <= data_ram_i;
+		
+		start_i <= start;
 
 		-- Set nstate to m1, no matter what state is
 		IF start = '1' THEN

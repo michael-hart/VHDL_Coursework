@@ -16,25 +16,10 @@ Mapper Initialization Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0
 
 Starting Optimization and Mapping (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 113MB peak: 116MB)
 
-@W: MO171 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":365:2:365:3|Sequential instance DB1.cmd[2] reduced to a combinational gate by constant propagation 
 
 Available hyper_sources - for debug and ip models
 	None Found
 
-Warning: Found 1 combinational loops!
-@W: BN137 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\rcb.vhd":86:7:86:50|Found combinational loop during mapping at net RCB1.E2.C1\.un7_state
-1) instance C1\.un7_state (view:work.ram_fsm(synth)), output net "C1\.un7_state" in work.ram_fsm(synth)
-    net        RCB1.vram_delay
-    input  pin RCB1.vram_write/SEL
-    instance   RCB1.vram_write (cell mux)
-    output pin RCB1.vram_write/OUT[0]
-    net        RCB1.E2.start
-    input  pin RCB1.E2.C1\.un7_state/I[1]
-    instance   RCB1.E2.C1\.un7_state (cell and)
-    output pin RCB1.E2.C1\.un7_state/OUT
-    net        RCB1.vram_delay
-End of loops
-@W: MT462 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":365:2:365:3|Net DB1.un1_db_fsm_state_1 appears to be an unidentified clock source. Assuming default frequency. 
 @N: MT206 |Auto Constrain mode is enabled
 
 Finished RTL optimizations (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 114MB peak: 116MB)
@@ -52,9 +37,9 @@ original code -> new code
    100000000 -> 100000001
 @N:"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\exercises.vhd":128:13:128:14|Found counter in view:work.draw_octant(comb) inst R1\.y1[5:0]
 @N:"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\exercises.vhd":128:9:128:10|Found counter in view:work.draw_octant(comb) inst R1\.x1[5:0]
-@N:"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\rcb.vhd":198:8:198:16|Found counter in view:work.rcb(rtl1) inst RCB_FSM\.clrxy_reg\.Y[5:0]
-@N:"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\rcb.vhd":198:8:198:16|Found counter in view:work.rcb(rtl1) inst RCB_FSM\.clrxy_reg\.X[5:0]
-@N:"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\rcb.vhd":204:8:204:18|Found counter in view:work.rcb(rtl1) inst RCB_FSM\.idle_cycles[31:0]
+@N:"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\rcb.vhd":201:8:201:16|Found counter in view:work.rcb(rtl1) inst RCB_FSM\.clrxy_reg\.Y[5:0]
+@N:"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\rcb.vhd":201:8:201:16|Found counter in view:work.rcb(rtl1) inst RCB_FSM\.clrxy_reg\.X[5:0]
+@N:"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\rcb.vhd":207:8:207:18|Found counter in view:work.rcb(rtl1) inst RCB_FSM\.idle_cycles[31:0]
 Encoding state machine state[0:3] (view:work.ram_fsm(synth))
 original code -> new code
    00 -> 00
@@ -62,62 +47,61 @@ original code -> new code
    10 -> 10
    11 -> 11
 
-Starting Early Timing Optimization (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 115MB peak: 116MB)
+Starting Early Timing Optimization (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 116MB peak: 116MB)
 
 
-Finished Early Timing Optimization (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 116MB peak: 116MB)
+Finished Early Timing Optimization (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 116MB peak: 116MB)
 
 Auto Dissolve of E2 (inst of view:work.ram_fsm(synth))
+@W: BN132 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\rcb.vhd":225:34:225:48|Removing sequential instance RCB1.RCB_FSM.vram_write_sync,  because it is equivalent to instance RCB1.E2.P1.start_i
 
-Finished factoring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 118MB peak: 118MB)
-
-@N: BN362 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":50:7:50:18|Removing sequential instance DB1.db_fsm_state[5] of view:ALTERA_APEX.S_DFF_P(PRIM) in hierarchy view:work.vdp(rtl) because there are no references to its outputs 
-@N: BN362 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":50:7:50:18|Removing sequential instance DB1.db_fsm_state[0] of view:ALTERA_APEX.S_DFFE_P(PRIM) in hierarchy view:work.vdp(rtl) because there are no references to its outputs 
-
-Finished gated-clock and generated-clock conversion (Real Time elapsed 0h:00m:13s; CPU Time elapsed 0h:00m:04s; Memory used current: 124MB peak: 125MB)
+Finished factoring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 117MB peak: 118MB)
 
 
-Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:13s; CPU Time elapsed 0h:00m:04s; Memory used current: 127MB peak: 128MB)
+Finished gated-clock and generated-clock conversion (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 118MB peak: 121MB)
 
 
-Starting Early Timing Optimization (Real Time elapsed 0h:00m:13s; CPU Time elapsed 0h:00m:04s; Memory used current: 128MB peak: 128MB)
+Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 120MB peak: 121MB)
 
 
-Finished Early Timing Optimization (Real Time elapsed 0h:00m:14s; CPU Time elapsed 0h:00m:05s; Memory used current: 128MB peak: 128MB)
+Starting Early Timing Optimization (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 120MB peak: 121MB)
 
 
-Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:14s; CPU Time elapsed 0h:00m:05s; Memory used current: 127MB peak: 128MB)
+Finished Early Timing Optimization (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 120MB peak: 121MB)
 
 
-Starting Early Timing Optimization (Real Time elapsed 0h:00m:14s; CPU Time elapsed 0h:00m:05s; Memory used current: 123MB peak: 128MB)
+Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 120MB peak: 121MB)
 
 
-Finished Early Timing Optimization (Real Time elapsed 0h:00m:14s; CPU Time elapsed 0h:00m:05s; Memory used current: 123MB peak: 128MB)
+Starting Early Timing Optimization (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 120MB peak: 121MB)
 
 
-Finished preparing to map (Real Time elapsed 0h:00m:14s; CPU Time elapsed 0h:00m:05s; Memory used current: 123MB peak: 128MB)
+Finished Early Timing Optimization (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 120MB peak: 121MB)
 
 
-Finished technology mapping (Real Time elapsed 0h:00m:15s; CPU Time elapsed 0h:00m:06s; Memory used current: 127MB peak: 145MB)
+Finished preparing to map (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 120MB peak: 121MB)
 
 
-Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:15s; CPU Time elapsed 0h:00m:06s; Memory used current: 128MB peak: 145MB)
+Finished technology mapping (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:02s; Memory used current: 146MB peak: 151MB)
 
 
-Finished restoring hierarchy (Real Time elapsed 0h:00m:16s; CPU Time elapsed 0h:00m:07s; Memory used current: 128MB peak: 145MB)
+Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:02s; Memory used current: 146MB peak: 151MB)
+
+
+Finished restoring hierarchy (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 146MB peak: 151MB)
 
 
 
 #### START OF CLOCK OPTIMIZATION REPORT #####[
 
-1 non-gated/non-generated clock tree(s) driving 307 clock pin(s) of sequential element(s)
+1 non-gated/non-generated clock tree(s) driving 304 clock pin(s) of sequential element(s)
 0 gated/generated clock tree(s) driving 0 clock pin(s) of sequential element(s)
-4 @K:conv_instances converted, 0 sequential instances remain driven by gated/generated clocks
+0 instances converted, 0 sequential instances remain driven by gated/generated clocks
 
 =========================== Non-Gated/Non-Generated Clocks ============================
 Clock Tree ID     Driving Element     Drive Element Type     Fanout     Sample Instance
 ---------------------------------------------------------------------------------------
-@K:CKID0001       clk_in              cycloneii_io           307        RCB1.nstate[0] 
+@K:CKID0001       clk_in              cycloneii_io           304        RCB1.nstate[0] 
 =======================================================================================
 
 
@@ -126,42 +110,29 @@ Clock Tree ID     Driving Element     Drive Element Type     Fanout     Sample I
 
 Writing Analyst data base \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\proj_1.srm
 
-Finished Writing Netlist Databases (Real Time elapsed 0h:00m:17s; CPU Time elapsed 0h:00m:07s; Memory used current: 126MB peak: 145MB)
+Finished Writing Netlist Databases (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:03s; Memory used current: 145MB peak: 151MB)
 
 Writing Verilog Netlist and constraint files
 Writing .vqm output for Quartus
 
-Writing scf file... (Real Time elapsed 0h:00m:17s; CPU Time elapsed 0h:00m:07s; Memory used current: 128MB peak: 145MB)
+Writing scf file... (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:04s; Memory used current: 146MB peak: 151MB)
 
 @N: BW103 |Synopsys Constraint File time units using default value of 1ns 
 @N: BW107 |Synopsys Constraint File capacitance units using default value of 1pF 
 
-Finished Writing Verilog Netlist and constraint files (Real Time elapsed 0h:00m:17s; CPU Time elapsed 0h:00m:07s; Memory used current: 126MB peak: 145MB)
+Finished Writing Verilog Netlist and constraint files (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:04s; Memory used current: 145MB peak: 151MB)
 
-Warning: Found 1 combinational loops!
-@W: BN137 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\rcb.vhd":86:7:86:50|Found combinational loop during mapping at net RCB1.E2.un7_state_i
-1) instance C1\.un7_state_i (view:work.ram_fsm(netlist)), output net "un7_state_i" in work.ram_fsm(netlist)
-    net        RCB1.un7_state_i_RNIVTS7
-    input  pin RCB1.vram_write/datac
-    instance   RCB1.vram_write (cell cycloneii_lcell_comb)
-    output pin RCB1.vram_write/combout
-    net        RCB1.E2.vram_write
-    input  pin RCB1.E2.C1\.un7_state_i/datac
-    instance   RCB1.E2.C1\.un7_state_i (cell cycloneii_lcell_comb)
-    output pin RCB1.E2.C1\.un7_state_i/combout
-    net        DB1.DAB.RD1.un7_state_i_RNIVTS7
-End of loops
-@W: MT420 |Found inferred clock vdp|clk with period 10.13ns. Please declare a user-defined clock on object "p:clk"
+@W: MT420 |Found inferred clock vdp|clk with period 9.17ns. Please declare a user-defined clock on object "p:clk"
 
 
 
 ##### START OF TIMING REPORT #####[
-# Timing Report written on Sun Mar 20 20:21:19 2016
+# Timing Report written on Sun Mar 20 20:53:21 2016
 #
 
 
 Top view:               vdp
-Requested Frequency:    98.7 MHz
+Requested Frequency:    109.1 MHz
 Wire load mode:         top
 Paths requested:        5
 Constraint File(s):    
@@ -175,12 +146,12 @@ Performance Summary
 *******************
 
 
-Worst slack in design: -1.788
+Worst slack in design: -1.618
 
                    Requested     Estimated     Requested     Estimated                Clock        Clock                
 Starting Clock     Frequency     Frequency     Period        Period        Slack      Type         Group                
 ------------------------------------------------------------------------------------------------------------------------
-vdp|clk            98.7 MHz      83.9 MHz      10.130        11.918        -1.788     inferred     Autoconstr_clkgroup_0
+vdp|clk            109.1 MHz     92.7 MHz      9.169         10.787        -1.618     inferred     Autoconstr_clkgroup_0
 ========================================================================================================================
 
 
@@ -194,7 +165,7 @@ Clocks             |    rise  to  rise    |    fall  to  fall   |    rise  to  f
 ----------------------------------------------------------------------------------------------------------
 Starting  Ending   |  constraint  slack   |  constraint  slack  |  constraint  slack  |  constraint  slack
 ----------------------------------------------------------------------------------------------------------
-vdp|clk   vdp|clk  |  10.130      -1.788  |  No paths    -      |  No paths    -      |  No paths    -    
+vdp|clk   vdp|clk  |  9.169       -1.618  |  No paths    -      |  No paths    -      |  No paths    -    
 ==========================================================================================================
  Note: 'No paths' indicates there are no paths in the design for that pair of clock edges.
        'Diff grp' indicates that paths exist but the starting clock and ending clock are in different clock groups.
@@ -217,41 +188,41 @@ Detailed Report for Clock: vdp|clk
 Starting Points with Worst Slack
 ********************************
 
-                                  Starting                                                            Arrival           
-Instance                          Reference     Type                   Pin        Net                 Time        Slack 
-                                  Clock                                                                                 
-------------------------------------------------------------------------------------------------------------------------
-DB1.DAB.DRAW1.R1\.x1[2]           vdp|clk       cycloneii_lcell_ff     regout     x1_2                0.250       -1.788
-DB1.DAB.RD1.R1\.negx              vdp|clk       cycloneii_lcell_ff     regout     negx                0.250       -1.770
-RCB1.RCB_FSM\.idle_cycles[4]      vdp|clk       cycloneii_lcell_ff     regout     idle_cycles[4]      0.250       -1.765
-RCB1.RCB_FSM\.idle_cycles[5]      vdp|clk       cycloneii_lcell_ff     regout     idle_cycles[5]      0.250       -1.747
-RCB1.RCB_FSM\.idle_cycles[23]     vdp|clk       cycloneii_lcell_ff     regout     idle_cycles[23]     0.250       -1.747
-RCB1.RCB_FSM\.idle_cycles[28]     vdp|clk       cycloneii_lcell_ff     regout     idle_cycles[28]     0.250       -1.729
-RCB1.RCB_FSM\.idle_cycles[27]     vdp|clk       cycloneii_lcell_ff     regout     idle_cycles[27]     0.250       -1.727
-RCB1.RCB_FSM\.idle_cycles[26]     vdp|clk       cycloneii_lcell_ff     regout     idle_cycles[26]     0.250       -1.709
-RCB1.RCB_FSM\.idle_cycles[6]      vdp|clk       cycloneii_lcell_ff     regout     idle_cycles[6]      0.250       -1.602
-RCB1.RCB_FSM\.idle_cycles[12]     vdp|clk       cycloneii_lcell_ff     regout     idle_cycles[12]     0.250       -1.602
-========================================================================================================================
+                               Starting                                                     Arrival           
+Instance                       Reference     Type                   Pin        Net          Time        Slack 
+                               Clock                                                                          
+--------------------------------------------------------------------------------------------------------------
+DB1.DAB.DRAW1.R1\.yincr[0]     vdp|clk       cycloneii_lcell_ff     regout     yincr[0]     0.250       -1.618
+DB1.DAB.DRAW1.R1\.xincr[0]     vdp|clk       cycloneii_lcell_ff     regout     xincr[0]     0.250       -1.597
+DB1.DAB.DRAW1.R1\.yincr[1]     vdp|clk       cycloneii_lcell_ff     regout     yincr[1]     0.250       -1.408
+DB1.DAB.DRAW1.R1\.xincr[1]     vdp|clk       cycloneii_lcell_ff     regout     xincr[1]     0.250       -1.387
+DB1.DAB.DRAW1.R1\.x1[5]        vdp|clk       cycloneii_lcell_ff     regout     x1_5         0.250       -1.349
+DB1.DAB.RD1.R1\.negx           vdp|clk       cycloneii_lcell_ff     regout     negx         0.250       -1.331
+DB1.DAB.DRAW1.R1\.yincr[2]     vdp|clk       cycloneii_lcell_ff     regout     yincr[2]     0.250       -1.279
+DB1.DAB.DRAW1.R1\.xincr[2]     vdp|clk       cycloneii_lcell_ff     regout     xincr[2]     0.250       -1.258
+DB1.DAB.DRAW1.R1\.yincr[3]     vdp|clk       cycloneii_lcell_ff     regout     yincr[3]     0.250       -1.150
+DB1.DAB.DRAW1.R1\.xincr[3]     vdp|clk       cycloneii_lcell_ff     regout     xincr[3]     0.250       -1.129
+==============================================================================================================
 
 
 Ending Points with Worst Slack
 ******************************
 
-                                   Starting                                                                        Required           
-Instance                           Reference     Type                   Pin        Net                             Time         Slack 
-                                   Clock                                                                                              
---------------------------------------------------------------------------------------------------------------------------------------
-DB1.DAB.DRAW1.R1\.error[5]         vdp|clk       cycloneii_lcell_ff     datain     un1_error_2_add5                10.082       -1.788
-DB1.DAB.DRAW1.R1\.error[4]         vdp|clk       cycloneii_lcell_ff     datain     un1_error_2_add4                10.082       -1.659
-DB1.DAB.DRAW1.R1\.error[3]         vdp|clk       cycloneii_lcell_ff     datain     un1_error_2_add3                10.082       -1.530
-RCB1.E1.N1\.pre_rdout_par_0[0]     vdp|clk       cycloneii_lcell_ff     sload      pre_rdout_par_0_0_1_a2_0[0]     9.507        -1.304
-RCB1.E1.N1\.pre_rdout_par_0[1]     vdp|clk       cycloneii_lcell_ff     sload      pre_rdout_par_0_0_1_a2_0[1]     9.507        -1.304
-RCB1.E1.N1\.pre_rdout_par_1[0]     vdp|clk       cycloneii_lcell_ff     sload      pre_rdout_par_0_0_1_a2_0[0]     9.507        -1.304
-RCB1.E1.N1\.pre_rdout_par_1[1]     vdp|clk       cycloneii_lcell_ff     sload      pre_rdout_par_0_0_1_a2_0[1]     9.507        -1.304
-RCB1.E1.N1\.pre_rdout_par_2[0]     vdp|clk       cycloneii_lcell_ff     sload      pre_rdout_par_0_0_1_a2_0[0]     9.507        -1.304
-RCB1.E1.N1\.pre_rdout_par_2[1]     vdp|clk       cycloneii_lcell_ff     sload      pre_rdout_par_0_0_1_a2_0[1]     9.507        -1.304
-RCB1.E1.N1\.pre_rdout_par_3[0]     vdp|clk       cycloneii_lcell_ff     sload      pre_rdout_par_0_0_1_a2_0[0]     9.507        -1.304
-======================================================================================================================================
+                               Starting                                                             Required           
+Instance                       Reference     Type                   Pin        Net                  Time         Slack 
+                               Clock                                                                                   
+-----------------------------------------------------------------------------------------------------------------------
+DB1.DAB.DRAW1.R1\.error[5]     vdp|clk       cycloneii_lcell_ff     datain     un1_error_2_add5     9.121        -1.618
+DB1.DAB.DRAW1.R1\.error[4]     vdp|clk       cycloneii_lcell_ff     datain     un1_error_2_add4     9.121        -1.489
+DB1.DAB.DRAW1.R1\.error[3]     vdp|clk       cycloneii_lcell_ff     datain     un1_error_2_add3     9.121        -1.360
+DB1.DAB.DRAW1.R1\.error[2]     vdp|clk       cycloneii_lcell_ff     datain     un1_error_2_add2     9.121        -1.231
+DB1.DAB.DRAW1.R1\.error[1]     vdp|clk       cycloneii_lcell_ff     datain     un1_error_2_add1     9.121        -0.845
+DB1.DAB.DRAW1.R1\.y1[0]        vdp|clk       cycloneii_lcell_ff     ena        y1_e0_0_g0_i_o4      8.545        -0.558
+DB1.DAB.DRAW1.R1\.y1[4]        vdp|clk       cycloneii_lcell_ff     ena        y1_e0_0_g0_i_o4      8.545        -0.558
+DB1.DAB.DRAW1.R1\.error[0]     vdp|clk       cycloneii_lcell_ff     datain     un1_error_2_add0     9.121        -0.459
+DB1.DAB.DRAW1.R1\.y1[1]        vdp|clk       cycloneii_lcell_ff     datain     y1_e1_0_m5           9.121        -0.257
+DB1.DAB.DRAW1.R1\.y1[3]        vdp|clk       cycloneii_lcell_ff     datain     y1_e3_0_m5           9.121        -0.257
+=======================================================================================================================
 
 
 
@@ -260,392 +231,407 @@ Worst Path Information
 
 
 Path information for path number 1: 
-      Requested Period:                      10.130
+      Requested Period:                      9.169
     - Setup time:                            0.048
     + Clock delay at ending point:           0.000 (ideal)
-    = Required time:                         10.082
+    = Required time:                         9.121
 
-    - Propagation time:                      11.870
+    - Propagation time:                      10.739
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (critical) :                     -1.788
+    = Slack (critical) :                     -1.618
 
-    Number of logic level(s):                17
-    Starting point:                          DB1.DAB.DRAW1.R1\.x1[2] / regout
+    Number of logic level(s):                18
+    Starting point:                          DB1.DAB.DRAW1.R1\.yincr[0] / regout
     Ending point:                            DB1.DAB.DRAW1.R1\.error[5] / datain
     The start point is clocked by            vdp|clk [rising] on pin clk
     The end   point is clocked by            vdp|clk [rising] on pin clk
 
-Instance / Net                                                 Pin         Pin               Arrival     No. of    
-Name                                  Type                     Name        Dir     Delay     Time        Fan Out(s)
--------------------------------------------------------------------------------------------------------------------
-DB1.DAB.DRAW1.R1\.x1[2]               cycloneii_lcell_ff       regout      Out     0.250     0.250       -         
-x1_2                                  Net                      -           -       0.910     -           5         
-DB1.DAB.INV3.b[2]                     cycloneii_lcell_comb     dataa       In      -         1.160       -         
-DB1.DAB.INV3.b[2]                     cycloneii_lcell_comb     combout     Out     0.438     1.598       -         
-b_1                                   Net                      -           -       0.301     -           3         
-DB1.DAB.SWAP2.xout[2]                 cycloneii_lcell_comb     datad       In      -         1.899       -         
-DB1.DAB.SWAP2.xout[2]                 cycloneii_lcell_comb     combout     Out     0.150     2.049       -         
-xout_2                                Net                      -           -       0.295     -           2         
-RCB1.E2.splitxy\.X_d[2]               cycloneii_lcell_comb     datac       In      -         2.344       -         
-RCB1.E2.splitxy\.X_d[2]               cycloneii_lcell_comb     combout     Out     0.275     2.619       -         
-X_d[2]                                Net                      -           -       0.355     -           1         
-RCB1.E2.splitxy\.X[2]                 cycloneii_lcell_comb     datad       In      -         2.974       -         
-RCB1.E2.splitxy\.X[2]                 cycloneii_lcell_comb     combout     Out     0.150     3.124       -         
-X_0_2                                 Net                      -           -       0.295     -           2         
-RCB1.E2.SPLIT\.word_reg_delayed_0     cycloneii_lcell_comb     datab       In      -         3.419       -         
-RCB1.E2.SPLIT\.word_reg_delayed_0     cycloneii_lcell_comb     combout     Out     0.420     3.839       -         
-word_reg_delayed_0z                   Net                      -           -       0.355     -           1         
-RCB1.E2.VRAM\.vram_write_i_2_1_1      cycloneii_lcell_comb     datac       In      -         4.194       -         
-RCB1.E2.VRAM\.vram_write_i_2_1_1      cycloneii_lcell_comb     combout     Out     0.275     4.469       -         
-vram_write_i_2_1_1                    Net                      -           -       0.355     -           1         
-RCB1.E2.VRAM\.vram_write_i_2_1        cycloneii_lcell_comb     datad       In      -         4.824       -         
-RCB1.E2.VRAM\.vram_write_i_2_1        cycloneii_lcell_comb     combout     Out     0.150     4.974       -         
-vram_write_i_2_1                      Net                      -           -       0.395     -           12        
-RCB1.vram_write                       cycloneii_lcell_comb     datab       In      -         5.369       -         
-RCB1.vram_write                       cycloneii_lcell_comb     combout     Out     0.420     5.789       -         
-vram_write                            Net                      -           -       0.831     -           68        
-RCB1.E2.C1\.un7_state_i               cycloneii_lcell_comb     datac       In      -         6.620       -         
-RCB1.E2.C1\.un7_state_i               cycloneii_lcell_comb     combout     Out     0.275     6.895       -         
-un7_state_i                           Net                      -           -       0.711     -           50        
-DB1.DAB.DRAW1.un4_0_a2_1[5]           cycloneii_lcell_comb     datad       In      -         7.606       -         
-DB1.DAB.DRAW1.un4_0_a2_1[5]           cycloneii_lcell_comb     combout     Out     0.150     7.756       -         
-un4_0_a2_1[5]                         Net                      -           -       0.328     -           6         
-DB1.DAB.DRAW1.un4_0_a2[4]             cycloneii_lcell_comb     datab       In      -         8.084       -         
-DB1.DAB.DRAW1.un4_0_a2[4]             cycloneii_lcell_comb     combout     Out     0.420     8.504       -         
-un4_0_a2[4]                           Net                      -           -       0.730     -           1         
-DB1.DAB.DRAW1.un1_error_2_0_add1      cycloneii_lcell_comb     dataa       In      -         9.234       -         
-DB1.DAB.DRAW1.un1_error_2_0_add1      cycloneii_lcell_comb     cout        Out     0.414     9.648       -         
-un1_error_2_0_carry_1                 Net                      -           -       0.000     -           1         
-DB1.DAB.DRAW1.un1_error_2_0_add2      cycloneii_lcell_comb     cin         In      -         9.648       -         
-DB1.DAB.DRAW1.un1_error_2_0_add2      cycloneii_lcell_comb     cout        Out     0.129     9.777       -         
-un1_error_2_0_carry_2                 Net                      -           -       0.000     -           1         
-DB1.DAB.DRAW1.un1_error_2_0_add3      cycloneii_lcell_comb     cin         In      -         9.777       -         
-DB1.DAB.DRAW1.un1_error_2_0_add3      cycloneii_lcell_comb     cout        Out     0.129     9.906       -         
-un1_error_2_0_carry_3                 Net                      -           -       0.000     -           1         
-DB1.DAB.DRAW1.un1_error_2_0_add4      cycloneii_lcell_comb     cin         In      -         9.906       -         
-DB1.DAB.DRAW1.un1_error_2_0_add4      cycloneii_lcell_comb     combout     Out     0.410     10.316      -         
-un1_error_2_0_add4                    Net                      -           -       0.730     -           1         
-DB1.DAB.DRAW1.un1_error_2_add4        cycloneii_lcell_comb     dataa       In      -         11.046      -         
-DB1.DAB.DRAW1.un1_error_2_add4        cycloneii_lcell_comb     cout        Out     0.414     11.460      -         
-un1_error_2_carry_4                   Net                      -           -       0.000     -           1         
-DB1.DAB.DRAW1.un1_error_2_add5        cycloneii_lcell_comb     cin         In      -         11.460      -         
-DB1.DAB.DRAW1.un1_error_2_add5        cycloneii_lcell_comb     combout     Out     0.410     11.870      -         
-un1_error_2_add5                      Net                      -           -       0.000     -           1         
-DB1.DAB.DRAW1.R1\.error[5]            cycloneii_lcell_ff       datain      In      -         11.870      -         
-===================================================================================================================
-Total path delay (propagation time + setup) of 11.918 is 5.327(44.7%) logic and 6.591(55.3%) route.
+Instance / Net                                                                               Pin         Pin               Arrival     No. of    
+Name                                                                Type                     Name        Dir     Delay     Time        Fan Out(s)
+-------------------------------------------------------------------------------------------------------------------------------------------------
+DB1.DAB.DRAW1.R1\.yincr[0]                                          cycloneii_lcell_ff       regout      Out     0.250     0.250       -         
+yincr[0]                                                            Net                      -           -       0.910     -           3         
+DB1.DAB.DRAW1.C1\.un2_err2_add0                                     cycloneii_lcell_comb     dataa       In      -         1.160       -         
+DB1.DAB.DRAW1.C1\.un2_err2_add0                                     cycloneii_lcell_comb     cout        Out     0.414     1.574       -         
+un2_err2_carry_0                                                    Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.C1\.un2_err2_add1                                     cycloneii_lcell_comb     cin         In      -         1.574       -         
+DB1.DAB.DRAW1.C1\.un2_err2_add1                                     cycloneii_lcell_comb     combout     Out     0.410     1.984       -         
+un2_err2_add1                                                       Net                      -           -       0.730     -           1         
+DB1.DAB.DRAW1.result_1_add1                                         cycloneii_lcell_comb     dataa       In      -         2.714       -         
+DB1.DAB.DRAW1.result_1_add1                                         cycloneii_lcell_comb     cout        Out     0.414     3.128       -         
+result_1_carry_1                                                    Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.result_1_add2                                         cycloneii_lcell_comb     cin         In      -         3.128       -         
+DB1.DAB.DRAW1.result_1_add2                                         cycloneii_lcell_comb     combout     Out     0.410     3.538       -         
+result_1_add2                                                       Net                      -           -       0.295     -           2         
+DB1.DAB.DRAW1.inf_abs1_a_1_anc2                                     cycloneii_lcell_comb     datac       In      -         3.833       -         
+DB1.DAB.DRAW1.inf_abs1_a_1_anc2                                     cycloneii_lcell_comb     combout     Out     0.275     4.108       -         
+inf_abs1_a_1_anc2                                                   Net                      -           -       0.301     -           3         
+DB1.DAB.DRAW1.inf_abs1_a_1_anc4                                     cycloneii_lcell_comb     datac       In      -         4.409       -         
+DB1.DAB.DRAW1.inf_abs1_a_1_anc4                                     cycloneii_lcell_comb     combout     Out     0.275     4.684       -         
+inf_abs1_a_1_anc4                                                   Net                      -           -       0.295     -           2         
+DB1.DAB.DRAW1.C1\.op_abs\.inf_abs1[5]                               cycloneii_lcell_comb     datac       In      -         4.979       -         
+DB1.DAB.DRAW1.C1\.op_abs\.inf_abs1[5]                               cycloneii_lcell_comb     combout     Out     0.275     5.254       -         
+inf_abs1[5]                                                         Net                      -           -       0.355     -           1         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_6                   cycloneii_lcell_comb     dataa       In      -         5.609       -         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_6                   cycloneii_lcell_comb     cout        Out     0.414     6.023       -         
+lt_5                                                                Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_7                   cycloneii_lcell_comb     cin         In      -         6.023       -         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_7                   cycloneii_lcell_comb     combout     Out     0.410     6.433       -         
+un15_disable_7                                                      Net                      -           -       0.355     -           1         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_2_RNI7L291          cycloneii_lcell_comb     datac       In      -         6.789       -         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_2_RNI7L291          cycloneii_lcell_comb     combout     Out     0.275     7.064       -         
+g3_4                                                                Net                      -           -       0.295     -           2         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_7_term_RNI7D567     cycloneii_lcell_comb     datac       In      -         7.358       -         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_7_term_RNI7D567     cycloneii_lcell_comb     combout     Out     0.275     7.633       -         
+y1_2_sqmuxa                                                         Net                      -           -       0.341     -           7         
+DB1.DAB.DRAW1.un1_error_2_0_add0                                    cycloneii_lcell_comb     dataa       In      -         7.974       -         
+DB1.DAB.DRAW1.un1_error_2_0_add0                                    cycloneii_lcell_comb     cout        Out     0.414     8.388       -         
+un1_error_2_0_carry_0                                               Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.un1_error_2_0_add1                                    cycloneii_lcell_comb     cin         In      -         8.388       -         
+DB1.DAB.DRAW1.un1_error_2_0_add1                                    cycloneii_lcell_comb     cout        Out     0.129     8.517       -         
+un1_error_2_0_carry_1                                               Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.un1_error_2_0_add2                                    cycloneii_lcell_comb     cin         In      -         8.517       -         
+DB1.DAB.DRAW1.un1_error_2_0_add2                                    cycloneii_lcell_comb     cout        Out     0.129     8.646       -         
+un1_error_2_0_carry_2                                               Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.un1_error_2_0_add3                                    cycloneii_lcell_comb     cin         In      -         8.646       -         
+DB1.DAB.DRAW1.un1_error_2_0_add3                                    cycloneii_lcell_comb     cout        Out     0.129     8.775       -         
+un1_error_2_0_carry_3                                               Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.un1_error_2_0_add4                                    cycloneii_lcell_comb     cin         In      -         8.775       -         
+DB1.DAB.DRAW1.un1_error_2_0_add4                                    cycloneii_lcell_comb     combout     Out     0.410     9.185       -         
+un1_error_2_0_add4                                                  Net                      -           -       0.730     -           1         
+DB1.DAB.DRAW1.un1_error_2_add4                                      cycloneii_lcell_comb     dataa       In      -         9.915       -         
+DB1.DAB.DRAW1.un1_error_2_add4                                      cycloneii_lcell_comb     cout        Out     0.414     10.329      -         
+un1_error_2_carry_4                                                 Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.un1_error_2_add5                                      cycloneii_lcell_comb     cin         In      -         10.329      -         
+DB1.DAB.DRAW1.un1_error_2_add5                                      cycloneii_lcell_comb     combout     Out     0.410     10.739      -         
+un1_error_2_add5                                                    Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.R1\.error[5]                                          cycloneii_lcell_ff       datain      In      -         10.739      -         
+=================================================================================================================================================
+Total path delay (propagation time + setup) of 10.787 is 6.180(57.3%) logic and 4.607(42.7%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
 Path information for path number 2: 
-      Requested Period:                      10.130
+      Requested Period:                      9.169
     - Setup time:                            0.048
     + Clock delay at ending point:           0.000 (ideal)
-    = Required time:                         10.082
+    = Required time:                         9.121
 
-    - Propagation time:                      11.870
+    - Propagation time:                      10.739
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (critical) :                     -1.788
+    = Slack (critical) :                     -1.618
 
-    Number of logic level(s):                17
-    Starting point:                          DB1.DAB.DRAW1.R1\.x1[2] / regout
+    Number of logic level(s):                18
+    Starting point:                          DB1.DAB.DRAW1.R1\.yincr[0] / regout
     Ending point:                            DB1.DAB.DRAW1.R1\.error[5] / datain
     The start point is clocked by            vdp|clk [rising] on pin clk
     The end   point is clocked by            vdp|clk [rising] on pin clk
 
-Instance / Net                                                 Pin         Pin               Arrival     No. of    
-Name                                  Type                     Name        Dir     Delay     Time        Fan Out(s)
--------------------------------------------------------------------------------------------------------------------
-DB1.DAB.DRAW1.R1\.x1[2]               cycloneii_lcell_ff       regout      Out     0.250     0.250       -         
-x1_2                                  Net                      -           -       0.910     -           5         
-DB1.DAB.INV3.b[2]                     cycloneii_lcell_comb     dataa       In      -         1.160       -         
-DB1.DAB.INV3.b[2]                     cycloneii_lcell_comb     combout     Out     0.438     1.598       -         
-b_1                                   Net                      -           -       0.301     -           3         
-DB1.DAB.SWAP2.xout[2]                 cycloneii_lcell_comb     datad       In      -         1.899       -         
-DB1.DAB.SWAP2.xout[2]                 cycloneii_lcell_comb     combout     Out     0.150     2.049       -         
-xout_2                                Net                      -           -       0.295     -           2         
-RCB1.E2.splitxy\.X_d[2]               cycloneii_lcell_comb     datac       In      -         2.344       -         
-RCB1.E2.splitxy\.X_d[2]               cycloneii_lcell_comb     combout     Out     0.275     2.619       -         
-X_d[2]                                Net                      -           -       0.355     -           1         
-RCB1.E2.splitxy\.X[2]                 cycloneii_lcell_comb     datad       In      -         2.974       -         
-RCB1.E2.splitxy\.X[2]                 cycloneii_lcell_comb     combout     Out     0.150     3.124       -         
-X_0_2                                 Net                      -           -       0.295     -           2         
-RCB1.E2.SPLIT\.word_reg_delayed_0     cycloneii_lcell_comb     datab       In      -         3.419       -         
-RCB1.E2.SPLIT\.word_reg_delayed_0     cycloneii_lcell_comb     combout     Out     0.420     3.839       -         
-word_reg_delayed_0z                   Net                      -           -       0.355     -           1         
-RCB1.E2.VRAM\.vram_write_i_2_1_1      cycloneii_lcell_comb     datac       In      -         4.194       -         
-RCB1.E2.VRAM\.vram_write_i_2_1_1      cycloneii_lcell_comb     combout     Out     0.275     4.469       -         
-vram_write_i_2_1_1                    Net                      -           -       0.355     -           1         
-RCB1.E2.VRAM\.vram_write_i_2_1        cycloneii_lcell_comb     datad       In      -         4.824       -         
-RCB1.E2.VRAM\.vram_write_i_2_1        cycloneii_lcell_comb     combout     Out     0.150     4.974       -         
-vram_write_i_2_1                      Net                      -           -       0.395     -           12        
-RCB1.vram_write                       cycloneii_lcell_comb     datab       In      -         5.369       -         
-RCB1.vram_write                       cycloneii_lcell_comb     combout     Out     0.420     5.789       -         
-vram_write                            Net                      -           -       0.831     -           68        
-RCB1.E2.C1\.un7_state_i               cycloneii_lcell_comb     datac       In      -         6.620       -         
-RCB1.E2.C1\.un7_state_i               cycloneii_lcell_comb     combout     Out     0.275     6.895       -         
-un7_state_i                           Net                      -           -       0.711     -           50        
-DB1.DAB.DRAW1.un4_0_a2_1[5]           cycloneii_lcell_comb     datad       In      -         7.606       -         
-DB1.DAB.DRAW1.un4_0_a2_1[5]           cycloneii_lcell_comb     combout     Out     0.150     7.756       -         
-un4_0_a2_1[5]                         Net                      -           -       0.328     -           6         
-DB1.DAB.DRAW1.un4_0_a2[4]             cycloneii_lcell_comb     datab       In      -         8.084       -         
-DB1.DAB.DRAW1.un4_0_a2[4]             cycloneii_lcell_comb     combout     Out     0.420     8.504       -         
-un4_0_a2[4]                           Net                      -           -       0.730     -           1         
-DB1.DAB.DRAW1.un1_error_2_0_add1      cycloneii_lcell_comb     dataa       In      -         9.234       -         
-DB1.DAB.DRAW1.un1_error_2_0_add1      cycloneii_lcell_comb     cout        Out     0.414     9.648       -         
-un1_error_2_0_carry_1                 Net                      -           -       0.000     -           1         
-DB1.DAB.DRAW1.un1_error_2_0_add2      cycloneii_lcell_comb     cin         In      -         9.648       -         
-DB1.DAB.DRAW1.un1_error_2_0_add2      cycloneii_lcell_comb     combout     Out     0.410     10.058      -         
-un1_error_2_0_add2                    Net                      -           -       0.730     -           1         
-DB1.DAB.DRAW1.un1_error_2_add2        cycloneii_lcell_comb     dataa       In      -         10.788      -         
-DB1.DAB.DRAW1.un1_error_2_add2        cycloneii_lcell_comb     cout        Out     0.414     11.202      -         
-un1_error_2_carry_2                   Net                      -           -       0.000     -           1         
-DB1.DAB.DRAW1.un1_error_2_add3        cycloneii_lcell_comb     cin         In      -         11.202      -         
-DB1.DAB.DRAW1.un1_error_2_add3        cycloneii_lcell_comb     cout        Out     0.129     11.331      -         
-un1_error_2_carry_3                   Net                      -           -       0.000     -           1         
-DB1.DAB.DRAW1.un1_error_2_add4        cycloneii_lcell_comb     cin         In      -         11.331      -         
-DB1.DAB.DRAW1.un1_error_2_add4        cycloneii_lcell_comb     cout        Out     0.129     11.460      -         
-un1_error_2_carry_4                   Net                      -           -       0.000     -           1         
-DB1.DAB.DRAW1.un1_error_2_add5        cycloneii_lcell_comb     cin         In      -         11.460      -         
-DB1.DAB.DRAW1.un1_error_2_add5        cycloneii_lcell_comb     combout     Out     0.410     11.870      -         
-un1_error_2_add5                      Net                      -           -       0.000     -           1         
-DB1.DAB.DRAW1.R1\.error[5]            cycloneii_lcell_ff       datain      In      -         11.870      -         
-===================================================================================================================
-Total path delay (propagation time + setup) of 11.918 is 5.327(44.7%) logic and 6.591(55.3%) route.
+Instance / Net                                                                               Pin         Pin               Arrival     No. of    
+Name                                                                Type                     Name        Dir     Delay     Time        Fan Out(s)
+-------------------------------------------------------------------------------------------------------------------------------------------------
+DB1.DAB.DRAW1.R1\.yincr[0]                                          cycloneii_lcell_ff       regout      Out     0.250     0.250       -         
+yincr[0]                                                            Net                      -           -       0.910     -           3         
+DB1.DAB.DRAW1.C1\.un2_err2_add0                                     cycloneii_lcell_comb     dataa       In      -         1.160       -         
+DB1.DAB.DRAW1.C1\.un2_err2_add0                                     cycloneii_lcell_comb     cout        Out     0.414     1.574       -         
+un2_err2_carry_0                                                    Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.C1\.un2_err2_add1                                     cycloneii_lcell_comb     cin         In      -         1.574       -         
+DB1.DAB.DRAW1.C1\.un2_err2_add1                                     cycloneii_lcell_comb     combout     Out     0.410     1.984       -         
+un2_err2_add1                                                       Net                      -           -       0.730     -           1         
+DB1.DAB.DRAW1.result_1_add1                                         cycloneii_lcell_comb     dataa       In      -         2.714       -         
+DB1.DAB.DRAW1.result_1_add1                                         cycloneii_lcell_comb     cout        Out     0.414     3.128       -         
+result_1_carry_1                                                    Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.result_1_add2                                         cycloneii_lcell_comb     cin         In      -         3.128       -         
+DB1.DAB.DRAW1.result_1_add2                                         cycloneii_lcell_comb     combout     Out     0.410     3.538       -         
+result_1_add2                                                       Net                      -           -       0.295     -           2         
+DB1.DAB.DRAW1.inf_abs1_a_1_anc2                                     cycloneii_lcell_comb     datac       In      -         3.833       -         
+DB1.DAB.DRAW1.inf_abs1_a_1_anc2                                     cycloneii_lcell_comb     combout     Out     0.275     4.108       -         
+inf_abs1_a_1_anc2                                                   Net                      -           -       0.301     -           3         
+DB1.DAB.DRAW1.inf_abs1_a_1_anc4                                     cycloneii_lcell_comb     datac       In      -         4.409       -         
+DB1.DAB.DRAW1.inf_abs1_a_1_anc4                                     cycloneii_lcell_comb     combout     Out     0.275     4.684       -         
+inf_abs1_a_1_anc4                                                   Net                      -           -       0.295     -           2         
+DB1.DAB.DRAW1.C1\.op_abs\.inf_abs1[5]                               cycloneii_lcell_comb     datac       In      -         4.979       -         
+DB1.DAB.DRAW1.C1\.op_abs\.inf_abs1[5]                               cycloneii_lcell_comb     combout     Out     0.275     5.254       -         
+inf_abs1[5]                                                         Net                      -           -       0.355     -           1         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_6                   cycloneii_lcell_comb     dataa       In      -         5.609       -         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_6                   cycloneii_lcell_comb     cout        Out     0.414     6.023       -         
+lt_5                                                                Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_7                   cycloneii_lcell_comb     cin         In      -         6.023       -         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_7                   cycloneii_lcell_comb     combout     Out     0.410     6.433       -         
+un15_disable_7                                                      Net                      -           -       0.355     -           1         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_2_RNI7L291          cycloneii_lcell_comb     datac       In      -         6.789       -         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_2_RNI7L291          cycloneii_lcell_comb     combout     Out     0.275     7.064       -         
+g3_4                                                                Net                      -           -       0.295     -           2         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_7_term_RNI7D567     cycloneii_lcell_comb     datac       In      -         7.358       -         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_7_term_RNI7D567     cycloneii_lcell_comb     combout     Out     0.275     7.633       -         
+y1_2_sqmuxa                                                         Net                      -           -       0.341     -           7         
+DB1.DAB.DRAW1.un1_error_2_0_add0                                    cycloneii_lcell_comb     dataa       In      -         7.974       -         
+DB1.DAB.DRAW1.un1_error_2_0_add0                                    cycloneii_lcell_comb     cout        Out     0.414     8.388       -         
+un1_error_2_0_carry_0                                               Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.un1_error_2_0_add1                                    cycloneii_lcell_comb     cin         In      -         8.388       -         
+DB1.DAB.DRAW1.un1_error_2_0_add1                                    cycloneii_lcell_comb     combout     Out     0.410     8.798       -         
+un1_error_2_0_add1                                                  Net                      -           -       0.730     -           1         
+DB1.DAB.DRAW1.un1_error_2_add1                                      cycloneii_lcell_comb     dataa       In      -         9.528       -         
+DB1.DAB.DRAW1.un1_error_2_add1                                      cycloneii_lcell_comb     cout        Out     0.414     9.942       -         
+un1_error_2_carry_1                                                 Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.un1_error_2_add2                                      cycloneii_lcell_comb     cin         In      -         9.942       -         
+DB1.DAB.DRAW1.un1_error_2_add2                                      cycloneii_lcell_comb     cout        Out     0.129     10.071      -         
+un1_error_2_carry_2                                                 Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.un1_error_2_add3                                      cycloneii_lcell_comb     cin         In      -         10.071      -         
+DB1.DAB.DRAW1.un1_error_2_add3                                      cycloneii_lcell_comb     cout        Out     0.129     10.200      -         
+un1_error_2_carry_3                                                 Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.un1_error_2_add4                                      cycloneii_lcell_comb     cin         In      -         10.200      -         
+DB1.DAB.DRAW1.un1_error_2_add4                                      cycloneii_lcell_comb     cout        Out     0.129     10.329      -         
+un1_error_2_carry_4                                                 Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.un1_error_2_add5                                      cycloneii_lcell_comb     cin         In      -         10.329      -         
+DB1.DAB.DRAW1.un1_error_2_add5                                      cycloneii_lcell_comb     combout     Out     0.410     10.739      -         
+un1_error_2_add5                                                    Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.R1\.error[5]                                          cycloneii_lcell_ff       datain      In      -         10.739      -         
+=================================================================================================================================================
+Total path delay (propagation time + setup) of 10.787 is 6.180(57.3%) logic and 4.607(42.7%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
 Path information for path number 3: 
-      Requested Period:                      10.130
+      Requested Period:                      9.169
     - Setup time:                            0.048
     + Clock delay at ending point:           0.000 (ideal)
-    = Required time:                         10.082
+    = Required time:                         9.121
 
-    - Propagation time:                      11.870
+    - Propagation time:                      10.739
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (critical) :                     -1.788
+    = Slack (critical) :                     -1.618
 
-    Number of logic level(s):                17
-    Starting point:                          DB1.DAB.DRAW1.R1\.x1[2] / regout
+    Number of logic level(s):                18
+    Starting point:                          DB1.DAB.DRAW1.R1\.yincr[0] / regout
     Ending point:                            DB1.DAB.DRAW1.R1\.error[5] / datain
     The start point is clocked by            vdp|clk [rising] on pin clk
     The end   point is clocked by            vdp|clk [rising] on pin clk
 
-Instance / Net                                                 Pin         Pin               Arrival     No. of    
-Name                                  Type                     Name        Dir     Delay     Time        Fan Out(s)
--------------------------------------------------------------------------------------------------------------------
-DB1.DAB.DRAW1.R1\.x1[2]               cycloneii_lcell_ff       regout      Out     0.250     0.250       -         
-x1_2                                  Net                      -           -       0.910     -           5         
-DB1.DAB.INV3.b[2]                     cycloneii_lcell_comb     dataa       In      -         1.160       -         
-DB1.DAB.INV3.b[2]                     cycloneii_lcell_comb     combout     Out     0.438     1.598       -         
-b_1                                   Net                      -           -       0.301     -           3         
-DB1.DAB.SWAP2.xout[2]                 cycloneii_lcell_comb     datad       In      -         1.899       -         
-DB1.DAB.SWAP2.xout[2]                 cycloneii_lcell_comb     combout     Out     0.150     2.049       -         
-xout_2                                Net                      -           -       0.295     -           2         
-RCB1.E2.splitxy\.X_d[2]               cycloneii_lcell_comb     datac       In      -         2.344       -         
-RCB1.E2.splitxy\.X_d[2]               cycloneii_lcell_comb     combout     Out     0.275     2.619       -         
-X_d[2]                                Net                      -           -       0.355     -           1         
-RCB1.E2.splitxy\.X[2]                 cycloneii_lcell_comb     datad       In      -         2.974       -         
-RCB1.E2.splitxy\.X[2]                 cycloneii_lcell_comb     combout     Out     0.150     3.124       -         
-X_0_2                                 Net                      -           -       0.295     -           2         
-RCB1.E2.SPLIT\.word_reg_delayed_0     cycloneii_lcell_comb     datab       In      -         3.419       -         
-RCB1.E2.SPLIT\.word_reg_delayed_0     cycloneii_lcell_comb     combout     Out     0.420     3.839       -         
-word_reg_delayed_0z                   Net                      -           -       0.355     -           1         
-RCB1.E2.VRAM\.vram_write_i_2_1_1      cycloneii_lcell_comb     datac       In      -         4.194       -         
-RCB1.E2.VRAM\.vram_write_i_2_1_1      cycloneii_lcell_comb     combout     Out     0.275     4.469       -         
-vram_write_i_2_1_1                    Net                      -           -       0.355     -           1         
-RCB1.E2.VRAM\.vram_write_i_2_1        cycloneii_lcell_comb     datad       In      -         4.824       -         
-RCB1.E2.VRAM\.vram_write_i_2_1        cycloneii_lcell_comb     combout     Out     0.150     4.974       -         
-vram_write_i_2_1                      Net                      -           -       0.395     -           12        
-RCB1.vram_write                       cycloneii_lcell_comb     datab       In      -         5.369       -         
-RCB1.vram_write                       cycloneii_lcell_comb     combout     Out     0.420     5.789       -         
-vram_write                            Net                      -           -       0.831     -           68        
-RCB1.E2.C1\.un7_state_i               cycloneii_lcell_comb     datac       In      -         6.620       -         
-RCB1.E2.C1\.un7_state_i               cycloneii_lcell_comb     combout     Out     0.275     6.895       -         
-un7_state_i                           Net                      -           -       0.711     -           50        
-DB1.DAB.DRAW1.un4_0_a2_1[5]           cycloneii_lcell_comb     datad       In      -         7.606       -         
-DB1.DAB.DRAW1.un4_0_a2_1[5]           cycloneii_lcell_comb     combout     Out     0.150     7.756       -         
-un4_0_a2_1[5]                         Net                      -           -       0.328     -           6         
-DB1.DAB.DRAW1.un4_0_a2[4]             cycloneii_lcell_comb     datab       In      -         8.084       -         
-DB1.DAB.DRAW1.un4_0_a2[4]             cycloneii_lcell_comb     combout     Out     0.420     8.504       -         
-un4_0_a2[4]                           Net                      -           -       0.730     -           1         
-DB1.DAB.DRAW1.un1_error_2_0_add1      cycloneii_lcell_comb     dataa       In      -         9.234       -         
-DB1.DAB.DRAW1.un1_error_2_0_add1      cycloneii_lcell_comb     cout        Out     0.414     9.648       -         
-un1_error_2_0_carry_1                 Net                      -           -       0.000     -           1         
-DB1.DAB.DRAW1.un1_error_2_0_add2      cycloneii_lcell_comb     cin         In      -         9.648       -         
-DB1.DAB.DRAW1.un1_error_2_0_add2      cycloneii_lcell_comb     cout        Out     0.129     9.777       -         
-un1_error_2_0_carry_2                 Net                      -           -       0.000     -           1         
-DB1.DAB.DRAW1.un1_error_2_0_add3      cycloneii_lcell_comb     cin         In      -         9.777       -         
-DB1.DAB.DRAW1.un1_error_2_0_add3      cycloneii_lcell_comb     combout     Out     0.410     10.187      -         
-un1_error_2_0_add3                    Net                      -           -       0.730     -           1         
-DB1.DAB.DRAW1.un1_error_2_add3        cycloneii_lcell_comb     dataa       In      -         10.917      -         
-DB1.DAB.DRAW1.un1_error_2_add3        cycloneii_lcell_comb     cout        Out     0.414     11.331      -         
-un1_error_2_carry_3                   Net                      -           -       0.000     -           1         
-DB1.DAB.DRAW1.un1_error_2_add4        cycloneii_lcell_comb     cin         In      -         11.331      -         
-DB1.DAB.DRAW1.un1_error_2_add4        cycloneii_lcell_comb     cout        Out     0.129     11.460      -         
-un1_error_2_carry_4                   Net                      -           -       0.000     -           1         
-DB1.DAB.DRAW1.un1_error_2_add5        cycloneii_lcell_comb     cin         In      -         11.460      -         
-DB1.DAB.DRAW1.un1_error_2_add5        cycloneii_lcell_comb     combout     Out     0.410     11.870      -         
-un1_error_2_add5                      Net                      -           -       0.000     -           1         
-DB1.DAB.DRAW1.R1\.error[5]            cycloneii_lcell_ff       datain      In      -         11.870      -         
-===================================================================================================================
-Total path delay (propagation time + setup) of 11.918 is 5.327(44.7%) logic and 6.591(55.3%) route.
+Instance / Net                                                                               Pin         Pin               Arrival     No. of    
+Name                                                                Type                     Name        Dir     Delay     Time        Fan Out(s)
+-------------------------------------------------------------------------------------------------------------------------------------------------
+DB1.DAB.DRAW1.R1\.yincr[0]                                          cycloneii_lcell_ff       regout      Out     0.250     0.250       -         
+yincr[0]                                                            Net                      -           -       0.910     -           3         
+DB1.DAB.DRAW1.C1\.un2_err2_add0                                     cycloneii_lcell_comb     dataa       In      -         1.160       -         
+DB1.DAB.DRAW1.C1\.un2_err2_add0                                     cycloneii_lcell_comb     cout        Out     0.414     1.574       -         
+un2_err2_carry_0                                                    Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.C1\.un2_err2_add1                                     cycloneii_lcell_comb     cin         In      -         1.574       -         
+DB1.DAB.DRAW1.C1\.un2_err2_add1                                     cycloneii_lcell_comb     combout     Out     0.410     1.984       -         
+un2_err2_add1                                                       Net                      -           -       0.730     -           1         
+DB1.DAB.DRAW1.result_1_add1                                         cycloneii_lcell_comb     dataa       In      -         2.714       -         
+DB1.DAB.DRAW1.result_1_add1                                         cycloneii_lcell_comb     cout        Out     0.414     3.128       -         
+result_1_carry_1                                                    Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.result_1_add2                                         cycloneii_lcell_comb     cin         In      -         3.128       -         
+DB1.DAB.DRAW1.result_1_add2                                         cycloneii_lcell_comb     combout     Out     0.410     3.538       -         
+result_1_add2                                                       Net                      -           -       0.295     -           2         
+DB1.DAB.DRAW1.inf_abs1_a_1_anc2                                     cycloneii_lcell_comb     datac       In      -         3.833       -         
+DB1.DAB.DRAW1.inf_abs1_a_1_anc2                                     cycloneii_lcell_comb     combout     Out     0.275     4.108       -         
+inf_abs1_a_1_anc2                                                   Net                      -           -       0.301     -           3         
+DB1.DAB.DRAW1.inf_abs1_a_1_anc4                                     cycloneii_lcell_comb     datac       In      -         4.409       -         
+DB1.DAB.DRAW1.inf_abs1_a_1_anc4                                     cycloneii_lcell_comb     combout     Out     0.275     4.684       -         
+inf_abs1_a_1_anc4                                                   Net                      -           -       0.295     -           2         
+DB1.DAB.DRAW1.C1\.op_abs\.inf_abs1[5]                               cycloneii_lcell_comb     datac       In      -         4.979       -         
+DB1.DAB.DRAW1.C1\.op_abs\.inf_abs1[5]                               cycloneii_lcell_comb     combout     Out     0.275     5.254       -         
+inf_abs1[5]                                                         Net                      -           -       0.355     -           1         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_6                   cycloneii_lcell_comb     dataa       In      -         5.609       -         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_6                   cycloneii_lcell_comb     cout        Out     0.414     6.023       -         
+lt_5                                                                Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_7                   cycloneii_lcell_comb     cin         In      -         6.023       -         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_7                   cycloneii_lcell_comb     combout     Out     0.410     6.433       -         
+un15_disable_7                                                      Net                      -           -       0.355     -           1         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_2_RNI7L291          cycloneii_lcell_comb     datac       In      -         6.789       -         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_2_RNI7L291          cycloneii_lcell_comb     combout     Out     0.275     7.064       -         
+g3_4                                                                Net                      -           -       0.295     -           2         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_7_term_RNI7D567     cycloneii_lcell_comb     datac       In      -         7.358       -         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_7_term_RNI7D567     cycloneii_lcell_comb     combout     Out     0.275     7.633       -         
+y1_2_sqmuxa                                                         Net                      -           -       0.341     -           7         
+DB1.DAB.DRAW1.un1_error_2_0_add0                                    cycloneii_lcell_comb     dataa       In      -         7.974       -         
+DB1.DAB.DRAW1.un1_error_2_0_add0                                    cycloneii_lcell_comb     cout        Out     0.414     8.388       -         
+un1_error_2_0_carry_0                                               Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.un1_error_2_0_add1                                    cycloneii_lcell_comb     cin         In      -         8.388       -         
+DB1.DAB.DRAW1.un1_error_2_0_add1                                    cycloneii_lcell_comb     cout        Out     0.129     8.517       -         
+un1_error_2_0_carry_1                                               Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.un1_error_2_0_add2                                    cycloneii_lcell_comb     cin         In      -         8.517       -         
+DB1.DAB.DRAW1.un1_error_2_0_add2                                    cycloneii_lcell_comb     combout     Out     0.410     8.927       -         
+un1_error_2_0_add2                                                  Net                      -           -       0.730     -           1         
+DB1.DAB.DRAW1.un1_error_2_add2                                      cycloneii_lcell_comb     dataa       In      -         9.657       -         
+DB1.DAB.DRAW1.un1_error_2_add2                                      cycloneii_lcell_comb     cout        Out     0.414     10.071      -         
+un1_error_2_carry_2                                                 Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.un1_error_2_add3                                      cycloneii_lcell_comb     cin         In      -         10.071      -         
+DB1.DAB.DRAW1.un1_error_2_add3                                      cycloneii_lcell_comb     cout        Out     0.129     10.200      -         
+un1_error_2_carry_3                                                 Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.un1_error_2_add4                                      cycloneii_lcell_comb     cin         In      -         10.200      -         
+DB1.DAB.DRAW1.un1_error_2_add4                                      cycloneii_lcell_comb     cout        Out     0.129     10.329      -         
+un1_error_2_carry_4                                                 Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.un1_error_2_add5                                      cycloneii_lcell_comb     cin         In      -         10.329      -         
+DB1.DAB.DRAW1.un1_error_2_add5                                      cycloneii_lcell_comb     combout     Out     0.410     10.739      -         
+un1_error_2_add5                                                    Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.R1\.error[5]                                          cycloneii_lcell_ff       datain      In      -         10.739      -         
+=================================================================================================================================================
+Total path delay (propagation time + setup) of 10.787 is 6.180(57.3%) logic and 4.607(42.7%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
 Path information for path number 4: 
-      Requested Period:                      10.130
+      Requested Period:                      9.169
     - Setup time:                            0.048
     + Clock delay at ending point:           0.000 (ideal)
-    = Required time:                         10.082
+    = Required time:                         9.121
 
-    - Propagation time:                      11.852
+    - Propagation time:                      10.739
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (non-critical) :                 -1.770
+    = Slack (critical) :                     -1.618
 
-    Number of logic level(s):                17
-    Starting point:                          DB1.DAB.RD1.R1\.negx / regout
+    Number of logic level(s):                18
+    Starting point:                          DB1.DAB.DRAW1.R1\.yincr[0] / regout
     Ending point:                            DB1.DAB.DRAW1.R1\.error[5] / datain
     The start point is clocked by            vdp|clk [rising] on pin clk
     The end   point is clocked by            vdp|clk [rising] on pin clk
 
-Instance / Net                                                 Pin         Pin               Arrival     No. of    
-Name                                  Type                     Name        Dir     Delay     Time        Fan Out(s)
--------------------------------------------------------------------------------------------------------------------
-DB1.DAB.RD1.R1\.negx                  cycloneii_lcell_ff       regout      Out     0.250     0.250       -         
-negx                                  Net                      -           -       0.910     -           10        
-DB1.DAB.INV3.b[2]                     cycloneii_lcell_comb     datab       In      -         1.160       -         
-DB1.DAB.INV3.b[2]                     cycloneii_lcell_comb     combout     Out     0.420     1.580       -         
-b_1                                   Net                      -           -       0.301     -           3         
-DB1.DAB.SWAP2.xout[2]                 cycloneii_lcell_comb     datad       In      -         1.881       -         
-DB1.DAB.SWAP2.xout[2]                 cycloneii_lcell_comb     combout     Out     0.150     2.031       -         
-xout_2                                Net                      -           -       0.295     -           2         
-RCB1.E2.splitxy\.X_d[2]               cycloneii_lcell_comb     datac       In      -         2.326       -         
-RCB1.E2.splitxy\.X_d[2]               cycloneii_lcell_comb     combout     Out     0.275     2.601       -         
-X_d[2]                                Net                      -           -       0.355     -           1         
-RCB1.E2.splitxy\.X[2]                 cycloneii_lcell_comb     datad       In      -         2.956       -         
-RCB1.E2.splitxy\.X[2]                 cycloneii_lcell_comb     combout     Out     0.150     3.106       -         
-X_0_2                                 Net                      -           -       0.295     -           2         
-RCB1.E2.SPLIT\.word_reg_delayed_0     cycloneii_lcell_comb     datab       In      -         3.401       -         
-RCB1.E2.SPLIT\.word_reg_delayed_0     cycloneii_lcell_comb     combout     Out     0.420     3.821       -         
-word_reg_delayed_0z                   Net                      -           -       0.355     -           1         
-RCB1.E2.VRAM\.vram_write_i_2_1_1      cycloneii_lcell_comb     datac       In      -         4.176       -         
-RCB1.E2.VRAM\.vram_write_i_2_1_1      cycloneii_lcell_comb     combout     Out     0.275     4.451       -         
-vram_write_i_2_1_1                    Net                      -           -       0.355     -           1         
-RCB1.E2.VRAM\.vram_write_i_2_1        cycloneii_lcell_comb     datad       In      -         4.806       -         
-RCB1.E2.VRAM\.vram_write_i_2_1        cycloneii_lcell_comb     combout     Out     0.150     4.957       -         
-vram_write_i_2_1                      Net                      -           -       0.395     -           12        
-RCB1.vram_write                       cycloneii_lcell_comb     datab       In      -         5.351       -         
-RCB1.vram_write                       cycloneii_lcell_comb     combout     Out     0.420     5.771       -         
-vram_write                            Net                      -           -       0.831     -           68        
-RCB1.E2.C1\.un7_state_i               cycloneii_lcell_comb     datac       In      -         6.602       -         
-RCB1.E2.C1\.un7_state_i               cycloneii_lcell_comb     combout     Out     0.275     6.877       -         
-un7_state_i                           Net                      -           -       0.711     -           50        
-DB1.DAB.DRAW1.un4_0_a2_1[5]           cycloneii_lcell_comb     datad       In      -         7.588       -         
-DB1.DAB.DRAW1.un4_0_a2_1[5]           cycloneii_lcell_comb     combout     Out     0.150     7.738       -         
-un4_0_a2_1[5]                         Net                      -           -       0.328     -           6         
-DB1.DAB.DRAW1.un4_0_a2[4]             cycloneii_lcell_comb     datab       In      -         8.066       -         
-DB1.DAB.DRAW1.un4_0_a2[4]             cycloneii_lcell_comb     combout     Out     0.420     8.486       -         
-un4_0_a2[4]                           Net                      -           -       0.730     -           1         
-DB1.DAB.DRAW1.un1_error_2_0_add1      cycloneii_lcell_comb     dataa       In      -         9.216       -         
-DB1.DAB.DRAW1.un1_error_2_0_add1      cycloneii_lcell_comb     cout        Out     0.414     9.630       -         
-un1_error_2_0_carry_1                 Net                      -           -       0.000     -           1         
-DB1.DAB.DRAW1.un1_error_2_0_add2      cycloneii_lcell_comb     cin         In      -         9.630       -         
-DB1.DAB.DRAW1.un1_error_2_0_add2      cycloneii_lcell_comb     cout        Out     0.129     9.759       -         
-un1_error_2_0_carry_2                 Net                      -           -       0.000     -           1         
-DB1.DAB.DRAW1.un1_error_2_0_add3      cycloneii_lcell_comb     cin         In      -         9.759       -         
-DB1.DAB.DRAW1.un1_error_2_0_add3      cycloneii_lcell_comb     cout        Out     0.129     9.888       -         
-un1_error_2_0_carry_3                 Net                      -           -       0.000     -           1         
-DB1.DAB.DRAW1.un1_error_2_0_add4      cycloneii_lcell_comb     cin         In      -         9.888       -         
-DB1.DAB.DRAW1.un1_error_2_0_add4      cycloneii_lcell_comb     combout     Out     0.410     10.298      -         
-un1_error_2_0_add4                    Net                      -           -       0.730     -           1         
-DB1.DAB.DRAW1.un1_error_2_add4        cycloneii_lcell_comb     dataa       In      -         11.028      -         
-DB1.DAB.DRAW1.un1_error_2_add4        cycloneii_lcell_comb     cout        Out     0.414     11.442      -         
-un1_error_2_carry_4                   Net                      -           -       0.000     -           1         
-DB1.DAB.DRAW1.un1_error_2_add5        cycloneii_lcell_comb     cin         In      -         11.442      -         
-DB1.DAB.DRAW1.un1_error_2_add5        cycloneii_lcell_comb     combout     Out     0.410     11.852      -         
-un1_error_2_add5                      Net                      -           -       0.000     -           1         
-DB1.DAB.DRAW1.R1\.error[5]            cycloneii_lcell_ff       datain      In      -         11.852      -         
-===================================================================================================================
-Total path delay (propagation time + setup) of 11.900 is 5.309(44.6%) logic and 6.591(55.4%) route.
+Instance / Net                                                                               Pin         Pin               Arrival     No. of    
+Name                                                                Type                     Name        Dir     Delay     Time        Fan Out(s)
+-------------------------------------------------------------------------------------------------------------------------------------------------
+DB1.DAB.DRAW1.R1\.yincr[0]                                          cycloneii_lcell_ff       regout      Out     0.250     0.250       -         
+yincr[0]                                                            Net                      -           -       0.910     -           3         
+DB1.DAB.DRAW1.C1\.un2_err2_add0                                     cycloneii_lcell_comb     dataa       In      -         1.160       -         
+DB1.DAB.DRAW1.C1\.un2_err2_add0                                     cycloneii_lcell_comb     cout        Out     0.414     1.574       -         
+un2_err2_carry_0                                                    Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.C1\.un2_err2_add1                                     cycloneii_lcell_comb     cin         In      -         1.574       -         
+DB1.DAB.DRAW1.C1\.un2_err2_add1                                     cycloneii_lcell_comb     combout     Out     0.410     1.984       -         
+un2_err2_add1                                                       Net                      -           -       0.730     -           1         
+DB1.DAB.DRAW1.result_1_add1                                         cycloneii_lcell_comb     dataa       In      -         2.714       -         
+DB1.DAB.DRAW1.result_1_add1                                         cycloneii_lcell_comb     cout        Out     0.414     3.128       -         
+result_1_carry_1                                                    Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.result_1_add2                                         cycloneii_lcell_comb     cin         In      -         3.128       -         
+DB1.DAB.DRAW1.result_1_add2                                         cycloneii_lcell_comb     combout     Out     0.410     3.538       -         
+result_1_add2                                                       Net                      -           -       0.295     -           2         
+DB1.DAB.DRAW1.inf_abs1_a_1_anc2                                     cycloneii_lcell_comb     datac       In      -         3.833       -         
+DB1.DAB.DRAW1.inf_abs1_a_1_anc2                                     cycloneii_lcell_comb     combout     Out     0.275     4.108       -         
+inf_abs1_a_1_anc2                                                   Net                      -           -       0.301     -           3         
+DB1.DAB.DRAW1.inf_abs1_a_1_anc4                                     cycloneii_lcell_comb     datac       In      -         4.409       -         
+DB1.DAB.DRAW1.inf_abs1_a_1_anc4                                     cycloneii_lcell_comb     combout     Out     0.275     4.684       -         
+inf_abs1_a_1_anc4                                                   Net                      -           -       0.295     -           2         
+DB1.DAB.DRAW1.C1\.op_abs\.inf_abs1[5]                               cycloneii_lcell_comb     datac       In      -         4.979       -         
+DB1.DAB.DRAW1.C1\.op_abs\.inf_abs1[5]                               cycloneii_lcell_comb     combout     Out     0.275     5.254       -         
+inf_abs1[5]                                                         Net                      -           -       0.355     -           1         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_6                   cycloneii_lcell_comb     dataa       In      -         5.609       -         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_6                   cycloneii_lcell_comb     cout        Out     0.414     6.023       -         
+lt_5                                                                Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_7                   cycloneii_lcell_comb     cin         In      -         6.023       -         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_7                   cycloneii_lcell_comb     combout     Out     0.410     6.433       -         
+un15_disable_7                                                      Net                      -           -       0.355     -           1         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_2_RNI7L291          cycloneii_lcell_comb     datac       In      -         6.789       -         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_2_RNI7L291          cycloneii_lcell_comb     combout     Out     0.275     7.064       -         
+g3_4                                                                Net                      -           -       0.295     -           2         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_7_term_RNI7D567     cycloneii_lcell_comb     datac       In      -         7.358       -         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_7_term_RNI7D567     cycloneii_lcell_comb     combout     Out     0.275     7.633       -         
+y1_2_sqmuxa                                                         Net                      -           -       0.341     -           7         
+DB1.DAB.DRAW1.un1_error_2_0_add0                                    cycloneii_lcell_comb     dataa       In      -         7.974       -         
+DB1.DAB.DRAW1.un1_error_2_0_add0                                    cycloneii_lcell_comb     cout        Out     0.414     8.388       -         
+un1_error_2_0_carry_0                                               Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.un1_error_2_0_add1                                    cycloneii_lcell_comb     cin         In      -         8.388       -         
+DB1.DAB.DRAW1.un1_error_2_0_add1                                    cycloneii_lcell_comb     cout        Out     0.129     8.517       -         
+un1_error_2_0_carry_1                                               Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.un1_error_2_0_add2                                    cycloneii_lcell_comb     cin         In      -         8.517       -         
+DB1.DAB.DRAW1.un1_error_2_0_add2                                    cycloneii_lcell_comb     cout        Out     0.129     8.646       -         
+un1_error_2_0_carry_2                                               Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.un1_error_2_0_add3                                    cycloneii_lcell_comb     cin         In      -         8.646       -         
+DB1.DAB.DRAW1.un1_error_2_0_add3                                    cycloneii_lcell_comb     combout     Out     0.410     9.056       -         
+un1_error_2_0_add3                                                  Net                      -           -       0.730     -           1         
+DB1.DAB.DRAW1.un1_error_2_add3                                      cycloneii_lcell_comb     dataa       In      -         9.786       -         
+DB1.DAB.DRAW1.un1_error_2_add3                                      cycloneii_lcell_comb     cout        Out     0.414     10.200      -         
+un1_error_2_carry_3                                                 Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.un1_error_2_add4                                      cycloneii_lcell_comb     cin         In      -         10.200      -         
+DB1.DAB.DRAW1.un1_error_2_add4                                      cycloneii_lcell_comb     cout        Out     0.129     10.329      -         
+un1_error_2_carry_4                                                 Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.un1_error_2_add5                                      cycloneii_lcell_comb     cin         In      -         10.329      -         
+DB1.DAB.DRAW1.un1_error_2_add5                                      cycloneii_lcell_comb     combout     Out     0.410     10.739      -         
+un1_error_2_add5                                                    Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.R1\.error[5]                                          cycloneii_lcell_ff       datain      In      -         10.739      -         
+=================================================================================================================================================
+Total path delay (propagation time + setup) of 10.787 is 6.180(57.3%) logic and 4.607(42.7%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
 Path information for path number 5: 
-      Requested Period:                      10.130
+      Requested Period:                      9.169
     - Setup time:                            0.048
     + Clock delay at ending point:           0.000 (ideal)
-    = Required time:                         10.082
+    = Required time:                         9.121
 
-    - Propagation time:                      11.852
+    - Propagation time:                      10.718
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (non-critical) :                 -1.770
+    = Slack (non-critical) :                 -1.597
 
-    Number of logic level(s):                17
-    Starting point:                          DB1.DAB.RD1.R1\.negx / regout
+    Number of logic level(s):                18
+    Starting point:                          DB1.DAB.DRAW1.R1\.xincr[0] / regout
     Ending point:                            DB1.DAB.DRAW1.R1\.error[5] / datain
     The start point is clocked by            vdp|clk [rising] on pin clk
     The end   point is clocked by            vdp|clk [rising] on pin clk
 
-Instance / Net                                                 Pin         Pin               Arrival     No. of    
-Name                                  Type                     Name        Dir     Delay     Time        Fan Out(s)
--------------------------------------------------------------------------------------------------------------------
-DB1.DAB.RD1.R1\.negx                  cycloneii_lcell_ff       regout      Out     0.250     0.250       -         
-negx                                  Net                      -           -       0.910     -           10        
-DB1.DAB.INV3.b[2]                     cycloneii_lcell_comb     datab       In      -         1.160       -         
-DB1.DAB.INV3.b[2]                     cycloneii_lcell_comb     combout     Out     0.420     1.580       -         
-b_1                                   Net                      -           -       0.301     -           3         
-DB1.DAB.SWAP2.xout[2]                 cycloneii_lcell_comb     datad       In      -         1.881       -         
-DB1.DAB.SWAP2.xout[2]                 cycloneii_lcell_comb     combout     Out     0.150     2.031       -         
-xout_2                                Net                      -           -       0.295     -           2         
-RCB1.E2.splitxy\.X_d[2]               cycloneii_lcell_comb     datac       In      -         2.326       -         
-RCB1.E2.splitxy\.X_d[2]               cycloneii_lcell_comb     combout     Out     0.275     2.601       -         
-X_d[2]                                Net                      -           -       0.355     -           1         
-RCB1.E2.splitxy\.X[2]                 cycloneii_lcell_comb     datad       In      -         2.956       -         
-RCB1.E2.splitxy\.X[2]                 cycloneii_lcell_comb     combout     Out     0.150     3.106       -         
-X_0_2                                 Net                      -           -       0.295     -           2         
-RCB1.E2.SPLIT\.word_reg_delayed_0     cycloneii_lcell_comb     datab       In      -         3.401       -         
-RCB1.E2.SPLIT\.word_reg_delayed_0     cycloneii_lcell_comb     combout     Out     0.420     3.821       -         
-word_reg_delayed_0z                   Net                      -           -       0.355     -           1         
-RCB1.E2.VRAM\.vram_write_i_2_1_1      cycloneii_lcell_comb     datac       In      -         4.176       -         
-RCB1.E2.VRAM\.vram_write_i_2_1_1      cycloneii_lcell_comb     combout     Out     0.275     4.451       -         
-vram_write_i_2_1_1                    Net                      -           -       0.355     -           1         
-RCB1.E2.VRAM\.vram_write_i_2_1        cycloneii_lcell_comb     datad       In      -         4.806       -         
-RCB1.E2.VRAM\.vram_write_i_2_1        cycloneii_lcell_comb     combout     Out     0.150     4.957       -         
-vram_write_i_2_1                      Net                      -           -       0.395     -           12        
-RCB1.vram_write                       cycloneii_lcell_comb     datab       In      -         5.351       -         
-RCB1.vram_write                       cycloneii_lcell_comb     combout     Out     0.420     5.771       -         
-vram_write                            Net                      -           -       0.831     -           68        
-RCB1.E2.C1\.un7_state_i               cycloneii_lcell_comb     datac       In      -         6.602       -         
-RCB1.E2.C1\.un7_state_i               cycloneii_lcell_comb     combout     Out     0.275     6.877       -         
-un7_state_i                           Net                      -           -       0.711     -           50        
-DB1.DAB.DRAW1.un4_0_a2_1[5]           cycloneii_lcell_comb     datad       In      -         7.588       -         
-DB1.DAB.DRAW1.un4_0_a2_1[5]           cycloneii_lcell_comb     combout     Out     0.150     7.738       -         
-un4_0_a2_1[5]                         Net                      -           -       0.328     -           6         
-DB1.DAB.DRAW1.un4_0_a2[4]             cycloneii_lcell_comb     datab       In      -         8.066       -         
-DB1.DAB.DRAW1.un4_0_a2[4]             cycloneii_lcell_comb     combout     Out     0.420     8.486       -         
-un4_0_a2[4]                           Net                      -           -       0.730     -           1         
-DB1.DAB.DRAW1.un1_error_2_0_add1      cycloneii_lcell_comb     dataa       In      -         9.216       -         
-DB1.DAB.DRAW1.un1_error_2_0_add1      cycloneii_lcell_comb     cout        Out     0.414     9.630       -         
-un1_error_2_0_carry_1                 Net                      -           -       0.000     -           1         
-DB1.DAB.DRAW1.un1_error_2_0_add2      cycloneii_lcell_comb     cin         In      -         9.630       -         
-DB1.DAB.DRAW1.un1_error_2_0_add2      cycloneii_lcell_comb     combout     Out     0.410     10.040      -         
-un1_error_2_0_add2                    Net                      -           -       0.730     -           1         
-DB1.DAB.DRAW1.un1_error_2_add2        cycloneii_lcell_comb     dataa       In      -         10.770      -         
-DB1.DAB.DRAW1.un1_error_2_add2        cycloneii_lcell_comb     cout        Out     0.414     11.184      -         
-un1_error_2_carry_2                   Net                      -           -       0.000     -           1         
-DB1.DAB.DRAW1.un1_error_2_add3        cycloneii_lcell_comb     cin         In      -         11.184      -         
-DB1.DAB.DRAW1.un1_error_2_add3        cycloneii_lcell_comb     cout        Out     0.129     11.313      -         
-un1_error_2_carry_3                   Net                      -           -       0.000     -           1         
-DB1.DAB.DRAW1.un1_error_2_add4        cycloneii_lcell_comb     cin         In      -         11.313      -         
-DB1.DAB.DRAW1.un1_error_2_add4        cycloneii_lcell_comb     cout        Out     0.129     11.442      -         
-un1_error_2_carry_4                   Net                      -           -       0.000     -           1         
-DB1.DAB.DRAW1.un1_error_2_add5        cycloneii_lcell_comb     cin         In      -         11.442      -         
-DB1.DAB.DRAW1.un1_error_2_add5        cycloneii_lcell_comb     combout     Out     0.410     11.852      -         
-un1_error_2_add5                      Net                      -           -       0.000     -           1         
-DB1.DAB.DRAW1.R1\.error[5]            cycloneii_lcell_ff       datain      In      -         11.852      -         
-===================================================================================================================
-Total path delay (propagation time + setup) of 11.900 is 5.309(44.6%) logic and 6.591(55.4%) route.
+Instance / Net                                                                               Pin         Pin               Arrival     No. of    
+Name                                                                Type                     Name        Dir     Delay     Time        Fan Out(s)
+-------------------------------------------------------------------------------------------------------------------------------------------------
+DB1.DAB.DRAW1.R1\.xincr[0]                                          cycloneii_lcell_ff       regout      Out     0.250     0.250       -         
+xincr[0]                                                            Net                      -           -       0.910     -           2         
+DB1.DAB.DRAW1.C1\.un2_err2_add0                                     cycloneii_lcell_comb     datab       In      -         1.160       -         
+DB1.DAB.DRAW1.C1\.un2_err2_add0                                     cycloneii_lcell_comb     cout        Out     0.393     1.553       -         
+un2_err2_carry_0                                                    Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.C1\.un2_err2_add1                                     cycloneii_lcell_comb     cin         In      -         1.553       -         
+DB1.DAB.DRAW1.C1\.un2_err2_add1                                     cycloneii_lcell_comb     combout     Out     0.410     1.963       -         
+un2_err2_add1                                                       Net                      -           -       0.730     -           1         
+DB1.DAB.DRAW1.result_1_add1                                         cycloneii_lcell_comb     dataa       In      -         2.693       -         
+DB1.DAB.DRAW1.result_1_add1                                         cycloneii_lcell_comb     cout        Out     0.414     3.107       -         
+result_1_carry_1                                                    Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.result_1_add2                                         cycloneii_lcell_comb     cin         In      -         3.107       -         
+DB1.DAB.DRAW1.result_1_add2                                         cycloneii_lcell_comb     combout     Out     0.410     3.517       -         
+result_1_add2                                                       Net                      -           -       0.295     -           2         
+DB1.DAB.DRAW1.inf_abs1_a_1_anc2                                     cycloneii_lcell_comb     datac       In      -         3.812       -         
+DB1.DAB.DRAW1.inf_abs1_a_1_anc2                                     cycloneii_lcell_comb     combout     Out     0.275     4.087       -         
+inf_abs1_a_1_anc2                                                   Net                      -           -       0.301     -           3         
+DB1.DAB.DRAW1.inf_abs1_a_1_anc4                                     cycloneii_lcell_comb     datac       In      -         4.388       -         
+DB1.DAB.DRAW1.inf_abs1_a_1_anc4                                     cycloneii_lcell_comb     combout     Out     0.275     4.663       -         
+inf_abs1_a_1_anc4                                                   Net                      -           -       0.295     -           2         
+DB1.DAB.DRAW1.C1\.op_abs\.inf_abs1[5]                               cycloneii_lcell_comb     datac       In      -         4.958       -         
+DB1.DAB.DRAW1.C1\.op_abs\.inf_abs1[5]                               cycloneii_lcell_comb     combout     Out     0.275     5.233       -         
+inf_abs1[5]                                                         Net                      -           -       0.355     -           1         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_6                   cycloneii_lcell_comb     dataa       In      -         5.588       -         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_6                   cycloneii_lcell_comb     cout        Out     0.414     6.002       -         
+lt_5                                                                Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_7                   cycloneii_lcell_comb     cin         In      -         6.002       -         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_7                   cycloneii_lcell_comb     combout     Out     0.410     6.412       -         
+un15_disable_7                                                      Net                      -           -       0.355     -           1         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_2_RNI7L291          cycloneii_lcell_comb     datac       In      -         6.768       -         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_2_RNI7L291          cycloneii_lcell_comb     combout     Out     0.275     7.043       -         
+g3_4                                                                Net                      -           -       0.295     -           2         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_7_term_RNI7D567     cycloneii_lcell_comb     datac       In      -         7.337       -         
+DB1.DAB.DRAW1.R1\.un15_disable.R1\.un15_disable_7_term_RNI7D567     cycloneii_lcell_comb     combout     Out     0.275     7.612       -         
+y1_2_sqmuxa                                                         Net                      -           -       0.341     -           7         
+DB1.DAB.DRAW1.un1_error_2_0_add0                                    cycloneii_lcell_comb     dataa       In      -         7.953       -         
+DB1.DAB.DRAW1.un1_error_2_0_add0                                    cycloneii_lcell_comb     cout        Out     0.414     8.367       -         
+un1_error_2_0_carry_0                                               Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.un1_error_2_0_add1                                    cycloneii_lcell_comb     cin         In      -         8.367       -         
+DB1.DAB.DRAW1.un1_error_2_0_add1                                    cycloneii_lcell_comb     cout        Out     0.129     8.496       -         
+un1_error_2_0_carry_1                                               Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.un1_error_2_0_add2                                    cycloneii_lcell_comb     cin         In      -         8.496       -         
+DB1.DAB.DRAW1.un1_error_2_0_add2                                    cycloneii_lcell_comb     cout        Out     0.129     8.625       -         
+un1_error_2_0_carry_2                                               Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.un1_error_2_0_add3                                    cycloneii_lcell_comb     cin         In      -         8.625       -         
+DB1.DAB.DRAW1.un1_error_2_0_add3                                    cycloneii_lcell_comb     cout        Out     0.129     8.754       -         
+un1_error_2_0_carry_3                                               Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.un1_error_2_0_add4                                    cycloneii_lcell_comb     cin         In      -         8.754       -         
+DB1.DAB.DRAW1.un1_error_2_0_add4                                    cycloneii_lcell_comb     combout     Out     0.410     9.164       -         
+un1_error_2_0_add4                                                  Net                      -           -       0.730     -           1         
+DB1.DAB.DRAW1.un1_error_2_add4                                      cycloneii_lcell_comb     dataa       In      -         9.894       -         
+DB1.DAB.DRAW1.un1_error_2_add4                                      cycloneii_lcell_comb     cout        Out     0.414     10.308      -         
+un1_error_2_carry_4                                                 Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.un1_error_2_add5                                      cycloneii_lcell_comb     cin         In      -         10.308      -         
+DB1.DAB.DRAW1.un1_error_2_add5                                      cycloneii_lcell_comb     combout     Out     0.410     10.718      -         
+un1_error_2_add5                                                    Net                      -           -       0.000     -           1         
+DB1.DAB.DRAW1.R1\.error[5]                                          cycloneii_lcell_ff       datain      In      -         10.718      -         
+=================================================================================================================================================
+Total path delay (propagation time + setup) of 10.766 is 6.159(57.2%) logic and 4.607(42.8%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -657,15 +643,15 @@ Design view:work.vdp(rtl)
 Selecting part EP2C5Q208C6
 @N: FA174 |The following device usage report estimates place and route data. Please look at the place and route report for final resource usage.
 
-Total combinational functions 611 of 4608 (13%)
+Total combinational functions 579 of 4608 (12%)
 Logic element usage by number of inputs
-		  4 input functions 	 303
-		  3 input functions 	 105
-		  <=2 input functions 	 203
+		  4 input functions 	 254
+		  3 input functions 	 134
+		  <=2 input functions 	 191
 Logic elements by mode
-		  normal mode            473
-		  arithmetic mode        138
-Total registers 307 of 4608 ( 6%)
+		  normal mode            442
+		  arithmetic mode        137
+Total registers 304 of 4608 ( 6%)
 I/O pins 62 of 158 (39%), total I/O based on largest package of this part.
 
 Number of I/O registers
@@ -684,9 +670,9 @@ Total ESB:      0 bits
 
 Mapper successful!
 
-At Mapper Exit (Real Time elapsed 0h:00m:18s; CPU Time elapsed 0h:00m:08s; Memory used current: 48MB peak: 145MB)
+At Mapper Exit (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:04s; Memory used current: 49MB peak: 151MB)
 
-Process took 0h:00m:18s realtime, 0h:00m:08s cputime
-# Sun Mar 20 20:21:19 2016
+Process took 0h:00m:06s realtime, 0h:00m:04s cputime
+# Sun Mar 20 20:53:21 2016
 
 ###########################################################]

@@ -2,15 +2,15 @@
 Design view:work.vdp(rtl)
 Selecting part EP2C5Q208C6
 
-Total combinational functions 611 of 4608 (13%)
+Total combinational functions 579 of 4608 (12%)
 Logic element usage by number of inputs
-		  4 input functions 	 303
-		  3 input functions 	 105
-		  <=2 input functions 	 203
+		  4 input functions 	 254
+		  3 input functions 	 134
+		  <=2 input functions 	 191
 Logic elements by mode
-		  normal mode            473
-		  arithmetic mode        138
-Total registers 307 of 4608 ( 6%)
+		  normal mode            442
+		  arithmetic mode        137
+Total registers 304 of 4608 ( 6%)
 I/O pins 62 of 158 (39%), total I/O based on largest package of this part.
 
 Number of I/O registers

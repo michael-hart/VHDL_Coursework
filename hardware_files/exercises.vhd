@@ -278,16 +278,16 @@ LIBRARY IEEE;
 
 USE IEEE.std_logic_1164.ALL;
 
-ENTITY inv IS
+ENTITY inv_signal IS
 	GENERIC (N : integer := 16);
 	PORT(
 		a : IN std_logic_vector(N-1 DOWNTO 0);
 		b : OUT std_logic_vector(N-1 DOWNTO 0);
 		c : IN std_logic
 	);
-END ENTITY inv;
+END ENTITY inv_signal;
 
-ARCHITECTURE rtl OF inv IS
+ARCHITECTURE rtl OF inv_signal IS
 	SIGNAL b1 : std_logic_vector(N-1 DOWNTO 0);
 	BEGIN
 
@@ -428,12 +428,12 @@ BEGIN
 		yout => yin_s1
 	);
 	-- Map stage 1 outputs through inverters
-	INV1 : ENTITY inv GENERIC MAP(N => vsize) PORT MAP (
+	INV1 : ENTITY inv_signal GENERIC MAP(N => vsize) PORT MAP (
 		c => negx,
 		a => xin_s1,
 		b => xin_s2
 	);
-	INV2 : ENTITY inv GENERIC MAP(N => vsize) PORT MAP (
+	INV2 : ENTITY inv_signal GENERIC MAP(N => vsize) PORT MAP (
 		c => negy,
 		a => yin_s1,
 		b => yin_s2
@@ -459,12 +459,12 @@ BEGIN
 	);
 
 	-- Map stage 1 outputs through second stage inverters
-	INV3 : ENTITY inv GENERIC MAP(N => vsize) PORT MAP (
+	INV3 : ENTITY inv_signal GENERIC MAP(N => vsize) PORT MAP (
 		c => negx_delayed,
 		a => xout_s1,
 		b => xout_s2
 	);
-	INV4 : ENTITY inv GENERIC MAP(N => vsize) PORT MAP (
+	INV4 : ENTITY inv_signal GENERIC MAP(N => vsize) PORT MAP (
 		c => negy_delayed,
 		a => yout_s1,
 		b => yout_s2

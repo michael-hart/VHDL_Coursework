@@ -2,14 +2,14 @@
 
 #### START OF CLOCK OPTIMIZATION REPORT #####[
 
-1 non-gated/non-generated clock tree(s) driving 307 clock pin(s) of sequential element(s)
+1 non-gated/non-generated clock tree(s) driving 304 clock pin(s) of sequential element(s)
 0 gated/generated clock tree(s) driving 0 clock pin(s) of sequential element(s)
-4 instances converted, 0 sequential instances remain driven by gated/generated clocks
+0 instances converted, 0 sequential instances remain driven by gated/generated clocks
 
 =========================== Non-Gated/Non-Generated Clocks ============================
 Clock Tree ID     Driving Element     Drive Element Type     Fanout     Sample Instance
 ---------------------------------------------------------------------------------------
-@K:CKID0001       clk_in              cycloneii_io           307        RCB1.nstate[0] 
+@K:CKID0001       clk_in              cycloneii_io           304        RCB1.nstate[0] 
 =======================================================================================
 
 
