@@ -31,7 +31,7 @@ ARCHITECTURE synth OF ram_fsm IS
 	SIGNAL state : state_t;
 	SIGNAL delay_i, vwrite_i : std_logic;
 	SIGNAL addr_ram_i, addr_ram_sync_i : std_logic_vector(7 DOWNTO 0);
-	SIGNAL data_ram_i : std_logic_vector(15 DOWNTO 0);
+	SIGNAL data_ram_i, data_ram_sync_i, data_calculated : std_logic_vector(15 DOWNTO 0);
 	SIGNAL busy_i : std_logic;
 	SIGNAL done_i : std_logic;
 	SIGNAL cache_reg : store_t;
@@ -43,7 +43,7 @@ BEGIN
 	busy <= busy_i;
 	done <= done_i;
 	addr_ram <= addr_ram_i;
-	data_ram <= data_ram_i;
+	data_ram <= data_calculated;
 
 	-- MUX to determine what the value of addr_ram_i is
 	-- Only changes to a new value if the state demands it
@@ -55,12 +55,34 @@ BEGIN
 			addr_ram_i <= addr_ram_sync_i;
 		END IF;
 	END PROCESS ADDR_MUX;
+	
+	-- MUX to determine what the value of data_ram_i is
+	DATA_MUX : PROCESS(state, data_ram_sync_i, data_calculated) IS
+	BEGIN
+		IF state = m2 THEN
+			data_ram_i <= data_ram_sync_i;
+		ELSE
+			data_ram_i <= data_calculated;
+		END IF;
+	END PROCESS DATA_MUX;
 
 	-- Combinational logic for output std_logic signals
 	C1: PROCESS(state, start, cache_reg, vdin)
 	BEGIN
 		-- Default values
 		delay_i <= '0';
+		
+		-- Calculate output values; only written if multiplexer allows through
+		FOR i IN 0 TO 15 LOOP
+			CASE cache_reg(i) IS
+				WHEN psame => 	data_calculated(i) <= vdin(i);
+				WHEN pblack => 	data_calculated(i) <= '1';
+				WHEN pwhite => 	data_calculated(i) <= '0';
+				WHEN pinvert => data_calculated(i) <= vdin(i) XOR '1';
+				WHEN OTHERS => NULL;
+			END CASE; --pix_cache(i)
+		END LOOP;
+		
 		IF ((state = m1) OR (state = m2)) AND start = '1' THEN
 			delay_i <= '1';
 		END IF; -- delay_i
@@ -78,16 +100,8 @@ BEGIN
 			NULL;
 			
 		ELSIF state = m2 THEN
-			-- Set up output data
-			FOR i IN 0 TO 15 LOOP
-				CASE cache_reg(i) IS
-					WHEN psame => 	data_ram_i(i) <= vdin(i);
-					WHEN pblack => 	data_ram_i(i) <= '1';
-					WHEN pwhite => 	data_ram_i(i) <= '0';
-					WHEN pinvert => data_ram_i(i) <= vdin(i) XOR '1';
-					WHEN OTHERS => NULL;
-				END CASE; --pix_cache(i)
-			END LOOP;
+			NULL;
+			
 		ELSIF state = m3 THEN
 			vwrite_i <= '1';
 		END IF; -- react to state machine
@@ -108,8 +122,9 @@ BEGIN
 		-- Store cache in register
 		cache_reg <= cache;
 		
-		-- Register MUX output
+		-- Register MUX outputs for address, data
 		addr_ram_sync_i <= addr_ram_i;
+		data_ram_sync_i <= data_ram_i;
 
 		-- Set nstate to m1, no matter what state is
 		IF start = '1' THEN
@@ -202,7 +217,8 @@ ARCHITECTURE rtl1 OF rcb IS
 	SIGNAL cache_is_same 						: std_logic;
 
 	-- Define signals for use with vram_control
-	SIGNAL vram_start, vram_done, vram_delay, vram_busy, vram_write : std_logic;
+	SIGNAL vram_start, vram_done, vram_delay, vram_busy : std_logic;
+	SIGNAL vram_write, vram_write_i, vram_write_sync 	: std_logic;
 
 	-- Define overall state machine
 	TYPE rcb_states IS (DRAW, CLEAR);
@@ -285,15 +301,23 @@ BEGIN
 
 	END PROCESS SPLIT;
 
-	-- Process dictating whether a write is required
-	VRAM : PROCESS(vram_delay, word_is_same, db_finish, cache_is_same, idle_cycles) IS
+	-- Multiplexer determining whether to allow vram_write through to processes
+	VRAM_MUX : PROCESS(vram_delay, vram_write_i, vram_write_sync) IS
 	BEGIN
 		IF vram_delay = '0' THEN
-			vram_write <= ((NOT word_is_same) OR db_finish) AND NOT cache_is_same;
-			IF idle_cycles > N THEN
-				vram_write <= '1';
-			END IF; -- idle cycles
-		END IF; --vram_delay
+			vram_write <= vram_write_i;
+		ELSE
+			vram_write <= vram_write_sync;
+		END IF;
+	END PROCESS VRAM_MUX;
+	
+	-- Process dictating whether a write is required
+	VRAM : PROCESS(word_is_same, db_finish, cache_is_same, idle_cycles) IS
+	BEGIN
+		vram_write_i <= ((NOT word_is_same) OR db_finish) AND NOT cache_is_same;
+		IF idle_cycles > N THEN
+			vram_write_i <= '1';
+		END IF; -- idle cycles
 	END PROCESS VRAM;
 
 	-- Logic depending on state change
@@ -396,6 +420,8 @@ BEGIN
 		vraddr <= word_reg_delayed;
 		-- Store X,Y values in case of clearscreen
 		xy_prev <= (x => dbb_bus.X, y => dbb_bus.Y);
+		-- Store vram_write in register
+		vram_write_sync <= vram_write;
 
 		-- If VRAM is delayed, wait for it to finish before continuing
 		IF vram_delay = '0' THEN

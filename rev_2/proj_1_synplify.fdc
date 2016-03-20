@@ -1,10 +1,7 @@
-#1000 define_clock {p:clk} -name {vdp|clk} -ref_rise {0.0} -ref_fall {4.693000} -uncertainty {0.000000} -period {9.386000} -clockgroup {Autoconstr_clkgroup_0} -rise {0.0} -fall {4.693000}
-#1001 define_clock {n:DB1.db_fsm_state[5]} -name {db|db_fsm_state_derived_clock[5]} -ref_rise {0.0} -ref_fall {4.693000} -uncertainty {0.000000} -period {9.386000} -clockgroup {Autoconstr_clkgroup_0} -rise {0.0} -fall {4.693000}
+#1000 define_clock {p:clk} -name {vdp|clk} -ref_rise {0.0} -ref_fall {5.663100} -uncertainty {0.000000} -period {11.326200} -clockgroup {Autoconstr_clkgroup_0} -rise {0.0} -fall {5.663100}
+#1001 define_clock {n:DB1.db_fsm_state[5]} -name {db|db_fsm_state_derived_clock[5]} -ref_rise {0.0} -ref_fall {5.663100} -uncertainty {0.000000} -period {11.326200} -clockgroup {Autoconstr_clkgroup_0} -rise {0.0} -fall {5.663100}
 #1002 define_multicycle_path -setup -from {c:db|db_fsm_state_derived_clock[5]} -to {c:db|db_fsm_state_derived_clock[5]} {2}
 #1003 define_multicycle_path -hold -from {c:db|db_fsm_state_derived_clock[5]} -to {c:db|db_fsm_state_derived_clock[5]} {1} -disable
-#1004 define_clock {n:DB1.db_fsm_state[1]} -name {db|db_fsm_state_derived_clock[1]} -ref_rise {0.0} -ref_fall {4.693000} -uncertainty {0.000000} -period {9.386000} -clockgroup {Autoconstr_clkgroup_0} -rise {0.0} -fall {4.693000}
+#1004 define_clock {n:DB1.db_fsm_state[1]} -name {db|db_fsm_state_derived_clock[1]} -ref_rise {0.0} -ref_fall {5.663100} -uncertainty {0.000000} -period {11.326200} -clockgroup {Autoconstr_clkgroup_0} -rise {0.0} -fall {5.663100}
 #1005 define_multicycle_path -setup -from {c:db|db_fsm_state_derived_clock[1]} -to {c:db|db_fsm_state_derived_clock[1]} {2}
 #1006 define_multicycle_path -hold -from {c:db|db_fsm_state_derived_clock[1]} -to {c:db|db_fsm_state_derived_clock[1]} {1} -disable
-#1007 define_clock {n:RCB1.E2.state[2]} -name {ram_fsm|state_derived_clock[2]} -ref_rise {0.0} -ref_fall {4.693000} -uncertainty {0.000000} -period {9.386000} -clockgroup {Autoconstr_clkgroup_0} -rise {0.0} -fall {4.693000}
-#1008 define_multicycle_path -setup -from {c:ram_fsm|state_derived_clock[2]} -to {c:ram_fsm|state_derived_clock[2]} {2}
-#1009 define_multicycle_path -hold -from {c:ram_fsm|state_derived_clock[2]} -to {c:ram_fsm|state_derived_clock[2]} {1} -disable

@@ -9,17 +9,17 @@ The file contains the job information from mapper to be displayed as part of the
 <title>Synopsys Altera Technology Mapper</title>
 </report_link>
 <job_status>
-<data>Completed</data>
+<data>Running</data>
 </job_status>
 <job_info>
 <info name="Notes">
-<data>27</data>
+<data>16</data>
 <report_link name="more">
 <data>\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\synlog\report\proj_1_fpga_mapper_notes.txt</data>
 </report_link>
 </info>
 <info name="Warnings">
-<data>23</data>
+<data>66</data>
 <report_link name="more">
 <data>\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\synlog\report\proj_1_fpga_mapper_warnings.txt</data>
 </report_link>
@@ -34,13 +34,13 @@ The file contains the job information from mapper to be displayed as part of the
 <data>0h:00m:05s</data>
 </info>
 <info name="Real Time">
-<data>0h:00m:14s</data>
+<data>0h:00m:13s</data>
 </info>
 <info name="Peak Memory">
-<data>146MB</data>
+<data>157MB</data>
 </info>
 <info name="Date &amp; Time">
-<data type="timestamp">1458499264</data>
+<data type="timestamp">1458502829</data>
 </info>
 </job_info>
 </job_run_status>

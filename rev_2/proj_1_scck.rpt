@@ -1,7 +1,7 @@
 # Synospys Constraint Checker(syntax only), version maprc, Build 1911R, built Nov 26 2013
 # Copyright (C) 1994-2013, Synopsys, Inc. This software and the associated documentation are proprietary to Synopsys, Inc. This software may only be used in accordance with the terms and conditions of a written license agreement with Synopsys, Inc.  All other use or distribution of the software is strictly prohibited.
 
-# Written on Sun Mar 20 18:40:48 2016
+# Written on Sun Mar 20 19:40:13 2016
 
 
 ##### DESIGN INFO #######################################################
@@ -24,9 +24,8 @@ Clock Summary
 Start                                Requested     Requested     Clock                      Clock                
 Clock                                Frequency     Period        Type                       Group                
 -----------------------------------------------------------------------------------------------------------------
-System                               408.8 MHz     2.446         system                     system_clkgroup      
-db|db_fsm_state_derived_clock[1]     1.0 MHz       1000.000      derived (from vdp|clk)     Autoconstr_clkgroup_0
-db|db_fsm_state_derived_clock[5]     1.0 MHz       1000.000      derived (from vdp|clk)     Autoconstr_clkgroup_0
-ram_fsm|state_derived_clock[2]       1.0 MHz       1000.000      derived (from vdp|clk)     Autoconstr_clkgroup_0
-vdp|clk                              1.0 MHz       1000.000      inferred                   Autoconstr_clkgroup_0
+System                               218.9 MHz     4.569         system                     system_clkgroup      
+db|db_fsm_state_derived_clock[1]     4.2 MHz       240.324       derived (from vdp|clk)     Autoconstr_clkgroup_0
+db|db_fsm_state_derived_clock[5]     4.2 MHz       240.324       derived (from vdp|clk)     Autoconstr_clkgroup_0
+vdp|clk                              4.2 MHz       240.324       inferred                   Autoconstr_clkgroup_0
 =================================================================================================================

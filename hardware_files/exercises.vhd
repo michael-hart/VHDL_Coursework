@@ -19,8 +19,12 @@ ARCHITECTURE together OF pix_word_cache IS
 
   SIGNAL pre_rdout_par : store_t;
   SIGNAL rdout1_to_opram, opout_to_rdin1 : pixop_t;
-
+  SIGNAL cache_op : std_logic_vector(1 DOWNTO 0);
+  
   BEGIN
+  
+  -- For use with case statement. Removes use of variable so warnings disappear on synplify
+  cache_op <= (wen_all, pw);
 
   T1: PROCESS (pre_rdout_par, pixnum)
   BEGIN
@@ -72,15 +76,13 @@ ARCHITECTURE together OF pix_word_cache IS
     END PROCESS C1;
 
     N1: PROCESS
-      VARIABLE case_statement:std_logic_vector(1 DOWNTO 0);
-      BEGIN
+    BEGIN
       WAIT UNTIL clk'EVENT AND clk = '1';
       IF reset = '1' THEN
         pre_rdout_par <= (OTHERS => psame);
 
       ELSE
-        case_statement := (wen_all, pw);
-        CASE case_statement IS
+        CASE cache_op IS
           WHEN "00"   =>  	NULL;
 
           WHEN "10"   =>  	pre_rdout_par <= (OTHERS => psame);

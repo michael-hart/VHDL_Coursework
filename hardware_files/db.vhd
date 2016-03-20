@@ -26,7 +26,7 @@ END db;
 
 ARCHITECTURE rtl OF db IS
 -- Registers.
-SIGNAL hdb_reg 		: STD_LOGIC_VECTOR(((VSIZE * 2) + 3) DOWNTO 0);
+SIGNAL hdb_reg 		: STD_LOGIC_VECTOR(((VSIZE * 2) + 1) DOWNTO 0);
 SIGNAL xy_old_reg : STD_LOGIC_VECTOR(((VSIZE * 2) - 1) DOWNTO 0);
 
 -- Multiplexer signals, controlled by DB_FSM
@@ -49,7 +49,7 @@ SIGNAL init, draw, done, disable : std_logic;
 -- For DB_FSM
 SIGNAL db_fsm_state, db_fsm_nstate : state_db;
 
--- Aliases for easier reference when it comes to slices.
+-- Aliases for easier reference when it comes to slices. 
 ALIAS new_x : std_logic_vector((VSIZE - 1) DOWNTO 0) IS hdb_reg(((VSIZE * 2) + 1) DOWNTO (VSIZE + 2));
 ALIAS new_y : std_logic_vector((VSIZE - 1) DOWNTO 0) IS hdb_reg((VSIZE + 1) DOWNTO 2);
 ALIAS old_x : std_logic_vector((VSIZE - 1) DOWNTO 0) IS xy_old_reg((VSIZE * 2 - 1) DOWNTO VSIZE);
@@ -64,7 +64,7 @@ BEGIN
 	REG : PROCESS BEGIN
 		WAIT UNTIL clk'EVENT AND clk = '1';
 		IF busy = '0' THEN
-			hdb_reg <= hdb;
+			hdb_reg <= hdb(hdb'HIGH-2 DOWNTO 0);
 		ELSE
 			hdb_reg <= hdb_reg;
 		END IF;
@@ -174,7 +174,7 @@ BEGIN
 	END PROCESS FSM;
 
 	-- For determining next state.
-	N_FSM : PROCESS (db_fsm_state, dav, done, dbb_delaycmd, op) BEGIN
+	N_FSM : PROCESS (db_fsm_state, dav, done, dbb_delaycmd) BEGIN
 		-- By default remain in same state.
 		db_fsm_nstate <= db_fsm_state;
 
@@ -221,7 +221,7 @@ BEGIN
 				db_fsm_nstate <= s_clear1;
 			END IF;
 
-		ELSE -- db_fsm_state = s_clear2
+		ELSIF db_fsm_state = s_clear2 THEN
 
 			IF dbb_delaycmd = '0' THEN
 				db_fsm_nstate <= s_wait;
@@ -247,109 +247,37 @@ BEGIN
 
 		ELSIF db_fsm_state = s_move THEN
 			busy <= '1';
-			disable <= '1';
-			init <= '0';
-			draw <= '0';
-			dbb_bus.startcmd <= '0';
 			update_old <= '1';
-			mux_in <= '0';
-			mux_out <= '0';
-			oct_lock <= '0';
-			-- busy <= '1';
-			-- update_old <= '1';
 
 		ELSIF db_fsm_state = s_draw1 THEN
 			busy <= '1';
-			disable <= '1';
-			init <= '0';
-			draw <= '0';
-			dbb_bus.startcmd <= '0';
-			update_old <= '0';
-			mux_in <= '0';
-			mux_out <= '0';
-			oct_lock <= '0';
-			-- busy <= '1';
 
 		ELSIF db_fsm_state = s_draw2 THEN
-			busy <= '1';
-			disable <= '1';
-			init <= '0';
-			draw <= '0';
-			dbb_bus.startcmd <= '0';
-			update_old <= '0';
-			mux_in <= '0';
-			mux_out <= '0';
 			oct_lock <= '1';
-			-- oct_lock <= '1';
 
 		ELSIF db_fsm_state = s_draw3 THEN
-			busy <= '1';
 			disable <= '0';
 			init <= '1';
-			draw <= '0';
-			dbb_bus.startcmd <= '0';
-			update_old <= '0';
-			mux_in <= '0';
-			mux_out <= '0';
-			oct_lock <= '1';
-			-- disable <= '0';
-			-- init <= '1';
 
 		ELSIF db_fsm_state = s_draw4 THEN
-			busy <= '1';
-			disable <= '1';
 			init <= '0';
 			draw <= '1';
-			dbb_bus.startcmd <= '0';
-			update_old <= '0';
 			mux_in <= '1';
-			mux_out <= '0';
-			oct_lock <= '1';
-			-- init <= '0';
-			-- draw <= '1';
-			-- mux_in <= '1';
 
 		ELSIF db_fsm_state = s_draw5 THEN
-			busy <= '1';
-			disable <= dbb_delaycmd;
-			init <= '0';
 			draw <= '0';
-			dbb_bus.startcmd <= '1';
 			update_old <= '1';
-			mux_in <= '1';
-			mux_out <= '0';
-			oct_lock <= '1';
-			-- draw <= '0';
-			-- update_old <= '1';
-			-- dbb_bus.startcmd <= '1';
-			-- disable <= dbb_delaycmd;
+			dbb_bus.startcmd <= '1';
+			disable <= dbb_delaycmd;
 
 		ELSIF db_fsm_state = s_clear1 THEN
 			busy <= '1';
-			disable <= '1';
-			init <= '0';
-			draw <= '0';
-			dbb_bus.startcmd <= '1';
-			update_old <= '0';
-			mux_in <= '0';
 			mux_out <= '1';
-			oct_lock <= '0';
-			-- busy <= '1';
-			-- mux_out <= '1';
-			-- dbb_bus.startcmd <= '1';
+			dbb_bus.startcmd <= '1';
 
 		ELSE -- db_fsm_state = s_clear2
-			busy <= '1';
-			disable <= '1';
-			init <= '0';
-			draw <= '0';
-			dbb_bus.startcmd <= '1';
-			update_old <= '1';
 			mux_in <= '1';
-			mux_out <= '1';
-			oct_lock <= '0';
-			-- mux_in <= '1';
-			-- update_old <= '1';
+			update_old <= '1';
 
 		END IF;
 
@@ -371,7 +299,7 @@ BEGIN
 			dbb_bus.rcb_cmd <= '1' & pen;
 
 		ELSE
-			dbb_bus.rcb_cmd = dbb_bus.rcb_cmd;
+			NULL;
 
 		END IF;
 
