@@ -46,18 +46,6 @@ BEGIN
 		db_finish => db_finish
 	);
 
-	--DB2 : ENTITY db_behav PORT MAP (
-	--	clk => clk, 
-	--	reset => reset,
-	--	hdb => hdb,
-	--	dav => dav,
-	--	hdb_busy => hdb_busy,
-	--	dbb => dbb_bus, 
-	--	dbb_delaycmd => dbb_delaycmd,
-	--	dbb_rcbclear => '0',
-	--	db_finish => db_finish
-	--);
-		
 	-- Instantiate RAM control block entity
 	RCB1 : ENTITY rcb GENERIC MAP (vsize => VSIZE) PORT MAP (
 		clk => clk,

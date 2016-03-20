@@ -13,6 +13,10 @@ PACKAGE project_pack IS
 		startcmd : std_logic;
 	END RECORD;
 
+	TYPE coord IS RECORD
+		X, Y 	 : std_logic_vector(VSIZE - 1 DOWNTO 0);
+	END RECORD;
+
 
 	-- Taken from pix_cache_pak.vhd
 	TYPE pixop_t IS ARRAY (1 DOWNTO 0) OF std_logic;

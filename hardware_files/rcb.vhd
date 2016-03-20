@@ -151,56 +151,54 @@ ENTITY rcb IS
 
 		-- db connections
 		dbb_bus      : IN db_2_rcb;
-		dbb_delaycmd : OUT STD_LOGIC;
+		dbb_delaycmd : OUT std_logic;
 		db_finish 	 : IN std_logic;
 
 		-- vram connections
-		vdout        : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-		vdin         : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-		vwrite       : OUT STD_LOGIC;
-		vaddr        : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+		vdout        : IN  std_logic_vector(15 DOWNTO 0);
+		vdin         : OUT std_logic_vector(15 DOWNTO 0);
+		vwrite       : OUT std_logic;
+		vaddr        : OUT std_logic_vector(7 DOWNTO 0);
 
 		-- vdp connection
-		rcb_finish   : OUT STD_LOGIC
+		rcb_finish   : OUT std_logic
 	);
 END rcb;
 
 ARCHITECTURE rtl1 OF rcb IS
 	-- Signals for internal use
-	SIGNAL clrx_reg, clry_reg : STD_LOGIC_VECTOR(VSIZE-1 DOWNTO 0);
-	SIGNAL split_x, split_y : STD_LOGIC_VECTOR(VSIZE-1 DOWNTO 0);
-	SIGNAL word_reg, word_reg_delayed, vraddr : STD_LOGIC_VECTOR((2*VSIZE)-5 DOWNTO 0);
-	SIGNAL word_is_same : std_logic;
-	SIGNAL rcb_finish_i : std_logic;
-	SIGNAL cache_store_reg : store_t;
-	SIGNAL busy : std_logic;
-	SIGNAL idle_cycles : INTEGER;
+	SIGNAL clrxy_reg 							: coord; 
+	SIGNAL word_reg, word_reg_delayed, vraddr 	: std_logic_vector((2*VSIZE)-5 DOWNTO 0);
+	SIGNAL word_is_same 						: std_logic;
+	SIGNAL rcb_finish_i 						: std_logic;
+	SIGNAL cache_store_reg 						: store_t;
+	SIGNAL busy 								: std_logic;
+	SIGNAL idle_cycles 							: INTEGER;
 
 	-- Clearscreen parameters
-	SIGNAL x_min, y_min : STD_LOGIC_VECTOR(VSIZE-1 DOWNTO 0);
-	SIGNAL x_max, y_max : STD_LOGIC_VECTOR(VSIZE-1 DOWNTO 0);
+	SIGNAL xy_min, xy_max 						: coord;
 
 	-- Signals for DB
-	SIGNAL delaycmd : std_logic;
+	SIGNAL delaycmd 							: std_logic;
 
 	-- Signals for pix_word_cache
-	SIGNAL pixnum, pixnum_i : STD_LOGIC_VECTOR(3 DOWNTO 0);
-	SIGNAL wen_all, pw : std_logic;
-	SIGNAL pixopin : pixop_t;
-	SIGNAL cache_store : store_t;
-	SIGNAL cache_is_same : std_logic;
+	SIGNAL pixnum, pixnum_i 					: std_logic_vector(3 DOWNTO 0);
+	SIGNAL wen_all, pw 							: std_logic;
+	SIGNAL pixopin 								: pixop_t;
+	SIGNAL cache_store 							: store_t;
+	SIGNAL cache_is_same 						: std_logic;
 
 	-- Define signals for use with vram_control
 	SIGNAL vram_start, vram_done, vram_delay, vram_busy, vram_write : std_logic;
 
 	-- Define overall state machine
 	TYPE rcb_states IS (DRAW, CLEAR);
-	SIGNAL rcb_state : rcb_states;
+	SIGNAL rcb_state 							: rcb_states;
 
-	SIGNAL x_prev, y_prev : STD_LOGIC_VECTOR(VSIZE-1 DOWNTO 0);
+	SIGNAL xy_prev 								: coord;
 
 	-- Output signals from MUX
-	SIGNAL splitx, splity : STD_LOGIC_VECTOR(VSIZE-1 DOWNTO 0);
+	SIGNAL splitxy								: coord;
 
 BEGIN
 
@@ -241,28 +239,26 @@ BEGIN
 
 
 	-- Input MUX for which (X,Y) co-ords to use
-	INMUX : PROCESS(dbb_bus.X, dbb_bus.Y, clrx_reg, clry_reg, rcb_state) IS
+	INMUX : PROCESS(dbb_bus.X, dbb_bus.Y, clrxy_reg, rcb_state) IS
 	BEGIN
 		-- Check current state
 		IF rcb_state = CLEAR THEN
-			splitx <= clrx_reg;
-			splity <= clry_reg;
+			splitxy <= clrxy_reg;
 		ELSE
-			splitx <= dbb_bus.X;
-			splity <= dbb_bus.Y;
+			splitxy <= (x => dbb_bus.X, y => dbb_bus.Y);
 		END IF;
 	END PROCESS INMUX;
 
 
 	-- Split module. vram_start is in sensitivity list to force an update to word_is_same after
 	-- a RAM operation is triggered
-	SPLIT : PROCESS(splitx, splity) IS
+	SPLIT : PROCESS(splitxy) IS
 		VARIABLE word_reg_i : STD_LOGIC_VECTOR((2*VSIZE)-5 DOWNTO 0);
 	BEGIN
 
 		-- Split X,Y into pixnum and word values
-		pixnum <= splity(1 DOWNTO 0) & splitx(1 DOWNTO 0);
-		word_reg_i := splity(VSIZE-1 DOWNTO 2) & splitx(VSIZE-1 DOWNTO 2);
+		pixnum <= splitxy.y(1 DOWNTO 0) & splitxy.x(1 DOWNTO 0);
+		word_reg_i := splitxy.y(VSIZE-1 DOWNTO 2) & splitxy.x(VSIZE-1 DOWNTO 2);
 
 		-- Check if the word is the same as previously
 		IF word_reg = word_reg_i THEN
@@ -342,12 +338,12 @@ BEGIN
 							delaycmd <= '1';
 							
 							-- Bottom left pixel
-							x_min <= MIN_SLV(x_prev, dbb_bus.X);
-							y_min <= MIN_SLV(y_prev, dbb_bus.Y);
+							xy_min <= ( x => MIN_SLV(xy_prev.x, dbb_bus.X),
+										y => MIN_SLV(xy_prev.y, dbb_bus.Y));
 
 							-- Top right pixel
-							x_max <= MAX_SLV(x_prev, dbb_bus.X);
-							y_max <= MAX_SLV(y_prev, dbb_bus.Y);
+							xy_max <= ( x => MAX_SLV(xy_prev.x, dbb_bus.X),
+										y => MAX_SLV(xy_prev.y, dbb_bus.Y));
 
 						END IF; -- Command decode
 
@@ -356,7 +352,8 @@ BEGIN
 				ELSIF rcb_state = CLEAR THEN
 				  
 				  	-- If clearing, then delay next command
-				  	IF clrx_reg = x_max AND clry_reg = y_max THEN
+				  	IF clrxy_reg = xy_max THEN
+				  	--IF clrx_reg = x_max AND clry_reg = y_max THEN
 				  		delaycmd <= '0';
 				  	ELSE
 				  		delaycmd <= '1';
@@ -385,15 +382,7 @@ BEGIN
 		word_reg_delayed <= word_reg;
 		vraddr <= word_reg_delayed;
 		-- Store X,Y values in case of clearscreen
-		x_prev <= dbb_bus.X;
-		y_prev <= dbb_bus.Y;
-
-		-- Print current command while not finished
-		IF rcb_finish_i = '0' THEN
-			REPORT "RCB Input Op is " & to_string(dbb_bus.rcb_cmd) & " at x,y "
-			 & integer'image(to_integer(unsigned(dbb_bus.X))) & ", " 
-			 & integer'image(to_integer(unsigned(dbb_bus.Y))) & " and delay is " & std_logic'image(delaycmd) & " and word_is_same is " & std_logic'image(word_is_same);
-		END IF; -- rcb_finish_i
+		xy_prev <= (x => dbb_bus.X, y => dbb_bus.Y);
 
 		-- If VRAM is delayed, wait for it to finish before continuing
 		IF vram_delay = '0' THEN
@@ -411,8 +400,7 @@ BEGIN
 			IF rcb_state = DRAW THEN
 				-- If drawing and clear is commanded, change state
 				IF dbb_bus.startcmd = '1' AND dbb_bus.rcb_cmd(2) = '1' THEN
-					clrx_reg <= x_min;
-					clry_reg <= y_min;
+					clrxy_reg <= xy_min;
 					nstate := CLEAR;
 				ELSE
 					-- If DB is finished and we are not busy, assert finished TODO define busy
@@ -421,33 +409,22 @@ BEGIN
 
 			ELSIF rcb_state = CLEAR THEN
 
-				REPORT "RCB clear state reached. " 
-					--&  "(x_min, y_min) are (" & to_string(x_min) & ", " & to_string(y_min) & "); "
-					&  "(x_max, y_max) are (" & to_string(x_max) & ", " & to_string(y_max) & "); "
-					&  "(x_clr, y_clr) are (" & to_string(clrx_reg) & ", " & to_string(clry_reg) & ")";
-
 				-- Need to only increment pixel if we're not current writing
 				IF vram_write = '0' THEN
 
 					-- Calculate next pixel location. Use raster scan, so left to right, bottom to top
-					IF clrx_reg = x_max THEN
+					IF clrxy_reg.x = xy_max.x THEN
 						-- Check for clearscreen finish
-						IF x_max = clrx_reg AND y_max = clry_reg THEN
+						IF clrxy_reg = xy_max THEN
 							nstate := DRAW;
 						ELSE
 							-- Hit far right, so reset left and move up a row
-							clry_reg <= std_logic_vector(unsigned(clry_reg) + 1);
-							-- Need to reset x to far left
-							clrx_reg <= x_min;
+							clrxy_reg <= (	x => xy_min.x,
+											y => std_logic_vector(unsigned(clrxy_reg.y) + 1));
 						END IF; -- row transition
 					ELSE
-						clrx_reg <= std_logic_vector(unsigned(clrx_reg) + 1);
+						clrxy_reg.x <= std_logic_vector(unsigned(clrxy_reg.x) + 1);
 					END IF; -- pixel increment
-
-					-- Check for clearscreen finish
-					IF x_max = clrx_reg AND y_max = clry_reg THEN
-						nstate := DRAW;
-					END IF; -- clearscreen finish
 
 				END IF; -- vram_write
 
