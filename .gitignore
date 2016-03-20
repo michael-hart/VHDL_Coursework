@@ -15,6 +15,7 @@ simulation/*
 # Ignore files built by modelsim
 work/*
 tb_files/work/*
+tb_files/synplify/*
 
 # Ignore files used by modelsim in simulation - shouldn't be necessary is modelsim is closed first
 *wlf*
