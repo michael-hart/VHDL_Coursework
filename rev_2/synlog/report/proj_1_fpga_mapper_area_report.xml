@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- *************************************************************************************
+FILE DESCRIPTION
+The file contains the area information from mapper to be displayed as part of the summary report.
+*******************************************************************************************-->
+<report_table display_priority="1" name="Area Summary">
+<report_link name="Detailed report">
+<data>\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\synlog\report\proj_1_fpga_mapper_resourceusage.rpt</data>
+<title>START OF AREA REPORT</title>
+</report_link>
+<parameter tcl_name="total_luts" tooltip="Total LUTs for combinational functions used" name="LUTs for combinational functions">
+<data>740</data>
+</parameter>
+<parameter tcl_name="non_io_reg" tooltip="Total Non I/O Registers used" name="Non I/O Registers">
+<data>343</data>
+</parameter>
+<parameter tooltip="Total I/O Pins used" name="I/O Pins">
+<data>62</data>
+</parameter>
+<parameter tcl_name="total_io_reg" tooltip="Total I/O registers used" name="I/O registers">
+<data>0</data>
+</parameter>
+<parameter tcl_name="dsp_used" tooltip="Total DSP Blocks used" name="DSP Blocks">
+<data>0 (13)</data>
+</parameter>
+<parameter tooltip="Total Memory Bits used" name="Memory Bits">
+<data>0</data>
+</parameter>
+</report_table>

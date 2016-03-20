@@ -26,7 +26,11 @@ END db;
 
 ARCHITECTURE rtl OF db IS
 -- Registers.
+<<<<<<< HEAD
 SIGNAL hdb_reg 		: STD_LOGIC_VECTOR(((VSIZE * 2) + 1) DOWNTO 0);
+=======
+SIGNAL hdb_reg 		: STD_LOGIC_VECTOR(((VSIZE * 2) - 1) DOWNTO 0);
+>>>>>>> f96cd653533c365ab99b713630f03be7d7a7a152
 SIGNAL xy_old_reg : STD_LOGIC_VECTOR(((VSIZE * 2) - 1) DOWNTO 0);
 
 -- Multiplexer signals, controlled by DB_FSM
@@ -65,7 +69,11 @@ BEGIN
 	REG : PROCESS BEGIN
 		WAIT UNTIL clk'EVENT AND clk = '1';
 		IF busy = '0' THEN
+<<<<<<< HEAD
 			hdb_reg <= hdb(hdb'HIGH-2 DOWNTO 0);
+=======
+			hdb_reg <= hdb(hdb'HIGH - 2 DOWNTO 0);
+>>>>>>> f96cd653533c365ab99b713630f03be7d7a7a152
 		ELSE
 			hdb_reg <= hdb_reg;
 		END IF;
@@ -175,7 +183,7 @@ BEGIN
 	END PROCESS FSM;
 
 	-- For determining next state.
-	N_FSM : PROCESS (db_fsm_state, dav, done, dbb_delaycmd, op) BEGIN
+	N_FSM : PROCESS (db_fsm_state, dav, done, dbb_delaycmd) BEGIN
 		-- By default remain in same state.
 		db_fsm_nstate <= db_fsm_state;
 
@@ -261,8 +269,11 @@ BEGIN
 			init <= '1';
 
 		ELSIF db_fsm_state = s_draw4 THEN
+<<<<<<< HEAD
+=======
 			busy <= '1';
 			disable <= '0';
+>>>>>>> f96cd653533c365ab99b713630f03be7d7a7a152
 			init <= '0';
 			draw <= '1';
 			mux_in <= '1';
@@ -291,7 +302,7 @@ BEGIN
 	END PROCESS BSY;
 
 	-- CMD block to entire correct commands used.
-	CMD_O : PROCESS (hdb_reg, db_fsm_state, cmd) BEGIN
+	CMD_O : PROCESS (hdb_reg, db_fsm_state) BEGIN
 		IF db_fsm_state = s_draw2 THEN
 			cmd <= '0' & pen;
 
@@ -302,7 +313,11 @@ BEGIN
 			cmd <= '1' & pen;
 
 		ELSE
+<<<<<<< HEAD
+			NULL;
+=======
 			cmd <= cmd;
+>>>>>>> f96cd653533c365ab99b713630f03be7d7a7a152
 
 		END IF;
 

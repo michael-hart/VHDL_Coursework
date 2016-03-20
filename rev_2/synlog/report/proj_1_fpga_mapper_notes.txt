@@ -8,9 +8,23 @@
 @N: BN362 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":50:7:50:18|Removing sequential instance DB1.db_fsm_state[0] of view:ALTERA_APEX.S_DFFE_P(PRIM) in hierarchy view:work.vdp(rtl) because there are no references to its outputs 
 @N: BN362 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":50:7:50:18|Removing sequential instance DB1.db_fsm_state[2] of view:ALTERA_APEX.S_DFF_P(PRIM) in hierarchy view:work.vdp(rtl) because there are no references to its outputs 
 @N: BN362 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":50:7:50:18|Removing sequential instance DB1.db_fsm_state[1] of view:ALTERA_APEX.S_DFF_P(PRIM) in hierarchy view:work.vdp(rtl) because there are no references to its outputs 
-@N: BN362 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":50:7:50:18|Removing sequential instance DB1.db_fsm_state[4] of view:ALTERA_APEX.S_DFF_P(PRIM) in hierarchy view:work.vdp(rtl) because there are no references to its outputs 
-@N: BN362 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":50:7:50:18|Removing sequential instance DB1.db_fsm_state_0[2] of view:ALTERA_APEX.S_DFF_P(PRIM) in hierarchy view:work.vdp(rtl) because there are no references to its outputs 
-@N: BN362 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":50:7:50:18|Removing sequential instance DB1.db_fsm_state_i[8] of view:ALTERA_APEX.S_DFF_P(PRIM) in hierarchy view:work.vdp(rtl) because there are no references to its outputs 
 @N: BN362 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":50:7:50:18|Removing sequential instance DB1.db_fsm_state[3] of view:ALTERA_APEX.S_DFF_P(PRIM) in hierarchy view:work.vdp(rtl) because there are no references to its outputs 
 @N: BN362 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":50:7:50:18|Removing sequential instance DB1.db_fsm_state_0[0] of view:ALTERA_APEX.S_DFFE_P(PRIM) in hierarchy view:work.vdp(rtl) because there are no references to its outputs 
+@N: BN362 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":50:7:50:18|Removing sequential instance DB1.db_fsm_state_0[2] of view:ALTERA_APEX.S_DFF_P(PRIM) in hierarchy view:work.vdp(rtl) because there are no references to its outputs 
+@N: BN362 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":50:7:50:18|Removing sequential instance DB1.db_fsm_state[4] of view:ALTERA_APEX.S_DFF_P(PRIM) in hierarchy view:work.vdp(rtl) because there are no references to its outputs 
+@N: BN362 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":50:7:50:18|Removing sequential instance DB1.db_fsm_state_i[8] of view:ALTERA_APEX.S_DFF_P(PRIM) in hierarchy view:work.vdp(rtl) because there are no references to its outputs 
+@N: BN362 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":50:7:50:18|Removing sequential instance DB1.db_fsm_state_0[4] of view:ALTERA_APEX.S_DFF_P(PRIM) in hierarchy view:work.vdp(rtl) because there are no references to its outputs 
+@N: BN362 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":50:7:50:18|Removing sequential instance DB1.db_fsm_state_1[0] of view:ALTERA_APEX.S_DFFE_P(PRIM) in hierarchy view:work.vdp(rtl) because there are no references to its outputs 
+@N: BN362 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":50:7:50:18|Removing sequential instance DB1.db_fsm_state_0[5] of view:ALTERA_APEX.S_DFF_P(PRIM) in hierarchy view:work.vdp(rtl) because there are no references to its outputs 
+@N: BN362 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":50:7:50:18|Removing sequential instance DB1.db_fsm_state_1[2] of view:ALTERA_APEX.S_DFF_P(PRIM) in hierarchy view:work.vdp(rtl) because there are no references to its outputs 
 @N: BN362 :"\\icnas4.cc.ic.ac.uk\mh1613\git\vhdl_cwk\hardware_files\db.vhd":50:7:50:18|Removing sequential instance DB1.db_fsm_state[7] of view:ALTERA_APEX.S_DFF_P(PRIM) in hierarchy view:work.vdp(rtl) because there are no references to its outputs 
+@N: MF321 |5 registers to be packed into RAMs/DSPs blocks 
+@N: BW110 :|Renaming port draw_any_octant due to collision with Verilog reserved word 
+@N: BW110 :|Renaming port draw_octant due to collision with Verilog reserved word 
+@N: BW103 |Synopsys Constraint File time units using default value of 1ns 
+@N: BW107 |Synopsys Constraint File capacitance units using default value of 1pF 
+@N: MT320 |Timing report estimates place and route data. Please look at the place and route timing report for final timing.
+@N: MT322 |Clock constraints cover only FF-to-FF paths associated with the clock.
+@N: MT320 |Timing report estimates place and route data. Please look at the place and route timing report for final timing.
+@N: MT322 |Clock constraints cover only FF-to-FF paths associated with the clock.
+@N: FA174 |The following device usage report estimates place and route data. Please look at the place and route report for final resource usage.

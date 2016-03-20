@@ -48,7 +48,6 @@ SIGNAL init, draw, done, disable : std_logic;
 
 -- For DB_FSM
 SIGNAL db_fsm_state, db_fsm_nstate : state_db;
-SIGNAL cmd : STD_LOGIC_VECTOR (2 DOWNTO 0);
 
 -- Aliases for easier reference when it comes to slices. 
 ALIAS new_x : std_logic_vector((VSIZE - 1) DOWNTO 0) IS hdb_reg(((VSIZE * 2) + 1) DOWNTO (VSIZE + 2));
@@ -83,7 +82,7 @@ BEGIN
 			negx1	 	<= negx;
 			negy1	 	<= negy;
 			xbias1  <= xbias;
-		ELSE
+		ELSE 
 			swapxy1 <= swapxy1;
 			negx1	<= negx1;
 			negy1	<= negy1;
@@ -175,7 +174,7 @@ BEGIN
 	END PROCESS FSM;
 
 	-- For determining next state.
-	N_FSM : PROCESS (db_fsm_state, dav, done, dbb_delaycmd, op) BEGIN
+	N_FSM : PROCESS (db_fsm_state, dav, done, dbb_delaycmd) BEGIN
 		-- By default remain in same state.
 		db_fsm_nstate <= db_fsm_state;
 
@@ -261,8 +260,6 @@ BEGIN
 			init <= '1';
 
 		ELSIF db_fsm_state = s_draw4 THEN
-			busy <= '1';
-			disable <= '0';
 			init <= '0';
 			draw <= '1';
 			mux_in <= '1';
@@ -291,26 +288,22 @@ BEGIN
 	END PROCESS BSY;
 
 	-- CMD block to entire correct commands used.
-	CMD_O : PROCESS (hdb_reg, db_fsm_state, cmd) BEGIN
+	CMD : PROCESS (hdb_reg, db_fsm_state) BEGIN
 		IF db_fsm_state = s_draw2 THEN
-			cmd <= '0' & pen;
+			dbb_bus.rcb_cmd <= '0' & pen;
 
 		ELSIF db_fsm_state = s_clear1 THEN
-			cmd <= "000";
+			dbb_bus.rcb_cmd <= "000";
 
 		ELSIF db_fsm_state = s_clear2 THEN
-			cmd <= '1' & pen;
+			dbb_bus.rcb_cmd <= '1' & pen;
 
 		ELSE
-			cmd <= cmd;
+			NULL;
 
 		END IF;
 
-	END PROCESS CMD_O;
-
-	CMD_UP : PROCESS(cmd) BEGIN
-		dbb_bus.rcb_cmd <= cmd;
-	END PROCESS CMD_UP;
+	END PROCESS CMD;
 
 	-- db_finish is only high if in s_wait and no more commands, dav = 0
 	FIN : PROCESS (db_fsm_state, dav) BEGIN

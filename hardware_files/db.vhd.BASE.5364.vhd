@@ -26,7 +26,7 @@ END db;
 
 ARCHITECTURE rtl OF db IS
 -- Registers.
-SIGNAL hdb_reg 		: STD_LOGIC_VECTOR(((VSIZE * 2) + 1) DOWNTO 0);
+SIGNAL hdb_reg 		: STD_LOGIC_VECTOR(((VSIZE * 2) + 3) DOWNTO 0);
 SIGNAL xy_old_reg : STD_LOGIC_VECTOR(((VSIZE * 2) - 1) DOWNTO 0);
 
 -- Multiplexer signals, controlled by DB_FSM
@@ -48,9 +48,8 @@ SIGNAL init, draw, done, disable : std_logic;
 
 -- For DB_FSM
 SIGNAL db_fsm_state, db_fsm_nstate : state_db;
-SIGNAL cmd : STD_LOGIC_VECTOR (2 DOWNTO 0);
 
--- Aliases for easier reference when it comes to slices. 
+-- Aliases for easier reference when it comes to slices.
 ALIAS new_x : std_logic_vector((VSIZE - 1) DOWNTO 0) IS hdb_reg(((VSIZE * 2) + 1) DOWNTO (VSIZE + 2));
 ALIAS new_y : std_logic_vector((VSIZE - 1) DOWNTO 0) IS hdb_reg((VSIZE + 1) DOWNTO 2);
 ALIAS old_x : std_logic_vector((VSIZE - 1) DOWNTO 0) IS xy_old_reg((VSIZE * 2 - 1) DOWNTO VSIZE);
@@ -65,7 +64,7 @@ BEGIN
 	REG : PROCESS BEGIN
 		WAIT UNTIL clk'EVENT AND clk = '1';
 		IF busy = '0' THEN
-			hdb_reg <= hdb(hdb'HIGH-2 DOWNTO 0);
+			hdb_reg <= hdb;
 		ELSE
 			hdb_reg <= hdb_reg;
 		END IF;
@@ -83,7 +82,7 @@ BEGIN
 			negx1	 	<= negx;
 			negy1	 	<= negy;
 			xbias1  <= xbias;
-		ELSE
+		ELSE 
 			swapxy1 <= swapxy1;
 			negx1	<= negx1;
 			negy1	<= negy1;
@@ -222,7 +221,7 @@ BEGIN
 				db_fsm_nstate <= s_clear1;
 			END IF;
 
-		ELSIF db_fsm_state = s_clear2 THEN
+		ELSE -- db_fsm_state = s_clear2
 
 			IF dbb_delaycmd = '0' THEN
 				db_fsm_nstate <= s_wait;
@@ -248,39 +247,109 @@ BEGIN
 
 		ELSIF db_fsm_state = s_move THEN
 			busy <= '1';
+			disable <= '1';
+			init <= '0';
+			draw <= '0';
+			dbb_bus.startcmd <= '0';
 			update_old <= '1';
+			mux_in <= '0';
+			mux_out <= '0';
+			oct_lock <= '0';
+			-- busy <= '1';
+			-- update_old <= '1';
 
 		ELSIF db_fsm_state = s_draw1 THEN
 			busy <= '1';
+			disable <= '1';
+			init <= '0';
+			draw <= '0';
+			dbb_bus.startcmd <= '0';
+			update_old <= '0';
+			mux_in <= '0';
+			mux_out <= '0';
+			oct_lock <= '0';
+			-- busy <= '1';
 
 		ELSIF db_fsm_state = s_draw2 THEN
+			busy <= '1';
+			disable <= '1';
+			init <= '0';
+			draw <= '0';
+			dbb_bus.startcmd <= '0';
+			update_old <= '0';
+			mux_in <= '0';
+			mux_out <= '0';
 			oct_lock <= '1';
+			-- oct_lock <= '1';
 
 		ELSIF db_fsm_state = s_draw3 THEN
+			busy <= '1';
 			disable <= '0';
 			init <= '1';
+			draw <= '0';
+			dbb_bus.startcmd <= '0';
+			update_old <= '0';
+			mux_in <= '0';
+			mux_out <= '0';
+			oct_lock <= '1';
+			-- disable <= '0';
+			-- init <= '1';
 
 		ELSIF db_fsm_state = s_draw4 THEN
 			busy <= '1';
-			disable <= '0';
+			disable <= '1';
 			init <= '0';
 			draw <= '1';
+			dbb_bus.startcmd <= '0';
+			update_old <= '0';
 			mux_in <= '1';
+			mux_out <= '0';
+			oct_lock <= '1';
+			-- init <= '0';
+			-- draw <= '1';
+			-- mux_in <= '1';
 
 		ELSIF db_fsm_state = s_draw5 THEN
-			draw <= '0';
-			update_old <= '1';
-			dbb_bus.startcmd <= '1';
+			busy <= '1';
 			disable <= dbb_delaycmd;
+			init <= '0';
+			draw <= '0';
+			dbb_bus.startcmd <= '1';
+			update_old <= '1';
+			mux_in <= '1';
+			mux_out <= '0';
+			oct_lock <= '1';
+			-- draw <= '0';
+			-- update_old <= '1';
+			-- dbb_bus.startcmd <= '1';
+			-- disable <= dbb_delaycmd;
 
 		ELSIF db_fsm_state = s_clear1 THEN
 			busy <= '1';
-			mux_out <= '1';
+			disable <= '1';
+			init <= '0';
+			draw <= '0';
 			dbb_bus.startcmd <= '1';
+			update_old <= '0';
+			mux_in <= '0';
+			mux_out <= '1';
+			oct_lock <= '0';
+			-- busy <= '1';
+			-- mux_out <= '1';
+			-- dbb_bus.startcmd <= '1';
 
 		ELSE -- db_fsm_state = s_clear2
-			mux_in <= '1';
+			busy <= '1';
+			disable <= '1';
+			init <= '0';
+			draw <= '0';
+			dbb_bus.startcmd <= '1';
 			update_old <= '1';
+			mux_in <= '1';
+			mux_out <= '1';
+			oct_lock <= '0';
+			-- mux_in <= '1';
+			-- update_old <= '1';
 
 		END IF;
 
@@ -291,26 +360,22 @@ BEGIN
 	END PROCESS BSY;
 
 	-- CMD block to entire correct commands used.
-	CMD_O : PROCESS (hdb_reg, db_fsm_state, cmd) BEGIN
+	CMD : PROCESS (hdb_reg, db_fsm_state) BEGIN
 		IF db_fsm_state = s_draw2 THEN
-			cmd <= '0' & pen;
+			dbb_bus.rcb_cmd <= '0' & pen;
 
 		ELSIF db_fsm_state = s_clear1 THEN
-			cmd <= "000";
+			dbb_bus.rcb_cmd <= "000";
 
 		ELSIF db_fsm_state = s_clear2 THEN
-			cmd <= '1' & pen;
+			dbb_bus.rcb_cmd <= '1' & pen;
 
 		ELSE
-			cmd <= cmd;
+			dbb_bus.rcb_cmd = dbb_bus.rcb_cmd;
 
 		END IF;
 
-	END PROCESS CMD_O;
-
-	CMD_UP : PROCESS(cmd) BEGIN
-		dbb_bus.rcb_cmd <= cmd;
-	END PROCESS CMD_UP;
+	END PROCESS CMD;
 
 	-- db_finish is only high if in s_wait and no more commands, dav = 0
 	FIN : PROCESS (db_fsm_state, dav) BEGIN

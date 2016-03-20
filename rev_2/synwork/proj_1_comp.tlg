@@ -17,13 +17,11 @@ Post processing for work.rcb.rtl1
 @W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":341:2:341:3|Latch generated from process for signal vram_start; possible missing assignment in an if or case statement.
 @N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":7:7:7:8|Synthesizing work.db.rtl 
 @N: CD231 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\project_pack.vhd":20:16:20:17|Using onehot encoding for type state_db (s_wait="100000000")
-@N: CD364 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":69:3:69:9|Removed redundant assignment
-@N: CD364 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":86:3:86:9|Removed redundant assignment
-@N: CD364 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":87:3:87:7|Removed redundant assignment
+@N: CD364 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":70:3:70:9|Removed redundant assignment
+@N: CD364 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":87:3:87:9|Removed redundant assignment
 @N: CD364 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":88:3:88:7|Removed redundant assignment
-@N: CD364 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":89:3:89:8|Removed redundant assignment
-@W: CG296 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":177:9:177:15|Incomplete sensitivity list - assuming completeness
-@W: CG290 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":57:47:57:47|Referenced variable hdb is not in sensitivity list
+@N: CD364 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":89:3:89:7|Removed redundant assignment
+@N: CD364 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":90:3:90:8|Removed redundant assignment
 @N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":365:7:365:21|Synthesizing work.draw_any_octant.comb 
 @N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":238:7:238:10|Synthesizing work.swap.rtl 
 Post processing for work.swap.rtl
@@ -35,16 +33,16 @@ Post processing for work.draw_octant.comb
 Post processing for work.rd.behav
 Post processing for work.draw_any_octant.comb
 Post processing for work.db.rtl
-@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":237:2:237:3|Latch generated from process for signal oct_lock; possible missing assignment in an if or case statement.
-@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":237:2:237:3|Latch generated from process for signal mux_out; possible missing assignment in an if or case statement.
-@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":292:2:292:3|Latch generated from process for signal dbb_bus.rcb_cmd(2 downto 0); possible missing assignment in an if or case statement.
-@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":237:2:237:3|Latch generated from process for signal update_old; possible missing assignment in an if or case statement.
-@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":237:2:237:3|Latch generated from process for signal mux_in; possible missing assignment in an if or case statement.
-@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":237:2:237:3|Latch generated from process for signal init; possible missing assignment in an if or case statement.
-@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":237:2:237:3|Latch generated from process for signal draw; possible missing assignment in an if or case statement.
-@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":237:2:237:3|Latch generated from process for signal disable; possible missing assignment in an if or case statement.
-@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":237:2:237:3|Latch generated from process for signal dbb_bus.startcmd; possible missing assignment in an if or case statement.
-@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":237:2:237:3|Latch generated from process for signal busy; possible missing assignment in an if or case statement.
+@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":238:2:238:3|Latch generated from process for signal oct_lock; possible missing assignment in an if or case statement.
+@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":238:2:238:3|Latch generated from process for signal mux_out; possible missing assignment in an if or case statement.
+@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":295:2:295:3|Latch generated from process for signal cmd(2 downto 0); possible missing assignment in an if or case statement.
+@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":238:2:238:3|Latch generated from process for signal update_old; possible missing assignment in an if or case statement.
+@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":238:2:238:3|Latch generated from process for signal mux_in; possible missing assignment in an if or case statement.
+@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":238:2:238:3|Latch generated from process for signal init; possible missing assignment in an if or case statement.
+@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":238:2:238:3|Latch generated from process for signal draw; possible missing assignment in an if or case statement.
+@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":238:2:238:3|Latch generated from process for signal disable; possible missing assignment in an if or case statement.
+@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":238:2:238:3|Latch generated from process for signal dbb_bus.startcmd; possible missing assignment in an if or case statement.
+@W: CL117 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":238:2:238:3|Latch generated from process for signal busy; possible missing assignment in an if or case statement.
 Post processing for work.vdp.rtl
 @N: CL201 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":50:7:50:18|Trying to extract state machine for register db_fsm_state
 Extracted state machine for register db_fsm_state
