@@ -26,8 +26,8 @@ END db;
 
 ARCHITECTURE rtl OF db IS
 	-- Registers.
-	SIGNAL hdb_reg 		: STD_LOGIC_VECTOR(15 DOWNTO 0);
-	SIGNAL xy_old_reg : STD_LOGIC_VECTOR(11 DOWNTO 0);
+	SIGNAL hdb_reg 		: STD_LOGIC_VECTOR((VSIZE * 2) + 3 DOWNTO 0);
+	SIGNAL xy_old_reg : STD_LOGIC_VECTOR((VSIZE * 2) - 1 DOWNTO 0);
 
 	-- Multiplexer signals, controlled by DB_FSM
 	SIGNAL mux_in, mux_out : std_logic;
@@ -42,7 +42,7 @@ ARCHITECTURE rtl OF db IS
 	SIGNAL swapxy1, negx1, negy1, xbias1 : STD_LOGIC;
 
 	-- I/O
-	SIGNAL xin, yin, x, y : std_logic_vector(5 DOWNTO 0);
+	SIGNAL xin, yin, x, y : std_logic_vector(VSIZE-1 DOWNTO 0);
 	-- To/from DB_FSM
 	SIGNAL init, draw, done, disable : std_logic;
 
@@ -51,9 +51,15 @@ ARCHITECTURE rtl OF db IS
 
 
 	-- Aliases of vector slices to increase code readability
-	ALIAS hdb_x : std_logic_vector(VSIZE-1 DOWNTO 0) IS hdb_reg(2*VSIZE + 1 DOWNTO VSIZE+2);
-	ALIAS hdb_y : std_logic_vector(VSIZE-1 DOWNTO 0) IS hdb_reg(VSIZE+1 DOWNTO 2);
-	
+	ALIAS hdb_x     : std_logic_vector(VSIZE-1 DOWNTO 0) IS hdb(2*VSIZE + 1 DOWNTO VSIZE+2);
+	ALIAS hdb_y     : std_logic_vector(VSIZE-1 DOWNTO 0) IS hdb(VSIZE+1 DOWNTO 2);
+  ALIAS new_x     : std_logic_vector(VSIZE-1 DOWNTO 0) IS hdb_reg(2*VSIZE + 1 DOWNTO VSIZE+2);
+  ALIAS new_y     : std_logic_vector(VSIZE-1 DOWNTO 0) IS hdb_reg(VSIZE+1 DOWNTO 2);
+  ALIAS old_x     : std_logic_vector(VSIZE-1 DOWNTO 0) IS xy_old_reg(2*VSIZE - 1 DOWNTO VSIZE);
+  ALIAS old_y     : std_logic_vector(VSIZE-1 DOWNTO 0) IS xy_old_reg(VSIZE-1 DOWNTO 0);
+  ALIAS op        : std_logic_vector(1 DOWNTO 0) IS hdb_reg((VSIZE * 2) + 3 DOWNTO (VSIZE * 2) + 2);
+  ALIAS pen       : std_logic_vector(1 DOWNTO 0) IS hdb_reg(1 DOWNTO 0);
+
 BEGIN
 
 	-- Process for clocked registers.
@@ -84,18 +90,18 @@ BEGIN
 	BEGIN
 
 		-- Assign values.
-		dx := std_logic_vector(signed(resize(unsigned(hdb_reg(13 DOWNTO 8)), 7)) - signed(resize(unsigned(xy_old_reg(11 DOWNTO 6)), 7)));
-		dy := std_logic_vector(signed(resize(unsigned(hdb_reg(7 DOWNTO 2)), 7)) - signed(resize(unsigned(xy_old_reg(5 DOWNTO 0)), 7)));
+		dx := std_logic_vector(signed(resize(unsigned(new_x), VSIZE+1)) - signed(resize(unsigned(old_x), VSIZE+1)));
+		dy := std_logic_vector(signed(resize(unsigned(new_y), VSIZE+1)) - signed(resize(unsigned(old_y), VSIZE+1)));
 
 
 		-- Assign negx and negy first, equals if dx < 0, dy < 0
-		IF signed(dx) < "0000000" THEN
+		IF to_integer(signed(dx)) < 0 THEN
 			temp_negx := '1';
 		ELSE
 			temp_negx := '0';
 		END IF;
 
-		IF signed(dy) < "0000000" THEN
+		IF to_integer(signed(dy)) < 0 THEN
 			temp_negy := '1';
 		ELSE
 			temp_negy := '0';
@@ -128,11 +134,11 @@ BEGIN
 		IF mux_in = '1' THEN
 			--xin <= hdb_reg(13 DOWNTO 8);
 			--yin <= hdb_reg(7 DOWNTO 2);
-			xin <= hdb_x;
-			yin <= hdb_y;
+			xin <= new_x;
+			yin <= new_y;
 		ELSE
-			xin <= xy_old_reg(11 DOWNTO 6);
-			yin <= xy_old_reg(5 DOWNTO 0);
+			xin <= old_x;
+			yin <= old_y;
 		END IF;
 
 	END PROCESS IN_MUX;
@@ -169,11 +175,11 @@ BEGIN
 
 			IF dav = '0' THEN
 				db_fsm_nstate <= s_wait;
-			ELSIF hdb(15 DOWNTO 14) = "00" THEN
+			ELSIF op = "00" THEN
 				db_fsm_nstate <= s_move;
-			ELSIF hdb(15 DOWNTO 14) = "01" THEN
+			ELSIF op = "01" THEN
 				db_fsm_nstate <= s_draw1;
-			ELSIF hdb(15 DOWNTO 14) = "10" THEN
+			ELSIF op = "10" THEN
 				db_fsm_nstate <= s_clear1;
 			END IF;
 
@@ -277,13 +283,15 @@ BEGIN
 	-- CMD block to entire correct commands used.
 	CMD : PROCESS (hdb_reg, db_fsm_state) BEGIN
 		IF db_fsm_state = s_draw2 THEN
-			dbb_bus.rcb_cmd <= '0' & hdb_reg(1 DOWNTO 0);
+			--dbb_bus.rcb_cmd <= '0' & hdb_reg(1 DOWNTO 0);
+      dbb_bus.rcb_cmd <= '0' & pen;
 
 		ELSIF db_fsm_state = s_clear1 THEN
 			dbb_bus.rcb_cmd <= "000";
 
 		ELSIF db_fsm_state = s_clear2 THEN
-			dbb_bus.rcb_cmd <= '1' & hdb_reg(1 DOWNTO 0);
+			--dbb_bus.rcb_cmd <= '1' & hdb_reg(1 DOWNTO 0);
+      dbb_bus.rcb_cmd <= '1' & pen;
 
 		ELSE
 			NULL;
@@ -303,19 +311,19 @@ BEGIN
 
 	-- draw_any_octant block connected.
 	DAB : ENTITY draw_any_octant GENERIC MAP( vsize => vsize) PORT MAP(
-	    clk => clk,
+	  clk => clk,
 		init => init,
 		draw => draw,
 		xbias => xbias1,
 		disable => disable,
 		xin => xin,
 		yin => yin,
-	    done => done,
-	    x => x,
+	  done => done,
+	  x => x,
 		y => y,
-	    swapxy => swapxy1,
+	  swapxy => swapxy1,
 		negx => negx1,
 		negy => negy1
-	    );
+	  );
 
 END rtl;
