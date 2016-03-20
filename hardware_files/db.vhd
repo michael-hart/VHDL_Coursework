@@ -25,30 +25,35 @@ ENTITY db IS
 END db;
 
 ARCHITECTURE rtl OF db IS
--- Registers.
-SIGNAL hdb_reg 		: STD_LOGIC_VECTOR(15 DOWNTO 0);
-SIGNAL xy_old_reg : STD_LOGIC_VECTOR(11 DOWNTO 0);
+	-- Registers.
+	SIGNAL hdb_reg 		: STD_LOGIC_VECTOR(15 DOWNTO 0);
+	SIGNAL xy_old_reg : STD_LOGIC_VECTOR(11 DOWNTO 0);
 
--- Multiplexer signals, controlled by DB_FSM
-SIGNAL mux_in, mux_out : std_logic;
+	-- Multiplexer signals, controlled by DB_FSM
+	SIGNAL mux_in, mux_out : std_logic;
 
--- Register control signals
-SIGNAL update_old, busy, oct_lock : std_logic;
+	-- Register control signals
+	SIGNAL update_old, busy, oct_lock : std_logic;
 
--- Connections of draw_any_octant
--- From OCTANT_CMB
-SIGNAL swapxy, negx, negy, xbias : STD_LOGIC;
--- Latch to ensure combinational does not change during draw.
-SIGNAL swapxy1, negx1, negy1, xbias1 : STD_LOGIC;
+	-- Connections of draw_any_octant
+	-- From OCTANT_CMB
+	SIGNAL swapxy, negx, negy, xbias : STD_LOGIC;
+	-- Latch to ensure combinational does not change during draw.
+	SIGNAL swapxy1, negx1, negy1, xbias1 : STD_LOGIC;
 
--- I/O
-SIGNAL xin, yin, x, y : std_logic_vector(5 DOWNTO 0);
--- To/from DB_FSM
-SIGNAL init, draw, done, disable : std_logic;
+	-- I/O
+	SIGNAL xin, yin, x, y : std_logic_vector(5 DOWNTO 0);
+	-- To/from DB_FSM
+	SIGNAL init, draw, done, disable : std_logic;
 
--- For DB_FSM
-SIGNAL db_fsm_state, db_fsm_nstate : state_db;
+	-- For DB_FSM
+	SIGNAL db_fsm_state, db_fsm_nstate : state_db;
 
+
+	-- Aliases of vector slices to increase code readability
+	ALIAS hdb_x : std_logic_vector(VSIZE-1 DOWNTO 0) IS hdb_reg(2*VSIZE + 1 DOWNTO VSIZE+2);
+	ALIAS hdb_y : std_logic_vector(VSIZE-1 DOWNTO 0) IS hdb_reg(VSIZE+1 DOWNTO 2);
+	
 BEGIN
 
 	-- Process for clocked registers.
@@ -121,8 +126,10 @@ BEGIN
 	IN_MUX : PROCESS (mux_in, hdb_reg, xy_old_reg) BEGIN
 
 		IF mux_in = '1' THEN
-			xin <= hdb_reg(13 DOWNTO 8);
-			yin <= hdb_reg(7 DOWNTO 2);
+			--xin <= hdb_reg(13 DOWNTO 8);
+			--yin <= hdb_reg(7 DOWNTO 2);
+			xin <= hdb_x;
+			yin <= hdb_y;
 		ELSE
 			xin <= xy_old_reg(11 DOWNTO 6);
 			yin <= xy_old_reg(5 DOWNTO 0);
@@ -297,18 +304,18 @@ BEGIN
 	-- draw_any_octant block connected.
 	DAB : ENTITY draw_any_octant GENERIC MAP( vsize => vsize) PORT MAP(
 	    clk => clk,
-			init => init,
-			draw => draw,
-			xbias => xbias1,
-			disable => disable,
-			xin => xin,
-			yin => yin,
+		init => init,
+		draw => draw,
+		xbias => xbias1,
+		disable => disable,
+		xin => xin,
+		yin => yin,
 	    done => done,
 	    x => x,
-			y => y,
+		y => y,
 	    swapxy => swapxy1,
-			negx => negx1,
-			negy => negy1
+		negx => negx1,
+		negy => negy1
 	    );
 
 END rtl;

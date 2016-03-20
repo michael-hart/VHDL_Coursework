@@ -4,7 +4,7 @@
 LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
 USE IEEE.numeric_std.ALL;
-USE work.project_pack.ALL;
+USE WORK.project_pack.ALL;
 USE WORK.config_pack.ALL;
 
 ENTITY ram_fsm IS
@@ -30,15 +30,24 @@ ARCHITECTURE synth OF ram_fsm IS
 	TYPE   state_t IS (m3, m2, m1, mx);
 	SIGNAL state : state_t;
 	SIGNAL delay_i, vwrite_i : std_logic;
-	SIGNAL addr_i, addr_ram_i, addr_delayed_i : std_logic_vector(7 DOWNTO 0);
-	SIGNAL data_i : std_logic_vector(15 DOWNTO 0);
+	SIGNAL addr_ram_i : std_logic_vector(7 DOWNTO 0);
+	SIGNAL data_ram_i : std_logic_vector(15 DOWNTO 0);
 	SIGNAL busy_i : std_logic;
 	SIGNAL done_i : std_logic;
-	SIGNAL cache_reg, cache_reg_delayed : store_t;
+	SIGNAL cache_reg : store_t;
 BEGIN
 
+	-- Assign signals to outputs
+	delay <= delay_i;
+	vwrite <= vwrite_i;
+	busy <= busy_i;
+	done <= done_i;
+	addr_ram <= addr_ram_i;
+	data_ram <= data_ram_i;
+
+
 	-- Combinational logic for output std_logic signals
-	C1: PROCESS(state, start, vaddr, addr_i)
+	C1: PROCESS(state, start, vaddr)
 	BEGIN
 		-- Default values
 		delay_i <= '0';
@@ -56,17 +65,17 @@ BEGIN
 
 		-- Determine logic based on state machine
 		IF state = m1 THEN
-			addr_i <= addr_delayed_i;
+			addr_ram_i <= vaddr;
 			-- Store cache in register
 			cache_reg <= cache;
 		ELSIF state = m2 THEN
 			-- Set up output data
 			FOR i IN vdin'LOW TO vdin'HIGH LOOP
 				CASE cache_reg(i) IS
-					WHEN psame => data_i(i) <= vdin(i);
-					WHEN pblack => data_i(i) <= '1';
-					WHEN pwhite => data_i(i) <= '0';
-					WHEN pinvert => data_i(i) <= vdin(i) XOR '1';
+					WHEN psame => 	data_ram_i(i) <= vdin(i);
+					WHEN pblack => 	data_ram_i(i) <= '1';
+					WHEN pwhite => 	data_ram_i(i) <= '0';
+					WHEN pinvert => data_ram_i(i) <= vdin(i) XOR '1';
 					WHEN OTHERS => NULL;
 				END CASE; --pix_cache(i)
 			END LOOP;
@@ -75,6 +84,7 @@ BEGIN
 		END IF; -- react to state machine
 
 	END PROCESS C1;
+
 
 	-- Clocked FSM implementation on positive clock edge
 	P1: PROCESS
@@ -85,11 +95,7 @@ BEGIN
 		-- Default done state is 0
 		done_i <= '0';
 
-		-- Use previous value of word reg
-		addr_delayed_i <= vaddr;
-
-		-- Set nstate to m1, no matter what state is;
-		-- this will be overwritten later, if necessary
+		-- Set nstate to m1, no matter what state is
 		IF start = '1' THEN
 			nstate := m1;
 		END IF;
@@ -118,15 +124,6 @@ BEGIN
 
 	END PROCESS P1;
 
-	-- Assign signals to outputs for C1
-	delay <= delay_i;
-	vwrite <= vwrite_i;
-	busy <= busy_i;
-	done <= done_i;
-
-	-- Assign signals to outputs
-	addr_ram <= addr_i;
-	data_ram <= data_i;
 
 END ARCHITECTURE synth;
 

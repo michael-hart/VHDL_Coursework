@@ -5,8 +5,8 @@ USE IEEE.numeric_std.ALL;
 
 PACKAGE project_pack IS
 
-	CONSTANT RAM_WORD_SIZE : INTEGER := 16; -- fixed for this project could be changed by other applications
 
+	-- Type definitions
 	TYPE db_2_rcb IS RECORD             -- possible type for interface from DB to RCD. Change as required
 		X, Y     : std_logic_vector(VSIZE - 1 DOWNTO 0);
 		rcb_cmd  : std_logic_vector(2 DOWNTO 0);
@@ -17,23 +17,33 @@ PACKAGE project_pack IS
 		X, Y 	 : std_logic_vector(VSIZE - 1 DOWNTO 0);
 	END RECORD;
 
+	TYPE  state_db IS (s_wait, s_move, s_draw1, s_draw2, s_draw3, s_draw4, s_draw5, s_clear1, s_clear2);
 
 	-- Taken from pix_cache_pak.vhd
 	TYPE pixop_t IS ARRAY (1 DOWNTO 0) OF std_logic;
+	TYPE store_t IS ARRAY (0 TO 15) OF pixop_t;
 
+
+	-- Module constants
 	CONSTANT psame   : pixop_t := "00";
 	CONSTANT pblack  : pixop_t := "10";
 	CONSTANT pwhite  : pixop_t := "01";
 	CONSTANT pinvert : pixop_t := "11";
 
-	TYPE store_t IS ARRAY (0 TO 15) OF pixop_t;
+	-- Used for RCB commands
+	CONSTANT rcb_cmd_movepen : slv(2 DOWNTO 0) := "000";
+	CONSTANT rcb_cmd_draw_white : slv(2 DOWNTO 0) := "001";
+	CONSTANT rcb_cmd_draw_black : slv(2 DOWNTO 0) := "010";
+	CONSTANT rcb_cmd_draw_invert : slv(2 DOWNTO 0) := "011";
+	-- CONSTANT rcb_cmd_NOTUSED : slv(2 DOWNTO 0) := "100";
+	CONSTANT rcb_cmd_clear_white : slv(2 DOWNTO 0) := "101";
+	CONSTANT rcb_cmd_clear_black : slv(2 DOWNTO 0) := "110";
+	CONSTANT rcb_cmd_clear_invert : slv(2 DOWNTO 0) := "101";
+	
+	CONSTANT RAM_WORD_SIZE : INTEGER := 16; -- fixed for this project could be changed by other applications
 
-	TYPE  state_db IS (s_wait, s_move, s_draw1, s_draw2, s_draw3, s_draw4, s_draw5, s_clear1, s_clear2);
 
-	-- Aliases for use through project
-	ALIAS slv IS std_logic_vector;
-
-	-- Useful function definitions
+	-- Function definitions
 
 	-- Minimum of two integers; should be defined in numeric_std, but not working
 	FUNCTION MIN(LEFT, RIGHT : INTEGER) RETURN INTEGER;

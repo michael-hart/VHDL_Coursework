@@ -17,7 +17,7 @@ PACKAGE config_pack IS
 	-- time processing commands it may need to be extended.
 	CONSTANT post_command_delay : time    := config_clock_period * config_post_cycles;
 
-	CONSTANT config_window_width : integer := 55; -- this reduces the number of pixels displayed
+	CONSTANT config_window_width : integer := 64; -- this reduces the number of pixels displayed
 	-- on the screen at the end of the testbench
 	-- set to 64 for full display of RAM memory
 
