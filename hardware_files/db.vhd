@@ -361,14 +361,16 @@ BEGIN
 	END PROCESS BSY;
 
 	-- CMD block to entire correct commands used.
-	CMD_O : PROCESS (hdb_reg, db_fsm_state, cmd) BEGIN
-		IF db_fsm_state = s_draw2 THEN
+	CMD_O : PROCESS BEGIN
+		WAIT UNTIL clk'EVENT AND clk = '1';
+
+		IF db_fsm_nstate = s_draw2 THEN
 			cmd <= '0' & pen;
 
-		ELSIF db_fsm_state = s_clear1 THEN
+		ELSIF db_fsm_nstate = s_clear1 THEN
 			cmd <= "000";
 
-		ELSIF db_fsm_state = s_clear2 THEN
+		ELSIF db_fsm_nstate = s_clear2 THEN
 			cmd <= '1' & pen;
 
 		ELSE
