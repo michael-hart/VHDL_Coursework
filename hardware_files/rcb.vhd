@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------
--- Define entity ram_fsm_2
+-- Define entity ram_fsm
 
 LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
@@ -7,7 +7,7 @@ USE IEEE.numeric_std.ALL;
 USE work.project_pack.ALL;
 USE WORK.config_pack.ALL;
 
-ENTITY ram_fsm_2 IS
+ENTITY ram_fsm IS
 	PORT(
 		-- Input ports
 		clk, reset, start: IN std_logic;
@@ -19,20 +19,22 @@ ENTITY ram_fsm_2 IS
 		addr_ram : OUT std_logic_vector(7 DOWNTO 0);
 		data_ram : OUT std_logic_vector(15 DOWNTO 0);
 		vwrite : OUT std_logic;
+		busy : OUT std_logic;
 		done : OUT std_logic;
 		delay : OUT std_logic
 
 	);
-END ENTITY ram_fsm_2;
+END ENTITY ram_fsm;
 
-ARCHITECTURE synth OF ram_fsm_2 IS
+ARCHITECTURE synth OF ram_fsm IS
   TYPE   state_t IS (m3, m2, m1, mx);
   SIGNAL state : state_t;
   SIGNAL delay_i, vwrite_i : std_logic;
   SIGNAL addr_i, addr_ram_i, addr_delayed_i : std_logic_vector(7 DOWNTO 0);
   SIGNAL data_i : std_logic_vector(15 DOWNTO 0);
+  SIGNAL busy_i : std_logic;
   SIGNAL done_i : std_logic;
-  SIGNAL cache_reg : store_t;
+  SIGNAL cache_reg, cache_reg_delayed : store_t;
 BEGIN
 
 	-- Combinational logic for output std_logic signals
@@ -45,25 +47,40 @@ BEGIN
 		END IF; -- delay_i
 
 		vwrite_i <= '0';
-		IF state = m3 THEN
+
+		IF state = mx THEN
+			busy_i <= '0';
+		ELSE
+			busy_i <= '1';
+		END IF; -- busy check
+
+		-- Determine logic based on state machine
+		IF state = m1 THEN
+			addr_i <= addr_delayed_i;
+			-- Store cache in register
+			cache_reg <= cache;
+		ELSIF state = m2 THEN
+			-- Set up output data
+			FOR i IN vdin'LOW TO vdin'HIGH LOOP
+				CASE cache_reg(i) IS
+					WHEN psame => data_i(i) <= vdin(i);
+					WHEN pblack => data_i(i) <= '1';
+					WHEN pwhite => data_i(i) <= '0';
+					WHEN pinvert => data_i(i) <= vdin(i) XOR '1';
+					WHEN OTHERS => NULL;
+				END CASE; --pix_cache(i)
+			END LOOP;
+		ELSIF state = m3 THEN
 			vwrite_i <= '1';
-		END IF; -- vwrite_i
+		END IF; -- react to state machine
 
 	END PROCESS C1;
 
-	-- Assign signals to outputs for C1
-	delay <= delay_i;
-	vwrite <= vwrite_i;
-	done <= done_i;
-
 	-- Clocked FSM implementation on positive clock edge
-	F1: PROCESS
-	VARIABLE nstate : state_t;
+	P1: PROCESS
+		VARIABLE nstate : state_t;
 	BEGIN
 		WAIT UNTIL rising_edge(clk);
-
-		-- Store cache in register
-		cache_reg <= cache;
 
 		-- Default done state is 0
 		done_i <= '0';
@@ -75,24 +92,12 @@ BEGIN
 		-- this will be overwritten later, if necessary
 		IF start = '1' THEN
 			nstate := m1;
-			addr_i <= addr_delayed_i;
 		END IF;
 
 		-- Perform state transition using IF statements
 		IF state=m1 THEN
 			nstate := m2;
 		ELSIF state=m2 THEN
-			-- Set up output data
-			FOR i IN vdin'LOW TO vdin'HIGH LOOP
-				CASE cache_reg(i) IS
-					WHEN psame => data_i(i) <= vdin(i);
-					WHEN pblack => data_i(i) <= '1';
-					WHEN pwhite => data_i(i) <= '0';
-					WHEN pinvert => data_i(i) <= vdin(i) XOR '1';
-					WHEN OTHERS => NULL;
-				END CASE; --pix_cache(i)
-			END LOOP;
-
 			nstate := m3;
 		ELSIF state=m3 THEN
 			IF start = '1' AND reset = '0' THEN
@@ -111,7 +116,13 @@ BEGIN
 			state <= mx;
 		END IF;
 
-	END PROCESS F1;
+	END PROCESS P1;
+
+	-- Assign signals to outputs for C1
+	delay <= delay_i;
+	vwrite <= vwrite_i;
+	busy <= busy_i;
+	done <= done_i;
 
 	-- Assign signals to outputs
 	addr_ram <= addr_i;
@@ -154,9 +165,15 @@ ARCHITECTURE rtl1 OF rcb IS
 	-- Signals for internal use
 	SIGNAL clrx_reg, clry_reg : STD_LOGIC_VECTOR(VSIZE-1 DOWNTO 0);
 	SIGNAL split_x, split_y : STD_LOGIC_VECTOR(VSIZE-1 DOWNTO 0);
-	SIGNAL word_reg, word_reg_delayed : STD_LOGIC_VECTOR((2*VSIZE)-5 DOWNTO 0);
+	SIGNAL word_reg, word_reg_delayed, vraddr : STD_LOGIC_VECTOR((2*VSIZE)-5 DOWNTO 0);
 	SIGNAL word_is_same : std_logic;
 	SIGNAL rcb_finish_i : std_logic;
+	SIGNAL cache_store_reg : store_t;
+	SIGNAL busy : std_logic;
+
+	-- Clearscreen parameters
+	SIGNAL x_min, y_min : STD_LOGIC_VECTOR(VSIZE-1 DOWNTO 0);
+	SIGNAL x_max, y_max : STD_LOGIC_VECTOR(VSIZE-1 DOWNTO 0);
 
 	-- Signals for DB
 	SIGNAL delaycmd : std_logic;
@@ -169,14 +186,16 @@ ARCHITECTURE rtl1 OF rcb IS
 	SIGNAL cache_is_same : std_logic;
 
 	-- Define signals for use with vram_control
-	SIGNAL vram_start, vram_done, vram_delay : std_logic;
-
-	-- Define a constant number of cycles before writing the cache
-	CONSTANT N : INTEGER := 10;
+	SIGNAL vram_start, vram_done, vram_delay, vram_busy, vram_write : std_logic;
 
 	-- Define overall state machine
 	TYPE rcb_states IS (DRAW, CLEAR);
-	SIGNAL rcb_fsm : rcb_states;
+	SIGNAL rcb_state : rcb_states;
+
+	SIGNAL x_prev, y_prev : STD_LOGIC_VECTOR(VSIZE-1 DOWNTO 0);
+
+	-- Output signals from MUX
+	SIGNAL splitx, splity : STD_LOGIC_VECTOR(VSIZE-1 DOWNTO 0);
 
 BEGIN
 
@@ -193,182 +212,244 @@ BEGIN
 	);
 
 	-- Instantiate ram control FSM
-	E2 : ENTITY WORK.ram_fsm_2 PORT MAP(
+	E2 : ENTITY WORK.ram_fsm PORT MAP(
 		clk => clk,
 		reset => reset,
 		start => vram_start,
-		vaddr => word_reg_delayed,
+		vaddr => vraddr,
 		vdin => vdout,
-		cache => cache_store,
+		cache => cache_store_reg,
 
 		addr_ram => vaddr,
 		data_ram => vdin,
 		vwrite => vwrite,
+		busy => vram_busy,
 		done => vram_done,
 		delay => vram_delay
 	);
 
-	-- Combination process
-	C1 : PROCESS(dbb_bus.X, dbb_bus.Y, clrx_reg, clry_reg, rcb_fsm, cache_is_same, vram_done) IS
-		VARIABLE splitx, splity : STD_LOGIC_VECTOR(VSIZE-1 DOWNTO 0);
+	-- Signal assignments from entire module to output ports
+	dbb_delaycmd <= vram_delay OR delaycmd OR vram_write;
+
+	-- Assign 0 to rcb_finish, because our work is never done
+	rcb_finish <= rcb_finish_i;
+
+
+	-- Input MUX for which (X,Y) co-ords to use
+	INMUX : PROCESS(dbb_bus.X, dbb_bus.Y, clrx_reg, clry_reg, rcb_state) IS
+	BEGIN
+		-- Check current state
+		IF rcb_state = CLEAR THEN
+			splitx <= clrx_reg;
+			splity <= clry_reg;
+		ELSE
+			splitx <= dbb_bus.X;
+			splity <= dbb_bus.Y;
+		END IF;
+	END PROCESS INMUX;
+
+
+	-- Split module. vram_start is in sensitivity list to force an update to word_is_same after
+	-- a RAM operation is triggered
+	SPLIT : PROCESS(splitx, splity) IS
 		VARIABLE word_reg_i : STD_LOGIC_VECTOR((2*VSIZE)-5 DOWNTO 0);
 	BEGIN
 
-		-- Check current state
-		IF rcb_fsm = CLEAR THEN
-			splitx := clrx_reg;
-			splity := clry_reg;
-		ELSE
-			splitx := dbb_bus.X;
-			splity := dbb_bus.Y;
-		END IF;
-
-		-- Output of split
-		pixnum_i <= splity(1 DOWNTO 0) & splitx(1 DOWNTO 0);
+		-- Split X,Y into pixnum and word values
+		pixnum <= splity(1 DOWNTO 0) & splitx(1 DOWNTO 0);
 		word_reg_i := splity(VSIZE-1 DOWNTO 2) & splitx(VSIZE-1 DOWNTO 2);
-		--REPORT "Old word is " & to_string(word_reg) & " and new word is " & to_string(word_reg_i);
+
+		-- Check if the word is the same as previously
 		IF word_reg = word_reg_i THEN
 			word_is_same <= '1';
 		ELSE
 			word_is_same <= '0';
 		END IF; -- same_word check
-		word_reg <= word_reg_i;
-	END PROCESS C1;
 
-	P1 : PROCESS IS 
+		-- Set output word_reg, will be synchronised by FSM
+		word_reg <= word_reg_i;
+
+	END PROCESS SPLIT;
+
+	-- Process dictating whether a write is required
+	VRAM : PROCESS(vram_delay, word_is_same, db_finish, cache_is_same) IS
+	BEGIN
+		IF vram_delay = '0' THEN
+			vram_write <= (NOT word_is_same AND NOT cache_is_same) OR (db_finish AND NOT cache_is_same);
+		END IF; --vram_delay
+	END PROCESS VRAM;
+
+	-- Logic depending on state change
+	RCB_LOG : PROCESS(rcb_state, vram_delay, dbb_bus, vram_write, pixnum) IS
+	BEGIN
+
+		-- Default pix word cache control signals
+		pw <= '0';
+		wen_all <= '0';
+		pixopin <= psame;
+		
+		-- Default delay is 0
+		delaycmd <= '0';
+
+		-- Check if done, such that busy can be reset
+		IF vram_done = '1' THEN
+			busy <= '0';
+		END IF; --vram_done
+
+		-- If vram is not overloaded, perform process operations
+		IF vram_delay = '0' THEN
+
+			-- If we want to write, trigger it
+			IF vram_write = '1' THEN
+				-- Trigger
+				vram_start <= '1';
+				-- Have to miss this command to trigger a write
+				delaycmd <= '1';
+				-- Clear cache 
+				wen_all <= '1';
+				-- busy signal if we are triggering a write
+				busy <= '1';
+			ELSE
+		
+				-- Make sure RAM is not triggered
+				vram_start <= '0';
+
+				-- Ensure that busy is not high
+				busy <= '0';
+
+				-- If we are in draw state, decode command
+				IF rcb_state = DRAW THEN
+
+					-- Check if we are starting a command
+					IF dbb_bus.startcmd = '1' THEN
+
+						-- If the command is a draw, draw the pixel
+						IF dbb_bus.rcb_cmd(2) = '0' THEN
+
+							pw <= '1';
+							pixopin <= pixop_t(dbb_bus.rcb_cmd(1 DOWNTO 0));
+
+						ELSE
+							-- Clear command; calculate initial values
+							delaycmd <= '1';
+							
+							-- Bottom left pixel
+							x_min <= MIN_SLV(x_prev, dbb_bus.X);
+							y_min <= MIN_SLV(y_prev, dbb_bus.Y);
+
+							-- Top right pixel
+							x_max <= MAX_SLV(x_prev, dbb_bus.X);
+							y_max <= MAX_SLV(y_prev, dbb_bus.Y);
+
+						END IF; -- Command decode
+
+					END IF; -- Start command
+
+				ELSIF rcb_state = CLEAR THEN
+				  
+				  	-- If clearing, then delay next command
+				  	IF clrx_reg = x_max AND clry_reg = y_max THEN
+				  		delaycmd <= '0';
+				  	ELSE
+				  		delaycmd <= '1';
+				  	END IF;
+
+					-- Write current clearscreen pixel
+					pw <= '1';
+					pixopin <= pixop_t(dbb_bus.rcb_cmd(1 DOWNTO 0));
+
+				END IF; -- State machine decode
+
+			END IF; -- RAM write check
+
+		END IF; -- vram delay
+
+	END PROCESS RCB_LOG;
+
+
+	-- RCB_FSM controls state machine transitions and clearscreen co-ordinates
+	RCB_FSM : PROCESS IS 
 		VARIABLE nstate : rcb_states;
-		VARIABLE write_ram : std_logic;
-		VARIABLE x_prev, y_prev : STD_LOGIC_VECTOR(VSIZE-1 DOWNTO 0);
-		VARIABLE x_max, y_max : STD_LOGIC_VECTOR(VSIZE-1 DOWNTO 0);
-		VARIABLE x_min, y_min : STD_LOGIC_VECTOR(VSIZE-1 DOWNTO 0);
 	BEGIN
 		WAIT UNTIL rising_edge(clk);
 
 		-- Store word_reg in clocked flip flop
 		word_reg_delayed <= word_reg;
+		vraddr <= word_reg_delayed;
+		-- Store X,Y values in case of clearscreen
+		x_prev <= dbb_bus.X;
+		y_prev <= dbb_bus.Y;
 
+		-- Print current command while not finished
 		IF rcb_finish_i = '0' THEN
 			REPORT "RCB Input Op is " & to_string(dbb_bus.rcb_cmd) & " at x,y "
 			 & integer'image(to_integer(unsigned(dbb_bus.X))) & ", " 
 			 & integer'image(to_integer(unsigned(dbb_bus.Y))) & " and delay is " & std_logic'image(delaycmd) & " and word_is_same is " & std_logic'image(word_is_same);
 		END IF; -- rcb_finish_i
 
-		-- Default delay is 0
-		delaycmd <= '0';
-		pw <= '0'; -- Ensures writing doesn't occur unless FSM sets it to
-		wen_all <= '0';
-		vram_start <= '0';
+		-- If VRAM is delayed, wait for it to finish before continuing
+		IF vram_delay = '0' THEN
 
-		-- Check whether to write RAM contents
-		IF ((word_is_same = '0' OR write_ram = '1') OR db_finish = '1') AND cache_is_same = '0' THEN
-			
-			delaycmd <= '1';
-			IF write_ram = '0' THEN
-				REPORT "RCB beginning to write word to VRAM";
-				vram_start <= '1';
-			END IF;
+			-- Store clear cache so we can clear and continue
+			cache_store_reg <= cache_store;
 
-			write_ram := '1';
-			IF vram_done = '1' THEN
-				REPORT "RCB VRAM operation complete, cache cleared";
-				-- As RAM op complete, need to clear cache with psame (wen_all=1, pw=0)
-				wen_all <= '1';
-				write_ram := '0';
-			END IF;
-
-		ELSE
-			IF rcb_fsm = DRAW THEN
-
-				IF dbb_bus.startcmd = '1' THEN
-					IF dbb_bus.rcb_cmd(2) = '0' THEN
-						REPORT "RCB draw op with pixopin " & to_string(dbb_bus.rcb_cmd(1 DOWNTO 0));
-						pw <= '1';
-						pixnum <= pixnum_i;
-						pixopin <= pixop_t(dbb_bus.rcb_cmd(1 DOWNTO 0));
-						-- wen_all is the same
-					ELSE
-						-- Assert delay command. This will be done in clear state as well
-						delaycmd <= '1';
-
-						-- Calculate bottom left pixel
-						x_min := MIN_SLV(dbb_bus.X, x_prev);
-						y_min := MIN_SLV(dbb_bus.Y, y_prev);
-
-						-- Calculate top right pixel
-						x_max := MAX_SLV(dbb_bus.X, x_prev);
-						y_max := MAX_SLV(dbb_bus.Y, y_prev);
-
-						-- Initialise registers at bottom left
-						clrx_reg <= x_min;
-						clry_reg <= y_min;
-
-						REPORT "(x_min, y_min) are (" & to_string(x_min) & ", " & to_string(y_min) & "); "
-							&  "(x_max, y_max) are (" & to_string(x_max) & ", " & to_string(y_max) & ")";
-
-						-- Transition to clear screen state
-						nstate := CLEAR;
-					END IF;
-
-					-- Save previous values in case clearscreen is next
-					x_prev := dbb_bus.X;
-					y_prev := dbb_bus.Y;
+			IF rcb_state = DRAW THEN
+				-- If drawing and clear is commanded, change state
+				IF dbb_bus.startcmd = '1' AND dbb_bus.rcb_cmd(2) = '1' THEN
+					clrx_reg <= x_min;
+					clry_reg <= y_min;
+					nstate := CLEAR;
 				ELSE
-					-- Initial calculations
-					rcb_finish_i <= db_finish;
+					-- If DB is finished and we are not busy, assert finished TODO define busy
+					rcb_finish_i <= db_finish AND NOT vram_busy AND NOT busy;
 				END IF; -- start command
-			ELSIF rcb_fsm = CLEAR THEN
-				REPORT "RCB clear state reached";
 
-				REPORT "(x_min, y_min) are (" & to_string(x_min) & ", " & to_string(y_min) & "); "
+			ELSIF rcb_state = CLEAR THEN
+
+				REPORT "RCB clear state reached. " 
+					--&  "(x_min, y_min) are (" & to_string(x_min) & ", " & to_string(y_min) & "); "
 					&  "(x_max, y_max) are (" & to_string(x_max) & ", " & to_string(y_max) & "); "
 					&  "(x_clr, y_clr) are (" & to_string(clrx_reg) & ", " & to_string(clry_reg) & ")";
 
-				-- Assert delay cmd while there is cleaning to do
-				delaycmd <= '1';
+				-- Need to only increment pixel if we're not current writing
+				IF vram_write = '0' THEN
 
-				-- Draw pixel at current x,y
-				pw <= '1';
-				pixnum <= pixnum_i;
-				pixopin <= pixop_t(dbb_bus.rcb_cmd(1 DOWNTO 0));
-
-				-- Calculate next pixel location. Use raster scan, so left to right, bottom to top
-				IF clrx_reg = x_max THEN
-					IF clry_reg = y_max THEN
-						nstate := DRAW;
-						-- No need to delay any more
-						delaycmd <= '0';
-						REPORT "RCB clearscreen finished";
+					-- Calculate next pixel location. Use raster scan, so left to right, bottom to top
+					IF clrx_reg = x_max THEN
+						-- Check for clearscreen finish
+						IF x_max = clrx_reg AND y_max = clry_reg THEN
+							nstate := DRAW;
+						ELSE
+							-- Hit far right, so reset left and move up a row
+							clry_reg <= std_logic_vector(unsigned(clry_reg) + 1);
+							-- Need to reset x to far left
+							clrx_reg <= x_min;
+						END IF; -- row transition
 					ELSE
-						-- We have hit far right, but we've already checked the top, so blindly increment
-						clry_reg <= std_logic_vector(unsigned(clry_reg) + 1);
-						-- Need to reset x to far left
-						clrx_reg <= x_min;
-					END IF; -- y finished
+						clrx_reg <= std_logic_vector(unsigned(clrx_reg) + 1);
+					END IF; -- pixel increment
 
-				ELSE
-					clrx_reg <= std_logic_vector(unsigned(clrx_reg) + 1);
-				END IF; -- pixel increment
+					-- Check for clearscreen finish
+					IF x_max = clrx_reg AND y_max = clry_reg THEN
+						nstate := DRAW;
+					END IF; -- clearscreen finish
 
-			END IF;
+				END IF; -- vram_write
 
-			-- Perform state transition
-			rcb_fsm <= nstate;
+			END IF; -- state machine
+		END IF; -- vram_delay
 
-		END IF;
-
-		-- Last thing is reset
+		-- Perform state transition
+		rcb_state <= nstate;
+		
+		-- Check for a reset, and if present, reset all relevant signals
 		IF reset = '1' THEN
-			rcb_fsm <= DRAW;
+			rcb_state <= DRAW;
 			nstate := DRAW;
-			write_ram := '0';
 			rcb_finish_i <= '0';
 		END IF; --reset
-	END PROCESS P1;
 
-	-- TODO check this, but delay should just be delaycmd
-	dbb_delaycmd <= delaycmd or (not word_is_same);
+	END PROCESS RCB_FSM;
 
-	-- Assign 0 to rcb_finish, because our work is never done
-	rcb_finish <= rcb_finish_i;
 
 END ARCHITECTURE rtl1;
