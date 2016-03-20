@@ -297,7 +297,7 @@ BEGIN
 	END PROCESS VRAM;
 
 	-- Logic depending on state change
-	RCB_LOG : PROCESS(rcb_state, vram_delay, dbb_bus, vram_write, pixnum) IS
+	RCB_LOG : PROCESS(rcb_state, vram_delay, dbb_bus, vram_write, vram_done, xy_prev, clrxy_reg, xy_max) IS
 	BEGIN
 
 		-- Default pix word cache control signals
