@@ -1,0 +1,28 @@
+# Synospys Constraint Checker(syntax only), version maprc, Build 1911R, built Nov 26 2013
+# Copyright (C) 1994-2013, Synopsys, Inc. This software and the associated documentation are proprietary to Synopsys, Inc. This software may only be used in accordance with the terms and conditions of a written license agreement with Synopsys, Inc.  All other use or distribution of the software is strictly prohibited.
+
+# Written on Mon Mar 21 18:56:33 2016
+
+
+##### DESIGN INFO #######################################################
+
+Top View:                "vdp"
+Constraint File(s):      (none)
+
+#Run constraint checker to find more issues with constraints.
+#########################################################################
+
+
+
+No issues found in constraint syntax.
+
+
+
+Clock Summary
+**************
+
+Start       Requested     Requested     Clock        Clock                
+Clock       Frequency     Period        Type         Group                
+--------------------------------------------------------------------------
+vdp|clk     4.1 MHz       241.557       inferred     Autoconstr_clkgroup_0
+==========================================================================

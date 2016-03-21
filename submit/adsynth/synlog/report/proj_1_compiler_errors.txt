@@ -1,0 +1,4 @@
+@E: CS187 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":75:11:75:11|Expecting <=
+@E: CD415 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":163:22:163:22|Expecting keyword of
+@E|Parse errors encountered - exiting
+

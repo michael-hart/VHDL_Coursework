@@ -1,0 +1,61 @@
+#defaultlanguage:vhdl
+#OPTIONS:"|-top|vdp|-prodtype|synplify_premier|-dw|-verification_mode|0|-infer_seqShift|-primux|-fixsmult|-dspmac|-nram|-divnmod|-fast_synthesis|0|-encrypt|-pro|-lite|-proto|-ui|-fid2|-ram|-sharing|on|-ll|2000|-autosm|-ignore_undefined_lib|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work"
+#CUR:"C:\\EEE\\Synopsys\\fpga_I-2013.09-SP1\\bin64\\c_vhdl.exe":1385356906
+#CUR:"C:\\EEE\\Synopsys\\fpga_I-2013.09-SP1\\lib\\vhd\\location.map":1385152106
+#CUR:"C:\\EEE\\Synopsys\\fpga_I-2013.09-SP1\\lib\\vhd\\std.vhd":1385105852
+#CUR:"C:\\EEE\\Synopsys\\fpga_I-2013.09-SP1\\lib\\vhd\\snps_haps_pkg.vhd":1385105852
+#CUR:"C:\\EEE\\Synopsys\\fpga_I-2013.09-SP1\\lib\\vhd\\std1164.vhd":1385105852
+#CUR:"C:\\EEE\\Synopsys\\fpga_I-2013.09-SP1\\lib\\vhd\\numeric.vhd":1385105852
+#CUR:"C:\\EEE\\Synopsys\\fpga_I-2013.09-SP1\\lib\\vhd\\umr_capim.vhd":1385106116
+#CUR:"C:\\EEE\\Synopsys\\fpga_I-2013.09-SP1\\lib\\vhd\\arith.vhd":1385105852
+#CUR:"C:\\EEE\\Synopsys\\fpga_I-2013.09-SP1\\lib\\vhd\\unsigned.vhd":1385105852
+#CUR:"H:\\vhdl\\hardware_files\\config_pack.vhd":1458586548
+#CUR:"H:\\vhdl\\hardware_files\\db.vhd":1458581657
+#CUR:"H:\\vhdl\\hardware_files\\exercises.vhd":1458581657
+#CUR:"H:\\vhdl\\hardware_files\\project_pack.vhd":1458581657
+#CUR:"H:\\vhdl\\hardware_files\\rcb.vhd":1458586548
+#CUR:"H:\\vhdl\\hardware_files\\vdp.vhd":1458581657
+0 "H:\vhdl\hardware_files\config_pack.vhd" vhdl
+1 "H:\vhdl\hardware_files\db.vhd" vhdl
+2 "H:\vhdl\hardware_files\exercises.vhd" vhdl
+3 "H:\vhdl\hardware_files\project_pack.vhd" vhdl
+4 "H:\vhdl\hardware_files\rcb.vhd" vhdl
+5 "H:\vhdl\hardware_files\vdp.vhd" vhdl
+
+# Dependency Lists (Uses list)
+0 -1
+1 2 3 
+2 3 
+3 0 
+4 2 3 0 
+5 1 4 3 0 
+
+# Dependency Lists (Users Of)
+0 5 4 3 
+1 5 
+2 4 1 
+3 5 4 2 1 
+4 5 
+5 -1
+
+# Design Unit to File Association
+arch work db rtl 1
+module work db 1
+arch work draw_any_octant comb 2
+module work draw_any_octant 2
+arch work rd behav 2
+module work rd 2
+arch work inv_signal rtl 2
+module work inv_signal 2
+arch work swap rtl 2
+module work swap 2
+arch work draw_octant comb 2
+module work draw_octant 2
+arch work pix_word_cache together 2
+module work pix_word_cache 2
+arch work rcb rtl1 4
+module work rcb 4
+arch work ram_fsm synth 4
+module work ram_fsm 4
+arch work vdp rtl 5
+module work vdp 5

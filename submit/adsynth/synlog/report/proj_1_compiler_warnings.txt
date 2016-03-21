@@ -1,0 +1,4 @@
+@W: CD326 :"H:\vhdl\hardware_files\rcb.vhd":288:13:288:24|Port busy of entity work.ram_fsm is unconnected
+@W: CD638 :"H:\vhdl\hardware_files\rcb.vhd":44:8:44:13|Signal busy_i is undriven 
+@W: CL240 :"H:\vhdl\hardware_files\rcb.vhd":28:2:28:5|busy is not assigned a value (floating) -- simulation mismatch possible. 
+

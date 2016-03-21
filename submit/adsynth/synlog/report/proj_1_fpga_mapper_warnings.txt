@@ -1,0 +1,2 @@
+@W: BN132 :"h:\vhdl\hardware_files\rcb.vhd":262:34:262:48|Removing sequential instance RCB1.RCB_FSM.vram_write_sync,  because it is equivalent to instance RCB1.E2.P1.start_i
+@W: MT420 |Found inferred clock vdp|clk with period 9.32ns. Please declare a user-defined clock on object "p:clk"
