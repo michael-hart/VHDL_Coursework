@@ -1,6 +1,69 @@
-D:/Git/VHDL/Coursework/tb_files/run_sim1.do {0 {vcom -work work -2002 -explicit D:/Git/VHDL/Coursework/tb_files/run_sim1.do
+../hardware_files/db.vhd {1 {vcom -work work -2002 -explicit -check_synthesis D:/Git/VHDL/Coursework/hardware_files/db.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package config_pack
+-- Loading package project_pack
+-- Compiling entity db
+-- Compiling architecture rtl of db
+-- Loading entity draw_any_octant
+
+} {} {}} ../hardware_files/vdp.vhd {0 {vcom -work work -2002 -explicit D:/Git/VHDL/Coursework/hardware_files/vdp.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package config_pack
+-- Loading package NUMERIC_STD
+-- Loading package project_pack
+-- Compiling entity vdp
+-- Compiling architecture rtl of vdp
+** Error: (vcom-13) Recompile work.db because work.project_pack has changed.
+
+** Error: D:/Git/VHDL/Coursework/hardware_files/vdp.vhd(38): VHDL Compiler exiting
+
+} {12.0 13.0 14.0 15.0} {}} ../hardware_files/exercises.vhd {1 {vcom -work work -2002 -explicit D:/Git/VHDL/Coursework/hardware_files/exercises.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package config_pack
+-- Loading package project_pack
+-- Compiling entity pix_word_cache
+-- Compiling architecture together of pix_word_cache
+-- Compiling entity draw_octant
+-- Compiling architecture comb of draw_octant
+-- Compiling entity swap
+-- Compiling architecture rtl of swap
+-- Compiling entity inv_signal
+-- Compiling architecture rtl of inv_signal
+-- Compiling entity rd
+-- Compiling architecture behav of rd
+-- Compiling entity draw_any_octant
+-- Compiling architecture comb of draw_any_octant
+-- Loading entity rd
+-- Loading entity swap
+-- Loading entity inv_signal
+-- Loading entity draw_octant
+
+} {} {}} D:/Git/VHDL/Coursework/tb_files/run_sim1.do {0 {vcom -work work -2002 -explicit D:/Git/VHDL/Coursework/tb_files/run_sim1.do
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 ** Error: D:/Git/VHDL/Coursework/tb_files/run_sim1.do(2): near "vdel": syntax error
 
-} {4.0 5.0} {}}
+} {4.0 5.0} {}} ../hardware_files/project_pack.vhd {1 {vcom -work work -2002 -explicit D:/Git/VHDL/Coursework/hardware_files/project_pack.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package config_pack
+-- Loading package NUMERIC_STD
+-- Compiling package project_pack
+-- Compiling package body project_pack
+-- Loading package project_pack
+
+} {} {}}

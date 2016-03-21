@@ -25,7 +25,7 @@ ENTITY ram_fsm IS
 		addr_ram : OUT std_logic_vector(7 DOWNTO 0);
 		data_ram : OUT std_logic_vector(15 DOWNTO 0);
 		vwrite : OUT std_logic;
-		done : OUT std_logic;
+		busy : OUT std_logic;		done : OUT std_logic;
 		delay : OUT std_logic
 
 	);
@@ -35,12 +35,13 @@ ARCHITECTURE synth OF ram_fsm IS
 	TYPE   state_t IS (m3, m2, m1, mx);
 	SIGNAL state : state_t;
 	SIGNAL start_i : std_logic;
+	SIGNAL start_delayed : std_logic;
 	SIGNAL delay_i, vwrite_i : std_logic;
 	SIGNAL addr_ram_i, addr_ram_sync_i : std_logic_vector(7 DOWNTO 0);
 	SIGNAL data_ram_i, data_ram_sync_i, data_calculated : std_logic_vector(15 DOWNTO 0);
 	SIGNAL addr_delayed : std_logic_vector(7 DOWNTO 0);
 	SIGNAL data_delayed : std_logic_vector(15 DOWNTO 0);
-	SIGNAL done_i : std_logic;
+	SIGNAL busy_i : std_logic;	SIGNAL done_i : std_logic;
 	SIGNAL cache_reg : store_t;
 	SIGNAL cycle_count : INTEGER;
 
@@ -79,7 +80,7 @@ BEGIN
 	END PROCESS DATA_MUX;
 
 	-- Combinational logic for output std_logic signals
-	C1: PROCESS(state, start_i, cache_reg, vdin, cycle_count)
+	C1: PROCESS(state, start_i, start_delayed, cache_reg, vdin, cycle_count)
 	BEGIN
 		-- Default values
 		delay_i <= '0';
@@ -95,7 +96,7 @@ BEGIN
 			END CASE; --pix_cache(i)
 		END LOOP;
 		
-		IF (((state = m1) OR (state = m2)) OR (state = m3 AND (cycle_count < tsetup))) AND start_i = '1' THEN
+		IF ((state = m1) OR (state = m2) OR (state = m3 AND (cycle_count < tsetup))) AND start_i = '1' AND start_delayed = '0' THEN
 			delay_i <= '1';
 		END IF; -- delay_i
 
@@ -103,10 +104,8 @@ BEGIN
 
 		-- Determine logic based on state machine
 		IF state = m1 THEN
-			NULL;
 			
 		ELSIF state = m2 THEN
-			NULL;
 			
 		ELSIF state = m3 THEN
 			vwrite_i <= '1';
@@ -134,6 +133,7 @@ BEGIN
 		
 		-- Register clock signal for logic block
 		start_i <= start;
+		start_delayed <= start_i;
 
 		-- Increment the number of cycles counted
 		cycle_count <= cycle_count + 1;
@@ -476,8 +476,9 @@ BEGIN
 								  y => MIN_SLV(xy_prev.y, dbb_bus.Y));
 					nstate := CLEAR;
 				ELSE
+						
 					-- If DB is finished and we are not busy, assert finished 
-					rcb_finish_i <= (db_finish AND NOT busy) OR rcb_finish_i;
+					rcb_finish_i <= (db_finish AND vram_done) OR rcb_finish_i;
 				END IF; -- start command
 
 			ELSIF rcb_state = CLEAR THEN
