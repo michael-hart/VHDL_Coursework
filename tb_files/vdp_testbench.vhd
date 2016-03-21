@@ -158,8 +158,6 @@ BEGIN
                   ") line = "& i2s(n);
             END IF;
             send_vdp_command(x, y, pen, cmd, hdb_i, dav_i, hdb_busy_i, clk_i);
-            -- TODO remove this, but draw RAM after every command!
-            display_ram(ram_data, config_window_width);
          END IF;
          n := n+1;
       END LOOP;

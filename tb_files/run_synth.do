@@ -28,4 +28,4 @@ view *
 add wave sim:/vdp_testbench/*
 add wave sim:/vdp_testbench/dut/*
 -- Run test
-run 100us
+run -all
