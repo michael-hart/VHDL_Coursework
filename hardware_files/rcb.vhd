@@ -25,7 +25,7 @@ ENTITY ram_fsm IS
 		addr_ram : OUT std_logic_vector(7 DOWNTO 0);
 		data_ram : OUT std_logic_vector(15 DOWNTO 0);
 		vwrite : OUT std_logic;
-		busy : OUT std_logic;		done : OUT std_logic;
+		done : OUT std_logic;
 		delay : OUT std_logic
 
 	);
@@ -41,7 +41,7 @@ ARCHITECTURE synth OF ram_fsm IS
 	SIGNAL data_ram_i, data_ram_sync_i, data_calculated : std_logic_vector(15 DOWNTO 0);
 	SIGNAL addr_delayed : std_logic_vector(7 DOWNTO 0);
 	SIGNAL data_delayed : std_logic_vector(15 DOWNTO 0);
-	SIGNAL busy_i : std_logic;	SIGNAL done_i : std_logic;
+	SIGNAL done_i : std_logic;
 	SIGNAL cache_reg : store_t;
 	SIGNAL cycle_count : INTEGER;
 

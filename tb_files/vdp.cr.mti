@@ -1,16 +1,4 @@
-../hardware_files/db.vhd {1 {vcom -work work -2002 -explicit -check_synthesis D:/Git/VHDL/Coursework/hardware_files/db.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Loading package config_pack
--- Loading package project_pack
--- Compiling entity db
--- Compiling architecture rtl of db
--- Loading entity draw_any_octant
-
-} {} {}} ../hardware_files/vdp.vhd {0 {vcom -work work -2002 -explicit D:/Git/VHDL/Coursework/hardware_files/vdp.vhd
+../hardware_files/vdp.vhd {0 {vcom -work work -2002 -explicit D:/Git/VHDL/Coursework/hardware_files/vdp.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -25,7 +13,19 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 
 ** Error: D:/Git/VHDL/Coursework/hardware_files/vdp.vhd(38): VHDL Compiler exiting
 
-} {12.0 13.0 14.0 15.0} {}} ../hardware_files/exercises.vhd {1 {vcom -work work -2002 -explicit D:/Git/VHDL/Coursework/hardware_files/exercises.vhd
+} {12.0 13.0 14.0 15.0} {}} ../hardware_files/db.vhd {1 {vcom -work work -2002 -explicit -check_synthesis D:/Git/VHDL/Coursework/hardware_files/db.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package config_pack
+-- Loading package project_pack
+-- Compiling entity db
+-- Compiling architecture rtl of db
+-- Loading entity draw_any_octant
+
+} {} {}} ../hardware_files/exercises.vhd {1 {vcom -work work -2002 -explicit D:/Git/VHDL/Coursework/hardware_files/exercises.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO

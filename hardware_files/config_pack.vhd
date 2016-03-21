@@ -10,7 +10,7 @@ PACKAGE config_pack IS
 
 	CONSTANT config_clock_period : time := 10 ns; -- period of clock
 
-	CONSTANT config_file_name : string := "test_concat.txt"; -- name of file of VDP commands run this test
+	CONSTANT config_file_name : string := "sample_host_commands.txt"; -- name of file of VDP commands run this test
 
 	CONSTANT config_post_cycles : integer := 100; -- this makes testbench wait after last command is passed to
 	-- VDP before checking final state of RAM. If VDP takes a long
