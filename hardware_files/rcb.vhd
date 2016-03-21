@@ -25,7 +25,6 @@ ENTITY ram_fsm IS
 		addr_ram : OUT std_logic_vector(7 DOWNTO 0);
 		data_ram : OUT std_logic_vector(15 DOWNTO 0);
 		vwrite : OUT std_logic;
-		busy : OUT std_logic;
 		done : OUT std_logic;
 		delay : OUT std_logic
 
@@ -41,7 +40,6 @@ ARCHITECTURE synth OF ram_fsm IS
 	SIGNAL data_ram_i, data_ram_sync_i, data_calculated : std_logic_vector(15 DOWNTO 0);
 	SIGNAL addr_delayed : std_logic_vector(7 DOWNTO 0);
 	SIGNAL data_delayed : std_logic_vector(15 DOWNTO 0);
-	SIGNAL busy_i : std_logic;
 	SIGNAL done_i : std_logic;
 	SIGNAL cache_reg : store_t;
 	SIGNAL cycle_count : INTEGER;
@@ -55,7 +53,6 @@ BEGIN
 	-- Assign signals to outputs
 	delay <= delay_i;
 	vwrite <= vwrite_i;
-	busy <= busy_i;
 	done <= done_i;
 	addr_ram <= addr_delayed;
 	data_ram <= data_delayed;
@@ -103,12 +100,6 @@ BEGIN
 		END IF; -- delay_i
 
 		vwrite_i <= '0';
-		
-		IF state = mx THEN
-			busy_i <= '0';
-		ELSE
-			busy_i <= '1';
-		END IF; -- busy check
 
 		-- Determine logic based on state machine
 		IF state = m1 THEN
@@ -267,7 +258,7 @@ ARCHITECTURE rtl1 OF rcb IS
 	SIGNAL cache_is_same 						: std_logic;
 
 	-- Define signals for use with vram_control
-	SIGNAL vram_start, vram_done, vram_delay, vram_busy : std_logic;
+	SIGNAL vram_start, vram_done, vram_delay : std_logic;
 	SIGNAL vram_write, vram_write_i, vram_write_sync 	: std_logic;
 
 	-- Define overall state machine
@@ -305,7 +296,6 @@ BEGIN
 		addr_ram => vaddr,
 		data_ram => vdin,
 		vwrite => vwrite,
-		busy => vram_busy,
 		done => vram_done,
 		delay => vram_delay
 	);
@@ -487,7 +477,7 @@ BEGIN
 					nstate := CLEAR;
 				ELSE
 					-- If DB is finished and we are not busy, assert finished 
-					rcb_finish_i <= (db_finish AND NOT vram_busy AND NOT busy) OR rcb_finish_i;
+					rcb_finish_i <= (db_finish AND NOT busy) OR rcb_finish_i;
 				END IF; -- start command
 
 			ELSIF rcb_state = CLEAR THEN
