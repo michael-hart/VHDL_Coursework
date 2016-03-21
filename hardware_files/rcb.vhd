@@ -8,6 +8,10 @@ USE WORK.project_pack.ALL;
 USE WORK.config_pack.ALL;
 
 ENTITY ram_fsm IS
+	GENERIC(
+		cycles_acc : INTEGER := 2;
+		cycles_setup : INTEGER := 2
+	);
 	PORT(
 		-- Input ports
 		clk, reset, start: IN std_logic;
@@ -36,6 +40,12 @@ ARCHITECTURE synth OF ram_fsm IS
 	SIGNAL busy_i : std_logic;
 	SIGNAL done_i : std_logic;
 	SIGNAL cache_reg : store_t;
+	SIGNAL cycle_count : INTEGER;
+
+	-- The generic maps are one larger than required for comparisons
+	-- Calculate constants for comparisons
+	CONSTANT taccess : INTEGER := cycles_acc - 1;
+	CONSTANT tsetup : INTEGER := cycles_setup - 1;
 BEGIN
 
 	-- Assign signals to outputs
@@ -68,7 +78,7 @@ BEGIN
 	END PROCESS DATA_MUX;
 
 	-- Combinational logic for output std_logic signals
-	C1: PROCESS(state, start_i, cache_reg, vdin)
+	C1: PROCESS(state, start_i, cache_reg, vdin, cycle_count)
 	BEGIN
 		-- Default values
 		delay_i <= '0';
@@ -84,7 +94,7 @@ BEGIN
 			END CASE; --pix_cache(i)
 		END LOOP;
 		
-		IF ((state = m1) OR (state = m2)) AND start_i = '1' THEN
+		IF (((state = m1) OR (state = m2)) OR (state = m3 AND (cycle_count < tsetup))) AND start_i = '1' THEN
 			delay_i <= '1';
 		END IF; -- delay_i
 
@@ -127,7 +137,11 @@ BEGIN
 		addr_ram_sync_i <= addr_ram_i;
 		data_ram_sync_i <= data_ram_i;
 		
+		-- Register clock signal for logic block
 		start_i <= start;
+
+		-- Increment the number of cycles counted
+		cycle_count <= cycle_count + 1;
 
 		-- Set nstate to m1, no matter what state is
 		IF start = '1' THEN
@@ -137,15 +151,26 @@ BEGIN
 		-- Perform state transition using IF statements
 		IF state=m1 THEN
 			nstate := m2;
+			cycle_count <= 0;
 		ELSIF state=m2 THEN
-			nstate := m3;
-		ELSIF state=m3 THEN
-			IF start = '1' AND reset = '0' THEN
-				nstate := m1;
-			ELSE
-				nstate := mx;
-				done_i <= '1';
+
+			nstate := m2;
+			IF cycle_count >= taccess THEN
+				nstate := m3;
+				cycle_count <= 0;
 			END IF;
+
+		ELSIF state=m3 THEN
+			nstate := m3;
+			IF cycle_count >= tsetup THEN
+				IF start = '1' AND reset = '0' THEN
+					nstate := m1;
+				ELSE
+					nstate := mx;
+					done_i <= '1';
+				END IF;
+			END IF; -- cycle_count
+
 		END IF;
 
 		-- Set state to nstate variable
@@ -154,6 +179,7 @@ BEGIN
 		-- Unconditional reset of state
 		IF reset = '1' THEN
 			state <= mx;
+			cycle_count <= 0;
 		END IF;
 
 	END PROCESS P1;
