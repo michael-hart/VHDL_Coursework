@@ -1,0 +1,107 @@
+Coverage Report Summary Data by file
+
+Total Coverage By File (code coverage only, filtered view): 75.7%
+
+File: db.vhd
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                      151       151         0     100.0
+    Branches                    56        55         1      98.2
+    FEC Condition Terms          4         4         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       9         9         0     100.0
+    Transitions                 25        15        10      60.0
+    Toggle Bins                234       231         3      98.7
+
+File: exercises.vhd
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                       77        70         7      90.9
+    Branches                    48        42         6      87.5
+    FEC Condition Terms         11         7         4      63.6
+    FEC Expression Terms         2         2         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                512       511         1      99.8
+
+File: project_pack.vhd
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        8         8         0     100.0
+    Branches                     4         4         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                  0         0         0     100.0
+
+File: rcb.vhd
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                      108       108         0     100.0
+    Branches                    65        62         3      95.3
+    FEC Condition Terms         10         6         4      60.0
+    FEC Expression Terms         9         7         2      77.7
+    States                       6         6         0     100.0
+    Transitions                 15         9         6      60.0
+    Toggle Bins                620       615         5      99.1
+
+File: utility_pack.vhd
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                       82         4        78       4.8
+    Branches                    27         4        23      14.8
+    FEC Condition Terms          6         0         6       0.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                  0         0         0     100.0
+
+File: vdp.vhd
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                        1         1         0     100.0
+    Branches                     0         0         0     100.0
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         2         1         1      50.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                162       157         5      96.9
+
+File: vdp_pack.vhd
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                      174       121        53      69.5
+    Branches                    70        45        25      64.2
+    FEC Condition Terms         12         2        10      16.6
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                  0         0         0     100.0
+
+File: vdp_testbench.vhd
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                       64        49        15      76.5
+    Branches                    22        14         8      63.6
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                130       121         9      93.0
+
+File: vram.vhd
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                       15        14         1      93.3
+    Branches                     6         5         1      83.3
+    FEC Condition Terms          0         0         0     100.0
+    FEC Expression Terms         0         0         0     100.0
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+    Toggle Bins                116       115         1      99.1
+
+
+NEVER FAILED: 100.0%  ASSERTIONS: 6
+
+
