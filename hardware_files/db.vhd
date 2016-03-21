@@ -25,6 +25,12 @@ ENTITY db IS
 END db;
 
 ARCHITECTURE rtl OF db IS
+
+-- Define the coord type; must be done per-file due to generic mapping
+TYPE coord IS RECORD
+	X, Y : std_logic_vector(VSIZE-1 DOWNTO 0);
+END RECORD;
+
 -- Registers.
 SIGNAL hdb_reg 		: STD_LOGIC_VECTOR(((VSIZE * 2) + 1) DOWNTO 0);
 SIGNAL xy_old_reg : STD_LOGIC_VECTOR(((VSIZE * 2) - 1) DOWNTO 0);

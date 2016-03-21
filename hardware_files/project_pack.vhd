@@ -13,10 +13,6 @@ PACKAGE project_pack IS
 		startcmd : std_logic;
 	END RECORD;
 
-	TYPE coord IS RECORD
-		X, Y 	 : std_logic_vector(VSIZE - 1 DOWNTO 0);
-	END RECORD;
-
 	TYPE  state_db IS (s_wait, s_move, s_draw1, s_draw2, s_draw3, s_draw4, s_draw5, s_clear1, s_clear2);
 
 	-- Taken from pix_cache_pak.vhd

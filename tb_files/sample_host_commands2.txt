@@ -49,12 +49,12 @@ MW 31 48
 DB 16 63
 MW 15 63
 DB 0 48
--- InWert all
---MW 0 0
---CI 63 63
--- InWert center.
---MW 16 16
---CI 47 47
+-- Invert all
+MW 0 0
+CI 63 63
+-- Invert center.
+MW 16 16
+CI 47 47
 -- Draw square
 MW 10 10
 DI 54 10
@@ -111,4 +111,3 @@ MW 35 30
 DI 45 7
 MW 62 35
 DB 31 44
-

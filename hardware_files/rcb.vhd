@@ -161,6 +161,7 @@ BEGIN
 
 END ARCHITECTURE synth;
 
+
 ------------------------------------------------------------------------
 -- Define entity rcb
 
@@ -197,6 +198,12 @@ ENTITY rcb IS
 END rcb;
 
 ARCHITECTURE rtl1 OF rcb IS
+
+	-- Define the coord type; must be done per-file due to generic mapping
+	TYPE coord IS RECORD
+		X, Y : std_logic_vector(VSIZE-1 DOWNTO 0);
+	END RECORD;
+
 	-- Signals for internal use
 	SIGNAL clrxy_reg 							: coord; 
 	SIGNAL word_reg, word_reg_delayed, vraddr 	: std_logic_vector((2*VSIZE)-5 DOWNTO 0);
@@ -411,8 +418,6 @@ BEGIN
 		
 		-- Store vram_write in register
 		vram_write_sync <= vram_write;
-		
-		-- Store x,y min and max values
 
 		-- If VRAM is delayed, wait for it to finish before continuing
 		IF vram_delay = '0' THEN
@@ -442,8 +447,8 @@ BEGIN
 								  y => MIN_SLV(xy_prev.y, dbb_bus.Y));
 					nstate := CLEAR;
 				ELSE
-					-- If DB is finished and we are not busy, assert finished TODO define busy
-					rcb_finish_i <= db_finish AND NOT vram_busy AND NOT busy;
+					-- If DB is finished and we are not busy, assert finished 
+					rcb_finish_i <= (db_finish AND NOT vram_busy AND NOT busy) OR rcb_finish_i;
 				END IF; -- start command
 
 			ELSIF rcb_state = CLEAR THEN
