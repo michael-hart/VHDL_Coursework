@@ -5,7 +5,7 @@ Max Top 5 critical clocks will be reported. For rest user needs to refer to Deta
 *******************************************************************************************-->
 <report_table display_priority="2" name="Timing Summary">
 <report_link name="Detailed report">
-<data>\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\synlog\proj_1_fpga_mapper.srr</data>
+<data>H:\vhdl\rev_2\synlog\proj_1_fpga_mapper.srr</data>
 <title>START OF TIMING REPORT</title>
 </report_link>
 <row>
@@ -16,8 +16,8 @@ Max Top 5 critical clocks will be reported. For rest user needs to refer to Deta
 </row>
 <row>
 <data>vdp|clk</data>
-<data>109.1 MHz</data>
-<data>92.7 MHz</data>
-<data>-1.618</data>
+<data>107.3 MHz</data>
+<data>91.2 MHz</data>
+<data>-1.644</data>
 </row>
 </report_table>

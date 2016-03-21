@@ -1,6 +1,6 @@
 #--  Synopsys, Inc.
 #--  Version I-2013.09-SP1 
-#--  Project file \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\run_options.txt
+#--  Project file H:\vhdl\rev_2\run_options.txt
 
 #project files
 add_file -vhdl -lib work "./hardware_files/config_pack.vhd"

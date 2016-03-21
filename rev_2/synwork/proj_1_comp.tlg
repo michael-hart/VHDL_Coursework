@@ -1,34 +1,34 @@
-@N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\vdp.vhd":11:7:11:9|Synthesizing work.vdp.rtl 
-@N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":173:7:173:9|Synthesizing work.rcb.rtl1 
-@N: CD233 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":228:17:228:18|Using sequential encoding for type rcb_states
-@N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":10:7:10:13|Synthesizing work.ram_fsm.synth 
-@N: CD233 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":30:16:30:17|Using sequential encoding for type state_t
+@N: CD630 :"H:\vhdl\hardware_files\vdp.vhd":11:7:11:9|Synthesizing work.vdp.rtl 
+@N: CD630 :"H:\vhdl\hardware_files\rcb.vhd":204:7:204:9|Synthesizing work.rcb.rtl1 
+@N: CD233 :"H:\vhdl\hardware_files\rcb.vhd":265:17:265:18|Using sequential encoding for type rcb_states
+@N: CD630 :"H:\vhdl\hardware_files\rcb.vhd":10:7:10:13|Synthesizing work.ram_fsm.synth 
+@N: CD233 :"H:\vhdl\hardware_files\rcb.vhd":35:16:35:17|Using sequential encoding for type state_t
 Post processing for work.ram_fsm.synth
-@N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":8:7:8:20|Synthesizing work.pix_word_cache.together 
+@N: CD630 :"H:\vhdl\hardware_files\exercises.vhd":8:7:8:20|Synthesizing work.pix_word_cache.together 
 Post processing for work.pix_word_cache.together
 Post processing for work.rcb.rtl1
-@N: CL177 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":229:8:229:16|Sharing sequential element rcb_state.
-@N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":7:7:7:8|Synthesizing work.db.rtl 
-@N: CD231 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\project_pack.vhd":20:16:20:17|Using onehot encoding for type state_db (s_wait="100000000")
-@N: CD364 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":70:3:70:9|Removed redundant assignment
-@N: CD364 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":87:3:87:9|Removed redundant assignment
-@N: CD364 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":88:3:88:7|Removed redundant assignment
-@N: CD364 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":89:3:89:7|Removed redundant assignment
-@N: CD364 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":90:3:90:8|Removed redundant assignment
-@N: CD364 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":377:3:377:5|Removed redundant assignment
-@N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":365:7:365:21|Synthesizing work.draw_any_octant.comb 
-@N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":238:7:238:10|Synthesizing work.swap.rtl 
+@N: CL177 :"H:\vhdl\hardware_files\rcb.vhd":266:8:266:16|Sharing sequential element rcb_state.
+@N: CD630 :"H:\vhdl\hardware_files\db.vhd":7:7:7:8|Synthesizing work.db.rtl 
+@N: CD231 :"H:\vhdl\hardware_files\project_pack.vhd":16:16:16:17|Using onehot encoding for type state_db (s_wait="100000000")
+@N: CD364 :"H:\vhdl\hardware_files\db.vhd":76:3:76:9|Removed redundant assignment
+@N: CD364 :"H:\vhdl\hardware_files\db.vhd":93:3:93:9|Removed redundant assignment
+@N: CD364 :"H:\vhdl\hardware_files\db.vhd":94:3:94:7|Removed redundant assignment
+@N: CD364 :"H:\vhdl\hardware_files\db.vhd":95:3:95:7|Removed redundant assignment
+@N: CD364 :"H:\vhdl\hardware_files\db.vhd":96:3:96:8|Removed redundant assignment
+@N: CD364 :"H:\vhdl\hardware_files\db.vhd":383:3:383:5|Removed redundant assignment
+@N: CD630 :"H:\vhdl\hardware_files\exercises.vhd":365:7:365:21|Synthesizing work.draw_any_octant.comb 
+@N: CD630 :"H:\vhdl\hardware_files\exercises.vhd":238:7:238:10|Synthesizing work.swap.rtl 
 Post processing for work.swap.rtl
-@N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":281:7:281:16|Synthesizing work.inv_signal.rtl 
+@N: CD630 :"H:\vhdl\hardware_files\exercises.vhd":281:7:281:16|Synthesizing work.inv_signal.rtl 
 Post processing for work.inv_signal.rtl
-@N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":115:7:115:17|Synthesizing work.draw_octant.comb 
+@N: CD630 :"H:\vhdl\hardware_files\exercises.vhd":115:7:115:17|Synthesizing work.draw_octant.comb 
 Post processing for work.draw_octant.comb
-@N: CD630 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\exercises.vhd":317:7:317:8|Synthesizing work.rd.behav 
+@N: CD630 :"H:\vhdl\hardware_files\exercises.vhd":317:7:317:8|Synthesizing work.rd.behav 
 Post processing for work.rd.behav
 Post processing for work.draw_any_octant.comb
 Post processing for work.db.rtl
 Post processing for work.vdp.rtl
-@N: CL201 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\db.vhd":50:7:50:18|Trying to extract state machine for register db_fsm_state
+@N: CL201 :"H:\vhdl\hardware_files\db.vhd":56:7:56:18|Trying to extract state machine for register db_fsm_state
 Extracted state machine for register db_fsm_state
 State machine has 9 reachable states with original encodings of:
    000000001
@@ -40,7 +40,7 @@ State machine has 9 reachable states with original encodings of:
    001000000
    010000000
    100000000
-@N: CL201 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":31:8:31:12|Trying to extract state machine for register state
+@N: CL201 :"H:\vhdl\hardware_files\rcb.vhd":36:8:36:12|Trying to extract state machine for register state
 Extracted state machine for register state
 State machine has 4 reachable states with original encodings of:
    00

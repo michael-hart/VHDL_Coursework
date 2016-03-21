@@ -1,26 +1,26 @@
 #--  Synopsys, Inc.
 #--  Version I-2013.09-SP1 
-#--  Project file \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2\scratchproject.prs
+#--  Project file H:\vhdl\rev_2\scratchproject.prs
 
 #project files
-add_file -vhdl -lib work "//icnas4.cc.ic.ac.uk/mh1613/Git/VHDL_CWK/hardware_files/config_pack.vhd"
-add_file -vhdl -lib work "//icnas4.cc.ic.ac.uk/mh1613/Git/VHDL_CWK/hardware_files/db.vhd"
-add_file -vhdl -lib work "//icnas4.cc.ic.ac.uk/mh1613/Git/VHDL_CWK/hardware_files/exercises.vhd"
-add_file -vhdl -lib work "//icnas4.cc.ic.ac.uk/mh1613/Git/VHDL_CWK/hardware_files/project_pack.vhd"
-add_file -vhdl -lib work "//icnas4.cc.ic.ac.uk/mh1613/Git/VHDL_CWK/hardware_files/rcb.vhd"
-add_file -vhdl -lib work "//icnas4.cc.ic.ac.uk/mh1613/Git/VHDL_CWK/hardware_files/vdp.vhd"
+add_file -vhdl -lib work "H:/vhdl/hardware_files/config_pack.vhd"
+add_file -vhdl -lib work "H:/vhdl/hardware_files/db.vhd"
+add_file -vhdl -lib work "H:/vhdl/hardware_files/exercises.vhd"
+add_file -vhdl -lib work "H:/vhdl/hardware_files/project_pack.vhd"
+add_file -vhdl -lib work "H:/vhdl/hardware_files/rcb.vhd"
+add_file -vhdl -lib work "H:/vhdl/hardware_files/vdp.vhd"
 
 
 
 #implementation: "rev_2"
-impl -add \\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\rev_2 -type fpga
+impl -add H:\vhdl\rev_2 -type fpga
 
 #
 #implementation attributes
 
 set_option -vlog_std sysv
 set_option -project_relative_includes 1
-set_option -include_path {//icnas4.cc.ic.ac.uk/mh1613/Git/VHDL_CWK/}
+set_option -include_path {H:/vhdl/}
 
 #device options
 set_option -technology CYCLONEII
@@ -68,7 +68,7 @@ set_option -auto_infer_blackbox 0
 set_option -write_apr_constraint 1
 
 #set result format/file last
-project -result_file "//icnas4.cc.ic.ac.uk/mh1613/Git/VHDL_CWK/rev_2/proj_1.vqm"
+project -result_file "H:/vhdl/rev_2/proj_1.vqm"
 
 #design plan options
 impl -active "rev_2"

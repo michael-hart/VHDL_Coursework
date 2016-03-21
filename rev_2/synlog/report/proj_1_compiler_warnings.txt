@@ -1,4 +1,4 @@
-@W: CG296 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":70:13:70:19|Incomplete sensitivity list - assuming completeness
-@W: CG290 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":75:14:75:25|Referenced variable delay_sync_i is not in sensitivity list
-@W: CD434 :"\\icnas4.cc.ic.ac.uk\mh1613\Git\VHDL_CWK\hardware_files\rcb.vhd":80:20:80:24|Signal start in the sensitivity list is not used in the process
+@W: CD326 :"H:\vhdl\hardware_files\rcb.vhd":288:13:288:24|Port busy of entity work.ram_fsm is unconnected
+@W: CD638 :"H:\vhdl\hardware_files\rcb.vhd":44:8:44:13|Signal busy_i is undriven 
+@W: CL240 :"H:\vhdl\hardware_files\rcb.vhd":28:2:28:5|busy is not assigned a value (floating) -- simulation mismatch possible. 
 

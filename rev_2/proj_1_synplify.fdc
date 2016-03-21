@@ -1,1 +1,1 @@
-#1000 define_clock {p:clk} -name {vdp|clk} -ref_rise {0.0} -ref_fall {4.584500} -uncertainty {0.000000} -period {9.169000} -clockgroup {Autoconstr_clkgroup_0} -rise {0.0} -fall {4.584500}
+#1000 define_clock {p:clk} -name {vdp|clk} -ref_rise {0.0} -ref_fall {4.658400} -uncertainty {0.000000} -period {9.316800} -clockgroup {Autoconstr_clkgroup_0} -rise {0.0} -fall {4.658400}
