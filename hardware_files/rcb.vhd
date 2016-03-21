@@ -9,8 +9,10 @@ USE WORK.config_pack.ALL;
 
 ENTITY ram_fsm IS
 	GENERIC(
-		cycles_acc : INTEGER := 2;
-		cycles_setup : INTEGER := 2
+		cycles_acc : INTEGER := 1;
+		-- cycles_setup is the maximum of the two setup time and write time in 
+		-- clock cycles
+		cycles_setup : INTEGER := 1
 	);
 	PORT(
 		-- Input ports
