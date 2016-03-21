@@ -301,7 +301,7 @@ BEGIN
 	);
 
 	-- Signal assignments from entire module to output ports
-	dbb_delaycmd <= vram_delay OR delaycmd OR vram_write;
+	dbb_delaycmd <= vram_delay OR delaycmd;
 
 	-- Assign 0 to rcb_finish, because our work is never done
 	rcb_finish <= rcb_finish_i;
