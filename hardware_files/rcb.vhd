@@ -39,6 +39,8 @@ ARCHITECTURE synth OF ram_fsm IS
 	SIGNAL delay_i, vwrite_i : std_logic;
 	SIGNAL addr_ram_i, addr_ram_sync_i : std_logic_vector(7 DOWNTO 0);
 	SIGNAL data_ram_i, data_ram_sync_i, data_calculated : std_logic_vector(15 DOWNTO 0);
+	SIGNAL addr_delayed : std_logic_vector(7 DOWNTO 0);
+	SIGNAL data_delayed : std_logic_vector(15 DOWNTO 0);
 	SIGNAL busy_i : std_logic;
 	SIGNAL done_i : std_logic;
 	SIGNAL cache_reg : store_t;
@@ -55,8 +57,8 @@ BEGIN
 	vwrite <= vwrite_i;
 	busy <= busy_i;
 	done <= done_i;
-	addr_ram <= addr_ram_i;
-	data_ram <= data_ram_i;
+	addr_ram <= addr_delayed;
+	data_ram <= data_delayed;
 
 	-- MUX to determine what the value of addr_ram_i is
 	-- Only changes to a new value if the state demands it
@@ -186,6 +188,15 @@ BEGIN
 
 	END PROCESS P1;
 
+
+	-- Negative clock edge triggered module to delay address and data signals;
+	-- helps prevent setup/hold time violations
+	P2 : PROCESS IS
+	BEGIN
+		WAIT UNTIL falling_edge(clk);
+		data_delayed <= data_ram_i;
+		addr_delayed <= addr_ram_i;
+	END PROCESS P2;
 
 END ARCHITECTURE synth;
 
